@@ -45,6 +45,7 @@ task('deploy', [
     'deploy:shared',
     'deploy:writable',
     'deploy:symlink',
+    'setphp',
     'database:updateschema',
     'language:update',
     'cache:flush',
@@ -52,6 +53,10 @@ task('deploy', [
     'cleanup',
     'success'
 ]);
+
+task('setphp', function() {
+    run('export PATH="/kunden/homepages/7/d734787902/htdocs/workaround:$PATH"');
+});
 
 task('cache:flush', function() {
     run('cd {{release_path}} && env -i TYPO3_CONTEXT={{typo3_context}} php -f vendor/bin/typo3cms cache:flush');
