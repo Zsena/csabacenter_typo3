@@ -1,0 +1,81 @@
+{
+  "name": "apache-solr-for-typo3/solr",
+  "type": "typo3-cms-extension",
+  "description": "Apache Solr for TYPO3",
+  "license": "GPL-3.0-or-later",
+  "keywords": ["typo3", "TYPO3 CMS", "solr", "search"],
+  "homepage": "http://www.typo3-solr.com",
+  "authors": [
+    {
+      "name": "Ingo Renner",
+      "email": "ingo@typo3.org",
+      "role": "Lead Developer"
+    }
+  ],
+  "support": {
+    "email": "typo3-project-solr@lists.typo3.org",
+    "issues": "https://github.com/TYPO3-Solr/ext-solr/issues",
+    "forum": "http://forum.typo3.org/index.php/f/53/",
+    "wiki": "https://forge.typo3.org/projects/extension-solr/wiki",
+    "source": "https://github.com/TYPO3-Solr/ext-solr"
+  },
+  "require": {
+    "php": ">=7.2.0",
+    "typo3/cms-core": "^9.5.0",
+    "typo3/cms-backend": "^9.5.0",
+    "typo3/cms-extbase": "^9.5.0",
+    "typo3/cms-frontend": "^9.5.0",
+    "typo3/cms-fluid": "^9.5.0",
+    "typo3/cms-reports": "^9.5.0",
+    "typo3/cms-scheduler": "^9.5.0",
+    "typo3/cms-tstemplate": "^9.5.0",
+    "solarium/solarium": "~4.2.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^6.0",
+    "nimut/testing-framework": "^4.0.0"
+  },
+  "replace": {
+    "typo3-ter/solr": "self.version",
+    "apache-solr-for-typo3/solrfluid": "*"
+  },
+  "autoload": {
+    "classmap": [
+      "Resources/Private/Php/"
+    ],
+    "psr-4": {
+      "ApacheSolrForTypo3\\Solr\\": "Classes/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "ApacheSolrForTypo3\\Solr\\Tests\\": "Tests/"
+    }
+  },
+  "config": {
+    "vendor-dir": ".Build/vendor",
+    "bin-dir": ".Build/bin"
+  },
+  "scripts": {
+    "post-autoload-dump": [
+      "mkdir -p .Build/Web/typo3conf/ext/",
+      "[ -L .Build/Web/typo3conf/ext/solr ] || ln -snvf ../../../../. .Build/Web/typo3conf/ext/solr"
+    ],
+    "extension-create-libs": [
+      "@composer install -d Resources/Private/Php/ComposerLibraries"
+    ],
+    "extension-build": [
+      "@extension-create-libs"
+    ]
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "10.0.x-dev"
+    },
+    "typo3/cms": {
+      "extension-key": "solr",
+      "cms-package-dir": "{$vendor-dir}/typo3/cms",
+      "web-dir": ".Build/Web"
+    }
+  }
+}

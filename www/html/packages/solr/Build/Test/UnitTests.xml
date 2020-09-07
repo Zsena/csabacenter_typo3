@@ -1,0 +1,25 @@
+<phpunit
+	backupGlobals="false"
+	backupStaticAttributes="false"
+	colors="true"
+	convertErrorsToExceptions="true"
+	convertWarningsToExceptions="true"
+	forceCoversAnnotation="false"
+	processIsolation="false"
+	stopOnError="true"
+	stopOnFailure="true"
+	stopOnIncomplete="false"
+	stopOnSkipped="false"
+	verbose="false">
+
+	<testsuites>
+		<testsuite name="ext-solr-unit-tests">
+			<directory>../../Tests/Unit/</directory>
+		</testsuite>
+	</testsuites>
+	<filter>
+		<whitelist processUncoveredFilesFromWhitelist="false">
+			<directory suffix=".php">../../Classes/</directory>
+		</whitelist>
+	</filter>
+</phpunit>

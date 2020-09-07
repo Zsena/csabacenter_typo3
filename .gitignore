@@ -4,6 +4,10 @@
 node_modules
 /www/*
 
+!/www/.ssh
+/www/.ssh/*
+!/www/.ssh/config
+
 /solr/data/*
 
 !/www/html/
@@ -21,6 +25,7 @@ node_modules
 !/www/html/public
 /www/html/public/*
 !/www/html/public/.htaccess
+!/www/html/public/.htpasswd
 !/www/html/public/favicon.ico
 !/www/html/public/robots.txt
 !/www/html/public/frontend
@@ -36,9 +41,7 @@ node_modules
 
 !/www/html/packages/csabacentersite/Resources/Public/Dist
 /www/html/packages/csabacentersite/Resources/Public/Dist/*
-!/www/.ssh
-/www/.ssh/*
-!/www/.ssh/config
+
 
 .DS_Store
 

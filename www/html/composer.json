@@ -4,8 +4,7 @@
         { "type": "path", "url": "packages/csabacenterfe", "options": {"symlink": true}},
         { "type": "path", "url": "packages/csabacentersite", "options": {"symlink": true}},
         { "type": "path", "url": "packages/center", "options": {"symlink": true}},
-        { "type": "vcs", "url": "git@bitbucket.org:agenturwebfox/solr.git" },
-        { "type": "vcs", "url": "git@bitbucket.org:zsenadigital/csabacenter.git" }
+        { "type": "path", "url": "packages/solr", "options": {"symlink": true}}
     ],
     "name": "csabacenter/distribution",
     "description" : "Csabacenter TYPO3 CMS distribution",
@@ -38,7 +37,7 @@
         "mask/mask": "~4.1.0",
         "typo3/cms-lowlevel": "~9.5.0",
         "fluidtypo3/vhs": "~5.1.0",
-        "apache-solr-for-typo3/solr": "dev-feature/site-compat",
+        "apache-solr-for-typo3/solr": "@dev",
         "guzzlehttp/guzzle": "~6.4.1"
     },
     "require-dev": {

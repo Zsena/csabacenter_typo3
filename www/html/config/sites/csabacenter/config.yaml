@@ -1,5 +1,11 @@
-base: 'http://www.csabacenter.hu.test'
-baseVariants: {  }
+base: 'http://www.csabacenter.hu.test/'
+baseVariants:
+  -
+    base: 'https://www.csabacenter.hu/'
+    condition: 'applicationContext == "Development"'
+  -
+    base: 'http://csabacenter.digital-zombies.com/'
+    condition: 'applicationContext == "Production/Staging"'
 errorHandling: {  }
 languages:
   -
