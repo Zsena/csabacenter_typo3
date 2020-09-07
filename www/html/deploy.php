@@ -59,13 +59,13 @@ task('setphp', function() {
 });
 
 task('cache:flush', function() {
-    run('cd {{release_path}} && env -i TYPO3_CONTEXT={{typo3_context}} php -f vendor/bin/typo3cms cache:flush');
+    run('cd {{release_path}} && env -i TYPO3_CONTEXT={{typo3_context}} /usr/bin/php7.1-cli -f vendor/bin/typo3cms cache:flush');
 });
 
 task('database:updateschema', function() {
-    run('cd {{release_path}} && env -i TYPO3_CONTEXT={{typo3_context}} php -f vendor/bin/typo3cms database:updateschema');
+    run('cd {{release_path}} && env -i TYPO3_CONTEXT={{typo3_context}} /usr/bin/php7.1-cli -f vendor/bin/typo3cms database:updateschema');
 });
 
 task('language:update', function() {
-    run('cd {{release_path}} && env -i TYPO3_CONTEXT={{typo3_context}} php -f vendor/bin/typo3cms language:update');
+    run('cd {{release_path}} && env -i TYPO3_CONTEXT={{typo3_context}} /usr/bin/php7.1-cli -f vendor/bin/typo3cms language:update');
 });
