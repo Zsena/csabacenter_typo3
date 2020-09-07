@@ -1,0 +1,107 @@
+<!-- First level menu -->
+<f:if condition="{menuItems}">
+    <div class="fltr-menu">
+        <div class="fltr-container">
+
+            <!-- List menu -> viewport from sm -->
+            <div class="fltr-container-list" data-module="filter-tabs">
+                <nav class="fltr-list">
+                    <f:for each="{menuItems}" as="menuItem">
+                        <f:if condition="{menuItem.uid} == {currentPage.uid}">
+                            <f:then>
+                                <f:link.page class="fltr-list__item fltr-list__item--active" pageUid="{menuItem.uid}"
+                                             title="{menuItem.title}">{menuItem.title}
+                                </f:link.page>
+                            </f:then>
+                            <f:else>
+                                <f:link.page class="fltr-list__item fltr-list__item--inactive" pageUid="{menuItem.uid}"
+                                             title="{menuItem.title}">{menuItem.title}
+                                </f:link.page>
+                            </f:else>
+                        </f:if>
+
+                    </f:for>
+                </nav>
+                <i class="fltr-nav fltr-nav__prev">
+                    <c:svg path="{settings.fe.svgIconsPath}" name="arrow-left" mode="{settings.fe.svgIconsMode}" class="icn-icon" aria-hidden="true"/>
+                </i>
+                <i class="fltr-nav fltr-nav__next">
+                    <c:svg path="{settings.fe.svgIconsPath}" name="arrow-right" mode="{settings.fe.svgIconsMode}" class="icn-icon" aria-hidden="true"/>
+                </i>
+            </div>
+
+            <!-- Dropdown menu -> viewport xs -->
+            <div class="fltr-container-dropdown">
+                <div class="inp-select inp-select--dropdown fltr-dropdown">
+                    <label class="visuallyhidden" for="pageMenuDropdown">
+                        <f:translate key="fe.recordBase.menu.label" extensionName="center"/>
+                    </label>
+                    <select class="inp-select__select" id="pageMenuDropdown"
+                            data-module="menu-select">
+                        <f:for each="{menuItems}" as="menuItem">
+
+                            <!-- select the currently active option -->
+                            <option value="{f:uri.page(pageUid: '{menuItem.uid}' )}" {f:if(condition:
+                            '{menuItem.uid} == {currentPage.uid}', then:'selected=""')}>{menuItem.title} </option>
+
+                        </f:for>
+                    </select>
+                    <c:svg path="{settings.fe.svgIconsPath}" name="arrow-down"
+                           mode="{settings.fe.svgIconsMode}"
+                           class="icn-icon inp-select__icon inp-select__icon--right"
+                           aria-hidden="true"/>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Second level menu -->
+    <f:if condition="{currentPage.pages}">
+        <div class="fltr-submenu">
+            <ul class="fltr-submenu__list">
+                <f:for each="{currentPage.pages}" as="menuItemSub">
+                    <f:if condition="{menuItemSub.uid} == {currentPageSub.uid}">
+                        <f:then>
+                            <li class="fltr-submenu__item fltr-submenu__item--active">
+                        </f:then>
+                        <f:else>
+                            <li class="fltr-submenu__item">
+                        </f:else>
+                    </f:if>
+                    <f:link.page
+                            pageUid="{menuItemSub.uid}"
+                            title="{menuItemSub.title}">{menuItemSub.title}
+                    </f:link.page>
+                    </li>
+                </f:for>
+            </ul>
+            <div class="inp-select inp-select--dropdown fltr-dropdown fltr-submenu__dropdown">
+                <label class="visuallyhidden" for="pageSubmenuDropdown">
+                    <f:translate key="fe.recordBase.submenu.label" extensionName="center"/>
+                </label>
+                <select class="inp-select__select" id="pageSubmenuDropdown"
+                        data-module="menu-select">
+                    <f:for each="{currentPage.pages}" as="menuItemSub">
+                        <f:if condition="{menuItemSub.uid} == {currentPageSub.uid}">
+                            <f:then>
+                                <option value="{f:uri.page(pageUid: '{menuItemSub.uid}' )}"
+                                        disabled="true" selected="">{menuItemSub.title}
+                                </option>
+                            </f:then>
+                            <f:else>
+                                <option value="{f:uri.page(pageUid: '{menuItemSub.uid}' )}">
+                                    {menuItemSub.title}
+                                </option>
+                            </f:else>
+                        </f:if>
+                    </f:for>
+                </select>
+                <c:svg path="{settings.fe.svgIconsPath}" name="arrow-down"
+                       mode="{settings.fe.svgIconsMode}"
+                       class="icn-icon inp-select__icon inp-select__icon--right"
+                       aria-hidden="true"/>
+            </div>
+        </div>
+    </f:if>
+</f:if>

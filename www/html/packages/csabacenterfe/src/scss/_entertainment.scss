@@ -1,0 +1,130 @@
+
+.site_section_cover {
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  overflow: hidden;
+
+  .btn {
+    border-radius: 30px;
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    padding: 10px 20px;
+    text-decoration: none;
+    height: 70px;
+    display: flex;
+    align-items: center;
+  }
+
+  .btn-custom-1 {
+    border-radius: 30px;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+    &:hover {
+      background-color: $pink-red;
+      color: $white;
+    }
+  }
+
+  .text-red {
+    color: $pink-red;
+  }
+
+  .text-cursive {
+    font-weight: 300;
+    letter-spacing: 5px;
+  }
+
+  .font-weight-bold {
+    font-weight: 700!important;
+  }
+
+  h1 {
+    font-size: 3rem;
+    color: #fff;
+    line-height: 1;
+    @media (max-width: 991.98px) {
+      font-size: 2rem;
+    }
+  }
+}
+
+.site_section_cover.overlay {
+  position: relative;
+  width: 100%;
+  &:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+  }
+}
+
+.site_section_cover, .site_section_cover .container > .row {
+  height: calc(100vh - 196px);
+  min-height: 777px;
+}
+
+.site_section_cover, .site_section_cover .container {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* color grid */
+
+.color_grid_block {
+  padding: 40px;
+  position: relative;
+  text-align: center;
+  min-height: 330px;
+  display: grid;
+  align-items: center;
+
+  h2 {
+    font-size: 18px;
+    color: #fff;
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+
+.color_grid_block.red {
+  background-color: $pink-red;
+}
+
+.color_grid_block.teal {
+  background-color: $teal;
+}
+
+
+/* image left */
+
+.site_section_cover_left {
+  padding: 7rem 0;
+  .text-black {
+    color: $black !important;
+  }
+
+  h1 {
+    font-size: 3rem;
+    color: $black !important;
+    line-height: 1;
+  }
+}
+
+.site_section_cover_left, .site_section_cover_left .container > .row {
+  height: auto;
+  max-height: 500px;
+  display: flex;
+  align-items: center;
+}

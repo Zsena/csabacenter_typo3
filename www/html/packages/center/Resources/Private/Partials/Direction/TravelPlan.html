@@ -1,0 +1,149 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+{namespace c=DigitalZombies\Center\ViewHelpers}
+{namespace p=DigitalZombies\Providerece\ViewHelpers}
+<f:alias map="{ocb: '{', ccb: '}'}">
+	<f:if condition="{center}">
+		<div class="dir-directions" data-module="dir-description">
+			<f:if condition="{hideHeadline}">
+				<f:else>
+					<header class="ttl ttl--section">
+						<h2 class="ttl__headline">
+							<f:if condition="{headline}">
+								<f:then> {headline}</f:then>
+								<f:else> {f:translate(key: 'fe.directions.title',
+									extensionName: 'providerece')}
+								</f:else>
+							</f:if>
+						</h2>
+					</header>
+				</f:else>
+			</f:if>
+			<div class="dir-description">
+				<f:if condition="{moreInfoLink}">
+					<section class="btc-bar">
+						<div class="btc-bar__width-adjust">
+							<f:link.typolink parameter="{moreInfoLink}" class="btn btn--solid">
+                                <span class="btn__label">
+                                    <f:translate key="fe.travelPlan.moreInfoLink" extensionName="center"/>
+                                </span>
+							</f:link.typolink>
+						</div>
+					</section>
+				</f:if>
+				<f:if condition="{directions}">
+					<ul class="dir-bar">
+						<f:for each="{directions}" as="direction">
+							<li class="dir-bar__item">
+								<button type="button" class="dir-button" aria-labelledby="d_title_{direction.uid}"
+										data-travelmode="{direction.function}">
+                                    <span class="dir-button__icon btn-round icn--svg">
+                                        <c:svg path="{settings.fe.svgIconsPath}" name="{direction.icon}"
+											   mode="{settings.fe.svgIconsMode}"/>
+									</span>
+									<span id="d_title_{direction.uid}"
+										  class="dir-button__label">{direction.title}</span>
+								</button>
+							</li>
+						</f:for>
+					</ul>
+				</f:if>
+			</div>
+			<div class="dir-map">
+				<div class="dir-controls dir-map__controls dir-directions__controls">
+					<form class="dir-form dir-directions__form" id="js-map__form">
+						<h3 class="dir-form__title">
+							<f:translate key="fe.travelPlan.route.title" extensionName="center"/>
+						</h3>
+						<label class="dir-element dir-form__element">
+							<f:translate key="fe.travelPlan.route.startingPoint" extensionName="center"/>
+							<span class="dir-element__icon dir-element__icon--start js-dir-icon-start">
+                                <svg xmlns='http://www.w3.org/2000/svg' width='34.36' height='45'
+									 viewBox='-5 -5 41 53'>
+                                    <path class='outer'
+										  d='M17.18 0A17 17 0 0 0 0 16.88 16.6 16.6 0 0 0 3.43 27l13.75 18 13.75-18a16.61 16.61 0 0 0 3.43-10.12A17 17 0 0 0 17.18 0'
+										  fill='white' stroke='rgb(51,49,78)' stroke-width='2px'/>
+                                    <path class='inner'
+										  d='M17.18 28.12A11.35 11.35 0 0 1 5.73 16.87 11.35 11.35 0 0 1 17.18 5.62a11.35 11.35 0 0 1 11.45 11.25 11.35 11.35 0 0 1-11.45 11.25'
+										  fill='rgb(51,49,78)'/>
+                                </svg>
+                            </span>
+							<input type="text" class="dir-element__input" id="js-map__start"
+								   placeholder="{f:translate(key: 'fe.directions.start.placeholder', extensionName: 'center')}"/>
+						</label>
+						<label class="dir-element dir-form__element">
+							<f:translate key="fe.travelPlan.route.destination" extensionName="center"/>
+							<span class="dir-element__icon dir-element__icon--dest js-dir-icon-dest">
+                                <svg xmlns='http://www.w3.org/2000/svg' width='34.36' height='45'
+									 viewBox='-5 -5 41 53'>
+                                    <path class='outer'
+										  d='M17.18 0A17 17 0 0 0 0 16.88 16.6 16.6 0 0 0 3.43 27l13.75 18 13.75-18a16.61 16.61 0 0 0 3.43-10.12A17 17 0 0 0 17.18 0'
+										  fill='rgb(51,49,78)'/>
+                                    <path class='inner'
+										  d='M17.18 28.12A11.35 11.35 0 0 1 5.73 16.87 11.35 11.35 0 0 1 17.18 5.62a11.35 11.35 0 0 1 11.45 11.25 11.35 11.35 0 0 1-11.45 11.25'
+										  fill='white'/>
+                                </svg>
+                            </span>
+							<input type="text" disabled class="dir-element__input" id="js-map__dest"/>
+						</label>
+
+						<button type="submit" aria-labelledby="calculateRoute"
+								class="btn btn--solid btn--full-width dir-form__button">
+                            <span class="btn__inner">
+                                <span class="btn__icon btn__icon--spinner">
+                                    <svg viewbox="0 0 70 70">
+                                        <circle r="30" cx="35" cy="35"/>
+                                    </svg>
+                                </span><span id="calculateRoute" class="btn__label"><f:translate
+								key="fe.travelPlan.route.calculateRoute" extensionName="center"/></span>
+                            </span>
+						</button>
+
+					</form>
+					<div class="dir-controls__panel dir-map__panel" id="js-map__panel"></div>
+				</div>
+				<div class="dir-map__chart-wrapper">
+					<svg class="icn-icon icn-spinner dir-map__spinner js-map-spinner" viewbox="0 0 70 70">
+						<circle r="30" cx="35" cy="35"/>
+					</svg>
+					<noscript data-module="lazy-load">
+						<f:variable name="dataCoordinates">
+							"coordinates": {ocb}
+							<f:for each="{directions}" as="direction" key="key">
+
+								<f:if condition="({direction.icon} == 'walk') && {direction.lat} && {direction.long}">
+								<f:then>
+									"WALKING": {ocb} "lat": {direction.lat}, "lng": {direction.long} {ccb},
+								</f:then>
+								</f:if>
+
+								<f:if condition="({direction.icon} == 'car') && {direction.lat} && {direction.long}">
+									<f:then>
+										"DRIVING": {ocb} "lat": {direction.lat}, "lng": {direction.long} {ccb},
+									</f:then>
+								</f:if>
+
+								<f:if condition="({direction.icon} == 'train') && {direction.lat} && {direction.long}">
+									<f:then>
+										"TRANSIT": {ocb} "lat": {direction.lat}, "lng": {direction.long} {ccb},
+									</f:then>
+								</f:if>
+
+							</f:for>
+							"CENTER": {ocb} "lat": {center.lat}, "lng": {center.lng} {ccb}
+							{ccb},
+							"title": "{center.title}"
+						</f:variable>
+
+						<div class="dir-map__chart" id="js-map__chart"
+							 data-module="directions"
+							 data-api-key="{settings.googleMapsApiKey}"
+							 data-address='<p:format.direction address="{center.address}" />'
+							 data-coordinates='{ocb}{dataCoordinates}{ccb}'>
+						</div>
+					</noscript>
+				</div>
+			</div>
+		</div>
+
+	</f:if>
+</f:alias>

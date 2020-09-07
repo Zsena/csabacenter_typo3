@@ -1,0 +1,101 @@
+{namespace c=DigitalZombies\Center\ViewHelpers}
+{namespace e = DigitalZombies\Providerece\ViewHelpers}
+
+<v:variable.set value="{c:couponToUser(uid:'{coupon.uid}')}" name="couponToUser"/>
+
+<article class="cpn-redeem lgn-container lgn-container--small">
+	<header>
+		<h3 class="ttl--subsection">
+			<f:if condition="{f:cObject(typoscriptObjectPath: 'lib.currentPageSubtitle')}">
+				<f:then>
+					{f:cObject(typoscriptObjectPath: 'lib.currentPageSubtitle')}
+				</f:then>
+				<f:else>
+					<f:translate key="fe.detailPage.coupon.headline" extensionName="providerece"/>
+				</f:else>
+			</f:if>
+		</h3>
+	</header>
+	<section class="row">
+		<div class="col-xs-12">
+			<f:if condition="{couponToUser}">
+				<f:then></f:then>
+				<f:else>
+					<f:render section="cashierRedeem" arguments="{_all}"/>
+				</f:else>
+			</f:if>
+		</div>
+	</section>
+	<div class="row">
+		<div class="col-xs-12 col-md-6">
+			<section>
+				<div class="cpn-redeem__discountpane">
+					<f:if condition="{coupon.imageRedeem}">
+						<f:then>
+							<f:render partial="General/ContentImage" arguments="{image: coupon.imageRedeem}"/>
+						</f:then>
+						<f:else>
+							<f:render partial="General/ContentImage" arguments="{image: coupon.ContentImage}"/>
+						</f:else>
+					</f:if>
+				</div>
+			</section>
+		</div>
+		<div class="col-xs-12 col-md-6">
+			<section>
+				<h3 class="heading-3">
+					{coupon.title}
+				</h3>
+			</section>
+			<section class="btc-bar btc-bar--left">
+				<f:if condition="{couponToUser}">
+					<f:then>
+						<div class="general-response info">
+							<c:svg path="{settings.fe.svgIconsPath}" name="info"
+								   mode="{settings.fe.svgIconsMode}"
+								   class="icn-icon general-response__icon"/>
+							<f:translate key="fe.detailPage.coupon.alreadyRedeemed" extensionName="providerece"/>
+						</div>
+					</f:then>
+					<f:else>
+						<div class="btc-bar__width-adjust">
+							<button type="submit" class="btn btn--solid" data-cookie-name="CouponRedeemedByUser"
+									data-cookie-coupon-id="{couponId}" data-cookie-fe-user="{feUser}"
+									data-modal-url="{f:uri.action(action: 'redeem', arguments: {coupon: '{coupon.uid}', limit: '{coupon.amount}'}, controller: 'Coupon', pluginName: 'RedeemCoupon', pageUid: '{settings.couponPages.couponRedeem}')}"
+									data-modal-select-node=".cpn-redeem"
+									data-modal-click="turnOver"
+									data-module="setcookie-coupon">
+										<span class="btn__label">
+											<f:translate key="fe.detailPage.coupon.confirmCouponRedemption"
+														 extensionName="providerece"/>
+										</span>
+							</button>
+						</div>
+					</f:else>
+				</f:if>
+			</section>
+		</div>
+	</div>
+</article>
+
+<f:section name="cashierRedeem">
+	<div class="cpn-redeem__message cpn-redeem__message--info">
+		<div class="cpn-redeem__message__row">
+			<div class="cpn-detail__message__icon">
+				<div class="icn-svg">
+					<c:svg path="{settings.fe.svgIconsPath}" name="info" mode="{settings.fe.svgIconsMode}"
+						   class="icn-icon"/>
+				</div>
+			</div>
+			<div class="cpn-redeem__message__text">
+				<h4>
+					<f:translate key="fe.detailPage.coupon.achtung" extensionName="providerece"/>
+				</h4>
+				<p>
+					<f:translate key="fe.detailPage.coupon.cashierRedeem" extensionName="providerece"/>
+				</p>
+			</div>
+		</div>
+		<div class="cpn-redeem__message__row"></div>
+	</div>
+</f:section>

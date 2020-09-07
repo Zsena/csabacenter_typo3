@@ -1,0 +1,102 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+{namespace c=DigitalZombies\Center\ViewHelpers}
+<header class="ttl ttl--page dtl__page-title">
+	<h2 class="ttl__headline">
+		<f:translate key="fe.detailPage.services.headline" extensionName="center"/>
+	</h2>
+</header>
+<f:if condition="{service}">
+
+	<div class="btn-round icn--svg dtl__service-icon">
+		<c:svg src="{service.serviceIcon.uid}" treatIdAsReference="1"/>
+	</div>
+
+	<article class="dtl-description">
+
+		<header class="dtl-header dtl-description__header">
+			<f:comment>Title</f:comment>
+			<div class="dtl-title">
+				<h2 class="dtl-title__title">{service.name}</h2>
+			</div>
+		</header>
+
+		<f:comment>Abstract / Lead text</f:comment>
+		<f:if condition="{service.contentAbstract}">
+			<p class="dtl-description__lead">{service.contentAbstract}</p>
+		</f:if>
+
+		<f:comment>Content</f:comment>
+		<f:if condition="{service.contentText}">
+			<div class="dtl-description__content tme-styles">
+				<f:format.html> {service.contentText}</f:format.html>
+			</div>
+		</f:if>
+
+		<f:comment>App Stores Links</f:comment>
+		<f:render partial="Detail/AppStores" arguments="{service: service}"/>
+
+    <f:if condition="{service.center.wayfinderActivated}">
+      <f:then>
+        <f:render partial="General/Maps/Wayfinder"
+              arguments="{url: service.center.wayfinderUrl, shop: service}" />
+      </f:then>
+      <f:else>
+        <f:if condition="{service.positions}">
+          <f:render partial="General/Maps/CenterMap"
+              arguments="{sender: service.sender, settings: settings, positions: service.positions, height: 420}"/>
+        </f:if>
+      </f:else>
+    </f:if>
+
+		<f:comment>Contact</f:comment>
+		<f:render partial="Contact"
+				  arguments="{
+				image: '',
+				title: '',
+				item: service}"/>
+
+		<f:comment>Content</f:comment>
+		<f:if condition="{service.contentPrologue || service.contentDownloadlink ||
+			service.contentDownloadfile || service.contentVideo || service.contentImage ||
+			event.contentEpilogue}">
+
+			<div class="dtl-description__content tme-styles">
+
+				{service.contentPrologue -> f:format.htmlentitiesDecode()}
+
+				<f:comment>Download Buttons</f:comment>
+				<f:render partial="Detail/DownloadButtons"
+						  arguments="{contentDownloadlink: service.contentDownloadlink,
+					contentDownloadlinktext: service.contentDownloadlinktext,
+					contentDownloadfile: service.contentDownloadfile,
+					contentDownloadfiletext: service.contentDownloadfiletext}"/>
+
+				<f:if condition="{service.contentVideo}">
+					<f:then>
+						<f:render partial="General/ContentVideo"
+								  arguments="{video: service.contentVideo, width: 720, height: 395}"/>
+					</f:then>
+					<f:else>
+						<f:comment>content image is checked in partial</f:comment>
+						<f:render partial="General/ContentImage" arguments="{image: service.contentImage}"/>
+					</f:else>
+				</f:if>
+
+				{event.contentEpilogue -> f:format.htmlentitiesDecode()}
+			</div>
+		</f:if>
+
+		<f:if condition="{service.serviceLink}">
+			<f:link.page pageUid="{service.serviceLink}" class="btn btn--solid">
+                <span class="btn__label">
+                    {service.serviceLinktext}
+                </span>
+			</f:link.page>
+		</f:if>
+	</article>
+
+	<f:comment>Gallery</f:comment>
+	<f:if condition="{service.contentGallery}">
+		<f:render partial="Gallery/Gallery" arguments="{gallery: service.contentGallery}"/>
+	</f:if>
+</f:if>

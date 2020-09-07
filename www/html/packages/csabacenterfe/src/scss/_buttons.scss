@@ -1,0 +1,24 @@
+.main_bt.transparent {
+  background: transparent;
+  border-color: $white;
+  color: $white;
+  cursor: pointer;
+  display: table;
+  &:hover {
+    background-color: $dark-red;
+    border-color: transparent;
+  }
+}
+
+.main_bt {
+  min-width: 195px;
+  float: left;
+  text-align: center;
+  line-height: 40px;
+  border: solid $dark-red 1px;
+  font-size: 18px;
+  margin-top: 10px;
+  background: $white;
+  font-weight: 500;
+  padding: 0.5rem;
+}

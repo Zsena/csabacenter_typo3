@@ -1,0 +1,31 @@
+{namespace c=DigitalZombies\Center\ViewHelpers}
+<div class="tss" {c:app(visibility: '{item.hideInApp}')}>
+    <f:link.typolink parameter="{f:if(condition: item.link, then: item.link, else: item.uid)}">
+        <f:if condition="{item.teaserImage}">
+            <f:if condition="{disableLazyLoad}">
+                <f:else>
+                    <noscript data-module="lazy-load">
+                </f:else>
+            </f:if>
+            <picture>
+                <source srcset="{f:uri.image(src: '{item.teaserImage.uid}', treatIdAsReference: 1, width: 456)}" media="(max-width: 992px)">
+                <f:image width="363" src="{item.teaserImage.uid}" class="tss__image" treatIdAsReference="1"/>
+            </picture>
+            <f:if condition="{disableLazyLoad}">
+                <f:else>
+                    </noscript>
+                </f:else>
+            </f:if>
+
+        </f:if>
+        <div class="tss__container">
+            <f:if condition="{item.pageIcon}">
+                <div class="btn-round  icn--svg">
+                    <c:svg src="{item.pageIcon.uid}" treatIdAsReference="1"/>
+                </div>
+            </f:if>
+            <h3 class="tss__name">{item.title}</h3>
+            <p>{item.teaserAbstract}</p>
+        </div>
+    </f:link.typolink>
+</div>

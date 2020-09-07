@@ -1,0 +1,54 @@
+<section class="tsr-grp tsr-grp--combi tsr-grp-theme--{settings.hometeaser.style}">
+	<f:if condition="{backgroundImage}">
+        <f:image class="tsr-grp__bg-image" src="{backgroundImage.uid}"  crop="{backgroundImage.crop}" alt="..." treatIdAsReference="TRUE" />
+    </f:if>
+
+        <f:if condition="{settings.hometeaser.headline}">
+            <f:then>
+                <header class="ttl ttl--section">
+                    <h2 class="ttl__headline">{settings.hometeaser.headline}</h2>
+                </header>
+            </f:then>
+            <f:else>
+                <header>
+                    <h2 class="visuallyhidden"><f:translate key="fe.hometeaser.button.h2.header" extensionName="center"/></h2>
+                </header>
+            </f:else>
+        </f:if>
+	<div class="tsr-grp__teasers" data-module="lazy-load" data-lazy-load-aggregate="true" data-module-options="{&quot;margin&quot;: 0, &quot;autoplay&quot;: true, &quot;autoplayHoverPause&quot;: true}">
+        <f:switch expression="{settings.hometeaser.adTeaser.style}">
+            <f:case value="333333">
+                <f:render partial="AdTeasers/33-33-33" arguments="{_all}" />
+            </f:case>
+            <f:case value="3366">
+                <f:render partial="AdTeasers/33-66" arguments="{_all}" />
+            </f:case>
+            <f:case value="6633">
+                <f:render partial="AdTeasers/66-33" arguments="{_all}" />
+            </f:case>
+            <f:case value="100">
+                <f:render partial="AdTeasers/100" arguments="{_all}" />
+            </f:case>
+        </f:switch>
+	</div>
+    <f:if condition="{settings.hometeaser.buttonLink}">
+        <section class="btc-bar">
+            <h3 class="visuallyhidden">
+                <f:if condition="{settings.hometeaser.buttonText}">
+                    <f:then>{settings.hometeaser.buttonText}</f:then>
+                    <f:else><f:translate key="fe.hometeaser.button.show_all" extensionName="center"/></f:else>
+                </f:if>
+            </h3>
+            <div class="btc-bar__width-adjust">
+                <f:link.typolink parameter="{settings.hometeaser.buttonLink}" class="btn btn--light">
+                    <span class="btn__label">
+                        <f:if condition="{settings.hometeaser.buttonText}">
+                            <f:then>{settings.hometeaser.buttonText}</f:then>
+                            <f:else><f:translate key="fe.hometeaser.button.show_all" extensionName="center"/></f:else>
+                        </f:if>
+                    </span>
+                </f:link.typolink>
+            </div>
+        </section>
+    </f:if>
+</section>

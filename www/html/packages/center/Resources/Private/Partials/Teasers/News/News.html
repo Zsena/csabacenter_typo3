@@ -1,0 +1,22 @@
+{namespace cm=DigitalZombies\Center\ViewHelpers}
+{namespace p=DigitalZombies\Providerece\ViewHelpers}
+<f:link.action class="tsr__container" action="show" controller="News" arguments="{news: item.uid}"
+               pluginName="News"
+               extensionName="center" pageUid="{settings.detailPages.news}">
+    <div class="index_news_blog">
+        <noscript data-module="{lazyLoadModule}">
+            <picture>
+                <source srcset="{f:uri.image(src: '{item.teaserImage.uid}', treatIdAsReference: 1, width: 390)}, {f:uri.image(src: '{item.teaserImage.uid}', treatIdAsReference: 1, width: 780)} 2x" media="(min-width: 992px)">
+                <f:image width="390" src="{item.teaserImage.uid}" alt="{item.teaserImage.originalResource.alternative}" title="{item.teaserImage.originalResource.title}" treatIdAsReference="1" />
+
+            </picture>
+        </noscript>
+        <img class="img-fluid" src="/img/rendezvenyek.jpg" alt="#" />
+        <div class="blog_details p-3">
+            <span class="blog_label "><f:translation key="fe.teasers.news" /></span>
+            <h3 class="text-left">{item.title}</h3>
+            <hr>
+            <p class="text-left">{item.teaserAbstract}</p>
+        </div>
+    </div>
+</f:link.action>

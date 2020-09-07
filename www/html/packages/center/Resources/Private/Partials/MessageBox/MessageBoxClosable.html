@@ -1,0 +1,30 @@
+{namespace c = DigitalZombies\Center\ViewHelpers}
+<f:comment>
+A generic message box - See styleguide-2.101
+
+It can be used for errors, info or confirmation/success.
+
+@param type (default: info): {info, success, error}
+@param icon (optional) - the icon name
+@param text - the html content to display as message body. It might contain any tag.
+</f:comment>
+
+{type -> f:or(alternative: 'info') -> f:variable(name: 'type')}
+
+<div class="msg-message {f:if(condition: 'type', then: 'msg-message--{type}')} hidden" data-module="message-box">
+	<div class="msg-message__row">
+
+		<f:if condition="{icon}">
+			<div class="msg-message__icon">
+        <c:svg path="{settings.fe.svgIconsPath}" name="{icon}" mode="{settings.fe.svgIconsMode}" class="icn--svg" />
+			</div>
+		</f:if>
+
+		<div class="msg-message__text">
+			{text -> f:format.htmlentitiesDecode()}
+		</div>
+	</div>
+    <div class="msg-message__btn--close">
+        <c:svg path="{settings.fe.svgIconsPath}" name="close" mode="{settings.fe.svgIconsMode}" class="icn-icon" aria-hidden="true"/>
+    </div>
+</div>

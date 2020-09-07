@@ -1,0 +1,11 @@
+.image_page_banner {
+  margin-top: -3rem !important;
+  max-height: 350px;
+  background-color: $dark-red;
+  img {
+    max-height: 350px;
+    width: 100%;
+    object-fit: cover;
+    opacity: .8;
+  }
+}

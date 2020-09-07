@@ -1,0 +1,5 @@
+<f:for each="{items}" as="item">
+	<div class="tsr-grp__teaser">
+		<f:render partial="Teasers/{item.partialName}" arguments="{item:item, settings: settings}" />
+	</div>
+</f:for>

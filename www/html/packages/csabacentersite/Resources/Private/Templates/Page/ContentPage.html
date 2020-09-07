@@ -1,0 +1,25 @@
+<f:layout name="Page"/>
+
+<f:section name="Main">
+	<f:render partial="Header/Header" arguments="{pages: pages, rootPageId: rootPageId, page: data, center: center, languages : languages, serviceNavigation: serviceNavigation}"/>
+
+	<f:render partial="../Stages/Content" section="Main" arguments="{page: data}"/>
+	<!--TYPO3SEARCH_begin-->
+
+	<article>
+		<header class="ttl ttl--page dtl__page-title">
+			<h2 class="ttl__headline">
+				<f:if condition="{data.subtitle}">
+					<f:then>{data.subtitle}</f:then>
+					<f:else><f:cObject typoscriptObjectPath="lib.currentPageTitle" /></f:else>
+				</f:if>
+			</h2>
+		</header>
+
+		<f:cObject typoscriptObjectPath="lib.content.content" />
+
+	</article>
+	<!--TYPO3SEARCH_end-->
+	<f:render partial="Footer/Footer" arguments="{center: center}"/>
+
+</f:section>

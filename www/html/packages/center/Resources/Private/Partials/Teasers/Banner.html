@@ -1,0 +1,6 @@
+{namespace cm=DigitalZombies\Center\ViewHelpers}
+<article class="tsr-solid tsr-solid--ad" {cm:app(visibility: '{item.hideInApp}')}>
+    <f:link.typolink parameter="{item.link}" class="tsr__container">
+        <f:render partial="Teasers/MediaPartial" arguments="{item: item, omitLazyLoadScript: omitLazyLoadScript}" />
+    </f:link.typolink>
+</article>

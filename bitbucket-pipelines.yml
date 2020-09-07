@@ -1,0 +1,141 @@
+image: php:7.2
+
+definitions:
+  caches:
+    node-custom: www/html/vendor/agentur-webfox/csabacenter-frontend/node_modules
+  steps:
+    - step: &composer-build
+        name: Composer Build
+        caches:
+          - composer
+        script:
+          - apt-get update && apt-get install -y unzip git
+          - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+          - cd www/html
+          - composer install --no-dev --optimize-autoloader
+        artifacts:
+          - www/html/public/**
+          - www/html/vendor/**
+    - step: &node-build
+        name: Node.js Build
+        image: node:10.15
+        caches:
+          - node-custom
+        script:
+          - cd www/html/vendor/agentur-webfox/csabacenter-frontend
+          - npm install
+          - npm run build:local
+          - npm run build:typo3
+        artifacts:
+          - www/html/public/typo3conf/ext/csabacenter_site/Resources/Public/Dist/**
+          - www/html/vendor/agentur-webfox/csabacenter-frontend/dist/**
+    - step: &deploy
+        name: Staging Deployment
+        deployment: staging
+        script:
+          - apt-get update && apt-get install -y unzip openssh-client rsync gettext git
+          - pushd www/html/public/typo3conf
+          - envsubst '\$DB_NAME \$DB_HOST \$DB_PW \$DB_USER \$INSTALL_TOOL_PW' < AdditionalConfiguration.Production.php > AdditionalConfiguration.Production.temp
+          - mv AdditionalConfiguration.Production.temp AdditionalConfiguration.Production.php
+          - popd
+          - pushd www/html/public
+          - envsubst '$PATH_HTPASSWD $TYPO3_CONTEXT' < .htaccess > .htaccess.temp
+          - mv .htaccess.temp .htaccess
+          - popd
+          - pushd www/html/bin
+          - envsubst '$TYPO3_CONTEXT' < scheduler.sh > scheduler.sh.temp
+          - mv scheduler.sh.temp scheduler.sh
+          - popd
+          - pushd www/html
+          - sed -i "s/%env(SOLR_SCHEME)%/$SOLR_SCHEME/" config/sites/csabacenter/config.yaml
+          - sed -i "s/%env(SOLR_HOST)%/$SOLR_HOST/" config/sites/csabacenter/config.yaml
+          - sed -i "s/%env(SOLR_PORT)%/$SOLR_PORT/" config/sites/csabacenter/config.yaml
+          - sed -i "s/%env(SOLR_PATH)%/$SOLR_PATH/" config/sites/csabacenter/config.yaml
+          - sed -i "s/%env(SOLR_CORE_DE)%/$SOLR_CORE_DE/" config/sites/csabacenter/config.yaml
+          - sed -i "s/%env(SOLR_USERNAME)%/$SOLR_USERNAME/" config/sites/csabacenter/config.yaml
+          - sed -i "s/%env(SOLR_PASSWORD)%/$SOLR_PASSWORD/" config/sites/csabacenter/config.yaml
+          - sed -i "s/%env(SOLR_TIMEOUT)%/$SOLR_TIMEOUT/" config/sites/csabacenter/config.yaml
+          - sed -i "s/%env(SOLR_SCHEME)%/$SOLR_SCHEME/" config/sites/payprotect/config.yaml
+          - sed -i "s/%env(SOLR_HOST)%/$SOLR_HOST/" config/sites/payprotect/config.yaml
+          - sed -i "s/%env(SOLR_PORT)%/$SOLR_PORT/" config/sites/payprotect/config.yaml
+          - sed -i "s/%env(SOLR_PATH)%/$SOLR_PATH/" config/sites/payprotect/config.yaml
+          - sed -i "s/%env(SOLR_CORE_DE)%/$SOLR_CORE_DE/" config/sites/payprotect/config.yaml
+          - sed -i "s/%env(SOLR_USERNAME)%/$SOLR_USERNAME/" config/sites/payprotect/config.yaml
+          - sed -i "s/%env(SOLR_PASSWORD)%/$SOLR_PASSWORD/" config/sites/payprotect/config.yaml
+          - sed -i "s/%env(SOLR_TIMEOUT)%/$SOLR_TIMEOUT/" config/sites/payprotect/config.yaml
+          - sed -i "s/%env(SOLR_SCHEME)%/$SOLR_SCHEME/" config/sites/multiauskunftei/config.yaml
+          - sed -i "s/%env(SOLR_HOST)%/$SOLR_HOST/" config/sites/multiauskunftei/config.yaml
+          - sed -i "s/%env(SOLR_PORT)%/$SOLR_PORT/" config/sites/multiauskunftei/config.yaml
+          - sed -i "s/%env(SOLR_PATH)%/$SOLR_PATH/" config/sites/multiauskunftei/config.yaml
+          - sed -i "s/%env(SOLR_CORE_DE)%/$SOLR_CORE_DE/" config/sites/multiauskunftei/config.yaml
+          - sed -i "s/%env(SOLR_USERNAME)%/$SOLR_USERNAME/" config/sites/multiauskunftei/config.yaml
+          - sed -i "s/%env(SOLR_PASSWORD)%/$SOLR_PASSWORD/" config/sites/multiauskunftei/config.yaml
+          - sed -i "s/%env(SOLR_TIMEOUT)%/$SOLR_TIMEOUT/" config/sites/multiauskunftei/config.yaml
+          - sed -i "s/%env(SOLR_SCHEME)%/$SOLR_SCHEME/" config/sites/ibw/config.yaml
+          - sed -i "s/%env(SOLR_HOST)%/$SOLR_HOST/" config/sites/ibw/config.yaml
+          - sed -i "s/%env(SOLR_PORT)%/$SOLR_PORT/" config/sites/ibw/config.yaml
+          - sed -i "s/%env(SOLR_PATH)%/$SOLR_PATH/" config/sites/ibw/config.yaml
+          - sed -i "s/%env(SOLR_CORE_DE)%/$SOLR_CORE_DE/" config/sites/ibw/config.yaml
+          - sed -i "s/%env(SOLR_USERNAME)%/$SOLR_USERNAME/" config/sites/ibw/config.yaml
+          - sed -i "s/%env(SOLR_PASSWORD)%/$SOLR_PASSWORD/" config/sites/ibw/config.yaml
+          - sed -i "s/%env(SOLR_TIMEOUT)%/$SOLR_TIMEOUT/" config/sites/ibw/config.yaml
+          - sed -i "s/%env(SOLR_SCHEME)%/$SOLR_SCHEME/" config/sites/pcs/config.yaml
+          - sed -i "s/%env(SOLR_HOST)%/$SOLR_HOST/" config/sites/pcs/config.yaml
+          - sed -i "s/%env(SOLR_PORT)%/$SOLR_PORT/" config/sites/pcs/config.yaml
+          - sed -i "s/%env(SOLR_PATH)%/$SOLR_PATH/" config/sites/pcs/config.yaml
+          - sed -i "s/%env(SOLR_CORE_DE)%/$SOLR_CORE_DE/" config/sites/pcs/config.yaml
+          - sed -i "s/%env(SOLR_USERNAME)%/$SOLR_USERNAME/" config/sites/pcs/config.yaml
+          - sed -i "s/%env(SOLR_PASSWORD)%/$SOLR_PASSWORD/" config/sites/pcs/config.yaml
+          - sed -i "s/%env(SOLR_TIMEOUT)%/$SOLR_TIMEOUT/" config/sites/pcs/config.yaml
+          - sed -i "s/%env(SOLR_SCHEME)%/$SOLR_SCHEME/" config/sites/gcg/config.yaml
+          - sed -i "s/%env(SOLR_HOST)%/$SOLR_HOST/" config/sites/gcg/config.yaml
+          - sed -i "s/%env(SOLR_PORT)%/$SOLR_PORT/" config/sites/gcg/config.yaml
+          - sed -i "s/%env(SOLR_PATH)%/$SOLR_PATH/" config/sites/gcg/config.yaml
+          - sed -i "s/%env(SOLR_CORE_DE)%/$SOLR_CORE_DE/" config/sites/gcg/config.yaml
+          - sed -i "s/%env(SOLR_USERNAME)%/$SOLR_USERNAME/" config/sites/gcg/config.yaml
+          - sed -i "s/%env(SOLR_PASSWORD)%/$SOLR_PASSWORD/" config/sites/gcg/config.yaml
+          - sed -i "s/%env(SOLR_TIMEOUT)%/$SOLR_TIMEOUT/" config/sites/gcg/config.yaml
+          - sed -i "s/%env(SOLR_SCHEME)%/$SOLR_SCHEME/" config/sites/mediafinanz/config.yaml
+          - sed -i "s/%env(SOLR_HOST)%/$SOLR_HOST/" config/sites/mediafinanz/config.yaml
+          - sed -i "s/%env(SOLR_PORT)%/$SOLR_PORT/" config/sites/mediafinanz/config.yaml
+          - sed -i "s/%env(SOLR_PATH)%/$SOLR_PATH/" config/sites/mediafinanz/config.yaml
+          - sed -i "s/%env(SOLR_CORE_DE)%/$SOLR_CORE_DE/" config/sites/mediafinanz/config.yaml
+          - sed -i "s/%env(SOLR_USERNAME)%/$SOLR_USERNAME/" config/sites/mediafinanz/config.yaml
+          - sed -i "s/%env(SOLR_PASSWORD)%/$SOLR_PASSWORD/" config/sites/mediafinanz/config.yaml
+          - sed -i "s/%env(SOLR_TIMEOUT)%/$SOLR_TIMEOUT/" config/sites/mediafinanz/config.yaml
+          - sed -i "s/%env(SOLR_SCHEME)%/$SOLR_SCHEME/" config/sites/sirius/config.yaml
+          - sed -i "s/%env(SOLR_HOST)%/$SOLR_HOST/" config/sites/sirius/config.yaml
+          - sed -i "s/%env(SOLR_PORT)%/$SOLR_PORT/" config/sites/sirius/config.yaml
+          - sed -i "s/%env(SOLR_PATH)%/$SOLR_PATH/" config/sites/sirius/config.yaml
+          - sed -i "s/%env(SOLR_CORE_DE)%/$SOLR_CORE_DE/" config/sites/sirius/config.yaml
+          - sed -i "s/%env(SOLR_USERNAME)%/$SOLR_USERNAME/" config/sites/sirius/config.yaml
+          - sed -i "s/%env(SOLR_PASSWORD)%/$SOLR_PASSWORD/" config/sites/sirius/config.yaml
+          - sed -i "s/%env(SOLR_TIMEOUT)%/$SOLR_TIMEOUT/" config/sites/sirius/config.yaml
+          - sed -i "s/%env(SOLR_SCHEME)%/$SOLR_SCHEME/" config/sites/zyklop/config.yaml
+          - sed -i "s/%env(SOLR_HOST)%/$SOLR_HOST/" config/sites/zyklop/config.yaml
+          - sed -i "s/%env(SOLR_PORT)%/$SOLR_PORT/" config/sites/zyklop/config.yaml
+          - sed -i "s/%env(SOLR_PATH)%/$SOLR_PATH/" config/sites/zyklop/config.yaml
+          - sed -i "s/%env(SOLR_CORE_DE)%/$SOLR_CORE_DE/" config/sites/zyklop/config.yaml
+          - sed -i "s/%env(SOLR_USERNAME)%/$SOLR_USERNAME/" config/sites/zyklop/config.yaml
+          - sed -i "s/%env(SOLR_PASSWORD)%/$SOLR_PASSWORD/" config/sites/zyklop/config.yaml
+          - sed -i "s/%env(SOLR_TIMEOUT)%/$SOLR_TIMEOUT/" config/sites/zyklop/config.yaml
+          - sed -i "s/^WEB_USERNAME=.*$/WEB_USERNAME=$WEB_USERNAME/" .env
+          - sed -i "s/^WEB_PASSWORD=.*$/WEB_PASSWORD=$WEB_PASSWORD/" .env
+          - popd
+          - cd www/html
+          - vendor/bin/dep deploy -vvv $DEPLOY_TARGET
+
+pipelines:
+  branches:
+    master:
+      - step: *composer-build
+      - step: *node-build
+      - step: *deploy
+  tags:
+    '*':
+      - step: *composer-build
+      - step: *node-build
+      - step:
+          <<: *deploy
+          name: Production Deployment
+          deployment: production

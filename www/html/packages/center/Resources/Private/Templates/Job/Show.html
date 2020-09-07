@@ -1,0 +1,68 @@
+{namespace c=DigitalZombies\Center\ViewHelpers}
+{namespace e = DigitalZombies\Providerece\ViewHelpers}
+<header class="ttl ttl--page dtl__page-title">
+	<h2 class="ttl__headline">
+		<f:if condition="{f:cObject(typoscriptObjectPath: 'lib.currentPageSubtitle')}">
+			<f:then>{f:cObject(typoscriptObjectPath: 'lib.currentPageSubtitle')}</f:then>
+			<f:else><f:translate key="fe.detailPage.jobs.headline" extensionName="providerece"/></f:else>
+		</f:if>
+	</h2>
+</header>
+<f:if condition="{job}">
+	<section class="dtl-description">
+
+		<header class="dtl-header dtl-description__header">
+
+			<f:comment>Contact</f:comment>
+			<f:render partial="Contact"
+					  arguments="{
+					image: job.sender.logo.uid,
+					title: job.sender.name,
+					item: job}" />
+
+			<f:comment>Title</f:comment>
+			<div class="dtl-title">
+				<div class="dtl-title__upper">
+					<h3 class="dtl-title__title">{job.title}</h3>
+					<div class="dtl-title__author">{job.sender.name}</div>
+				</div>
+				<f:if condition="{job.starttime}">
+				<span class="dtl-title__subtitle">
+					<f:format.date format="{settings.dateFormat.base}">
+						{job.starttime}
+					</f:format.date>
+				</span>
+			</f:if>
+				<span class="dtl-title__subtitle">
+					<f:translate key="LLL:typo3conf/ext/center/Resources/Private/Language/locallang_db.xlf:tx_center_domain_model_records_job.job_category.{job.jobCategory}"/>
+				</span>
+			</div>
+
+		</header>
+
+		<f:comment>Abstract / Lead text</f:comment>
+		<f:if condition="{job.contentAbstract}">
+			<p class="dtl-description__lead">{job.contentAbstract}</p>
+		</f:if>
+
+		<f:comment>Content</f:comment>
+		<div class="dtl-description__content tme-styles">
+			<f:format.html> {job.contentText} </f:format.html>
+		</div>
+
+		<f:comment>Download Buttons</f:comment>
+		<f:render partial="Detail/DownloadButtons"
+			arguments="{contentDownloadlink: job.contentDownloadlink,
+				contentDownloadlinktext: job.contentDownloadlinktext,
+				contentDownloadfile: job.contentDownloadfile,
+				contentDownloadfiletext: job.contentDownloadfiletext}" />
+	</section>
+
+	<f:comment>Gallery</f:comment>
+	<f:if condition="{job.contentGallery}">
+		<f:render partial="Gallery/Gallery" arguments="{gallery: job.contentGallery}" />
+	</f:if>
+
+	<f:comment>"Lageplan" or "An-/Abfahrt" Module</f:comment>
+	<f:render partial="General/Map" arguments="{sender: job.sender, directions: directions, settings: settings}" />
+</f:if>

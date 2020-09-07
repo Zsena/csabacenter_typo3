@@ -1,0 +1,57 @@
+{namespace c=DigitalZombies\Center\ViewHelpers}
+
+<f:if condition="{item.teaserImage}">
+	<f:then>
+		<v:variable.set name="galleryTitle" value="{item.teaserImage}" />
+	</f:then>
+	<f:else>
+        <f:if condition="{gallery.name}">
+            <f:then>
+                <v:variable.set name="galleryTitle" value="{gallery.name}" />
+            </f:then>
+            <f:else>
+		        <v:variable.set name="galleryTitle" value="{f:translate(key:'fe.gallery.title.h2.fallback', extensionName:'center')}" />
+            </f:else>
+        </f:if>
+	</f:else>
+</f:if>
+
+<f:if condition="{gallery}">
+    <div class="glr" data-module="gallery"
+         data-src="{f:uri.action(pageUid: '{settings.rootPageId}', pluginName: 'Gallery', controller: 'Gallery', extensionName: 'Center', pageType: '{settings.ajaxGalleryDataTypeNum}', arguments: '{gallery: gallery}')}"
+         data-html-src="{f:uri.action(pageUid: '{settings.rootPageId}', controller: 'Gallery', pluginName: 'Gallery', extensionName: 'Center', pageType: '{settings.ajaxPhotoswipeTemplate}')}">
+        <header class="ttl ttl--section">
+           <h2 class="ttl__headline">{galleryTitle}</h2>
+        </header>
+
+        <f:alias map="{imageCount: '{gallery.images -> f:count()}'}">
+        <div class="glr-images {f:if(condition: '{imageCount} > {settings.gallery.maxImagesByDefault}', then: 'glr-images--center', else: '')}">
+            <f:for each="{gallery.images}" as="image" iteration="iterator">
+                <f:if condition="{iterator.index} < {settings.gallery.maxImagesByDefault}">
+                    <div class="glr-images__image">
+                        <div class="glr-image js-gallery-expand">
+                            <noscript data-module="lazy-load">
+                                <f:image src="{image.uid}" class="glr-image__img" treatIdAsReference="1" width="250c" height="250c" crop="{image.crop}"/>
+                            </noscript>
+                            <c:svg path="{settings.fe.svgIconsPath}" name="zoom"
+                                mode="{settings.fe.svgIconsMode}"
+                                class="icn-icon glr-image__expand" aria-hidden="true" />
+                        </div>
+                    </div>
+                </f:if>
+            </f:for>
+        </div>
+        <f:if condition="{imageCount} > {settings.gallery.maxImagesByDefault}">
+            <div class="glr-loadmore">
+                <a class="btn btn--light btn--icon glr-loadmore__button">
+                    <span class="btn__inner">
+                        <span class="btn__icon">
+                            <c:svg path="{settings.fe.svgIconsPath}" name="plus" mode="{settings.fe.svgIconsMode}" aria-hidden="true" />
+                        </span><span class="btn__label"><f:translate key="fe.teaserWall.load_more" extensionName="center"/></span>
+                    </span>
+                </a>
+            </div>
+        </f:if>
+        </f:alias>
+    </div>
+</f:if>

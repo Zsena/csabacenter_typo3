@@ -1,0 +1,27 @@
+base: 'http://www.csabacenter.hu.test'
+baseVariants: {  }
+errorHandling: {  }
+languages:
+  -
+    title: Magyar
+    enabled: true
+    base: /
+    typo3Language: default
+    locale: hu_HU.UTF-8
+    iso-639-1: hu
+    navigationTitle: Magyar
+    hreflang: hu-HU
+    direction: ''
+    flag: hu
+    solr_core_read: core_hu
+    languageId: '0'
+rootPageId: 1
+routes: {  }
+solr_host_read: localhost
+solr_password_read: ''
+solr_path_read: /solr/
+solr_port_read: '8983'
+solr_scheme_read: http
+solr_timeout_read: ''
+solr_use_write_connection: false
+solr_username_read: ''

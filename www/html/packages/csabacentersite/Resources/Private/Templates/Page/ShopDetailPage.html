@@ -1,0 +1,159 @@
+<f:layout name="Page"/>
+
+<f:section name="Main">
+
+	<v:variable.set name="limited" value="{f:cObject(typoscriptObjectPath: 'lib.limited')}" />
+
+	<f:if condition="{limited} == true">
+		<f:then>
+			<f:render section="Limited" arguments="{_all}" />
+		</f:then>
+		<f:else>
+			<f:render section="Default" arguments="{_all}" />
+		</f:else>
+	</f:if>
+
+</f:section>
+
+
+<f:section name="Limited">
+
+	<f:render section="OpeningHours" arguments="{_all}" />
+	<f:render section="Description" arguments="{_all}" />
+	<f:render section="Content" arguments="{_all}" />
+
+</f:section>
+
+
+<f:section name="Default">
+
+	<f:render section="Header" arguments="{_all}" />
+	<f:render section="Navigation" arguments="{_all}" />
+	<f:render section="OpeningHours" arguments="{_all}" />
+	<f:render section="Description" arguments="{_all}" />
+	<f:render section="Content" arguments="{_all}" />
+	<f:render section="Gallery" arguments="{_all}" />
+	<f:render section="Footer" arguments="{_all}" />
+
+</f:section>
+
+
+
+<f:section name="Header">
+
+	<f:render partial="Header/Header" arguments="{pages: pages, rootPageId: rootPageId, page: data, center: center, languages : languages, serviceNavigation: serviceNavigation}"/>
+
+</f:section>
+
+<f:section name="Navigation">
+
+	<f:if condition="{data.no_search} == 1">
+		{v:page.header.meta(name: 'robots', content: 'noindex, nofollow')}
+	</f:if>
+
+	<f:render partial="../Stages/Detail" section="Main" arguments="{page: data}"/>
+	<header class="ttl ttl--page dtl__page-title">
+			<span class="ttl__headline">
+				<f:if condition="{f:cObject(typoscriptObjectPath: 'lib.currentPageTitle')}">
+					<f:then>{f:cObject(typoscriptObjectPath: 'lib.currentPageTitle')}</f:then>
+					<f:else><f:translate key="fe.detailPage.shops.headline" extensionName="csabacentersite"/></f:else>
+				</f:if>
+			</span>
+	</header>
+
+</f:section>
+
+<f:section name="OpeningHours">
+
+    <section class="container-section container-section--separator-bottom">
+        <div class="container-section__content">
+            <div class="dtl-info">
+                <div class="dtl-info__col-1">
+                    <f:render partial="Atoms/MediaFrame"
+                              arguments="{img: '{shop.sender.logo}', crop: '{shop.sender.logo.crop}'}" />
+                </div>
+                <div class="dtl-opening-hours dtl-opening-hours--2-cols dtl-info__col-2">
+
+                    <f:if condition="{limited}">
+                        <f:then>
+                            <f:render partial="Detail/OpeningHoursLimited"
+                                      arguments="{sender: shop.sender, settings: settings, yearlySchedule: shop.yearlySchedule}" />
+                        </f:then>
+                        <f:else>
+                            <f:render partial="Detail/OpeningHours"
+                                      arguments="{sender: shop.sender, settings: settings, yearlySchedule: shop.yearlySchedule}" />
+                        </f:else>
+                    </f:if>
+
+                </div>
+            </div>
+        </div>
+	</section>
+
+</f:section>
+
+<f:section name="Description">
+
+	<section class="dtl-description">
+		<f:if condition="{shop.contentHeadline} || {shop.name}">
+			<f:then>
+				<div class="dtl-title">
+					<h2 class="dtl-title__title"><f:if condition="{shop.contentHeadline}"><f:then>{shop.contentHeadline}</f:then><f:else>{shop.name}</f:else></f:if></h2>
+				</div>
+			</f:then>
+			<f:else>
+				<h2 class="visuallyhidden"><f:translate key="fe.detailPage.description.section.h2" extensionName="csabacentersite"/></h2>
+			</f:else>
+		</f:if>
+
+		<!-- Content -->
+		<div class="dtl-description__content tme-styles">
+
+			<f:if condition="{limited}">
+				<f:then>
+					<f:format.stripTags allowedTags="<p><span><div><script>"> {shop.text} </f:format.stripTags>
+				</f:then>
+				<f:else>
+
+					<f:format.html> {shop.text} </f:format.html>
+
+					<f:if condition="{center.wayfinderActivated} == true">
+						<f:then>
+							<f:render partial="General/Maps/Wayfinder"
+									  arguments="{url: center.wayfinderUrl, shop: shop}" />
+						</f:then>
+						<f:else>
+							<f:render partial="General/Maps/CenterMap"
+									  arguments="{sender: shop.sender, settings: settings, positions: shop.sender.shop.positions}" />
+						</f:else>
+					</f:if>
+				</f:else>
+			</f:if>
+
+		</div>
+	</section>
+
+</f:section>
+
+<f:section name="Content">
+
+	<f:cObject typoscriptObjectPath="lib.content.content" />
+
+</f:section>
+
+<f:section name="Gallery">
+
+	<f:if condition="{shop.contentGallery}">
+		<f:render partial="Gallery/Gallery"arguments="{gallery: shop.contentGallery, settings: settings}"/>
+	</f:if>
+
+</f:section>
+
+<f:section name="Footer">
+
+	<f:cObject typoscriptObjectPath="lib.content.bottom" />
+
+	<f:render partial="Footer/Footer" arguments="{center: center}"/>
+	<f:render partial="RichSnippetsShop" arguments="{_all}"/>
+
+</f:section>

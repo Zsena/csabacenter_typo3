@@ -1,0 +1,24 @@
+<T3DataStructure>
+	<sheets>
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>Function</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<settings.faqs.hideSearch>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:flexform.faqs.search</label>
+							<config>
+								<type>check</type>
+								<default>0</default>
+							</config>
+						</TCEforms>
+					</settings.faqs.hideSearch>
+				</el>
+			</ROOT>
+		</sDEF>
+	</sheets>
+</T3DataStructure>

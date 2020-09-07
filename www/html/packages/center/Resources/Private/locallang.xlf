@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xliff version="1.0">
+	<file datatype="plaintext" date="2017-01-13T14:13:55+02:00" original="messages" product-name="providerece" source-language="en" target-language="en">
+		<header />
+		<body>
+			<trans-unit id="fe.travelPlan.route.title">
+				<source>route</source>
+			  <target>route</target>
+</trans-unit>
+			<trans-unit id="fe.travelPlan.route.startingPoint">
+				<source>Starting point</source>
+			  <target>Starting point</target>
+</trans-unit>
+			<trans-unit id="fe.travelPlan.route.destination">
+				<source>Destination</source>
+			  <target>Destination</target>
+</trans-unit>
+			<trans-unit id="fe.travelPlan.route.calculateRoute">
+				<source>calculate route</source>
+			  <target>calculate route</target>
+</trans-unit>
+			<trans-unit id="fe.teaserWall.category.tx_center_domain_model_records_news.press">
+				<source>Press</source>
+			  <target>Press</target>
+</trans-unit>
+			<trans-unit id="fe.teaserWall.category.tx_center_domain_model_records_news.news">
+				<source>News</source>
+			  <target>News</target>
+</trans-unit>
+			<trans-unit id="fe.teaserWall.category.tx_center_domain_model_records_news">
+				<source>News / Press</source>
+			  <target>News / Press</target>
+</trans-unit>
+			<trans-unit id="fe.teaserWall.category.tx_center_domain_model_records_job">
+				<source>Job</source>
+			  <target>Job</target>
+</trans-unit>
+			<trans-unit id="fe.teaserWall.category.tx_center_domain_model_records_offer">
+				<source>Offer</source>
+			  <target>Offer</target>
+</trans-unit>
+			<trans-unit id="fe.teaserWall.category.tx_center_domain_model_records_event">
+				<source>Event</source>
+			  <target>Event</target>
+</trans-unit>
+			<trans-unit id="fe.teaserWall.category.tx_center_domain_model_records_blog">
+				<source>Blog</source>
+			  <target>Blog</target>
+</trans-unit>
+			<trans-unit id="fe.teaserWall.category.tx_center_domain_model_records_contentteaser">
+				<source>Content</source>
+			  <target>Content</target>
+</trans-unit>
+			<trans-unit id="fe.teaserWall.category.133">
+				<source>Shop</source>
+			  <target>Shop</target>
+</trans-unit>
+			<trans-unit id="fe.teaserWall.category.134">
+				<source>Gastro</source>
+			  <target>Gastro</target>
+</trans-unit>
+			<trans-unit id="fe.hometeaser.button.show_all">
+				<source>Show all</source>
+			  <target>Show all</target>
+</trans-unit>
+			<trans-unit id="fe.hometeaser.button.show_all_shops">
+				<source>Show all shops</source>
+			  <target>Show all shops</target>
+</trans-unit>
+			<trans-unit id="fe.teaserWall.load_more">
+				<source>Load more</source>
+			  <target>Load more</target>
+</trans-unit>
+			<trans-unit id="dtl.location.contact.title">
+				<source>Opening Hours</source>
+			  <target>Opening Hours</target>
+</trans-unit>
+			<trans-unit id="ftr.opening.day1">
+				<source>Monday</source>
+			  <target>Monday</target>
+</trans-unit>
+			<trans-unit id="ftr.opening.day2">
+				<source>Tuesday</source>
+			  <target>Tuesday</target>
+</trans-unit>
+			<trans-unit id="ftr.opening.day3">
+				<source>Wednesday</source>
+			  <target>Wednesday</target>
+</trans-unit>
+			<trans-unit id="ftr.opening.day4">
+				<source>Thursday</source>
+			  <target>Thursday</target>
+</trans-unit>
+			<trans-unit id="ftr.opening.day5">
+				<source>Friday</source>
+			  <target>Friday</target>
+</trans-unit>
+			<trans-unit id="ftr.opening.day6">
+				<source>Saturday</source>
+			  <target>Saturday</target>
+</trans-unit>
+			<trans-unit id="ftr.opening.day7">
+				<source>Sunday</source>
+			  <target>Sunday</target>
+</trans-unit>
+			<trans-unit id="fe.gallery.esc">
+				<source>Close (Esc)</source>
+			  <target>Close (Esc)</target>
+</trans-unit>
+			<trans-unit id="fe.gallery.share">
+				<source>Share</source>
+			  <target>Share</target>
+</trans-unit>
+			<trans-unit id="fe.gallery.toogle">
+				<source>Toggle fullscreen</source>
+			  <target>Toggle fullscreen</target>
+</trans-unit>
+			<trans-unit id="fe.gallery.zoom">
+				<source>Zoom in/out</source>
+			  <target>Zoom in/out</target>
+</trans-unit>
+			<trans-unit id="fe.gallery.previous">
+				<source>Previous (arrow left)</source>
+			  <target>Previous (arrow left)</target>
+</trans-unit>
+			<trans-unit id="fe.gallery.next">
+				<source>Next (arrow right)</source>
+			  <target>Next (arrow right)</target>
+</trans-unit>
+			<trans-unit id="fe.dtlDescription.externalLink">
+				<source>External Link</source>
+			  <target>External Link</target>
+</trans-unit>
+			<trans-unit id="fe.dtlDescription.download">
+				<source>Download</source>
+			  <target>Download</target>
+</trans-unit>
+        	<trans-unit id="fe.teasers.shop.details">
+                <source>Details</source>
+              <target>Details</target>
+</trans-unit>
+        	<trans-unit id="fe.teasers.shop.location">
+                <source>Location</source>
+              <target>Location</target>
+</trans-unit>
+			<trans-unit id="fe.dtlDescription.offerOverview">
+				<source>Offer Overview</source>
+			  <target>Offer Overview</target>
+</trans-unit>
+			<trans-unit id="fe.shopfilter.chooseSubcategory">
+				<source>Choose subcategory</source>
+			  <target>Choose subcategory</target>
+</trans-unit>
+			<trans-unit id="fe.shopfilter.resetSubCategory">
+				<source>No selection</source>
+			  <target>No selection</target>
+</trans-unit>
+			<trans-unit id="fe.shopfilter.chooseCategory">
+				<source>Choose category</source>
+			  <target>Choose category</target>
+</trans-unit>
+			<trans-unit id="fe.shopfilter.search">
+				<source>Search</source>
+			  <target>Search</target>
+</trans-unit>
+			<trans-unit id="fe.shopfilter.placeHolder.shopName">
+				<source>Shop name</source>
+			  <target>Shop name</target>
+</trans-unit>
+			<trans-unit id="fe.maps.centerMap.shopDetailLinkText">
+                <source>Details</source>
+              <target>Details</target>
+</trans-unit>
+        	<trans-unit id="fe.maps.centerMap.websiteLinkText">
+                <source>Website</source>
+              <target>Website</target>
+</trans-unit>
+        <trans-unit id="fe.services.search.results">
+  <source>Results</source>
+</trans-unit>
+<trans-unit id="fe.serviceList.search.results">
+  <source>Results</source>
+  <target>Results</target>
+</trans-unit>
+<trans-unit id="fe.menu.submenu.dropdown.label">
+  <source>Submenu dropdown</source>
+  <target>Submenu dropdown</target>
+</trans-unit>
+<trans-unit id="fe.recordBase.menu.label">
+  <source>Menu dropdown</source>
+  <target>Menu dropdown</target>
+</trans-unit>
+</body>
+	</file>
+</xliff>

@@ -1,0 +1,262 @@
+config.showGA = 1
+
+plugin.tx_center {
+	settings {
+		ajaxCenterPlanLinkTypeNum = {$plugin.tx_center.settings.ajaxCenterPlanLinkTypeNum}
+		ajaxOpeningsTypeNum = {$plugin.tx_center.settings.ajaxOpeningsTypeNum}
+		ajaxTeaserWall = {$plugin.tx_center.settings.ajaxTeaserWall}
+		ajaxGalleryDataTypeNum = {$plugin.tx_center.settings.ajaxGalleryDataTypeNum}
+		ajaxPhotoswipeTemplate = {$plugin.tx_center.settings.ajaxPhotoswipeTemplate}
+		ajaxServiceSearch = {$plugin.tx_center.settings.ajaxServiceSearch}
+		ajaxShopSearch = {$plugin.tx_center.settings.ajaxShopSearch}
+		icalTypeNum = {$plugin.tx_center.settings.icalTypeNum}
+		ajaxBookmarks = {$plugin.tx_center.settings.ajaxBookmarks}
+		allowedImageExtensions = gif,jpg,jpeg,png,svg
+		allowedVideoExtensions = mp4,ogv,wegm
+		allowedExternalVideoExtensions = youtube
+		allowedFileDownloads = zip,ppt,pdf
+		maxNumberHomeTeaser = {$plugin.tx_center.settings.maxNumberHomeTeaser}
+		dateFormat {
+			base = {$plugin.tx_center.settings.dateFormat.base}
+			utc = {$plugin.tx_center.settings.dateFormat.utc}
+			fullMonth = {$plugin.tx_center.settings.dateFormat.fullMonth}
+			baseStrftime= {$plugin.tx_center.settings.dateFormat.baseStrftime}
+		}
+
+		couponPages {
+			couponOverview = {$plugin.tx_center.settings.couponPages.couponOverview}
+			couponConfirm = {$plugin.tx_center.settings.couponPages.couponConfirm}
+			couponRedeem = {$plugin.tx_center.settings.couponPages.couponRedeem}
+		}
+
+		rootPageId = 1
+
+		fe {
+			svgIconsPath =
+			svgIconsMode = inline
+		}
+
+		detailPages {
+			job = 170
+			event = 28
+			news = 123
+			press = 123
+			offer = 171
+			service = 180
+			reference =
+		}
+
+		productsApiDomain = {$plugin.tx_center.settings.productsApiDomain}
+		productsApiMallShortName = {$plugin.tx_center.settings.productsApiMallShortName}
+
+		gallery {
+			breakpoints {
+				xs {
+					max = 250
+				}
+				sm {
+					min = 251
+					max = 500
+				}
+				md {
+					min = 500
+					max = 800
+				}
+				lg {
+					min = 801
+				}
+			}
+			maxImagesByDefault = 4
+		}
+		shopList {
+			cols = 5
+			rows = 4
+			orderBy = 1
+		}
+		serviceList {
+			cols = 4
+			rows = 10
+			orderBy = 1
+		}
+	}
+
+	emailTemplates {
+		SendEmailOpeningsTemplatePath = {$plugin.tx_center.emailTemplates.SendEmailOpeningsTemplatePath}
+		SendEmailOpeningsTemplate = {$plugin.tx_center.emailTemplates.SendEmailOpeningsTemplate}
+		sendEmailGalleries {
+		    receiverName = {$plugin.tx_center.emailTemplates.sendEmailGalleries.receiverName}
+		    receiverEmail = {$plugin.tx_center.emailTemplates.sendEmailGalleries.receiverEmail}
+		    senderName = {$plugin.tx_center.emailTemplates.sendEmailGalleries.senderName}
+		    senderEmail = {$plugin.tx_center.emailTemplates.sendEmailGalleries.senderEmail}
+		    templatePath = {$plugin.tx_center.emailTemplates.sendEmailGalleries.templatePath}
+		    templateName = {$plugin.tx_center.emailTemplates.sendEmailGalleries.templateName}
+		    subject = {$plugin.tx_center.emailTemplates.sendEmailGalleries.subject}
+		}
+		sendEmailGalleriesToCenter {
+		    templateName = {$plugin.tx_center.emailTemplates.sendEmailGalleriesToCenter.templateName}
+		    subject = {$plugin.tx_center.emailTemplates.sendEmailGalleriesToCenter.subject}
+		}
+	}
+
+	view {
+		templateRootPaths.0 = {$plugin.tx_center.view.templateRootPaths.default}
+		partialRootPaths.0 = {$plugin.tx_center.view.partialRootPaths.default}
+		partialRootPaths.10 = {$plugin.tx_providerece.view.partialRootPaths.generic}
+		layoutRootPaths.0 = {$plugin.tx_center.view.layoutRootPaths.default}
+	}
+}
+
+config.tx_extbase {
+	persistence {
+		classes {
+			DigitalZombies\Center\Domain\Model\Shop\Shop {
+				mapping {
+					tableName = pages
+					recordType = 133
+				}
+
+				subclasses {
+					134 = DigitalZombies\Center\Domain\Model\Shop\Gastro
+
+				}
+			}
+
+			DigitalZombies\Center\Domain\Model\Shop\Gastro {
+				mapping {
+					tableName = pages
+					recordType = 134
+				}
+			}
+
+			DigitalZombies\Center\Domain\Model\Records\Blog {
+				mapping {
+					tableName = pages
+					recordType = 135
+				}
+			}
+
+			DigitalZombies\Center\Domain\Model\Records\ContentPageTeaser {
+				mapping {
+					tableName = pages
+					recordType = 1
+				}
+			}
+
+			DigitalZombies\Center\Domain\Model\Records\ContentShortcutTeaser {
+				mapping {
+					tableName = pages
+					recordType = 4
+				}
+			}
+
+			DigitalZombies\Center\Domain\Model\Records\ContentLinkTeaser {
+				mapping {
+					tableName = pages
+					recordType = 3
+				}
+			}
+
+			DigitalZombies\Center\Domain\Model\Records\Job {
+				mapping {
+					recordType = tx_center_domain_model_records_job
+				}
+			}
+
+			DigitalZombies\Center\Domain\Model\Records\News {
+				mapping {
+					recordType = tx_center_domain_model_records_news
+				}
+			}
+
+			DigitalZombies\Center\Domain\Model\Records\Event {
+				mapping {
+					recordType = tx_center_domain_model_records_event
+				}
+			}
+
+			DigitalZombies\Center\Domain\Model\Records\Offer {
+				mapping {
+					recordType = tx_center_domain_model_records_offer
+				}
+			}
+
+			DigitalZombies\Center\Domain\Model\Records\Coupon {
+				mapping {
+					recordType = tx_center_domain_model_records_coupon
+				}
+			}
+
+			DigitalZombies\Center\Domain\Model\Records\Service {
+				mapping {
+					recordType = tx_center_domain_model_records_service
+				}
+			}
+
+			DigitalZombies\Center\Domain\Model\Records\ContentTeaser {
+				mapping {
+					recordType = tx_center_domain_model_records_contentteaser
+				}
+			}
+
+			DigitalZombies\Center\Domain\Model\Records\Banner {
+				mapping {
+					recordType = tx_center_domain_model_records_banner
+				}
+			}
+
+			DigitalZombies\Center\Domain\Model\RecordBase {
+				subclasses {
+					tx_center_domain_model_records_job = DigitalZombies\Center\Domain\Model\Records\Job
+					tx_center_domain_model_records_event = DigitalZombies\Center\Domain\Model\Records\Event
+					tx_center_domain_model_records_service = DigitalZombies\Center\Domain\Model\Records\Service
+					tx_center_domain_model_records_offer = DigitalZombies\Center\Domain\Model\Records\Offer
+					tx_center_domain_model_records_coupon = DigitalZombies\Center\Domain\Model\Records\Coupon
+					tx_center_domain_model_records_news = DigitalZombies\Center\Domain\Model\Records\News
+					tx_center_domain_model_records_contentteaser = DigitalZombies\Center\Domain\Model\Records\ContentTeaser
+					tx_center_domain_model_records_banner = DigitalZombies\Center\Domain\Model\Records\Banner
+					133 = DigitalZombies\Center\Domain\Model\Shop\Shop
+					134 = DigitalZombies\Center\Domain\Model\Shop\Gastro
+					135 = DigitalZombies\Center\Domain\Model\Records\Blog
+					1 = DigitalZombies\Center\Domain\Model\Records\ContentPageTeaser
+					4 = DigitalZombies\Center\Domain\Model\Records\ContentShortcutTeaser
+					3 = DigitalZombies\Center\Domain\Model\Records\ContentLinkTeaser
+				}
+			}
+
+			DigitalZombies\Center\Domain\Model\PushNotification\PushNotification {
+				subclasses {
+					subclasses {
+						1 = DigitalZombies\Center\Domain\Model\PushNotification\CenterPushNotification
+						2 = DigitalZombies\Center\Domain\Model\PushNotification\MultiCenterPushNotification
+						3 = DigitalZombies\Center\Domain\Model\PushNotification\GlobalPushNotification
+					}
+				}
+			}
+
+			DigitalZombies\Center\Domain\Model\PushNotification\CenterPushNotification {
+				mapping {
+					tableName = tx_center_domain_model_pushnotification
+					recordType = 1
+				}
+			}
+
+			DigitalZombies\Center\Domain\Model\PushNotification\MultiCenterPushNotification {
+				mapping {
+					tableName = tx_center_domain_model_pushnotification
+					recordType = 2
+				}
+			}
+
+			DigitalZombies\Center\Domain\Model\PushNotification\GlobalPushNotification {
+				mapping {
+					tableName = tx_center_domain_model_pushnotification
+					recordType = 3
+				}
+			}
+		}
+	}
+}
+
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:center/Configuration/TypoScript/PageTypes/pageType.t3s">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:center/Configuration/TypoScript/Linkhandler/setup.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:center/Configuration/TypoScript/Bookmarks/setup.txt">

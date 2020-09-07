@@ -1,0 +1,11 @@
+config.sourceopt {
+	enabled = 1
+	removeComments = 1
+	removeGenerator = 1
+	removeBlurScript = 1
+	formatHtml = 2
+	removeComments.keep {
+		10 = /\[.*\]/
+		20 = /^TYPO3SEARCH_/usi
+	}
+}

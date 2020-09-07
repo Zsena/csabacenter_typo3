@@ -1,0 +1,7 @@
+{namespace cm=DigitalZombies\Center\ViewHelpers}
+
+<f:for each="{items}" as="item">
+	<div class="pge-wall__item {f:if(condition: item.columnClassName,then: 'pge-wall__item{item.columnClassName}')}" {cm:app(visibility:'{item.hideInApp}')}>
+		<f:render partial="Teasers/{item.partialName}" arguments="{item:item, settings: settings}" />
+	</div>
+</f:for>

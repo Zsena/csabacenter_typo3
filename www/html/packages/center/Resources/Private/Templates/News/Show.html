@@ -1,0 +1,64 @@
+{namespace p=DigitalZombies\Providerece\ViewHelpers}
+<header class="ttl ttl--page dtl__page-title">
+	<h2 class="ttl__headline">
+		<f:if condition="{f:cObject(typoscriptObjectPath: 'lib.currentPageSubtitle')}">
+			<f:then>{f:cObject(typoscriptObjectPath: 'lib.currentPageSubtitle')}</f:then>
+			<f:else><f:translate key="fe.detailPage.news.headline" extensionName="providerece"/></f:else>
+		</f:if>
+	</h2>
+</header>
+<f:if condition="{news}">
+	<f:render partial="General/DetailStageMedia" arguments="{media: news.contentStagemedia}" />
+
+	<f:comment>NEWS and PRESS</f:comment>
+	<article class="dtl-description">
+		<header class="dtl-header dtl-description__header">
+
+			<f:comment>Title</f:comment>
+			<div class="dtl-title">
+				<div class="dtl-title__upper">
+					<h2 class="dtl-title__title">{news.title}</h2>
+					<div class="dtl-title__author">{news.sender.name}</div>
+				</div>
+				<span class="dtl-title__subtitle">
+					<f:if condition="{news.starttime}">
+						<f:format.date format="{settings.dateFormat.base}">{news.starttime}</f:format.date>
+					</f:if>
+				</span>
+			</div>
+
+		</header>
+
+		<f:comment>Abstract / Lead text</f:comment>
+		<f:if condition="{news.contentAbstract}">
+			<p class="dtl-description__lead">{news.contentAbstract}</p>
+		</f:if>
+
+		<f:comment>Content</f:comment>
+		<div class="dtl-description__content tme-styles">
+			<f:format.html> {news.contentPrologue} </f:format.html>
+
+			<f:comment>App Stores Links</f:comment>
+			<f:render partial="Detail/AppStores" arguments="{service: news}"/>
+
+			<f:render partial="General/ContentImage" arguments="{image: news.contentImage}" />
+			<f:format.html> {news.contentEpilogue} </f:format.html>
+			<f:render partial="General/ContentVideo" arguments="{video: news.contentVideo, width: 720, height: 395}" />
+		</div>
+
+		<f:comment>Download Buttons</f:comment>
+		<f:render partial="Detail/DownloadButtons"
+			arguments="{contentDownloadlink: news.contentDownloadlink,
+				contentDownloadlinktext: news.contentDownloadlinktext,
+				contentDownloadfile: news.contentDownloadfile,
+				contentDownloadfiletext: news.contentDownloadfiletext}" />
+	</article>
+
+	<f:comment>Gallery</f:comment>
+	<f:if condition="{news.contentGallery}">
+	<f:render partial="Gallery/Gallery" arguments="{gallery: news.contentGallery}" />
+	</f:if>
+
+	<f:comment>"Lageplan" or "An-/Abfahrt" Module</f:comment>
+	<f:render partial="General/Map" arguments="{sender: news.sender, directions: directions, settings: settings}" />
+</f:if>

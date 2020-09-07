@@ -1,0 +1,20 @@
+{
+    "name": "digital-zombies/csabacentersite",
+    "type": "typo3-cms-extension",
+    "description": "Extension to manage the frontend",
+    "authors": [
+        {
+            "name": "András Ottó",
+            "email": "andras.ott@digital-zombies.com",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "DigitalZombies\\Csabacentersite\\": "Classes"
+        }
+    },
+    "replace": {
+        "csabacentersite": "*"
+    }
+}

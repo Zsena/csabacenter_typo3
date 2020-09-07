@@ -1,0 +1,170 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:c="DigitalZombies\Center\ViewHelpers"
+      data-namespace-typo3-fluid="true">
+<f:if condition="{reference}">
+  <div class="sts-stage__container">
+    <article class="sts-stage" data-module="carousel"
+             data-module-options="{&quot;loop&quot;:&quot;true&quot;,&quot;margin&quot;:0,&quot;autoplayHoverPause&quot;:&quot;true&quot;,&quot;autoplayTimeout&quot;:7000,&quot;autoplaySpeed&quot;:500,&quot;navSpeed&quot;:800,&quot;dotsSpeed&quot;:800}">
+      <f:for each="{reference.slides}" as="slide">
+        <article class="sts-item {f:if(condition: '{slide.invertColor}', then: 'sts-item--inverted')}">
+          <f:if condition="{slide.media}">
+            <div class="sts-item__media">
+              <f:if condition="{slide.media.type} == 4">
+                <f:then>
+                  <video loop="loop" muted="muted" autoplay="autoplay">
+                    <source src="/{slide.media.url}"
+                            poster="{f:uri.image(src: 'hero.uid', width: '1600px')}" type="video/mp4">
+                  </video>
+                  <f:if condition="{slide.mediaPoster}">
+                    <img alt="{slide.mediaPoster.originalResource.alternative}" title="{slide.mediaPoster.originalResource.title}" class="sts-item__image sts-item__image--poster"
+                         src="{f:uri.image(src: '{slide.mediaPoster.uid}',  treatIdAsReference: '1', cropVariant: 'default', width: '768')}"
+                         srcset="{f:uri.image(src: '{slide.mediaPoster.uid}',  treatIdAsReference: '1', cropVariant: 'default', width: '768')} 768w,
+						{f:uri.image(src: '{slide.mediaPoster.uid}',  treatIdAsReference: '1', cropVariant: 'default', width: '1024')} 1024w,
+						{f:uri.image(src: '{slide.mediaPoster.uid}',  treatIdAsReference: '1', cropVariant: 'default', width: '1900')} 1900w"
+                         sizes="100vw" >
+                  </f:if>
+
+                </f:then>
+                <f:else>
+                  <picture>
+                    <source srcset="{f:uri.image(src: '{slide.media.uid}', treatIdAsReference: '1', cropVariant:'default', width: '1600')}"
+                            media="(min-width: 1200px)">
+                    <img alt="{slide.media.originalResource.alternative}" title="{slide.media.originalResource.title}" class="sts-item__image"
+                         src="{f:uri.image(src: '{slide.media.uid}',  treatIdAsReference: '1', cropVariant: 'mobile', width: '768')}"
+                         srcset="{f:uri.image(src: '{slide.media.uid}',  treatIdAsReference: '1', cropVariant: 'mobile', width: '768')} 768w,
+						{f:uri.image(src: '{slide.media.uid}',  treatIdAsReference: '1', cropVariant: 'mobile', width: '1024')} 1024w,
+						{f:uri.image(src: '{slide.media.uid}',  treatIdAsReference: '1', cropVariant: 'mobile', width: '1900')} 1900w"
+                         sizes="100vw" >
+                  </picture>
+                </f:else>
+              </f:if>
+            </div>
+          </f:if>
+          <div class="sts-item__body">
+            <f:if condition="{slide.title}">
+              <h2 class="headline-1 sts-item__headline">{slide.title}</h2>
+            </f:if>
+            <f:if condition="{slide.subtitle}">
+              <div class="sts-item__text">{slide.subtitle}</div>
+            </f:if>
+          </div>
+        </article>
+      </f:for>
+    </article>
+  </div>
+
+  <section class="container-section container-section--narrow">
+    <header class="container-section__header ttl ttl--section">
+      <h2 class="ttl__headline">
+        <f:translate key="fe.reference.mission.title" extensionName="center"/>
+      </h2>
+    </header>
+    <div class="container-section__content">
+      <div>
+        <article class="dtl-info undefined">
+          <f:if condition="{reference.missionLogo}">
+            <div class="dtl-info__col-1">
+              <div class="mda-frame  dtl-info__logo">
+                <div class="mda-frame__container">
+                  <f:image src="{reference.missionLogo.uid}" treatIdAsReference="1" class="mda-frame__media"/>
+                </div>
+              </div>
+            </div>
+          </f:if>
+          <div class="dtl-info__col-2">
+            <f:if condition="{reference.missionCopy}">
+              <section class="tme-styles">
+                <f:format.html>{reference.missionCopy}</f:format.html>
+              </section>
+            </f:if>
+          </div>
+        </article>
+      </div>
+      <f:if condition="{reference.missionText}">
+		<hr>
+		<section>
+			<h4 class="heading-4"><f:translate key="fe.reference.mission.subTitle" extensionName="center"/></h4>
+	        <ul class="tme-list tme-list--check">
+	          <f:for each="{reference.missionText -> f:format.nl2br() -> v:iterator.explode(glue: '<br />')}"
+	                 as="bulletPoint">
+	            <li>{bulletPoint}</li>
+	          </f:for>
+	        </ul>
+		</section>
+      </f:if>
+    </div>
+  </section>
+  <section class="container-section container-section--narrow container-section--alternate">
+    <header class="container-section__header ttl ttl--section">
+      <h3 class="ttl__headline">
+        <f:translate key="fe.reference.implementation.title" extensionName="center"/>
+      </h3>
+    </header>
+    <div class="container-section__content">
+      <section class="tme-styles">
+        <f:if condition="{reference.implementationCopy}">
+          <f:format.html>{reference.implementationCopy}</f:format.html>
+        </f:if>
+      </section>
+      <f:if condition="{reference.tables -> f:count()} > 0">
+        <f:for each="{reference.tables}" as="table">
+          <article>
+            <f:if condition="{table.title}">
+              <h3 class="headline-3">{table.title}</h3>
+            </f:if>
+            <dl class="tme-deflist">
+            <f:for each="{table.tableRows}" as="tableRow">
+
+                <div class="tme-deflist__item">
+                  <dt class="tme-deflist__dt">{tableRow.title}</dt>
+                  <dd class="tme-deflist__dd">{tableRow.text}</dd>
+                </div>
+            </f:for>
+            </dl>
+          </article>
+        </f:for>
+      </f:if>
+      <f:render partial="Molecules/GalleryMall"
+                arguments="{heroImage: reference.heroImage, images: reference.images, settings: settings}"/>
+      <f:if condition="{reference.downloadButtons}">
+        <div class="btc-bar">
+          <div class="btc-bar__width-adjust">
+            <f:for each="{reference.downloadButtons}" as="downloadButton">
+              <f:link.typolink parameter="{downloadButton.link}" class="btn btn--icon btn--light">
+              <span class="btn__inner">
+                <f:if condition="{downloadButton.icon}">
+                  <span class="btn__icon">
+                    <c:svg path="{settings.fe.svgIconsPath}" name="{downloadButton.icon}"
+                           mode="{settings.fe.svgIconsMode}"/>
+                  </span>
+                </f:if>
+                <span class="btn__label">{downloadButton.title}</span>
+              </span>
+              </f:link.typolink>
+            </f:for>
+          </div>
+        </div>
+      </f:if>
+    </div>
+  </section>
+  <f:variable name="carousel-options"
+              value='{"loop":"true","margin":0,"autoplay":"true","autoplayHoverPause":"true","autoplayTimeout":7000,"autoplaySpeed":500,"navSpeed":800,"dotsSpeed":800}'
+  />
+  <f:if condition="{reference.relatedReferences}">
+    <section class="tsr-grp tsr-grp--category tsr-grp-theme--light">
+      <header class="ttl ttl--section">
+        <h2 class="ttl__headline">
+          <f:translate key="fe.reference.teaser.title" extensionName="center"/>
+        </h2>
+      </header>
+      <div class="tsr-grp__teasers" data-module="carousel|lazy-load" data-lazy-load-aggregate="true" data-module-options="{carousel-options -> f:format.json()}">
+        <f:for each="{reference.relatedReferences}" as="reference">
+          <div class="tsr-grp__teaser">
+            <f:render partial="Teasers/Reference" arguments="{item:reference, settings: settings}" />
+          </div>
+        </f:for>
+      </div>
+    </section>
+  </f:if>
+</f:if>
+</html>

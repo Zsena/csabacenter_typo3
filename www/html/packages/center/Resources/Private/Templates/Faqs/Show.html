@@ -1,0 +1,15 @@
+<div class="content-container section-margin" {f:if(condition: '{hideSearch} == 0', then: 'data-module="filter"')}>
+<f:if condition="{hideSearch} == 0">
+	{f:translate(extensionName: 'providerece', key: 'fe.faq.search.placeholder') -> f:variable(name: 'placeholder')}
+	<f:render partial="Atoms/InputSearch" arguments="{class: 'js-filter-filter', placeholder: '{placeholder}'}" />
+</f:if>
+<f:for each="{faqs}" as="section" key="title">
+	<section class="acc-section acc-section--no-js section-margin inp-filter-element js-filter-root" data-module="accordion">
+		<h2 class="acc-section__title headline-3 ttl--subsection">{title}</h2>
+		<f:for each="{section}" as="item">
+			<f:render partial="Atoms/AccordionElement"
+					  arguments="{title: '{item.question}', body: '{item.answer}', class: 'inp-filter-element'}" />
+		</f:for>
+	</section>
+</f:for>
+</div>

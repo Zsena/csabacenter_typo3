@@ -1,0 +1,51 @@
+<section class="tsr-grp tsr-grp--category tsr-grp-theme--{settings.hometeaser.style}">
+    <f:if condition="{settings.hometeaser.backgroundImage}">
+        <picture>
+            <source srcset="{f:uri.image(src: '{settings.hometeaser.backgroundImage}', treatIdAsReference: 'true', width: '1600', height: '700c')}, {f:uri.image(src: '{settings.hometeaser.backgroundImage}', treatIdAsReference: 'true', width: 2000)} 2x" media="(min-width: 1200px)">
+            <source srcset="{f:uri.image(src: '{settings.hometeaser.backgroundImage}', treatIdAsReference: 'true', width: '1200', height: '700c')}, {f:uri.image(src: '{settings.hometeaser.backgroundImage}', treatIdAsReference: 'true', width: '1200', height: '1400c')} 2x" media="(min-width: 992px)">
+            <source srcset="{f:uri.image(src: '{settings.hometeaser.backgroundImage}', treatIdAsReference: 'true', width: '880', height: '700c')}, {f:uri.image(src: '{settings.hometeaser.backgroundImage}', treatIdAsReference: 'true', width: '1984', height: '1400c')} 2x" media="(min-width: 768px)">
+            <source srcset="{f:uri.image(src: '{settings.hometeaser.backgroundImage}', treatIdAsReference: 'true', width: '543', height: '625c')}, {f:uri.image(src: '{settings.hometeaser.backgroundImage}', treatIdAsReference: 'true', width: '1086', height: '1250c')} 2x" media="(max-width: 767px)">
+            <f:image width="1600" height="700c" src="{settings.hometeaser.backgroundImage}" treatIdAsReference="true" class="tsr-grp__bg-image"/>
+        </picture>
+    </f:if>
+    <header class="ttl ttl--section">
+        <h2 class="ttl__headline">{settings.teaserwall.headline}</h2>
+    </header>
+    <f:if condition="{items}">
+        <f:then>
+            <div class="tsr-grp__teasers" data-module="carousel|lazy-load" data-lazy-load-aggregate="true" data-module-options="{&quot;margin&quot;: 0, &quot;autoplay&quot;: 'true', &quot;autoplayHoverPause&quot;: true}">
+                <f:for each="{items}" as="teaser">
+                    <div class="tsr-grp__teaser">
+                        <f:render partial="Teasers/{teaser.partialName}" arguments="{item:teaser, settings: settings, omitLazyLoadScript: 'true'}" />
+                    </div>
+                </f:for>
+            </div>
+        </f:then>
+        <f:else>
+            <div class="tsr-grp__no-results">
+                <f:translate key="fe.teaserWall.no_interests" extensionName="center"/>
+            </div>
+        </f:else>
+    </f:if>
+
+    <f:if condition="{settings.teaserwall.buttonLink}">
+        <section class="btc-bar">
+            <h3 class="visuallyhidden">
+                <f:if condition="{settings.teaserwall.buttonText}">
+                    <f:then>{settings.teaserwall.buttonText}</f:then>
+                    <f:else><f:translate key="fe.hometeaser.button.show_all" extensionName="center"/></f:else>
+                </f:if>
+            </h3>
+            <div class="btc-bar__width-adjust">
+                <f:link.typolink parameter="{settings.teaserwall.buttonLink}" class="btn btn--light">
+                    <span class="btn__label">
+                        <f:if condition="{settings.teaserwall.buttonText}">
+                            <f:then>{settings.teaserwall.buttonText}</f:then>
+                            <f:else><f:translate key="fe.hometeaser.button.show_all" extensionName="center"/></f:else>
+                        </f:if>
+                    </span>
+                </f:link.typolink>
+            </div>
+        </section>
+    </f:if>
+</section>

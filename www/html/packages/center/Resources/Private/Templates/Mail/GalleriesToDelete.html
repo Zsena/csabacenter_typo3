@@ -1,0 +1,20 @@
+{namespace c=DigitalZombies\Center\ViewHelpers}
+<table>
+    <tr>
+        <td>Bildergalerien, die bald gelöscht werden:</td>
+    </tr>
+    <tr>
+        <td></td>
+    </tr>
+    <td>
+        <td>
+            <ul>
+            <f:for each="{galleries}" as="gallery">
+                <li>
+                    Löschdatum: <f:format.date format="j. F Y">{gallery.endtime}</f:format.date> | Center: {gallery.center.centerName} | Pid : {gallery.pid} | {gallery.name}  | GalleryUID: {gallery.uid}
+                </li>
+            </f:for>
+            </ul>
+        </td>
+    </tr>
+</table>

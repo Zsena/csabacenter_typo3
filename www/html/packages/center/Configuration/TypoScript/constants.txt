@@ -1,0 +1,56 @@
+plugin.tx_center {
+	settings {
+		ajaxCenterPlanLinkTypeNum = 19654
+		ajaxOpeningsTypeNum = 19655
+		ajaxTeaserWall = 19656
+		ajaxGalleryDataTypeNum = 19657
+		ajaxPhotoswipeTemplate = 19658
+		ajaxServiceSearch = 19659
+		ajaxShopSearch = 19660
+		ajaxCouponRedeem = 19661
+		ajaxShopListAll = 210345
+		appContentV1_0_0 = 333390145
+		appContentV1_0_1 = 333390146
+		icalTypeNum = 84525
+		ajaxBookmarks = 19800923
+		maxNumberHomeTeaser = 6
+		dateFormat {
+			base = d.m.Y
+			utc = %G-%m-%dT%H:%M%z
+			fullMonth = %d. %B %Y
+			baseStrftime = %d.%m.%Y
+		}
+		couponPages {
+			couponOverview = 92467
+			couponConfirm = 92470
+			couponRedeem = 92471
+		}
+
+		productsApiDomain =
+		productsApiMallShortName = AEZ
+	}
+
+	emailTemplates {
+		SendEmailOpeningsTemplatePath = EXT:center/Resources/Private/Templates/Mail
+		SendEmailOpeningsTemplate = MailOpenings
+		sendEmailGalleries {
+            receiverName = support@digitalservice.center
+            receiverEmail = support@digitalservice.center
+            senderName = noreply@typo3backend.ece.com
+            senderEmail = noreply@typo3backend.ece.com
+            templatePath = EXT:center/Resources/Private/Templates/Mail
+            templateName = GalleriesToDelete
+            subject = ECE :: Prüfung der Bildergalerien
+        }
+        sendEmailGalleriesToCenter {
+            templateName = GalleriesToDeleteCenter
+            subject = Bevorstehende Löschung einer Bildergalerie auf Ihrer Website // Upcoming deletion of a picture gallery on your website
+        }
+	}
+
+	view {
+		templateRootPaths.default = EXT:center/Resources/Private/Templates/
+		partialRootPaths.default = EXT:center/Resources/Private/Partials/
+		layoutRootPaths.default = EXT:center/Resources/Private/Layouts/
+	}
+}

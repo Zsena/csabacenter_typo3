@@ -1,0 +1,63 @@
+TCEMAIN.preview {
+    tx_center_domain_model_records_offer {
+        previewPageId = 0
+        useDefaultLanguageRecord = 0
+        fieldToParameterMap {
+            uid = tx_center_preview[uid]
+        }
+        additionalGetParameters {
+            tx_center_preview.table = tx_center_domain_model_records_offer
+            tx_center_preview.controller = Preview
+            tx_center_preview.action = list
+            tx_center_preview.teaser_format = 1
+        }
+    }
+    tx_center_domain_model_records_job {
+        previewPageId = 0
+        useDefaultLanguageRecord = 0
+        fieldToParameterMap {
+            uid = tx_center_preview[uid]
+        }
+        additionalGetParameters {
+            tx_center_preview.table = tx_center_domain_model_records_job
+            tx_center_preview.controller = Preview
+            tx_center_preview.action = list
+        }
+    }
+    tx_center_domain_model_records_news {
+        previewPageId = 0
+        useDefaultLanguageRecord = 0
+        fieldToParameterMap {
+            uid = tx_center_preview[uid]
+        }
+        additionalGetParameters {
+            tx_center_preview.table = tx_center_domain_model_records_news
+            tx_center_preview.controller = Preview
+            tx_center_preview.action = list
+        }
+    }
+    tx_center_domain_model_records_event {
+        previewPageId = 0
+        useDefaultLanguageRecord = 0
+        fieldToParameterMap {
+            uid = tx_center_preview[uid]
+        }
+        additionalGetParameters {
+            tx_center_preview.table = tx_center_domain_model_records_event
+            tx_center_preview.controller = Preview
+            tx_center_preview.action = list
+        }
+    }
+    tx_center_domain_model_records_coupon {
+        previewPageId = 0
+        useDefaultLanguageRecord = 0
+        fieldToParameterMap {
+            uid = tx_center_preview[uid]
+        }
+        additionalGetParameters {
+            tx_center_preview.table = tx_center_domain_model_records_coupon
+            tx_center_preview.controller = Preview
+            tx_center_preview.action = list
+        }
+    }
+}

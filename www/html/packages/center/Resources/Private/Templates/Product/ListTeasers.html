@@ -1,0 +1,7 @@
+<div class='tsr-grp__teasers fade-in' data-module='productCarousel|lazy-load' data-module-options='{"loop": false, "dots": false}' data-lazy-load-aggregate='true'>
+<f:for each="{products}" as="product">
+	<div class='tsr-grp__teaser'>
+    <f:render partial="Teasers/Product" arguments="{product: product}" />
+	</div>
+</f:for>
+</div>

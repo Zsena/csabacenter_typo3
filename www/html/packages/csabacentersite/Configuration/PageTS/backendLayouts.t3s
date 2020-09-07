@@ -1,0 +1,220 @@
+mod.web_layout.BackendLayouts {
+	defaultPage {
+		title = LLL:EXT:csabacentersite/Resources/Private/Language/backendLayouts.xlf:backendLayouts.default
+		icon = EXT:csabacentersite/Resources/Public/Icons/Backend/Layouts/defaultPage.png
+		config {
+			backend_layout {
+				colCount = 1
+				rowCount = 2
+				rows {
+					1 {
+						columns {
+							1 {
+								name = LLL:EXT:csabacentersite/Resources/Private/Language/backendLayouts.xlf:backendLayouts.colPos.1
+								colPos = 1
+							}
+						}
+					}
+
+					2 {
+						columns {
+							1 {
+								name = LLL:EXT:csabacentersite/Resources/Private/Language/backendLayouts.xlf:backendLayouts.colPos.0
+								colPos = 0
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+    contentPage {
+        title = LLL:EXT:csabacentersite/Resources/Private/Language/backendLayouts.xlf:backendLayouts.content
+        icon = EXT:csabacentersite/Resources/Public/Icons/Backend/Layouts/defaultPage.png
+        config {
+            backend_layout {
+                colCount = 1
+                rowCount = 1
+                rows {
+
+                    1 {
+                        columns {
+                            1 {
+                                name = LLL:EXT:csabacentersite/Resources/Private/Language/backendLayouts.xlf:backendLayouts.colPos.0
+                                colPos = 0
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+	detailPage {
+        title = LLL:EXT:csabacentersite/Resources/Private/Language/backendLayouts.xlf:backendLayouts.detail
+        icon = EXT:csabacentersite/Resources/Public/Icons/Backend/Layouts/defaultPage.png
+        config {
+            backend_layout {
+                colCount = 1
+                rowCount = 1
+                rows {
+                    1 {
+                        columns {
+                            1 {
+                                name = LLL:EXT:csabacentersite/Resources/Private/Language/backendLayouts.xlf:backendLayouts.colPos.0
+                                colPos = 0
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+	plainPage {
+		title = LLL:EXT:csabacentersite/Resources/Private/Language/backendLayouts.xlf:backendLayouts.plain
+		icon = EXT:csabacentersite/Resources/Public/Icons/Backend/Layouts/defaultPage.png
+		config {
+			backend_layout {
+				colCount = 1
+				rowCount = 1
+				rows {
+					1 {
+						columns {
+							1 {
+								name = LLL:EXT:csabacentersite/Resources/Private/Language/backendLayouts.xlf:backendLayouts.colPos.0
+								colPos = 0
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	shopDetailPage {
+		title = LLL:EXT:csabacentersite/Resources/Private/Language/backendLayouts.xlf:backendLayouts.shopDetail
+		icon = EXT:csabacentersite/Resources/Public/Icons/Backend/Layouts/defaultPage.png
+		config {
+			backend_layout {
+				colCount = 1
+				rowCount = 2
+				rows {
+					1 {
+						columns {
+							1 {
+								name = LLL:EXT:csabacentersite/Resources/Private/Language/backendLayouts.xlf:backendLayouts.colPos.0
+								colPos = 0
+							}
+						}
+					}
+					2 {
+						columns {
+							1 {
+								name = LLL:EXT:csabacentersite/Resources/Private/Language/backendLayouts.xlf:backendLayouts.colPos.2
+								colPos = 2
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	shopListPage {
+		title = LLL:EXT:csabacentersite/Resources/Private/Language/backendLayouts.xlf:backendLayouts.shopListPage
+		icon = EXT:csabacentersite/Resources/Public/Icons/Backend/Layouts/defaultPage.png
+		config {
+			backend_layout {
+				colCount = 1
+				rowCount = 3
+				rows {
+					1 {
+						columns {
+							1 {
+								name = LLL:EXT:csabacentersite/Resources/Private/Language/backendLayouts.xlf:backendLayouts.colPos.11
+								colPos = 11
+							}
+						}
+					}
+					2 {
+						columns {
+							1 {
+								name = LLL:EXT:csabacentersite/Resources/Private/Language/backendLayouts.xlf:backendLayouts.colPos.13
+								colPos = 13
+							}
+						}
+					}
+					3 {
+						columns {
+							1 {
+								name = LLL:EXT:csabacentersite/Resources/Private/Language/backendLayouts.xlf:backendLayouts.colPos.12
+								colPos = 12
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	serviceListPage {
+		title = LLL:EXT:csabacentersite/Resources/Private/Language/backendLayouts.xlf:backendLayouts.serviceListPage
+		icon = EXT:csabacentersite/Resources/Public/Icons/Backend/Layouts/defaultPage.png
+		config {
+			backend_layout {
+				colCount = 1
+				rowCount = 2
+				rows {
+					1 {
+						columns {
+							1 {
+								name = LLL:EXT:csabacentersite/Resources/Private/Language/backendLayouts.xlf:backendLayouts.colPos.11
+								colPos = 11
+							}
+						}
+					}
+					2 {
+						columns {
+							1 {
+								name = LLL:EXT:csabacentersite/Resources/Private/Language/backendLayouts.xlf:backendLayouts.colPos.12
+								colPos = 12
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	newsletter {
+		title = LLL:EXT:csabacentersite/Resources/Private/Language/backendLayouts.xlf:backendLayouts.newsletter
+		icon = EXT:csabacentersite/Resources/Public/Icons/Backend/Layouts/defaultPage.png
+		config {
+			backend_layout {
+				colCount = 1
+				rowCount = 2
+				rows {
+					1 {
+						columns {
+							1 {
+								name = LLL:EXT:csabacentersite/Resources/Private/Language/backendLayouts.xlf:backendLayouts.colPos.14
+								colPos = 14
+							}
+						}
+					}
+
+					2 {
+						columns {
+							1 {
+								name = LLL:EXT:csabacentersite/Resources/Private/Language/backendLayouts.xlf:backendLayouts.colPos.0
+								colPos = 15
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

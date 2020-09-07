@@ -1,0 +1,42 @@
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:csabacentersite/Configuration/PageTS/RTE.t3s">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:csabacentersite/Configuration/PageTS/content.t3s">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:csabacentersite/Configuration/PageTS/backendLayouts.t3s">
+
+
+#### LAYOUTS ####
+TCEFORM {
+   pages {
+      layout.removeItems = 0,1,2,3
+   }
+}
+
+# disable copy labeling
+TCEMAIN {
+   table {
+      pages.disablePrependAtCopy = 1
+      tt_content.disablePrependAtCopy = 1
+   }
+}
+
+
+TCEFORM.tx_center_domain_model_records_offer.centers.PAGE_TSCONFIG_STR = _strict
+TCEFORM.tx_center_domain_model_records_event.centers.PAGE_TSCONFIG_STR = _strict
+TCEFORM.tx_center_domain_model_records_news.centers.PAGE_TSCONFIG_STR = _strict
+TCEFORM.tx_center_domain_model_records_coupon.centers.PAGE_TSCONFIG_STR = _strict
+TCEFORM.tx_center_domain_model_records_job.centers.PAGE_TSCONFIG_STR = _strict
+
+# configuration of CKEditor for provider and all other extensions tables EXT:csabacentersite/Configuration/PageTs/Custom.yaml
+RTE.default.preset = default
+RTE.config.tt_content.bodytext.preset = default
+RTE.tt_content.types.textmedia.bodytext.preset = default
+
+TCEMAIN.permissions {
+   # User can do anything (default):
+   user = 31
+   # Group can do anything
+   # (normally "delete" is disabled)
+   group = 31
+   # Everybody can at least see the page and edit content
+   # (normally everybody can do nothing)
+   everybody = 17
+}

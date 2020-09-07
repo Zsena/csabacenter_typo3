@@ -1,0 +1,50 @@
+{namespace cm=DigitalZombies\Center\ViewHelpers}
+
+<f:if condition="{settings.hometeaser.sliderspeed}">
+	<f:switch expression="{settings.hometeaser.sliderspeed}">
+		<f:case value="slow">
+			<f:variable name="carousel-options"
+							value='{"loop":"true","margin":0,"autoplay":"true","autoplayHoverPause":"true","autoplayTimeout":8000,"autoplaySpeed":500,"navSpeed":800,"dotsSpeed":800}'
+			/>
+		</f:case>
+		<f:case value="medium">
+			<f:variable name="carousel-options"
+							value='{"loop":"true","margin":0,"autoplay":"true","autoplayHoverPause":"true","autoplayTimeout":7000,"autoplaySpeed":500,"navSpeed":800,"dotsSpeed":800}'
+			/>
+		</f:case>
+		<f:case value="fast">
+			<f:variable name="carousel-options"
+							value='{"loop":"true","margin":0,"autoplay":"true","autoplayHoverPause":"true","autoplayTimeout":3200,"autoplaySpeed":650,"navSpeed":650,"dotsSpeed":450}'
+			/>
+		</f:case>
+	</f:switch>
+</f:if>
+
+
+
+<section class="section layout_padding tsr_theme_gray">
+    <div class="container-fluid layout_padding">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="full">
+                    <div class="heading_main text_align_center">
+                        <h2><span class="theme_color"></span>{settings.hometeaser.headline}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	<div class="news_slider">
+		<f:if condition="{teasers}">
+			<f:then>
+				<f:for each="{teasers}" as="item">
+					<f:render partial="Teasers/{teaser.partialName}" arguments="{item:teaser, settings: settings}" />
+				</f:for>
+			</f:then>
+			<f:else>
+				<f:translate key="fe.teaserWall.no_results" extensionName="center"/>
+			</f:else>
+		</f:if>
+	</div>
+</section>
+

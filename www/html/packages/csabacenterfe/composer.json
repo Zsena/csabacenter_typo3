@@ -1,0 +1,13 @@
+{
+    "name": "digital-zombies/csabacenterfe",
+    "type": "library",
+    "description": "To strat FE",
+    "authors": [
+        {
+            "name": "Róbert Nagy",
+            "email": "robert.nagy@digital-zombies.com",
+            "role": "Developer"
+        }
+    ],
+    "license": "UNLICENSED"
+}

@@ -1,0 +1,29 @@
+//-----------------------------------------//
+// general settings                        //
+//-----------------------------------------//
+
+config {
+	# caching period
+	cache_period = 86400
+	doctype = html5
+	# language settings
+	linkVars = L
+	uniqueLinkVars = 1
+
+	index_enable = 1
+
+	simulateStaticDocuments = 0
+	removeDefaultCss = 1
+	noPageTitle = 0
+
+	concatenateCss = 1
+
+	#Default enable GA, it can be turn off for AJAX requests
+	showGA = 1
+
+	typolinkCheckRootline = 1
+	typolinkEnableLinksAcrossDomains = 1
+	linkVars = L(0|1|2|4|5|7|10|12|13|16|18|21|23|26|28|31)
+}
+
+

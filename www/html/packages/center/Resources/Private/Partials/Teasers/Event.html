@@ -1,0 +1,75 @@
+{namespace cm=DigitalZombies\Center\ViewHelpers}
+<article class="tsr-transparent tsr-transparent--event tsr-transparent{item.columnClassName}"
+         {cm:app(visibility: '{item.hideInApp}')}>
+<div class="tsr__category tsr-transparent__category-floating">
+    <f:translate key="fe.teaserWall.category.tx_center_domain_model_records_event"
+                 extensionName="center"
+    />
+</div>
+
+<f:if condition="{item.isPreview}">
+    <f:then>
+        <f:link.action
+                class="tsr__container tsr-transparent__container"
+                action="show"
+                controller="Preview"
+                arguments="{uid: item.uid, table: item.tableName}"
+                noCache="true"
+                noCacheHash="true"
+        >
+            <f:render section="event" arguments="{_all}"/>
+        </f:link.action>
+    </f:then>
+    <f:else>
+        <f:link.action class="tsr__container tsr-transparent__container" action="show" controller="Event"
+                       arguments="{event: item.uid}"
+                       pluginName="Event" extensionName="center" pageUid="{settings.detailPages.event}">
+            <f:render section="event" arguments="{_all}"/>
+        </f:link.action>
+    </f:else>
+</f:if>
+
+
+<f:if condition="{settings.isLoginActivated}">
+    <f:if condition="{settings.usergroup} != 2">
+        <div class="tsr__actions">
+            <f:render partial="Teasers/BookmarkIcon"
+                      arguments="{prefix: 'e', uid: '{item.uid}', enddate: '{item.endtime}'}"/>
+        </div>
+    </f:if>
+</f:if>
+
+</article>
+
+<f:section name="event">
+    <f:render partial="Teasers/MediaPartial"
+              arguments="{item: item, omitLazyLoadScript: omitLazyLoadScript, class: 'tsr-transparent__media', transparentTeaser: '1'}"/>
+    <div class="tsr__content tsr-transparent__content">
+        <header class="tsr__header">
+            <div class="tsr__header__group">
+                <f:if condition="{settings.hideCategoryInFE}">
+                    <f:else>
+                        <div class="tsr__category tsr-transparent__category">
+                            <f:translate key="fe.teaserWall.category.tx_center_domain_model_records_event"
+                                         extensionName="center"
+                            />
+                        </div>
+                    </f:else>
+                </f:if>
+            </div>
+            <div class="tsr__date tsr__date--big">
+                {item.teaserDate}
+            </div>
+            <div class="tsr__author">
+                {item.sender.name}
+            </div>
+        </header>
+        <div class="tsr__text">
+            <h3 class="tsr__title">{item.teaserAbstract}</h3>
+        </div>
+        <f:if condition="{item.teaserTime}">
+            <div class="tsr__time">{item.teaserTime}</div>
+        </f:if>
+    </div>
+
+</f:section>

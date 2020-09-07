@@ -1,0 +1,57 @@
+<section class="tsr-grp tsr-grp--shops tsr-grp-theme--{settings.hometeaser.style}">
+    <f:if condition="{settings.hometeaser.headline}">
+        <header class="ttl ttl--section">
+            <h2 class="ttl__headline">{settings.hometeaser.headline}</h2>
+        </header>
+    </f:if>
+    <f:if condition="{settings.hometeaser.abstract}">
+        <div class="tsr-grp__lead"><p>{settings.hometeaser.abstract}</p></div>
+    </f:if>
+    <f:if condition="{settings.hometeaser.banderole}==1">
+        <f:then>
+            <div class="tsr-grp-banderole owl-theme--banderole" data-module="carousel|lazy-load" data-lazy-load-aggregate="true" data-module-options='{"loop": "true", "margin": 0, "autoplay": "true", "autoplayHoverPause": "true", "slideBy": "page"}'>
+                <f:for each="{teasers}" as="item">
+										<f:render partial="Teasers/Shop" arguments="{class: 'tsr-shop--banderole tsr-grp-banderole__item', item: item, settings: settings}"/>
+                </f:for>
+            </div>
+        </f:then>
+        <f:else>
+            <div class="tsr-grp__teasers">
+                <f:for each="{teasers}" as="item">
+                    <div class="tsr-grp__teaser">
+                        <f:render partial="Teasers/{item.partialName}" arguments="{item:item, settings: settings}"/>
+                    </div>
+                </f:for>
+            </div>
+        </f:else>
+    </f:if>
+    <f:if condition="{settings.hometeaser.buttonLink}">
+        <f:then>
+            <section class="btc-bar">
+                <h3 class="visuallyhidden">
+                    <f:if condition="{settings.hometeaser.buttonText}">
+                        <f:then>{settings.hometeaser.buttonText}</f:then>
+                        <f:else>
+                            <f:translate key="fe.hometeaser.button.show_all_shops" extensionName="center"/>
+                        </f:else>
+                    </f:if>
+                </h3>
+                <div class="btc-bar__width-adjust">
+                    <f:link.typolink parameter="{settings.hometeaser.buttonLink}" class="btn btn--light">
+						<span class="btn__label">
+							<f:if condition="{settings.hometeaser.buttonText}">
+								<f:then>
+									{settings.hometeaser.buttonText}
+								</f:then>
+								<f:else>
+									<f:translate key="fe.hometeaser.button.show_all_shops"
+                                                 extensionName="center"/>
+								</f:else>
+							</f:if>
+						</span>
+                    </f:link.typolink>
+                </div>
+            </section>
+        </f:then>
+    </f:if>
+</section>

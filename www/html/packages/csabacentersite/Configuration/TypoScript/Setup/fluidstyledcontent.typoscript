@@ -1,0 +1,29 @@
+// Paths
+lib.contentElement {
+	layoutRootPaths.20 = EXT:csabacentersite/Resources/Private/Layouts/FluidStyledContent/
+	templateRootPaths.20 = EXT:csabacentersite/Resources/Private/Templates/FluidStyledContent/
+	partialRootPaths.20 = EXT:csabacentersite/Resources/Private/Partials/FluidStyledContent/
+}
+lib.fluidContent {
+	layoutRootPaths.10 = EXT:csabacentersite/Resources/Private/Layouts/FluidStyledContent/
+	templateRootPaths.10 = EXT:csabacentersite/Resources/Private/Templates/FluidStyledContent/
+	partialRootPaths.10 = EXT:csabacentersite/Resources/Private/Partials/FluidStyledContent/
+}
+
+tt_content.textmedia {
+    # Keep this, since the "conf" option can be used
+    settings {
+        dateFormat.base < plugin.tx_csabacentersite.settings.dateFormat.base
+    }
+    variables.versionedTexts = RECORDS
+    variables.versionedTexts {
+        source.field = tx_csabacentersite_versioned_records
+        tables = tt_content
+
+        conf.tt_content < lib.contentElement
+        conf.tt_content {
+            templateName = VersionedText
+        }
+
+    }
+}

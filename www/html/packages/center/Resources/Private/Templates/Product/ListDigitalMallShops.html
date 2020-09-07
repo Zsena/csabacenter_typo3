@@ -1,0 +1,65 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:c="DigitalZombies\Center\ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<f:render section="{settings.hometeaser.layout}" arguments="{_all}"/>
+
+
+<f:section name="slider">
+  <section class="shop-teaser shop-teaser__devider-before tsr-full-width_devider-after">
+    <header class="ttl ttl--section">
+      <h2 class="ttl__headline">{settings.hometeaser.headline}</h2>
+    </header>
+    <div class="shop-teaser_slider-wrapper">
+      <div class="container">
+        <div class="shop-teaser_teasers"
+             data-module="shopCarousel"
+             data-module-options="{&quot;loop&quot;: false, &quot;dots&quot;: false, &quot;autoWidth&quot;: true, &quot;margin&quot;: 16, &quot;autoWidth&quot;: true }">
+          <f:for each="{shops}" as="shop">
+            <div class="shop-teaser_teaser">
+              <noscript {f:if(condition:
+              '!{omitLazyLoad}', then: 'data-module="lazy-load"')}>
+              <a href="{shop.link}">
+                <f:image class="shops__img" width="250" crop="{shop.thumbnail.crop}" src="{shop.thumbnail}" treatIdAsReference="1"/>
+              </a>
+              </noscript>
+            </div>
+          </f:for>
+        </div>
+      </div>
+    </div>
+  </section>
+</f:section>
+<f:section name="tags">
+  <section class="shop-teaser shop-teaser--buttons">
+    <header class="ttl ttl--section">
+      <h2 class="ttl__headline">{settings.hometeaser.headline}</h2>
+    </header>
+    <div class="shop-teaser_slider-wrapper">
+      <div class="container">
+        <div class="shop-teaser_buttons">
+          <f:for each="{shops}" as="shop">
+            <a class="btn btn--badge btn--light" {f:if(condition: '{shop.new}', then: 'data-badge="new"')}
+            href="{shop.link}">
+            <span class="btn__inner"></span>
+            <span class="btn__label">{shop.name}</span>
+            </a>
+          </f:for>
+          <div class="shop-teaser_show-more">
+            <a class="btn btn--icon btn--icon-follows">
+            <span class="btn__inner">
+              <span class="btn__label"><f:translate key="fe.hometeaser.loadMore"/></span>
+              <span class="btn__icon">
+													<c:svg path="{settings.fe.svgIconsPath}" name="arrow-down"
+                                 mode="{settings.fe.svgIconsMode}" class="ng-scope"/>
+              </span>
+            </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</f:section>
+</html>

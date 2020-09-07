@@ -1,0 +1,16 @@
+<f:if condition="{useGtmCode}">
+	<f:then>
+		<f:if condition="{gtmCode}">
+			<f:format.raw>
+				<noscript>
+                    <iframe src="https://www.googletagmanager.com/ns.html?id={gtmCode}"
+                            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+                </noscript>
+			</f:format.raw>
+		</f:if>
+		<f:else></f:else>
+	</f:then>
+	<f:else></f:else>
+</f:if>
+
+

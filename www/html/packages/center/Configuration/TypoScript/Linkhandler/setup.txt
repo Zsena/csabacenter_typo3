@@ -1,0 +1,67 @@
+config.recordLinks {
+	news {
+		forceLink = 0
+
+		typolink {
+			parameter = {$plugin.tx_center.settings.detailPages.news}
+			additionalParams.data = field:uid
+			additionalParams.wrap = &tx_center_news[news]=|
+			useCacheHash = 1
+		}
+	}
+
+	event {
+		forceLink = 0
+
+		typolink {
+			parameter = {$plugin.tx_center.settings.detailPages.event}
+			additionalParams.data = field:uid
+			additionalParams.wrap = &tx_center_event[event]=|
+			useCacheHash = 1
+		}
+	}
+
+	offer {
+		forceLink = 0
+
+		typolink {
+			parameter = {$plugin.tx_center.settings.detailPages.offer}
+			additionalParams.data = field:uid
+			additionalParams.wrap = &tx_center_offer[offer]=|
+			useCacheHash = 1
+		}
+	}
+
+	coupon {
+		forceLink = 0
+
+		typolink {
+			parameter = {$plugin.tx_center.settings.detailPages.coupon}
+			additionalParams.data = field:uid
+			additionalParams.wrap = &tx_center_coupon[coupon]=|
+			useCacheHash = 1
+		}
+	}
+
+	job {
+		forceLink = 0
+
+		typolink {
+			parameter = {$plugin.tx_center.settings.detailPages.job}
+			additionalParams.data = field:uid
+			additionalParams.wrap = &tx_center_job[job]=|
+			useCacheHash = 1
+		}
+	}
+
+	service {
+		forceLink = 0
+
+		typolink {
+			parameter = {$plugin.tx_center.settings.detailPages.service}
+			additionalParams.data = field:uid
+			additionalParams.wrap = &tx_center_service[service]=|
+			useCacheHash = 1
+		}
+	}
+}

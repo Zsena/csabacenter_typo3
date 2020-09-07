@@ -1,0 +1,73 @@
+<header class="ttl ttl--page dtl__page-title">
+    <h2 class="ttl__headline">
+        <f:if condition="{f:cObject(typoscriptObjectPath: 'lib.currentPageSubtitle')}">
+            <f:then>{f:cObject(typoscriptObjectPath: 'lib.currentPageSubtitle')}</f:then>
+            <f:else>
+                <f:translate key="fe.detailPage.offers.headline" extensionName="providerece"/>
+            </f:else>
+        </f:if>
+    </h2>
+</header>
+<f:if condition="{offer}">
+    <f:render partial="General/DetailStageMedia" arguments="{media: offer.contentStagemedia}"/>
+	<div class="visuallyhidden" id="dtl-shop-info">
+		<f:render partial="Organisms/ShopInfo" arguments="{sender: offer.sender, center: center}" />
+	</div>
+
+    <article class="dtl-description">
+        <header class="dtl-header dtl-description__header">
+
+            <!-- Title -->
+            <div class="dtl-title">
+                <div class="dtl-title__upper">
+                    <h2 class="dtl-title__title">{offer.title}</h2>
+                    <div class="dtl-title__author">
+						{offer.sender.name}
+						<div data-modal-click="launch" class="dtl-title__shopinfo" data-modal-onpage-container="#dtl-shop-info" data-module="modal">
+							<f:comment><f:render partial="Atoms/ButtonIcon" arguments="{icon: 'info', text: text}" /></f:comment>
+							<div class="btn btn--icon">
+								<span class="btn__inner">
+									<span class="btn__label"></span>
+								</span>
+							</div>
+						</div>
+					</div>
+                </div>
+                <span class="dtl-title__subtitle">
+					{offer.detailDate}
+				</span>
+            </div>
+
+        </header>
+
+        <f:comment>Abstract / Lead text</f:comment>
+		<f:if condition="{offer.contentAbstract}">
+			<p class="dtl-description__lead">{offer.contentAbstract}</p>
+		</f:if>
+
+        <f:comment>Content</f:comment>
+        <div class="dtl-description__content tme-styles">
+            <f:format.html> {offer.contentText}</f:format.html>
+            <f:render partial="General/ContentImage" arguments="{image: offer.ContentImage}"/>
+        </div>
+
+        <f:if condition="{offer.offerContentLinkToAllOffers}">
+            <section class="btc-bar">
+                <div class="btc-bar__width-adjust">
+                    <f:link.typolink parameter="{offer.offerContentLinkToAllOffers}" class="btn btn--solid">
+                        <span class="btn__label">
+                            {f:translate(key: 'fe.dtlDescription.offerOverview')}
+                        </span>
+                    </f:link.typolink>
+                </div>
+            </section>
+        </f:if>
+    </article>
+
+    <f:comment>Gallery</f:comment>
+    <f:if condition="{offer.contentGallery}">
+        <f:render partial="Gallery/Gallery" arguments="{gallery: offer.contentGallery}"/>
+    </f:if>
+    <f:comment>Centerplan / Directions module</f:comment>
+    <f:render partial="General/Map" arguments="{sender: offer.sender, directions: directions, settings: settings, shopinfo: 1}"/>
+</f:if>

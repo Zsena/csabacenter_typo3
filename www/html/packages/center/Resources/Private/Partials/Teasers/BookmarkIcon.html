@@ -1,0 +1,42 @@
+<f:comment>
+	Heart (like) icon, used in teasers and detail pages
+
+	@class additional classes
+	@param detail if in detail page
+	@param uid the (standard) numerical id of the item to bookmark
+	@param prefix the prefix needed to bookmark. The unique id is composed as `{prefix}-{uid}`
+</f:comment>
+
+{namespace cm=DigitalZombies\Center\ViewHelpers}
+
+<f:if condition="!{detail}">
+	<f:variable name="containerClass">
+		tsr__action btn-round btn-round--small
+	</f:variable>
+	<f:variable name="iconClass">
+		icn-icon--fit
+	</f:variable>
+</f:if>
+
+
+
+<f:if condition="{settings.hideLoginInWeb} == 1 || {settings.hideLoginInWeb} == 3 || {hideLoginInWeb} == 1 || {hideLoginInWeb} == 3">
+	<f:variable name="hideInWeb">
+		data-web-view=hide
+	</f:variable>
+</f:if>
+<i
+  data-module="bookmark|modal"
+  data-modal-click="launch"
+  data-modal-url="{f:uri.action(pageUid: '{settings.detailPages.login}', action: 'showLoginForm', controller: 'Auth', extensionName: 'ecesugarcrm', pluginName: 'LoginForm', arguments: '{bookmarkingActive: 1}')}"
+ {hideInWeb}
+	data-uid="{prefix}-{uid}"
+	data-modal-select-node=".lgn-container"
+	data-bookmark-url="/404/?type=19800923&tx_center_bookmarks[action]=check&tx_center_bookmarks[controller]=Bookmarks&tx_center_bookmarks[item]={prefix}-{uid}&tx_center_bookmarks[enddate]={enddate}"
+	data-unbookmark-url="/404/?type=19800923&tx_center_bookmarks[action]=uncheck&tx_center_bookmarks[controller]=Bookmarks&tx_center_bookmarks[item]={prefix}-{uid}"
+	data-bookmark-tooltip-bookmark="{f:translate(key:'fe.bookMarksTeaserWall.tooltip.bookmark', extensionName:'center')}"
+	data-bookmark-tooltip-unbookmark="{f:translate(key:'fe.bookMarksTeaserWall.tooltip.unbookmark', extensionName:'center')}"
+	data-tooltip-content="{f:translate(key:'fe.bookMarksTeaserWall.tooltip.bookmark', extensionName:'center')}"
+  class="{class} {containerClass} btn-tooltip icn-like__container faded-out">
+	<cm:svg name="heart" class="icn-icon icn-like {iconClass}" path="{settings.fe.svgIconsPath}" mode="{settings.fe.svgIconsMode}"/>
+</i>

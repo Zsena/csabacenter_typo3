@@ -1,0 +1,3 @@
+RTE.default {
+   buttons.link.properties.class.allowedClasses := addToList(btn btn--light, btn btn--solid)
+}

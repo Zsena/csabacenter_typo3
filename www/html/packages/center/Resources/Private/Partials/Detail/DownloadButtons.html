@@ -1,0 +1,43 @@
+{namespace c=DigitalZombies\Center\ViewHelpers}
+<f:if condition="{contentDownloadlink} || {contentDownloadfile}">
+<section class="btc-bar">
+    <div class="btc-bar__width-adjust">
+		<f:if condition="{contentDownloadlink}">
+			<f:link.typolink parameter="{contentDownloadlink}" class="btn btn--light btn--icon">
+				<span class="btn_inner">
+					<f:if condition="{contentDownloadlinktext}">
+						<f:then>
+							<span class="btn__icon">
+								<c:svg path="{settings.fe.svgIconsPath}" name="external-link" mode="{settings.fe.svgIconsMode}" aria-hidden="true" />
+							</span><span class="btn__label">{contentDownloadlinktext}</span>
+						</f:then>
+						<f:else>
+							<span class="btn__icon">
+								<c:svg path="{settings.fe.svgIconsPath}" name="external-link" mode="{settings.fe.svgIconsMode}" aria-hidden="true" />
+							</span><span class="btn__label">{f:translate(key: 'fe.dtlDescription.externalLink')}</span>
+						</f:else>
+					</f:if>
+				</span>
+			</f:link.typolink>
+		</f:if>
+		<f:if condition="{contentDownloadfile}">
+			<a href="{contentDownloadfile.originalResource.originalFile.publicUrl}" class="btn btn--light btn--icon">
+				<span class="btn_inner">
+					<f:if condition="{contentDownloadfiletext}">
+						<f:then>
+							<span class="btn__icon">
+								<c:svg path="{settings.fe.svgIconsPath}" name="download" mode="{settings.fe.svgIconsMode}" aria-hidden="true" />
+							</span><span class="btn__label">{contentDownloadfiletext}</span>
+						</f:then>
+						<f:else>
+							<span class="btn__icon">
+								<c:svg path="{settings.fe.svgIconsPath}" name="download" mode="{settings.fe.svgIconsMode}" aria-hidden="true" />
+							</span><span class="btn__label">{f:translate(key: 'fe.dtlDescription.download')}</span>
+						</f:else>
+					</f:if>
+				</span>
+			</a>
+		</f:if>
+	</div>
+</section>
+</f:if>

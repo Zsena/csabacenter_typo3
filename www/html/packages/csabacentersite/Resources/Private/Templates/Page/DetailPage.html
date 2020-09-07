@@ -1,0 +1,15 @@
+<f:layout name="Page"/>
+
+<f:section name="Main">
+	<f:render partial="Header/Header"
+			  arguments="{pages: pages, rootPageId: rootPageId, page: data, center: center, languages : languages, serviceNavigation: serviceNavigation}"/>
+
+	<f:render partial="../Stages/Detail" section="Main" arguments="{page: data, login: center.loginActivated, hideLoginInWeb: center.disableLoginInWeb}"/>
+
+	<article>
+		<f:cObject typoscriptObjectPath="lib.content.content"/>
+	</article>
+
+	<f:render partial="Footer/Footer" arguments="{center: center}"/>
+
+</f:section>

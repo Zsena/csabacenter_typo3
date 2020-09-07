@@ -1,0 +1,74 @@
+{namespace c=DigitalZombies\Center\ViewHelpers}
+<f:be.container>
+	<div class="module" data-module-id="" data-module-name="">
+
+
+		<div class="module-loading-indicator"></div>
+		<div class="module-docheader t3js-module-docheader" style="height: auto;">
+			<div class="module-docheader-bar module-docheader-bar-navigation t3js-module-docheader-bar t3js-module-docheader-bar-navigation" style="height: auto;">
+				<div class="module-docheader-bar-column-left">
+					<div class="form-inline">
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="module-body t3js-module-body" style="padding-top: 89px;">
+			<div class="panel panel-space panel-default recordlist">
+				<div class="panel-heading">
+
+				</div>
+				<div class="collapse in" data-state="expanded" id="recordlist-tt_content">
+					<div class="table-fit">
+						<table data-table="tt_content" class="table table-striped table-hover">
+							<thead>
+							<!-- Element, begin: -->
+							<tr data-uid="0" data-l10nparent="0">
+								<th nowrap="nowrap" class="col-title col-responsive"><f:translate key="LLL:EXT:center/Resources/Private/Language/locallang_module_center.xlf:be.module.cache.list.header" /></th>
+								<th nowrap="nowrap" class="col-control">&nbsp;</th>
+								<th nowrap="nowrap" class="col-clipboard">
+									<div class="btn-group" role="group"></div>
+								</th>
+							</tr>
+							</thead>
+							<tbody>
+							<f:for each="{centers}" as="center">
+
+								<f:if condition="{c:beUserAccess(uid: center.pageId)}">
+									<f:then>
+										<tr class="firstcol">
+
+											<td nowrap="nowrap" class="col-title col-responsive">												<div class="btn-group" role="group">
+												<f:link.action action="clearCache" arguments="{uid: center.pageId}">
+													<span
+															class="t3js-icon icon icon-size-small icon-state-default icon-actions-view"
+															data-identifier="actions-view">
+														<span class="icon-markup">
+															<img src="/typo3/sysext/core/Resources/Public/Icons/T3Icons/actions/actions-system-cache-clear-impact-medium.svg" width="16" height="16">
+														</span>
+
+													</span>
+												</f:link.action>
+											</div>
+												{center.shortName}, {center.centerName}
+											</td>
+
+											<td nowrap="nowrap" class="col-control">
+
+											</td>
+											<td nowrap="nowrap" class=""></td>
+										</tr>
+									</f:then>
+								</f:if>
+
+							</f:for>
+
+
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</f:be.container>

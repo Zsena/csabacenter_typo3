@@ -1,0 +1,60 @@
+{namespace cm=DigitalZombies\Center\ViewHelpers}
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+
+<f:comment>
+Render the 'tsr__media' element of teasers. Depending on the item.teaserImage
+filetype, it can contain a picture tag or a video tag.
+</f:comment>
+
+<f:if condition="{item.teaserImage}">
+	<v:variable.set name="background"
+		value="background-image: url({cm:base64Image(src: '{item.teaserImage.uid}', treatIdAsReference: '1')})" />
+</f:if>
+
+<f:if condition="!{omitLazyLoadScript}">
+	<v:variable.set name="lazyLoadModule" value="lazy-load" />
+</f:if>
+
+<f:if condition="{transparentTeaser}">
+	<f:then>
+		<v:variable.set name="width1Cols" value="363" />
+		<v:variable.set name="width2Cols" value="757" />
+		<v:variable.set name="width3Cols" value="1150" />
+	</f:then>
+	<f:else>
+		<v:variable.set name="width1Cols" value="456" />
+		<v:variable.set name="width2Cols" value="757" />
+	</f:else>
+</f:if>
+
+
+<f:if condition="{item.teaserImage} || {item.teaserVideo}">
+  <div class="tsr__media tsr__placeholder lazy-load {class}" style="{background}">
+
+	<f:if condition="{item.teaserVideo}">
+		<f:then>
+			<noscript data-module="{lazyLoadModule}"
+			 	data-picture='{cm:videoFallback(image: item.teaserImage)}'>
+				<f:media file="{item.teaserVideo}"
+					additionalConfig="{controls: '0', muted: '1', loop: '1', autoplay: '1'}"/>
+			</noscript>
+		</f:then>
+		<f:else>
+			<noscript data-module="{lazyLoadModule}">
+				<picture>
+				  <source srcset="{f:uri.image(src: '{item.teaserImage.uid}', treatIdAsReference: 1, width: 456)}" media="(max-width: 992px)">
+				  <f:if condition="{item.columnClassName} == '--columns-3' && {item.teaserImage3}">
+					  <f:image width="{width3Cols}" src="{item.teaserImage3.uid}" treatIdAsReference="1" alt="{item.teaserImage3.originalResourc.alternative}" title="{item.teaserImage3.originalResource.title}"/>
+				  </f:if>
+				  <f:if condition="{item.columnClassName} == '--columns-2' && {item.teaserImage2}">
+					  <f:image width="{width2Cols}" src="{item.teaserImage2.uid}" treatIdAsReference="1" alt="{item.teaserImage2.originalResource.alternative}" title="{item.teaserImage2.originalResource.title}"/>
+				  </f:if>
+				  <f:if condition="{item.columnClassName} == ''">
+					  <f:image width="{width1Cols}" src="{item.teaserImage.uid}" alt="{item.teaserImage.originalResource.alternative}" title="{item.teaserImage.originalResource.title}" treatIdAsReference="1" />
+				  </f:if>
+				</picture>
+			</noscript>
+		</f:else>
+	</f:if>
+	</div>
+</f:if>

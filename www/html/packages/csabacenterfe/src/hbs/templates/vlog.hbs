@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" id="my-scrollbar">
+
+{{> head }}
+
+<body>
+  {{> header }}
+  {{> subpage_banner }}
+  <main>
+    <div class="container">
+        <div class="section layout_padding about_bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="full paddding_left_15">
+                            <div class="heading_main text_align_center">
+                                <h2>Vlog / Blog</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{> vlog_video_grid }}
+        <div class="row layout_padding">
+            <div class="col-md-12">
+                <div class="full">
+                    <div class="heading_main text_align_center">
+                        <h2><span class="theme_color"></span>További híreink</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{> related_news }}
+        <div class="row margin-top_30">
+            <div class="col-sm-12">
+                <div class="full">
+                    <div class="center">
+                        <a class="main_bt secondary_btn" href="#">Még több betöltése <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{> pagination }}
+    </div>
+  </main>
+  {{> footer }}
+</body>
+
+</html>

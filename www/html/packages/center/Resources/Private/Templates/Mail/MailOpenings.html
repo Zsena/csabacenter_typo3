@@ -1,0 +1,26 @@
+{namespace c=DigitalZombies\Center\ViewHelpers}
+
+Sonderöffnungszeiten für alle Center: <br/><br/>
+
+<table>
+	<f:for each="{openings}" as="center">
+		<tr>
+			<td>Center: {center.center_name}</td>
+		</tr>
+		<tr>
+			<td>&nbsp;&nbsp;&nbsp;&nbsp;Sonderöffnungszeiten:</td>
+		</tr>
+		<tr>
+			<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*
+				<f:format.date format="j. F Y">{center.closing_day}</f:format.date>
+				:
+				<f:format.date format="H:i">{center.from}</f:format.date>
+				-
+				<f:format.date format="H:i">{center.till}</f:format.date>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+		</tr>
+	</f:for>
+</table>

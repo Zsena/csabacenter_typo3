@@ -1,0 +1,41 @@
+<f:if condition="{sender.senderType} == 1">
+    <f:then>
+        <f:render partial="General/Maps/Directions"
+                  arguments="{center: sender.center, directions: directions}"/>
+    </f:then>
+    <f:else>
+		<section class="container-section">
+			<header class="ttl ttl--section container-section__header">
+				<h2 class="ttl__headline">{sender.shop.name}</h2>
+			</header>
+
+			<div class="container-section__content">
+			<!-- Detail Info -->
+				<article class="dtl-info dtl-info--3-cols">
+					<div class="dtl-info__col-1">
+						<f:render partial="Atoms/MediaFrame"
+							arguments="{ img: '{sender.logo}', width: '250' }"/>
+					</div>
+					<div class="dtl-info__col-2">
+						<f:render partial="Detail/OpeningHours"
+							arguments="{sender: sender, settings: settings, shopinfo: shopinfo}"/>
+					</div>
+					<div class="dtl-info__col-3">
+						<div class="center-map__container">
+                            <f:if condition="{sender.shop.center.wayfinderActivated} == true">
+                                <f:then>
+                                    <f:render partial="General/Maps/Wayfinder"
+                                              arguments="{url: sender.shop.center.wayfinderUrl, positions: sender.shop.sender.shop.positions}" />
+                                </f:then>
+                                <f:else>
+                                    <f:render partial="General/Maps/CenterMap"
+                                              arguments="{sender: sender, settings: settings, positions: sender.shop.positions, height: 420}"/>
+                                </f:else>
+                            </f:if>
+                        </div>
+					</div>
+				</article>
+			</div>
+		</section>
+	</f:else>
+</f:if>

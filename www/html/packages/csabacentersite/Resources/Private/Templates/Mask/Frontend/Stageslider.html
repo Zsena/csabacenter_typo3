@@ -1,0 +1,32 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<div id="c{data.uid}" class="carousel slide" data-ride="carousel">
+    <f:if condition="{data.tx_mask_slides}">
+        <ol class="carousel-indicators">
+            <f:for each="{data.tx_mask_slides}" as="data_item" iteration="iterator">
+                <li data-target="#c{data.uid}" data-slide-to="{iterator.index}" {f:if(condition:
+                '{iterator.isFirst}', then: 'class="active"')} ></li>
+            </f:for>
+        </ol>
+        <div class="carousel-inner">
+            <f:for each="{data.tx_mask_slides}" as="data_item" iteration="iterator">
+                <div class="carousel-item {f:if(condition:'{iterator.isFirst}', then: 'active')}">
+                    <f:for each="{data_item.tx_mask_image}" as="file">
+                        <f:image class="d-block w-100" image="{file}" alt="{file.alternative}" title="{file.title}"
+                                 height="900"/>
+                    </f:for>
+                </div>
+            </f:for>
+        </div>
+        <a class="carousel-control-prev" href="#c{data.uid}" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only"><f:translate key="fe.stageSlider.prev"/></span>
+        </a>
+
+        <a class="carousel-control-next" href="#c{data.uid}" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only"><f:translate key="fe.stageSlider.next"/></span>
+        </a>
+    </f:if>
+</div>
+</html>

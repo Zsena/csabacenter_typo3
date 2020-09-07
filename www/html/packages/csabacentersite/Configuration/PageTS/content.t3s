@@ -1,0 +1,74 @@
+TCEFORM.tt_content.CType {
+ removeItems =  text, header, textpic, image, bullets, uploads, menu, multimedia ,mailform, search, script, splash, div, menu_abstract, menu_categorized_content, menu_categorized_pages, menu_pages, menu_subpages, menu_recently_updated, menu_related_pages, menu_section, menu_section_pages, menu_sitemap, menu_sitemap_pages
+}
+TCEFORM.tt_content {
+    layout{
+        altLabels{
+            0 = Standard
+        }
+        removeItems = 1,2,3
+    }
+    header_layout {
+        removeItems = 0,1,2,3,4,5
+    }
+}
+
+TCEFORM.tt_content.header_layout.types.textmedia.addItems{
+10 = H2
+20 = H3
+}
+
+TCEFORM.tt_content.table_class.removeItems = bordered
+
+TCEFORM.tt_content.header_layout.types.form_formframework.addItems{
+    10 = H2
+    20 = H3
+}
+
+TCEFORM.tt_content.header.types.csabacentersite_travelplan.disabled = 1
+TCEFORM.tt_content.header_link.types.csabacentersite_travelplan.disabled = 1
+TCEFORM.tt_content.header_position.types.csabacentersite_travelplan.disabled = 1
+TCEFORM.tt_content.header_layout.types.csabacentersite_travelplan.disabled = 1
+TCEFORM.tt_content.subheader.types.csabacentersite_travelplan.disabled = 1
+TCEFORM.tt_content.date.types.csabacentersite_travelplan.disabled = 1
+
+###Hide unnecessary fields in image module
+TCEFORM.tt_content.sys_language_uid.disabled = 0
+TCEFORM.tt_content.spaceBefore.disabled = 1
+TCEFORM.tt_content.spaceAfter.disabled = 1
+TCEFORM.tt_content.section_frame.disabled = 1
+TCEFORM.tt_content.sectionIndex.disabled = 1
+TCEFORM.tt_content.linkToTop.disabled = 1
+TCEFORM.tt_content.image_compression.disabled = 1
+TCEFORM.tt_content.image_effects.disabled = 1
+TCEFORM.tt_content.imageheight.disabled = 1
+TCEFORM.tt_content.image_noRows.disabled=1
+TCEFORM.tt_content.imagecaption.disabled = 1
+TCEFORM.tt_content.imagecaption_position.disabled = 1
+TCEFORM.tt_content.header_position.disabled = 1
+TCEFORM.tt_content.date.disabled = 1
+TCEFORM.tt_content.imageorient.disabled = 1
+TCEFORM.tt_content.imagecols.disabled = 1
+TCEFORM.tt_content.imagewidth.disabled = 1
+TCEFORM.tt_content.imageborder.disabled = 1
+TCEFORM.tt_content.image_zoom.disabled = 1
+TCEFORM.tt_content.categories.disabled = 1
+TCEFORM.tt_content.rowDescription.disabled = 1
+TCEFORM.tt_content.layout.disabled = 1
+TCEFORM.tt_content.frame_class.disabled = 1
+TCEFORM.tt_content.space_before_class.disabled = 1
+TCEFORM.tt_content.space_after_class.disabled = 1
+TCEFORM.tt_content.editlock.disabled = 1
+#for table
+#TCEFORM.tt_content.subheader.disabled = 1
+#for table
+#TCEFORM.tt_content.header_link.disabled = 1
+TCEFORM.tt_content.pages.disabled = 1
+TCEFORM.tt_content.recursive.disabled = 1
+
+[page|is_siteroot = 1]
+    TCEFORM.pages.center.disabled = 1
+[end]
+
+
+TCAdefaults.tt_content.table_header_position = 1

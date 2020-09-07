@@ -1,0 +1,33 @@
+.heading_main {
+  float: left;
+  display: flex;
+  margin-bottom: 45px;
+  width: 100%;
+  justify-content: center;
+
+  h2 {
+    font-size: 45px;
+    letter-spacing: -0.5px;
+    font-weight: 500;
+    padding: 0;
+    margin: 0;
+    font-family: 'Raleway', sans-serif;
+    position: relative;
+    text-align: center;
+    &::after {
+      width: 250px;
+      height: 8px;
+      background: #e72525;
+      content: "";
+      display: block;
+      transform: skew(-30deg);
+      margin-top: 3px;
+    }
+  }
+}
+
+
+.full {
+  float: left;
+  width: 100%;
+}

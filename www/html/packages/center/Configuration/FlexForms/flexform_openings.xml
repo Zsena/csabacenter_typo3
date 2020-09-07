@@ -1,0 +1,26 @@
+<T3DataStructure>
+    <sheets>
+        <sDEF>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>Openings Settings</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <settings.days>
+                        <TCEforms>
+                            <exclude>1</exclude>
+                            <label>LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:flexform.openings.days</label>
+                            <config>
+                                <type>input</type>
+                                <size>30</size>
+                                <eval>trim</eval>
+                                <max>40</max>
+                            </config>
+                        </TCEforms>
+                    </settings.days>
+                </el>
+            </ROOT>
+        </sDEF>
+    </sheets>
+</T3DataStructure>

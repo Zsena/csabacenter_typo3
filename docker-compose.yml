@@ -1,0 +1,56 @@
+version: "3"
+services:
+  web:
+    image: nginx:1.15
+    volumes:
+      - ./etc/nginx/conf.d/app.test.template:/etc/nginx/conf.d/app.test.template
+      - ./www:/var/www:cached
+    ports:
+      - "80:80"
+    environment:
+      - NGINX_HOST=${HOST}
+      - NGINX_PORT=${NGINX_PORT}
+      - TYPO3_CONTEXT=${TYPO3_CONTEXT}
+    command: /bin/bash -c "envsubst '$$NGINX_HOST $$NGINX_PORT' < /etc/nginx/conf.d/app.test.template > /etc/nginx/conf.d/app.test.conf && nginx -g 'daemon off;'"
+    networks:
+      default:
+        aliases:
+          - "${HOST}"
+  php:
+    build: ./etc/php
+    volumes:
+      - ./www:/var/www:cached
+      - ./etc/php/php-custom.ini:/usr/local/etc/php/conf.d/php-custom.ini
+      - ~/.ssh/id_rsa:/var/www/.ssh/id_rsa
+    user: www-data
+    environment:
+      - TYPO3_CONTEXT=${TYPO3_CONTEXT}
+    networks:
+      - default
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: app
+    volumes:
+      - ./etc/mysql/custom.cnf:/etc/mysql/conf.d/custom.cnf
+    networks:
+      - default
+    ports:
+      - "3306:3306"
+  mailhog:
+    image: mailhog/mailhog
+    networks:
+      - default
+    ports:
+      - "8025:8025"
+  solr:
+    image: solr:7.6
+    ports:
+    - "8983:8983"
+    volumes:
+    - ./solr:/opt/solr/server/solr
+    networks:
+    - default
+networks:
+  default:

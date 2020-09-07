@@ -1,0 +1,108 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+{namespace cm=DigitalZombies\Center\ViewHelpers}
+<header class="ttl ttl--page dtl__page-title" xmlns:f="http://www.w3.org/1999/html">
+	<h2 class="ttl__headline">
+		<f:if condition="{f:cObject(typoscriptObjectPath: 'lib.currentPageSubtitle')}">
+			<f:then>{f:cObject(typoscriptObjectPath: 'lib.currentPageSubtitle')}</f:then>
+			<f:else>
+				<f:translate key="fe.detailPage.events.headline" extensionName="providerece"/>
+			</f:else>
+		</f:if>
+	</h2>
+</header>
+<f:if condition="{event}">
+	<f:render partial="General/DetailStageMedia" arguments="{media: event.contentStagemedia}"/>
+
+	<article class="dtl-description">
+
+		<header class="dtl-header dtl-description__header">
+
+			<f:comment>Title</f:comment>
+			<div class="dtl-title">
+				<div class="dtl-title__upper">
+					<f:if condition="{showIcon}">
+						<div class="dtl-ical dtl-ical--sm-up">
+							<f:link.action pluginName="GetEventInCalender"
+										   controller="Ical"
+										   action="show"
+										   pageType="84525"
+										   arguments="{eventUid:event.uid, referer: referer}">
+								<f:translate key="ical" extensionName="providerece"/>
+								<span class="dtl-ical__icon">
+                            <div class="icn--svg">
+								<cm:svg path="EXT:providerece/Resources/Public/src/assets/svg-icons" name="add-to-cal"/>
+							</div>
+							</span>
+							</f:link.action>
+						</div>
+					</f:if>
+
+					<h2 class="dtl-title__title">{event.title}</h2>
+					<div class="dtl-title__author">{event.sender.name}</div>
+
+					<f:if condition="{showIcon}">
+						<div class="dtl-ical">
+							<f:link.action pluginName="GetEventInCalender"
+										   controller="Ical"
+										   action="show"
+										   pageType="84525"
+										   arguments="{eventUid:event.uid, referer: referer}">
+								<f:translate key="ical" extensionName="providerece"/>
+								<span class="dtl-ical__icon">
+                            <div class="icn--svg">
+								<cm:svg path="EXT:providerece/Resources/Public/src/assets/svg-icons" name="add-to-cal"/>
+							</div>
+							</span>
+							</f:link.action>
+						</div>
+					</f:if>
+				</div>
+				<span class="dtl-title__subtitle">
+					{event.detailDate}
+				</span>
+				<span class="dtl-title__subtitle">
+					{event.detailTime}
+				</span>
+			</div>
+
+		</header>
+
+		<f:comment>Abstract / Lead text</f:comment>
+		<f:if condition="{event.contentAbstract}">
+			<p class="dtl-description__lead">{event.contentAbstract}</p>
+		</f:if>
+
+		<f:comment>Content</f:comment>
+		<div class="dtl-description__content tme-styles">
+			<f:format.html> {event.contentPrologue}</f:format.html>
+
+			<f:if condition="{event.contentVideo}">
+				<f:then>
+					<f:render partial="General/ContentVideo"
+							  arguments="{video: event.contentVideo, width: 720, height: 395}"/>
+				</f:then>
+				<f:else>
+					<f:comment>content image is checked in partial</f:comment>
+					<f:render partial="General/ContentImage" arguments="{image: event.contentImage}"/>
+				</f:else>
+			</f:if>
+
+			<f:format.html> {event.contentEpilogue}</f:format.html>
+		</div>
+
+		<f:comment>Download Buttons</f:comment>
+		<f:render partial="Detail/DownloadButtons"
+				  arguments="{contentDownloadlink: event.contentDownloadlink,
+				contentDownloadlinktext: event.contentDownloadlinktext,
+				contentDownloadfile: event.contentDownloadfile,
+				contentDownloadfiletext: event.contentDownloadfiletext}"/>
+	</article>
+
+	<f:comment>Gallery</f:comment>
+	<f:if condition="{event.contentGallery}">
+		<f:render partial="Gallery/Gallery" arguments="{gallery: event.contentGallery}"/>
+	</f:if>
+
+	<f:comment>"Lageplan" or "An-/Abfahrt" Module</f:comment>
+	<f:render partial="General/Map" arguments="{sender: event.sender, directions: directions, settings: settings}"/>
+</f:if>

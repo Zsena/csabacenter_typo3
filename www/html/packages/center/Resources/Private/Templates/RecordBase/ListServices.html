@@ -1,0 +1,81 @@
+{namespace c=DigitalZombies\Center\ViewHelpers}
+<div class="srv-services"
+	 data-server-url="{f:uri.action(pageUid: '{settings.detailPages.service}', pageType: '{settings.ajaxServiceSearch}', action: 'ajaxListServicesFromSettings', pluginName: 'ServiceSearch', controller:'RecordBase', extensionName: 'center')}"
+	 data-module="services">
+	<div class="srv-search-bar">
+		<form class="js-search-form">
+			<div class="ftsh-container">
+				<div class="ftsh-controls">
+					<div class="ftsh-control ftsh-control__search" style="display:inline-flex; align-items:baseline;">
+						<div class="srv-search-bar__container" data-module="search-clear">
+							{f:translate(key: 'fe.serviceList.search.placeholder') -> f:variable(name: 'placeholder')}
+							<f:render partial="Atoms/InputSearch"
+									  arguments="{class: 'srv-search', placeholder: '{placeholder}'}"/>
+						</div>
+					</div>
+					<!-- dropdown -->
+					<div class="inp-select inp-select--dropdown ftsh-control ftsh-control__dropdown">
+						<label class="visuallyhidden" for="serviceFilterCategory">Choose service</label>
+						<select id="service-dropdown" class="inp-select__select" id="serviceFilterCategory" onchange="window.location.href=document.getElementById('service-dropdown').value">
+							<f:for each="{menuItems}" as="page">
+								<option value="{f:uri.page(pageUid: page.uid)}" {f:if(condition:'{page.uid} == {currentPage.uid}', then: 'selected', else: '')}>{page.title}</option>
+							</f:for>
+						</select>
+						<c:svg path="{settings.fe.svgIconsPath}" name="arrow-down" mode="{settings.fe.svgIconsMode}"
+							   class="icn-icon inp-select__icon inp-select__icon--right"/>
+					</div>
+					<!-- /dropdown -->
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<section class="srv-wall">
+		<h2 class="srv-wall__title js-wall-title">{currentPage.title}</h2>
+		<div class="srv-wall__row js-srv-wall-row">
+
+			<f:for each="{items}" as="item">
+				<f:render partial="Teasers/Service"
+						  arguments="{item:item, settings: settings, omitLazyLoadScript: 'true'}"/>
+			</f:for>
+		</div>
+	</section>
+</div>
+
+<f:section name="linkContent">
+	<div class="btn-round icn--svg btc-round-label__button">
+		<f:if condition="{page.service_tag}">
+			<f:then>
+				<c:tag tagId="{page.service_tag}">
+					<f:if condition="{tag.serviceCategoryIcon.uid}">
+						<c:tagIcon imageId="{tag.serviceCategoryIcon.uid}"/>
+					</f:if>
+				</c:tag>
+			</f:then>
+			<f:else>
+				<svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72">
+					<title>service-alle</title>
+					<rect x="20.62" y="20.69" width="5.24" height="5.24" fill="none" stroke="#fff"
+						  stroke-linecap="round" stroke-linejoin="round" stroke-width="1.99"/>
+					<rect x="20.62" y="33.38" width="5.24" height="5.24" fill="none" stroke="#fff"
+						  stroke-linecap="round" stroke-linejoin="round" stroke-width="1.99"/>
+					<rect x="20.62" y="46.07" width="5.24" height="5.24" fill="none" stroke="#fff"
+						  stroke-linecap="round" stroke-linejoin="round" stroke-width="1.99"/>
+					<rect x="33.38" y="20.69" width="5.24" height="5.24" fill="none" stroke="#fff"
+						  stroke-linecap="round" stroke-linejoin="round" stroke-width="1.99"/>
+					<rect x="33.38" y="33.38" width="5.24" height="5.24" fill="none" stroke="#fff"
+						  stroke-linecap="round" stroke-linejoin="round" stroke-width="1.99"/>
+					<rect x="33.38" y="46.07" width="5.24" height="5.24" fill="none" stroke="#fff"
+						  stroke-linecap="round" stroke-linejoin="round" stroke-width="1.99"/>
+					<rect x="46.14" y="20.69" width="5.24" height="5.24" fill="none" stroke="#fff"
+						  stroke-linecap="round" stroke-linejoin="round" stroke-width="1.99"/>
+					<rect x="46.14" y="33.38" width="5.24" height="5.24" fill="none" stroke="#fff"
+						  stroke-linecap="round" stroke-linejoin="round" stroke-width="1.99"/>
+					<rect x="46.14" y="46.07" width="5.24" height="5.24" fill="none" stroke="#fff"
+						  stroke-linecap="round" stroke-linejoin="round" stroke-width="1.99"/>
+				</svg>
+			</f:else>
+		</f:if>
+	</div>
+	<div class="btc-round-label__label">{page.title}</div>
+</f:section>

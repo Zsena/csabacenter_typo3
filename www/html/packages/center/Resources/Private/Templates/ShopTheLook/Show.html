@@ -1,0 +1,62 @@
+{namespace c=DigitalZombies\Center\ViewHelpers}
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+
+{f:if(condition: '{layout} == 2', then: 'shw-showcase--mirror') -> f:variable(name: 'mirror')}
+
+<section class="shw-showcase {mirror}" data-module="product-showcase|video-carousel"
+		 data-translate-keys='{
+		&quot;AVAILABLE&quot;: &quot; <f:translate key="fe.productShowcase.available" extensionName="center" /> &quot;,
+		&quot;LATER_AVAILABLE&quot;: &quot; <f:translate key="fe.productShowcase.laterAvailable" extensionName="center" /> &quot;,
+		&quot;NOT_AVAILABLE&quot;: &quot; <f:translate key="fe.productShowcase.laterAvailable" extensionName="center" /> &quot;,
+		&quot;show&quot;: &quot; <f:translate key="fe.productShowcase.showProduct" extensionName="center" /> &quot;
+	}'
+		 data-shown="{numShownProducts}"
+		 data-rest-api="{queryString}">
+	<div class="shw-showcase__media col col-sm-5 sts-item">
+		<f:if condition="{video}">
+			<f:then>
+				<f:render section="video" arguments="{_all}"/>
+			</f:then>
+			<f:else>
+				<f:render section="image" arguments="{_all}"/>
+			</f:else>
+		</f:if>
+	</div>
+
+	<div class="shw-showcase__products col col-sm-7">
+		<ul class="shw-list js-list"></ul>
+		<div class="shw-list__show-more js-show-more hidden">
+			{f:translate(key: "fe.productShowcase.showMore", extensionName: "center") -> f:variable(name: "label")}
+			<f:render partial="Atoms/ButtonIcon" arguments="{icon: 'arrow-down', text: '{label}'}" />
+		</div>
+	</div>
+
+	<f:if condition="{ctaButtonLink}">
+		<div class="btc-bar  shw-showcase__cta">
+			<div class="btc-bar__width-adjust">
+				<a href="{ctaButtonLink}" class="btn btn--solid"><span class="btn__label">{ctaButtonText}</span></a>
+			</div>
+		</div>
+	</f:if>
+</section>
+
+<f:section name="video">
+	{f:uri.image(image: '{image.originalFile}', width: '500') -> f:variable(name: 'poster')}
+	<video loop="loop" muted="muted" preload="none" src="{video.originalFile.storage.configuration.basePath}{video.originalFile.identifier}"
+		webkit-playsinline playsinline poster="{poster}" type="video/mp4"></video>
+	<f:if condition="{showVideoOnMobile} == 1">
+		<div class="sts-item__play js-sts-play">
+			<c:svg class="icn-icon" path="{settings.fe.svgIconsPath}" name="play" mode="{settings.fe.svgIconsMode}"/>
+		</div>
+	</f:if>
+</f:section>
+
+<f:section name="image">
+	<div class="shw-showcase__placeholder lazy-load lazy-load-complete" style="padding-top: calc(100% * {imageheight} / {imagewidth}) ">
+        <f:image image="{image.originalFile}"/>
+		<img src="{f:uri.image(image: '{image.originalFile}')}"
+			 sizes="(min-width: 1200px) 480px, (min-width: 768px) 40vw, (min-width: 500px) 500px, 100vw"
+			 srcset="{f:uri.image(image: '{image.originalFile}', width: '500')} 500w, {f:uri.image(image: '{image.originalFile}', width: '768')} 768w, {f:uri.image(image: '{image.originalFile}', width: '1024')} 1024w, {f:uri.image(image: '{image.originalFile}', width: '1600')} 1600w"
+			 class="lazy-load-complete">
+	</div>
+</f:section>

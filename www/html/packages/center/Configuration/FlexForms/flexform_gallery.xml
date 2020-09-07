@@ -1,0 +1,27 @@
+<T3DataStructure>
+	<sheets>
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>Gallery Settings</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<settings.gallery.gallery>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:flexform.gallery.gallery</label>
+							<config>
+								<type>select</type>
+								<renderType>selectSingle</renderType>
+								<foreign_table>tx_center_domain_model_misc_gallery</foreign_table>
+								<foreign_table_where> AND tx_center_domain_model_misc_gallery.sys_language_uid IN (-1,0) ORDER BY tx_center_domain_model_misc_gallery.name ASC</foreign_table_where>
+								<minitems>1</minitems>
+							</config>
+						</TCEforms>
+					</settings.gallery.gallery>
+				</el>
+			</ROOT>
+		</sDEF>
+	</sheets>
+</T3DataStructure>

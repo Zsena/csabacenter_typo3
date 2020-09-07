@@ -1,0 +1,226 @@
+{namespace c = DigitalZombies\Center\ViewHelpers}
+{namespace e = DigitalZombies\Providerece\ViewHelpers}
+
+<article class="dtl-opening-page">
+    <!-- Standard Öffnungszeiten (Center) : -->
+	<section class="section-margin">
+	    <h3 class="heading-4">
+	        <e:salutation key="openings.generalOpenings" communicationLineTitle="{center.communicationLine.title}"/>
+	    </h3>
+	    <table class="dtl-table">
+	        <f:for each="{dailyHours}" as="day">
+	            <f:if condition="!({day.from} == 0 && {day.till} == 0)">
+	              <tr class="dtl-table__first-row dtl-table__last-row">
+	                  <td class="dtl-table__first-col">
+	                      <f:translate key="openings.day{day.dayOfWeek}" extensionName="providerece"/>
+	                  </td>
+	                  <td class="dtl-table__hours">
+	                      <f:if condition="{day.closed} == 1">
+	                          <f:then>
+	                              <f:translate key="ftr.opening.closed" extensionName="center"/>
+	                          </f:then>
+	                          <f:else>
+	                              <c:openingHoursTimeFormat from="{day.from}" till="{day.till}" />
+	                              <f:if condition="{day.fromExt} != 0 && {day.tillExt} ! =0">
+	                                  <c:openingHoursTimeFormat from="{day.fromExt}" till="{day.tillExt}" />
+	                              </f:if>
+	                          </f:else>
+	                      </f:if>
+	                  </td>
+	              </tr>
+	            </f:if>
+	        </f:for>
+	    </table>
+	</section>
+
+    <!-- Besondere Öffnungszeiten (Center) : -->
+    <f:if condition="{specialClosingDays}">
+	<section class="section-margin">
+        <h3 class="heading-4">
+            <f:translate key="openings.extraClosingDays" extensionName="providerece"/>
+        </h3>
+				<div class="dtl-table__container">
+	        <table class="dtl-table">
+	            <f:for each="{specialClosingDays}" as="specialClosingDay">
+	                <tr  class="dtl-table__first-row dtl-table__last-row">
+	                    <td class="dtl-table__first-col">
+	                        <span class="hidden-sm-down"><f:format.date format="{settings.dateFormat.fullMonth}">{specialClosingDay.closingDay}</f:format.date></span>
+	                        <span class="hidden-sm-up"><f:format.date format="{settings.dateFormat.base}">{specialClosingDay.closingDay}</f:format.date></span>
+	                    </td>
+	                    <td class="dtl-table__hours">
+	                        <f:if condition="{specialClosingDay.from} != 0 && {specialClosingDay.till} != 0">
+	                            <f:then>
+	                                <c:openingHoursTimeFormat from="{specialClosingDay.from}" till="{specialClosingDay.till}" />
+	                            </f:then>
+	                        <f:else>
+	                            <f:translate key="ftr.opening.closed" extensionName="center"/>
+	                        </f:else>
+	                        </f:if>
+	                    </td>
+	                    <td class="dtl-table__label">
+	                        {specialClosingDay.name}
+	                    </td>
+	                </tr>
+	            </f:for>
+	        </table>
+				</div>
+	</section>
+    </f:if>
+
+    <!-- Gesetzliche Feiertage (Center) : -->
+    <f:if condition="{holidays}">
+	<section class="section-margin">
+        <h3 class="heading-4">
+            <f:translate key="openings.legalClosingDays" extensionName="providerece"/>
+        </h3>
+				<div class="dtl-table__container">
+	        <table class="dtl-table">
+	            <f:for each="{holidays}" as="holiday">
+	                <tr class="dtl-table__first-row dtl-table__last-row">
+	                    <td class="dtl-table__first-col">
+	                        <span class="hidden-sm-down"><f:format.date format="{settings.dateFormat.fullMonth}">{holiday.closingDay}</f:format.date></span>
+	                        <span class="hidden-sm-up"><f:format.date format="{settings.dateFormat.base}">{holiday.closingDay}</f:format.date></span>
+	                    </td>
+	                    <td class="dtl-table__label">{holiday.name}</td>
+	                </tr>
+	            </f:for>
+	        </table>
+				</div>
+	</section>
+    </f:if>
+
+	<!-- Shops mit abweichenden Öffnungszeiten : -->
+	<f:if condition="{shopOpenings} || {serviceOpenings}">
+		<f:section name="shopsOpeningHours">
+			<f:for each="{shopOpenings}" as="shop" iteration="iteratorShop">
+				<f:for each="{c:FilterOpeningHours(openingHours: '{shop.days}')}" as="shopDay" iteration="iterator">
+					<tr class="
+						{f:if(condition: '{iteratorShop.isFirst}', then: 'dtl-table__table-first-row')}
+						{f:if(condition: '{iterator.isFirst}', then: 'dtl-table__first-row')}
+						{f:if(condition: '{iterator.isLast}', then: 'dtl-table__last-row')}">
+						<f:if condition="{iterator.isFirst}">
+							<td rowspan="{iterator.total}" class="dtl-table__shop-name">
+								{shop.shopName}
+							</td>
+						</f:if>
+						<td class="dtl-table__weekday">
+							{shopDay.name.from}
+							<f:if condition="{shopDay.name.till}">
+								- {shopDay.name.till}
+							</f:if>
+						</td>
+						<td class="dtl-table__hours">
+							<c:openingHoursTimeFormat from="{shopDay.dailyHours.from}" till="{shopDay.dailyHours.till}" />
+							<f:if condition="{shopDay.dailyHours.fromExt} != 0 && {shopDay.dailyHours.tillExt} != 0">
+								<br>
+								<c:openingHoursTimeFormat from="{shopDay.dailyHours.fromExt}" till="{shopDay.dailyHours.tillExt}" />
+							</f:if>
+						</td>
+					</tr>
+				</f:for>
+			</f:for>
+		</f:section>
+
+		<section class="section-margin">
+			<h3 class="heading-4">
+				<f:translate key="openings.gastroSpecialOpenings" extensionName="providerece"/>
+			</h3>
+			<div class="dtl-table__container">
+				<table class="dtl-table">
+					<f:render section="shopsOpeningHours" arguments="{shopOpenings: shopOpenings}" />
+					<f:if condition="{serviceOpenings}">
+						<tr class="dtl-table__first-row">
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+						</tr>
+						<f:render section="shopsOpeningHours" arguments="{shopOpenings: serviceOpenings}" />
+					</f:if>
+
+					<f:if condition="{service247}">
+						<tr class="dtl-table__first-row ">
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+						</tr>
+						<f:for each="{service247}" as="shop" iteration="iterator">
+							<tr class="dtl-table__first-row dtl-table__last-row
+								{f:if(condition: '{iterator.isFirst}', then: 'dtl-table__table-first-row')}">
+								<td class="dtl-table__shop-name">{shop.title}</td>
+								<td class="dtl-table__weekday">
+									<f:translate key="ftr.opening.247.motoso" extensionName="providerece"/>
+								</td>
+								<td class="dtl-table__hours">
+									<f:translate key="ftr.opening.247.24hours" extensionName="providerece"/>
+								</td>
+							</tr>
+						</f:for>
+					</f:if>
+				</table>
+			</div>
+		</section>
+	</f:if>
+	<!-- Shops mit abweichenden Öffnungszeiten : ENDE-->
+
+
+    <!-- Besondere Öffnungszeiten Shops : -->
+	<f:if condition="{shopsWithSpecialOpenings} || {serviceWithSpecialOpenings}">
+		<f:section name="specialOpeningHours">
+			<f:for each="{days}" as="day" iteration="iterator">
+				<tr class="{f:if(condition: '{iterator.isFirst}', then: 'dtl-table__first-row')} {f:if(condition: '{iterator.isLast}', then: 'dtl-table__last-row')}">
+					<f:if condition="{iterator.isFirst}">
+						<td rowspan="{iterator.total}" class="dtl-table__shop-name dtl-table__shop-name--special">
+							{title}
+						</td>
+					</f:if>
+					<td class="dtl-table__weekday">
+						<time datetime="{day.closingDay -> f:format.date(format: 'Y-m-d')}">
+							<span class="hidden-sm-down" aria-hidden>
+								<f:format.date format="{settings.dateFormat.fullMonth}">
+									{day.closingDay}
+								</f:format.date>
+							</span>
+							<span class="hidden-sm-up" aria-hidden>
+								<f:format.date format="{settings.dateFormat.base}">
+									{day.closingDay}
+								</f:format.date>
+							</span>
+						</time>
+					</td>
+					<td class="dtl-table__hours">
+						<f:if condition="{day.from} || {day.till}">
+							<f:then> <c:openingHoursTimeFormat from="{day.from}" till="{day.till}" /> </f:then>
+							<f:else> <f:translate key="ftr.opening.closed" extensionName="center"/> </f:else>
+						</f:if>
+					</td>
+					<td class="dtl-table__label"> {day.name} </td>
+				</tr>
+			</f:for>
+		</f:section>
+
+	<section class="section-margin">
+		<h3 class="heading-4">
+			<f:translate key="openings.shopClosingDays" extensionName="providerece"/>
+		</h3>
+
+		<div class="dtl-table__container">
+			<table class="dtl-table">
+				<f:for each="{shopsWithSpecialOpenings}" as="shop">
+					<f:if condition="{shop.yearlySchedule}">
+						<f:for each="{shop.yearlySchedule}" as="schedule">
+							<f:if condition="{schedule.specialClosingDays -> f:count()} > 0">
+								<f:render section="specialOpeningHours" arguments="{days: schedule.specialClosingDays, title: shop.title}" />
+							</f:if>
+						</f:for>
+					</f:if>
+				</f:for>
+				<f:for each="{serviceWithSpecialOpenings}" as="service">
+					<f:for each="{service.yearlySchedule}" as="schedule">
+						<f:render section="specialOpeningHours" arguments="{days: schedule.specialClosingDays, title: service.title}" />
+					</f:for>
+				</f:for>
+			</table>
+		</div>
+  </f:if>
+	<!-- Besondere Öffnungszeiten Shops : ENDE -->
+</article>

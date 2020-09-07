@@ -1,0 +1,374 @@
+mod.wizards.newContentElement.wizardItems.teasers {
+	elements {
+		center_teaserwall {
+			iconIdentifier = records-default
+			title = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.teasers.teaserwall.default.title
+			description = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.teasers.teaserwall.default.description
+			tt_content_defValues {
+				CType = list
+				list_type = center_teaserwall
+			}
+		}
+
+		center_teaserwallblog {
+			iconIdentifier = apps-pagetree-blog
+			title = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.teasers.teaserwall.blog.title
+			description = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.teasers.teaserwall.blog.description
+			tt_content_defValues {
+				CType = list
+				list_type = center_teaserwallblog
+			}
+		}
+
+		center_teaserwallbookmarks {
+			iconIdentifier = records-default
+			title = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.teasers.teaserwall.bookmarks.title
+			description = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.teasers.teaserwall.bookmarks.description
+			tt_content_defValues {
+				CType = list
+				list_type = center_teaserwallbookmarks
+			}
+		}
+
+		center_teaserwalloffer {
+			iconIdentifier = records-offer
+			title = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.teasers.teaserwall.offer.title
+			description = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.teasers.teaserwall.offer.description
+			tt_content_defValues {
+				CType = list
+				list_type = center_teaserwalloffer
+			}
+		}
+
+		center_teaserwalljobs {
+			iconIdentifier = records-jobs
+			title = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.teasers.teaserwall.job.title
+			description = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.teasers.teaserwall.job.description
+			tt_content_defValues {
+				CType = list
+				list_type = center_teaserwalljob
+			}
+		}
+
+		center_teaserwallevent {
+			iconIdentifier = records-event
+			title = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.teasers.teaserwall.event.title
+			description = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.teasers.teaserwall.event.description
+			tt_content_defValues {
+				CType = list
+				list_type = center_teaserwallevent
+			}
+		}
+
+		center_teaserwallnews {
+			iconIdentifier = records-default
+			title = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.teasers.teaserwall.news.title
+			description = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.teasers.teaserwall.news.description
+			tt_content_defValues {
+				CType = list
+				list_type = center_teaserwallnews
+			}
+		}
+
+		center_teaserwallservice {
+			iconIdentifier = records-service
+			title = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.teasers.teaserwall.service.title
+			description = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.teasers.teaserwall.service.description
+			tt_content_defValues {
+				CType = list
+				list_type = center_teaserwallservice
+			}
+		}
+
+		center_teaserwallshop {
+			iconIdentifier = apps-pagetree-shop
+			title = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.teasers.teaserwall.shop.title
+			description = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.teasers.teaserwall.shop.description
+			tt_content_defValues {
+				CType = list
+				list_type = center_teaserwallshop
+			}
+		}
+
+		center_teaserwallgastro {
+			iconIdentifier = apps-pagetree-gastro
+			title = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.teasers.teaserwall.gastro.title
+			description = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.teasers.teaserwall.gastro.description
+			tt_content_defValues {
+				CType = list
+				list_type = center_teaserwallgastro
+			}
+		}
+	}
+	header = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.teasers
+	show := addToList(center_teaserwall, center_teaserwallblog, center_teaserwallbookmarks, center_teaserwalloffer)
+	show := addToList(center_teaserwalljobs, center_teaserwallevent, center_teaserwallservice)
+	show := addToList(center_teaserwallnews, center_teaserwallshop, center_teaserwallgastro)
+}
+
+mod.wizards.newContentElement.wizardItems.ece_content {
+	elements {
+		center_gallery{
+			iconIdentifier = records-default
+			title = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.ece_content.gallery.title
+			description = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.ece_content.gallery.description
+			tt_content_defValues {
+				CType = list
+				list_type = center_gallery
+			}
+		}
+
+		center_contactperson{
+        			iconIdentifier = records-default
+        			title = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.ece_content.contactperson.title
+        			description = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.ece_content.contactperson.description
+        			tt_content_defValues {
+        				CType = list
+        				list_type = center_contactperson
+        			}
+        		}
+
+		center_shopfilter {
+			iconIdentifier = apps-pagetree-shop
+			title = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.ece_content.shopfilter.title
+			description = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.ece_content.shopfilter.description
+			tt_content_defValues {
+				CType = list
+				list_type = center_shopfilter
+			}
+		}
+        center_hometeaserproducts {
+            iconIdentifier = records-offer
+            title = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.home_teaser_plugins.products.title
+            description = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.home_teaser_plugins.products.description
+            tt_content_defValues {
+                CType = list
+                list_type = center_hometeaserproducts
+            }
+        }
+	}
+	show := addToList(center_gallery, center_contactperson, center_shopfilter)
+}
+
+mod.wizards.newContentElement.wizardItems.detail_page_plugins {
+	elements {
+		center_job{
+			iconIdentifier = records-jobs
+			title = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.detail_page_plugins.job.title
+			description = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.detail_page_plugins.job.description
+			tt_content_defValues {
+				CType = list
+				list_type = center_job
+			}
+		}
+
+		center_service{
+			iconIdentifier = records-service
+			title = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.detail_page_plugins.service.title
+			description = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.detail_page_plugins.service.description
+			tt_content_defValues {
+				CType = list
+				list_type = center_service
+			}
+		}
+
+		center_news{
+			iconIdentifier = records-default
+			title = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.detail_page_plugins.news.title
+			description = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.detail_page_plugins.news.description
+			tt_content_defValues {
+				CType = list
+				list_type = center_news
+			}
+		}
+
+		center_offer{
+			iconIdentifier = records-offer
+			title = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.detail_page_plugins.offer.title
+			description = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.detail_page_plugins.offer.description
+			tt_content_defValues {
+				CType = list
+				list_type = center_offer
+			}
+		}
+
+		center_coupon{
+			iconIdentifier = records-coupon
+			title = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.detail_page_plugins.coupon.title
+			description = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.detail_page_plugins.coupon.description
+			tt_content_defValues {
+				CType = list
+				list_type = center_coupon
+			}
+		}
+
+		center_event{
+			iconIdentifier = records-event
+			title = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.detail_page_plugins.event.title
+			description = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.detail_page_plugins.event.description
+			tt_content_defValues {
+				CType = list
+				list_type = center_event
+			}
+		}
+	}
+	header = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.detail_page_plugins
+	show := addToList(center_job, center_news, center_offer, center_coupon, center_event, center_service)
+}
+
+
+mod.wizards.newContentElement.wizardItems.home_teaser_plugins {
+	elements {
+		center_hometeasernep {
+			iconIdentifier = records-event
+			title = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.home_teaser_plugins.nep.title
+			description = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.home_teaser_plugins.nep.description
+			tt_content_defValues {
+				CType = list
+				list_type = center_hometeasernep
+			}
+		}
+
+		center_hometeaserjobs {
+			iconIdentifier = records-jobs
+			title = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.home_teaser_plugins.jobs.title
+			description = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.home_teaser_plugins.jobs.description
+			tt_content_defValues {
+				CType = list
+				list_type = center_hometeaserjobs
+			}
+		}
+
+		center_hometeaseroffer {
+			iconIdentifier = records-offer
+			title = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.home_teaser_plugins.offer.title
+			description = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.home_teaser_plugins.offer.description
+			tt_content_defValues {
+				CType = list
+				list_type = center_hometeaseroffer
+			}
+		}
+
+		center_hometeasershopgastro {
+			iconIdentifier = apps-pagetree-shop
+			title = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.home_teaser_plugins.shopgastro.title
+			description = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.home_teaser_plugins.shopgastro.description
+			tt_content_defValues {
+				CType = list
+				list_type = center_hometeasershopgastro
+			}
+		}
+
+		center_hometeaserservice {
+			iconIdentifier = records-service
+			title = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.home_teaser_plugins.service.title
+			description = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.home_teaser_plugins.service.description
+			tt_content_defValues {
+				CType = list
+				list_type = center_hometeaserservice
+			}
+		}
+		center_hometeaserservicecategory {
+			iconIdentifier = records-service
+			title = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.home_teaser_plugins.service_category.title
+			description = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.home_teaser_plugins.service_category.description
+			tt_content_defValues {
+				CType = list
+				list_type = center_hometeaserservicecategory
+			}
+		}
+		center_hometeaseradteaser{
+			iconIdentifier = records-default
+			title = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.home_teaser_plugins.adteaser.title
+			description = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.home_teaser_plugins.adteaser.description
+			tt_content_defValues {
+				CType = list
+				list_type = center_hometeaseradteaser
+			}
+		}
+		center_hometeaserproducts {
+			iconIdentifier = records-offer
+			title = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.home_teaser_plugins.products.title
+			description = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.home_teaser_plugins.products.description
+			tt_content_defValues {
+				CType = list
+				list_type = center_hometeaserproducts
+			}
+		}
+		center_hometeaserdigitalmallshops {
+			iconIdentifier = apps-pagetree-shop
+			title = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.home_teaser_plugins.products.title
+			description = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.home_teaser_plugins.products.description
+			tt_content_defValues {
+				CType = list
+				list_type = center_hometeaserdigitalmallshops
+			}
+		}
+	}
+
+	header = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.home_teaser_plugins
+	show := addToList(center_hometeasernep, center_hometeaseroffer, center_hometeaserjobs, center_teaserwallinterests)
+	show := addToList(center_hometeasershopgastro, center_hometeaserservice, center_hometeaserservicecategory)
+	show := addToList(center_hometeaseradteaser, center_hometeaserproducts, center_hometeaserdigitalmallshops)
+}
+
+mod.wizards.newContentElement.wizardItems.plugins {
+	elements {
+		center_openings {
+			iconIdentifier = records-default
+			title = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.openings.title
+			description = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.openings.description
+			tt_content_defValues {
+				CType = list
+				list_type = center_openings
+			}
+		}
+		center_contentmenu {
+			iconIdentifier = records-default
+			title = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.contentmenu.title
+			description = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.contentmenu.description
+			tt_content_defValues {
+				CType = list
+				list_type = center_contentmenu
+			}
+		}
+		center_teaserwallinterests {
+			iconIdentifier = records-default
+			title = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.home_teaser_plugins.teaserwallinterests.title
+			description = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.home_teaser_plugins.teaserwallinterests.description
+			tt_content_defValues {
+				CType = list
+				list_type = center_teaserwallinterests
+			}
+		}
+		center_preview {
+			iconIdentifier = records-default
+			title = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.home_teaser_plugins.preview.description
+			description = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.home_teaser_plugins.preview.description
+			tt_content_defValues {
+				CType = list
+				list_type = center_preview
+			}
+		}
+		center_faqs {
+			iconIdentifier = records-default
+			title = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:tx_center_domain_model_faqs
+			description = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.faqs.description
+			tt_content_defValues {
+				CType = list
+				list_type = center_faqs
+			}
+		}
+		center_shopthelook {
+			iconIdentifier = records-default
+			title = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.shopthelook.title
+			description = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.shopthelook.description
+			tt_content_defValues {
+				CType = list
+				list_type = center_shopthelook
+			}
+		}
+
+	}
+	show := addToList(center_openings, center_contentmenu, center_teaserwallinterests, center_preview, center_faqs, center_shopthelook)
+}

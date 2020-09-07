@@ -1,0 +1,8 @@
+<f:if condition="{item.teaserCategory} == '1'">
+    <f:then>
+        <f:render partial="Teasers/News/News" arguments="{item: item, settings: settings, omitLazyLoadScript: omitLazyLoadScript}" />
+    </f:then>
+    <f:else>
+        <f:render partial="Teasers/News/Press" arguments="{item: item, settings: settings, omitLazyLoadScript: omitLazyLoadScript}" />
+    </f:else>
+</f:if>

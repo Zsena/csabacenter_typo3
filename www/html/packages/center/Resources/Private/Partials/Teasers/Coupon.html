@@ -1,0 +1,91 @@
+{namespace cm=DigitalZombies\Center\ViewHelpers}
+{namespace c=DigitalZombies\Center\ViewHelpers}
+<f:security.ifAuthenticated>
+    <f:then>
+        <v:variable.set name="redeemed" value="{c:couponToUser(uid:'{item.uid}')}"/>
+    </f:then>
+    <f:else>
+        <v:variable.set name="redeemed" value="FALSE"/>
+    </f:else>
+</f:security.ifAuthenticated>
+
+
+<article
+        class="tsr-solid tsr-solid--press {item.columnClassName} {f:if(condition: redeemed, then: 'tsr--disabled', else: '')}"
+        {cm:app(visibility: '{item.hideInApp}')}>
+<div
+        class="bdr-banderole bdr-banderole--top-left {f:if(condition: redeemed, then: 'bdr-banderole--disabled', else: '')}">
+    <span class="bdr-banderole__container">
+			<span class="bdr-banderole__text">
+                <f:if condition="{redeemed}">
+                    <f:then>
+						<f:translate key="fe.detailPage.coupon.alreadyRedeemedShort" extensionName="providerece"/>
+                    </f:then>
+                    <f:else>
+						<f:translate key="fe.teaserWall.coupon.limited" extensionName="center"/>
+                    </f:else>
+                </f:if>
+			</span>
+		</span>
+</div>
+
+<f:if condition="{item.isPreview}">
+    <f:then>
+        <f:link.action
+                class="tsr__container"
+                action="show"
+                controller="Preview"
+                arguments="{uid: item.uid, table: item.tableName}"
+                noCache="true"
+                noCacheHash="true"
+        >
+            <f:render section="coupon" arguments="{_all}"/>
+        </f:link.action>
+    </f:then>
+    <f:else>
+        <f:link.action class="tsr__container" action="show" controller="Coupon" arguments="{coupon: item.uid}"
+                       pluginName="Coupon" extensionName="center" pageUid="{settings.detailPages.coupon}">
+            <f:render section="coupon" arguments="{_all}"/>
+        </f:link.action>
+    </f:else>
+</f:if>
+
+<f:if condition="{settings.isLoginActivated}">
+    <f:if condition="{settings.usergroup} != 2">
+        <div class="tsr__actions">
+            <f:render partial="Teasers/BookmarkIcon"
+                      arguments="{prefix: 'c', uid: '{item.uid}', enddate: '{item.endtime}'}"/>
+        </div>
+    </f:if>
+</f:if>
+</article>
+
+<f:section name="coupon">
+    <f:render partial="Teasers/MediaPartial" arguments="{item: item, omitLazyLoadScript: omitLazyLoadScript}"/>
+    <div class="tsr__content">
+        <header class="tsr__header">
+            <div class="tsr__header__group">
+                <f:if condition="{settings.hideCategoryInFE}">
+                    <f:else>
+                        <div class="tsr__category">
+                            <f:translate key="fe.teaserWall.category.tx_center_domain_model_records_coupon"
+                                         extensionName="center"/>
+                        </div>
+                    </f:else>
+                </f:if>
+            </div>
+            <h3 class="tsr__title">
+                {item.title}
+            </h3>
+            <div class="tsr__author">
+                {item.sender.name}
+            </div>
+        </header>
+        <div class="tsr__date tsr__date--medium">
+            {item.teaserDate}
+        </div>
+        <div class="tsr__text">
+            <p>{item.teaserAbstract}</p>
+        </div>
+    </div>
+</f:section>

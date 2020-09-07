@@ -1,0 +1,17 @@
+<f:if condition="{coupon.fixedAmount}>999999">
+    <f:then>
+        <span class="bdr-banderole__container">
+            <span class="bdr-banderole__text">
+                <f:translate key="fe.detailPage.coupon.validTill" extensionName="providerece"/>
+                <f:format.date format="d.m.Y">{coupon.endtime}</f:format.date>
+            </span>
+        </span>
+    </f:then>
+    <f:else>
+        <span class="bdr-banderole__container">
+            <span class="bdr-banderole__text">
+                <f:translate key="fe.detailPage.coupon.onlyAvailable" extensionName="providerece"/> {availableCoupons} <f:translate key="fe.detailPage.coupon.pieces" extensionName="providerece"/>
+            </span>
+        </span>
+    </f:else>
+</f:if>

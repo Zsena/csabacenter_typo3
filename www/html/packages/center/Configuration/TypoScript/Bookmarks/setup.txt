@@ -1,0 +1,3 @@
+[PIDinRootline = {$plugin.tx_providerece.settings.detailPages.bookmarks}]
+	plugin.tx_providerece.settings.bookmarksHeader = 1
+[global]

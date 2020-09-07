@@ -1,0 +1,40 @@
+{namespace c=DigitalZombies\Center\ViewHelpers}
+<section class="tsr-grp tsr-grp--shops" data-module="wall">
+	<h2 class="visuallyhidden">{pageTitle}</h2>
+	<div class="tsr-grp__teasers js-wall">
+		<f:for each="{items}" as="item">
+			<div class="tsr-grp__teaser">
+				<f:render partial="Teasers/{item.partialName}" arguments="{item:item, settings: settings}" />
+			</div>
+		</f:for>
+	</div>
+	
+	<div class="js-solr-result-area hidden">
+		<div class="ftsh-result__loading-indicator js-solr-result-loading">
+			<svg class="icn-spinner" viewbox="0 0 70 70" aria-hidden="true">
+				<circle r="30" cx="35" cy="35" />
+			</svg>
+		</div>
+		<div class="ftsh-result__title js-solr-result-headline"></div>
+		<div class="tsr-grp__teasers js-solr-result-teasers"></div>
+	</div>
+	<f:if condition="{needLoadMore}">
+		<section class="btc-bar">
+			<h3 class="visuallyhidden">
+				<f:translate key="fe.teaserWall.load_more" extensionName="center"/>
+			</h3>
+			<div class="btc-bar__width-adjust">
+				<f:link.action class="btn btn--solid btn--icon js-wall-button" pageUid="{pageUid}" pageType="{settings.ajaxTeaserWall}"
+					action="{f:if(condition: '{action}', then: '{action}', else:'ajaxList')}" pluginName="TeaserWall" extensionName="Center" arguments="{cid: '{f:if(condition: \'{cid}\', then: \'{cid}\', else:\'0\')}', elements: elements}">
+					<span class="btn__inner">
+						<span class="btn__icon">
+							<c:svg path="{settings.fe.svgIconsPath}" name="plus" mode="{settings.fe.svgIconsMode}" aria-hidden="true"/>
+						</span><span class="btn__icon btn__icon--spinner">
+							<svg viewbox="0 0 70 70" aria-hidden="true"><circle r="30" cx="35" cy="35" /></svg>
+						</span><span class="btn__label"><f:translate key="fe.teaserWall.load_more" extensionName="center"/></span>
+					</span>
+				</f:link.action>
+			</div>
+		</section>
+	</f:if>
+</section>

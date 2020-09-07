@@ -1,0 +1,181 @@
+
+.menu_footer li {
+  margin: 3px 0;
+  a {
+    font-size: 15px;
+    font-weight: 300;
+    color: $white;
+    &:hover,
+    &:focus {
+      color: #d68983 !important;
+    }
+  }
+}
+
+.footer-box {
+  background: $dark-gray;
+  padding: 50px 0;
+  .footer-company-name {
+    text-align: center;
+    margin: 0;
+    color: #333;
+    font-size: 13px;
+    font-weight: 400;
+    padding-top: 2px;
+    a:hover {
+      color: $light-red;
+    }
+  }
+
+  h3 {
+    font-size: 30px;
+    border-bottom: solid $theme-color 4px;
+    margin-bottom: 15px;
+    color: $white;
+  }
+
+  .fas {
+    font-size: 1.2rem;
+    min-width: 30px;
+    color: $white;
+  }
+  p, span {
+    color: $white;
+  }
+}
+
+
+/*------------------------------------------------------------------ Subscribe -------------------------------------------------------------------*/
+
+.subscribe-box {
+  padding: 70px 0px;
+  background: $light-red;
+}
+
+.subscribe-inner {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.subscribe-inner h2 {
+  font-size: 80px;
+  font-weight: 600;
+  color: $white;
+  padding: 0;
+}
+
+.subscribe-inner p {
+  color: #cccccc;
+}
+
+.subscribe-inner .form-group .form-control-1 {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 0px;
+  border: none;
+}
+
+.subscribe-inner .form-group button {
+  border-radius: 0;
+  transition: .2s;
+  padding: 10px 18px;
+  background: $black;
+  color: $white;
+  border: none;
+  cursor: pointer;
+  font-weight: 300;
+  letter-spacing: 0.1px;
+  border-radius: 0 15px 0 15px;
+}
+
+
+.footer_bottom {
+
+  background: $black-gray;
+  padding: 0 0;
+  width: 100%;
+  min-height: 82px;
+  float: left;
+  text-align: center;
+
+}
+
+.footer_bottom p.crp {
+  float: left;
+  margin: 0;
+  color: $white;
+  font-size: 16px;
+  text-align: center;
+  width: 100%;
+  line-height: 82px;
+}
+
+.footer_menu ul {
+  list-style: none;
+  width: 100%;
+  float: left;
+}
+
+.footer_blog li a {
+  font-size: 14px;
+  font-weight: 300 !important;
+  color: $light-gray !important;
+}
+
+.footer_blog ul li {
+  margin-bottom: 15px;
+  display: flex;
+  line-height: normal;
+}
+
+.footer_blog ul li img {
+  width: 25px;
+  height: 25px;
+  margin-right: 15px;
+  position: relative;
+  top: 1px;
+}
+
+footer {
+  width: 100%;
+  float: left;
+}
+
+footer.footer-box p {
+  font-size: 17px;
+}
+
+.footer_blog {
+  float: left;
+  width: 100%;
+}
+
+
+.recent_post_footer p {
+  color: #acaba9 !important;
+  font-size: 13px;
+}
+
+.footer_blog h3 {
+  margin-bottom: 10px;
+}
+
+.newsletter_form input {
+  padding: 5px 10px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.newsletter_form button {
+  background-color: $theme-color;
+  color: $white;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 5px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+}

@@ -1,0 +1,16 @@
+<f:layout name="Page"/>
+
+<f:section name="Main">
+	<f:render partial="Header/Header" arguments="{pages: pages, rootPageId: rootPageId, page: data, center: center, languages : languages, serviceNavigation: serviceNavigation}"/>
+
+	<f:cObject typoscriptObjectPath="lib.content.shopList.stage" />
+	<div data-module="shop-overview" data-search-mode="2">
+		<f:cObject typoscriptObjectPath="lib.content.shopList.filter" />
+		<f:cObject typoscriptObjectPath="lib.content.shopList.content" />
+		<f:cObject typoscriptObjectPath="lib.content.shopList.plugin" />
+	</div>
+
+
+	<f:render partial="Footer/Footer" arguments="{center: center}"/>
+	<f:render partial="ToTop"/>
+</f:section>

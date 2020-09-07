@@ -1,0 +1,189 @@
+// Paths
+plugin.tx_csabacentersite.view {
+    templateRootPaths.0 = {$plugin.tx_csabacentersite.view.templateRootPaths.default}
+    //This is a needed configuration, because some partials exists in the center extension and the provider
+    //extension based on that extension
+    partialRootPaths.0 = {$plugin.tx_csabacentersite.view.partialRootPaths.default}
+    partialRootPaths.10 = {$plugin.tx_csabacentersite.view.partialRootPaths.generic}
+    partialRootPaths.20 = {$plugin.tx_center.view.partialRootPaths.default}
+    layoutRootPaths.0 = {$plugin.tx_csabacentersite.view.layoutRootPaths.default}
+}
+
+// Settings from constants
+plugin.tx_csabacentersite.settings {
+    header {
+        title = {$plugin.tx_csabacentersite.settings.header.title}
+        additionalClass = {$plugin.tx_csabacentersite.settings.header.additionalClass}
+        showPageAsCTA = {$plugin.tx_csabacentersite.settings.header.showPageAsCTA}
+        showTextAsCTA = {$plugin.tx_csabacentersite.settings.header.showTextAsCTA}
+        linkTextAsCTA = {$plugin.tx_csabacentersite.settings.header.linkTextAsCTA}
+    }
+
+    footer {
+        navigationMetaDirectoryPid = {$plugin.tx_csabacentersite.settings.footer.navigationMetaDirectoryPid}
+        navigationOpportunitiesDirectoryPid = {$plugin.tx_csabacentersite.settings.footer.navigationOpportunitiesDirectoryPid}
+    }
+    forceFormalText = {$plugin.tx_csabacentersite.settings.b2bSection}
+
+    //Map ajax calls from the center too. It is needed if there are partials referenced from the center extension
+    ajaxGalleryDataTypeNum = {$plugin.tx_center.settings.ajaxGalleryDataTypeNum}
+    ajaxPhotoswipeTemplate = {$plugin.tx_center.settings.ajaxPhotoswipeTemplate}
+    ajaxCenterPlanLinkTypeNum = {$plugin.tx_center.settings.ajaxCenterPlanLinkTypeNum}
+    ajaxOpeningsTypeNum = {$plugin.tx_center.settings.ajaxOpeningsTypeNum}
+
+    googleMapsApiKey = {$plugin.tx_csabacentersite.settings.googleMapsApiKey}
+
+    cookieJsonTypeNum = {$cookie_banner.jsonTypeNum}
+
+    detailPages {
+        job = {$plugin.tx_csabacentersite.settings.detailPages.job}
+        event = {$plugin.tx_csabacentersite.settings.detailPages.event}
+        news = {$plugin.tx_csabacentersite.settings.detailPages.news}
+        press = {$plugin.tx_csabacentersite.settings.detailPages.press}
+        offer = {$plugin.tx_csabacentersite.settings.detailPages.offer}
+		coupon = {$plugin.tx_csabacentersite.settings.detailPages.coupon}
+        centerPlan = {$plugin.tx_csabacentersite.settings.detailPages.centerPlan}
+        directions = {$plugin.tx_csabacentersite.settings.detailPages.directions}
+        openingHours = {$plugin.tx_csabacentersite.settings.detailPages.openingHours}
+        contact = {$plugin.tx_csabacentersite.settings.detailPages.contact}
+        search = {$plugin.tx_csabacentersite.settings.detailPages.search}
+        service = {$plugin.tx_csabacentersite.settings.detailPages.service}
+        dataProtection = {$plugin.tx_csabacentersite.settings.detailPages.dataProtection}
+        law = {$plugin.tx_csabacentersite.settings.detailPages.law}
+        agb = {$plugin.tx_csabacentersite.settings.detailPages.agb}
+        agbCard = {$plugin.tx_csabacentersite.settings.detailPages.agbCard}
+        reference = {$plugin.tx_csabacentersite.settings.detailPages.reference}
+
+        registration = {$plugin.tx_csabacentersite.settings.detailPages.registration}
+        registrationConfirmation = {$plugin.tx_csabacentersite.settings.detailPages.registrationConfirmation}
+        registrationRefused = {$plugin.tx_csabacentersite.settings.detailPages.registrationRefused}
+        regisrationSuccessfull = {$plugin.tx_csabacentersite.settings.detailPages.regisrationSuccessfull}
+        login = {$plugin.tx_csabacentersite.settings.detailPages.login}
+        loginB2C = {$plugin.tx_csabacentersite.settings.detailPages.loginB2C}
+        forgotPassword = {$plugin.tx_csabacentersite.settings.detailPages.forgotPassword}
+		porfileDeleted = {$plugin.tx_csabacentersite.settings.detailPages.porfileDeleted}
+		bookmarks = {$plugin.tx_csabacentersite.settings.detailPages.bookmarks}
+        shoppingCart = {$plugin.tx_csabacentersite.settings.detailPages.shoppingCart}
+		products = {$plugin.tx_csabacentersite.settings.detailPages.products}
+        myAccount = {$plugin.tx_csabacentersite.settings.detailPages.myAccount}
+		myInterests = {$plugin.tx_csabacentersite.settings.detailPages.myInterests}
+
+		newsletterSubscription = {$plugin.tx_csabacentersite.settings.detailPages.newsletterSubscription}
+		newsletterUnsubscription = {$plugin.tx_csabacentersite.settings.detailPages.newsletterUnsubscription}
+		newsletterRecipientsList = {$plugin.tx_csabacentersite.settings.detailPages.newsletterRecipientsList}
+		newsletterFolder = {$plugin.tx_csabacentersite.settings.detailPages.newsletterFolder}
+		newsletterMenuPoints = {$plugin.tx_csabacentersite.settings.newsletterMenuPoints}
+		centerVoucher = {$plugin.tx_csabacentersite.settings.detailPages.centerVoucher}
+
+        deleteAccountDialog = {$plugin.tx_csabacentersite.settings.detailPages.deleteAccountDialog}
+        changeEmailDialog = {$plugin.tx_csabacentersite.settings.detailPages.changeEmailDialog}
+        changePasswordDialog = {$plugin.tx_csabacentersite.settings.detailPages.changePasswordDialog}
+
+        digitalmall = {$plugin.tx_csabacentersite.settings.detailPages.digitalmall}
+
+        legalPages {
+            agb = {$plugin.tx_csabacentersite.settings.detailPages.legalPages.agb}
+            dataProtection = {$plugin.tx_csabacentersite.settings.detailPages.legalPages.dataProtection}
+            dataProtectionApp = {$plugin.tx_csabacentersite.settings.detailPages.legalPages.dataProtectionApp}
+            legalApp = {$plugin.tx_csabacentersite.settings.detailPages.legalPages.legalApp}
+            legal = {$plugin.tx_csabacentersite.settings.detailPages.legalPages.legal}
+            imprint = {$plugin.tx_csabacentersite.settings.detailPages.legalPages.imprint}
+        }
+    }
+
+    disableCookieDisclaimer = 0
+
+    forceLoginRedirect = {$plugin.tx_csabacentersite.settings.forceLoginRedirect}
+
+    captchaKey = {$plugin.tx_csabacentersite.settings.captchaKey}
+
+    allowedTranslations = {$plugin.tx_csabacentersite.settings.allowedTranslations}
+
+    gallery < plugin.tx_center.settings.gallery
+
+    logo {
+        file = {$plugin.tx_csabacentersite.settings.logo.file}
+        linkPid = {$plugin.tx_csabacentersite.settings.logo.linkPid}
+        alt = {$plugin.tx_csabacentersite.settings.logo.alt}
+    }
+
+    fe {
+        tsrMaxChars = 200
+        tsrMaxCharsMobile = 50
+        tsrHeadMaxCharsMobile = 16
+        imgPath = /typo3conf/ext/csabacentersite/Resources/Public/Dist/
+        svgIconsPath = {$plugin.tx_csabacentersite.settings.header.svgIconsPath}
+        svgIconsMode = {$plugin.tx_csabacentersite.settings.header.svgIconsMode}
+    }
+
+	service {
+		openingHours = {$plugin.tx_csabacentersite.settings.service.openingHours}
+		directions = {$plugin.tx_csabacentersite.settings.service.directions}
+		centerPlan = {$plugin.tx_csabacentersite.settings.service.centerPlan}
+		contact = {$plugin.tx_csabacentersite.settings.service.contact}
+	}
+
+    comapnyName = {$plugin.tx_csabacentersite.settings.companyName}
+    rootPageId = {$plugin.tx_csabacentersite.settings.rootPageId}
+
+    dateFormat < plugin.tx_center.settings.dateFormat
+
+    adminConfirm {
+        dayLimit {
+            first = {$plugin.tx_csabacentersite.settings.adminConfirm.dayLimit.first}
+            second = {$plugin.tx_csabacentersite.settings.adminConfirm.dayLimit.second}
+        }
+        receiver {
+            email = {$plugin.tx_csabacentersite.settings.adminConfirm.receiver.email}
+            name = {$plugin.tx_csabacentersite.settings.adminConfirm.receiver.name}
+        }
+    }
+    listPages.blogEntries = {$plugin.tx_csabacentersite.settings.listPages.blogEntries}
+
+    b2bSection = {$plugin.tx_csabacentersite.settings.b2bSection}
+}
+
+[PIDinRootline = {$plugin.tx_csabacentersite.settings.detailPages.newsletterFolder}]
+    plugin.tx_csabacentersite.settings.showNlLink = true
+[end]
+
+plugin.tx_center.settings.rootPageId = {$plugin.tx_csabacentersite.settings.rootPageId}
+plugin.tx_center.settings {
+    detailPages {
+        job = {$plugin.tx_csabacentersite.settings.detailPages.job}
+        event = {$plugin.tx_csabacentersite.settings.detailPages.event}
+        news = {$plugin.tx_csabacentersite.settings.detailPages.news}
+        press = {$plugin.tx_csabacentersite.settings.detailPages.press}
+        offer = {$plugin.tx_csabacentersite.settings.detailPages.offer}
+        centerPlan = {$plugin.tx_csabacentersite.settings.detailPages.centerPlan}
+        directions = {$plugin.tx_csabacentersite.settings.detailPages.directions}
+        openingHours = {$plugin.tx_csabacentersite.settings.detailPages.openingHours}
+        contact = {$plugin.tx_csabacentersite.settings.detailPages.contact}
+        service = {$plugin.tx_csabacentersite.settings.detailPages.service}
+        coupon = {$plugin.tx_csabacentersite.settings.detailPages.coupon}
+        login = {$plugin.tx_csabacentersite.settings.detailPages.login}
+        reference = {$plugin.tx_csabacentersite.settings.detailPages.reference}
+    }
+    listPages < plugin.tx_csabacentersite.settings.listPages
+
+    googleMapsApiKey = {$plugin.tx_csabacentersite.settings.googleMapsApiKey}
+
+    fe {
+        svgIconsPath < plugin.tx_csabacentersite.settings.fe.svgIconsPath
+        svgIconsMode < plugin.tx_csabacentersite.settings.fe.svgIconsMode
+    }
+}
+
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:csabacentersite/Configuration/TypoScript/Setup/" extensions="typoscript">
+
+// Setup - Page:
+
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:csabacentersite/Configuration/TypoScript/Page/pageProperties.t3s">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:csabacentersite/Configuration/TypoScript/Page/page.t3s">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:csabacentersite/Configuration/TypoScript/Page/pageAJAX.t3s">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:csabacentersite/Configuration/TypoScript/Page/content.t3s">
+
+// Setup - direct_mail:
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:csabacentersite/Configuration/TypoScript/Extensions/direct_mail/setup.t3s">
+
+plugin.tx_epi.settings.detailPages < plugin.tx_csabacentersite.settings.detailPages

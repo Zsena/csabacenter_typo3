@@ -1,0 +1,41 @@
+{namespace c=DigitalZombies\Center\ViewHelpers}
+<section class="tsr-grp tsr-grp--services tsr-grp-theme--{settings.hometeaser.style}">
+    <header class="ttl ttl--section">
+        <h2 class="ttl__headline">{settings.hometeaser.headline}</h2>
+    </header>
+    <div class="tsr-grp__lead">
+        {settings.hometeaser.abstract}
+    </div>
+    <div class="tsr-grp__teasers">
+        <f:for each="{teasers}" as="item">
+            <f:if condition="{item.tag.serviceCategoryIcon}">
+                <f:link.page class="btncmp-round-label" title="{item.page.title}" pageUid="{item.page.uid}">
+                    <span class="btn-round icn--svg">
+                        <c:svg src="{item.tag.serviceCategoryIcon.uid}" treatIdAsReference="1"/>
+                    </span>
+                    <div class="btncmp-round-label__label">{item.page.title}</div>
+                </f:link.page>
+            </f:if>
+        </f:for>
+    </div>
+    <f:if condition="{settings.hometeaser.buttonLink}">
+        <section class="btc-bar">
+            <h3 class="visuallyhidden">
+                <f:if condition="{settings.hometeaser.buttonText}">
+                    <f:then>{settings.hometeaser.buttonText}</f:then>
+                    <f:else><f:translate key="fe.hometeaser.button.show_all" extensionName="center"/></f:else>
+                </f:if>
+            </h3>
+            <div class="btc-bar__width-adjust">
+                <f:link.typolink parameter="{settings.hometeaser.buttonLink}" class="btn btn--light">
+                    <span class="btn__label">
+                        <f:if condition="{settings.hometeaser.buttonText}">
+                            <f:then>{settings.hometeaser.buttonText}</f:then>
+                            <f:else><f:translate key="fe.hometeaser.button.show_all" extensionName="center"/></f:else>
+                        </f:if>
+                    </span>
+                </f:link.typolink>
+            </div>
+        </section>
+    </f:if>
+</section>

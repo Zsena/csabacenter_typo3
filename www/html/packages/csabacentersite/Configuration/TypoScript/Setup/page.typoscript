@@ -1,0 +1,111 @@
+page = PAGE
+page {
+	typeNum = 0
+
+	10 = FLUIDTEMPLATE
+	10 {
+		extbase.controllerExtensionName = csabacentersite
+		templateName = TEXT
+		templateName.stdWrap {
+			cObject = TEXT
+			cObject {
+				data = levelfield:-2,backend_layout_next_level,slide
+				override.field = backend_layout
+				split {
+					token = pagets__
+					1.current = 1
+					1.wrap = |
+				}
+			}
+
+			ifEmpty = DefaultPage
+		}
+
+		templateRootPaths {
+			10 = EXT:csabacentersite/Resources/Private/Templates/Page/
+		}
+
+		layoutRootPaths {
+			10 = EXT:csabacentersite/Resources/Private/Layouts/
+		}
+
+		partialRootPaths {
+			//The partials from the center extension are needed by the shop/gastro detail pages.
+			0 = {$plugin.tx_csabacentersite.view.partialRootPaths.generic}
+			10 = {$plugin.tx_center.view.partialRootPaths.default}
+			20 = EXT:csabacentersite/Resources/Private/Partials/Page/
+		}
+
+		settings < plugin.tx_csabacentersite.settings
+
+		dataProcessing {
+
+            10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            10 {
+                levels = 2
+                as = navMain
+                expandAll = 1
+                titleField = nav_title // title
+            }
+
+			30 = DigitalZombies\Csabacentersite\DataProcessing\DoktypeProcessor
+			60 = DigitalZombies\Center\DataProcessing\CenterDataProcessor
+			70 = DigitalZombies\Center\DataProcessing\CacheTagEnhancerDataProcessor
+		}
+	}
+
+	bodyTagCObject = COA
+	bodyTagCObject {
+		wrap = <body data-opening-times="|" >
+
+		10 = TEXT
+		10.typolink = 1
+		10.typolink {
+			parameter = {$plugin.tx_csabacentersite.settings.detailPages.openingHours}
+			useCacheHash = 1
+			additionalParams = &type={$plugin.tx_center.settings.ajaxOpeningsTypeNum}&tx_center_countdown[action]=showOpening&tx_center_countdown[controller]=Center&tx_center_countdown[mode]=fullyear
+			returnLast=url
+		}
+	}
+
+	headTag = <head itemscope itemtype="http://schema.org/WebSite">
+    includeCSS.app = EXT:csabacentersite/Resources/Public/Dist/app.css
+    includeJSFooter.app = EXT:csabacentersite/Resources/Public/Dist/main.js
+	headerData {
+
+		2 = TEXT
+		2.value = <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+		4 = TEXT
+		4 < lib.canonical
+		4.wrap = <link itemprop="url" href="|" />
+
+		5 = TEXT
+		5 < lib.canonical
+		5.wrap = <link rel="canonical" href="|"/>
+
+		10 = TEXT
+		10.value (
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		)
+
+		# Meta tags for css information
+		11 = TEXT
+		11.value (
+			<meta content="" id="css-viewport-width" name="css-meta">
+			<meta content="" id="css-viewport-width-code" name="css-meta">
+			<meta content="" id="css-viewport-height" name="css-meta">
+			<meta content="" id="css-viewport-height-code" name="css-meta">
+			<meta content="" id="css-resolution" name="css-meta">
+			<meta content="" id="css-resolution-code" name="css-meta">
+			<meta content="" id="css-orientation" name="css-meta">
+		)
+
+		40 = TEXT
+		40.value (
+		   <script type="text/javascript">
+		   var TYPO3RsaEncryptionPublicKeyUrl = '\/index.php?eID=RsaPublicKeyGenerationController';
+		   </script>
+		)
+	}
+}

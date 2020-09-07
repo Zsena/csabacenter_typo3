@@ -1,0 +1,44 @@
+.site_section_hospitality {
+
+  .post-entry-1.card-1 {
+    text-align: center;
+    .post-entry-1-contents {
+      padding-top: 4rem;
+    }
+
+    img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      margin: 0 auto -45px auto;
+      border: 4px solid #fff;
+    }
+
+    &.red img {
+      border-color: $pink-red;
+    }
+  }
+
+
+  .post-entry-1 .post-entry-1-contents {
+    background-color: $white;
+    padding: 20px;
+    h2 {
+      font-size: 22px;
+      margin-bottom: 20px;
+      color: $black;
+    }
+  }
+
+  .post-entry-1 .meta {
+    color: $black;
+  }
+
+  h3 {
+    font-size: 1.75rem;
+  }
+
+  .text-red {
+    color: $pink-red;
+  }
+}

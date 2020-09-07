@@ -1,0 +1,40 @@
+{namespace c = DigitalZombies\Center\ViewHelpers}
+<c:openingHoursConsolidation openingHours="{openingHours}" />
+<dl class="opn-list">
+	<f:for each="{consolidatedOpeningHours}" as="openingHours">
+	<dt class="opn-list__day">
+	<f:if condition="{openingHours.days -> f:count()} == 1">
+	<f:then>
+	<f:translate key="openingsShort.day{openingHours.days.0}" extensionName="providerece"/>
+	</f:then>
+	<f:else>
+	<f:if condition="{openingHours.days -> f:count()} == 2">
+	<f:then>
+	<f:translate key="openingsShort.day{openingHours.days.0}" extensionName="providerece"/>
+	+
+	<f:translate key="openingsShort.day{openingHours.days.1}" extensionName="providerece"/>
+	</f:then>
+	<f:else>
+	<f:translate key="openingsShort.day{openingHours.firstDay}" extensionName="providerece"/>
+	-
+	<f:translate key="openingsShort.day{openingHours.lastDay}" extensionName="providerece"/>
+	</f:else>
+	</f:if>
+	</f:else>
+	</f:if>
+	</dt>
+	<dd class="opn-list__hours">
+	<f:if condition="{openingHours.closed} != 1">
+	<f:then>
+	<c:openingHoursTimeFormat from="{openingHours.from}" till="{openingHours.till}" />
+	<f:if condition="{openingHours.fromExt} && {openingHours.tillExt}">
+	<br><c:openingHoursTimeFormat from="{openingHours.fromExt}" till="{openingHours.tillExt}" />
+	</f:if>
+	</f:then>
+	<f:else>
+	<f:translate key="ftr.opening.closed" extensionName="center" />
+	</f:else>
+	</f:if>
+	</dd>
+	</f:for>
+</dl>

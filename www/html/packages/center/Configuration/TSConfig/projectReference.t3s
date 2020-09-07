@@ -1,0 +1,34 @@
+mod.wizards.newContentElement.wizardItems.teasers {
+	elements {
+		center_referenceteaser {
+			iconIdentifier = records-reference
+			title = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.teasers.referenceteaser.title
+			description = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.teasers.ferenceteaser.description
+			tt_content_defValues {
+				CType = list
+				list_type = center_referenceteaser
+			}
+		}
+	}
+	show := addToList(center_referenceteaser)
+}
+
+mod.wizards.newContentElement.wizardItems.home_teaser_plugins {
+	elements.center_referenceteaser < mod.wizards.newContentElement.wizardItems.teasers.elements.center_referenceteaser
+	show := addToList(center_referenceteaser)
+}
+
+mod.wizards.newContentElement.wizardItems.detail_page_plugins {
+	elements {
+		center_reference {
+			iconIdentifier = records-reference
+			title = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.detail_page_plugins.reference.title
+			description = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:newContentWizard.detail_page_plugins.reference.description
+			tt_content_defValues {
+				CType = list
+				list_type = center_reference
+			}
+		}
+	}
+    show := addToList(center_reference)
+}

@@ -1,0 +1,30 @@
+{namespace cm=DigitalZombies\Center\ViewHelpers}
+<article class="tsr-solid tsr-solid--content tsr-solid{item.columnClassName}" {cm:app(visibility: '{item.hideInApp}')}>
+    <f:link.typolink parameter="{f:if(condition: item.link, then: item.link, else: item.uid)}" class="tsr__container">
+				<f:render partial="Teasers/MediaPartial" arguments="{item: item, omitLazyLoadScript: omitLazyLoadScript}" />
+				
+        <div class="tsr__content">
+            <header class="tsr__header">
+                <div class="tsr__header__group">
+                    <f:if condition="{settings.hideCategoryInFE}">
+                        <f:else>
+                            <f:if condition="{item.label}">
+                                <div class="tsr__category">
+                                    {item.label}
+                                </div>
+                            </f:if>
+                        </f:else>
+                    </f:if>
+                </div>
+                <h3 class="tsr__title">
+                    {item.title}
+                </h3>
+            </header>
+            <div class="tsr__text">
+                <p>
+                    {item.teaserAbstract}
+                </p>
+            </div>
+        </div>
+    </f:link.typolink>
+</article>

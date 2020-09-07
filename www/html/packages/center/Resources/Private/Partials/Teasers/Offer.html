@@ -1,0 +1,87 @@
+{namespace cm=DigitalZombies\Center\ViewHelpers}
+<article class="tsr-solid tsr-solid--offer tsr-solid{item.columnClassName} {item.inactiveClass}"
+         {cm:app(visibility: '{item.hideInApp}')}>
+
+<f:if condition="{item.inactiveClass}">
+    <div class="bdr-banderole bdr-banderole--top-left bdr-banderole--disabled">
+			<span class="bdr-banderole__container">
+				<span class="bdr-banderole__text">
+					<f:translate key="fe.bookMarksTeaserWall.expired" extensionName="center"/>
+				</span>
+			</span>
+    </div>
+</f:if>
+<f:if condition="{item.isPreview}">
+    <f:then>
+        <f:link.action
+                class="tsr__container"
+                action="show"
+                controller="Preview"
+                arguments="{uid: item.uid, table: item.tableName}"
+                noCache="true"
+                noCacheHash="true"
+        >
+            <f:render section="TeaserContent"
+                      arguments="{item: item, omitLazyLoadScript: omitLazyLoadScript, settings: settings}"/>
+        </f:link.action>
+    </f:then>
+    <f:else>
+        <f:if condition="{item.inactiveClass} == ''">
+            <f:then>
+                <f:link.action class="tsr__container" action="show" controller="Offer" arguments="{offer: item}"
+                               pluginName="Offer"
+                               extensionName="center" pageUid="{settings.detailPages.offer}">
+                    <f:render section="TeaserContent"
+                              arguments="{item: item, omitLazyLoadScript: omitLazyLoadScript, settings: settings}"/>
+                </f:link.action>
+            </f:then>
+            <f:else>
+                <div class="tsr__container">
+                    <f:render section="TeaserContent"
+                              arguments="{item: item, omitLazyLoadScript: omitLazyLoadScript, settings: settings}"/>
+                </div>
+            </f:else>
+        </f:if>
+
+        <f:if condition="{settings.isLoginActivated}">
+            <f:if condition="{settings.usergroup} != 2">
+                <div class="tsr__actions">
+                    <f:render partial="Teasers/BookmarkIcon"
+                              arguments="{prefix: 'o', uid: '{item.uid}', enddate: '{item.endtime}'}"/>
+                </div>
+            </f:if>
+        </f:if>
+    </f:else>
+</f:if>
+
+</article>
+
+<f:section name="TeaserContent">
+
+    <f:render partial="Teasers/MediaPartial" arguments="{item: item, omitLazyLoadScript: omitLazyLoadScript}"/>
+    <div class="tsr__content">
+        <header class="tsr__header">
+            <div class="tsr__header__group">
+                <f:if condition="{settings.hideCategoryInFE}">
+                    <f:else>
+                        <div class="tsr__category">
+                            <f:translate key="fe.teaserWall.category.tx_center_domain_model_records_offer"
+                                         extensionName="center"/>
+                        </div>
+                    </f:else>
+                </f:if>
+            </div>
+            <h3 class="tsr__title">
+                {item.title}
+            </h3>
+            <div class="tsr__author">
+                {item.sender.name}
+            </div>
+        </header>
+        <div class="tsr__text">
+            <div class="tsr__date">{item.teaserDate}</div>
+            <p>{item.teaserAbstract}</p>
+        </div>
+    </div>
+
+</f:section>

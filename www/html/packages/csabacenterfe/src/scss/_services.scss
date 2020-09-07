@@ -1,0 +1,39 @@
+.services_blog {
+  margin-bottom: 30px;
+  img {
+    max-height: 370px;
+    width: 100%;
+    min-height: 180px;
+    object-fit: cover;
+    -o-object-fit: cover;
+  }
+
+  h4 {
+    color: $black;
+    font-size: 21px;
+    text-align: center;
+    font-weight: 500;
+    box-shadow: 0 0 15px -8px $black;
+    margin: 0;
+    padding: 0;
+    min-height: 110px;
+    line-height: 110px !important;
+  }
+
+  &:hover h4::after {
+    width: 50%;
+    height: 4px;
+    background: #e72525;
+    content: "";
+    display: block;
+    transform: skew(-30deg);
+    margin-top: -20px;
+  }
+}
+
+
+.services_page .services_blog img {
+  max-height: 400px;
+  min-height: 400px;
+  object-fit: cover;
+}

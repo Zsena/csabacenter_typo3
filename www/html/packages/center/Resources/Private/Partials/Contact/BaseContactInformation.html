@@ -1,0 +1,55 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+<section class="container-section container-section--separator-bottom">
+	<div class="container-section__content">
+		<article class="dtl-info">
+			<f:if condition="{image}">
+				<f:comment>Currently the contactperson never has images</f:comment>
+				<div class="dtl-info__col-1">
+					<f:render partial="Atom/MediaFrame" attributes="{img: '{image}'}" />
+				</div>
+			</f:if>
+			<div class="dtl-info__col-2">
+				<f:if condition="{title}">
+					<f:then>
+						<h3 class="heading-4">{title}</h3>
+					</f:then>
+				</f:if>
+				<p>
+				</p>
+				<f:if condition="{item.contactPhone}">
+					<p>
+						<a href="tel:{v:format.eliminate(content: '{item.contactPhone}', whitespace: 1)}" class="btn btn--icon">
+							<span class="btn__inner">
+								<span class="btn__icon">
+									<c:svg path="{settings.fe.svgIconsPath}" name="call" mode="{settings.fe.svgIconsMode}" aria-hidden="true"/>
+								</span><span class="btn__label">{item.contactPhone}</span>
+							</span>
+						</a>
+					</p>
+				</f:if>
+				<f:if condition="{item.contactEmail}">
+					<p>
+						<a href="mailto:{item.contactEmail}" class="btn btn--icon">
+							<span class="btn__inner">
+								<span class="btn__icon">
+									<c:svg path="{settings.fe.svgIconsPath}" name="mail" mode="{settings.fe.svgIconsMode}" aria-hidden="true"/>
+								</span><span class="btn__label">{item.contactEmail}</span>
+							</span>
+						</a>
+					</p>
+				</f:if>
+				<f:if condition="{item.contactWebsite}">
+					<p>
+						<a href="{item.contactWebsite}" target="_blank" rel="noopener" class="btn btn--icon">
+							<span class="btn__inner">
+								<span class="btn__icon">
+									<c:svg path="{settings.fe.svgIconsPath}" name="external-link" mode="{settings.fe.svgIconsMode}" aria-hidden="true"/>
+								</span><span class="btn__label">{item.contactWebsiteName}</span>
+							</span>
+						</a>
+					</p>
+				</f:if>
+			</div>
+		</article>
+	</div>
+</section>

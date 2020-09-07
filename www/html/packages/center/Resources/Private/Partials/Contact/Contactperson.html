@@ -1,0 +1,69 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+<f:if condition="{contactperson}">
+<section class="container-section container-section--separator-bottom">
+	<div class="container-section__content">
+		<article class="dtl-info">
+			<f:if condition="{image}">
+			<f:comment>Currently the contactperson never has images</f:comment>
+			<div class="dtl-info__col-1">
+				<f:render partial="Atoms/MediaFrame" arguments="{img: '{image}'}" />
+			</div>
+			</f:if>
+			<div class="dtl-info__col-2">
+				<f:if condition="{contactperson.companyName}">
+				<f:then>
+				<h3 class="heading-4">{contactperson.companyName}</h3>
+				</f:then>
+				<f:else>
+				<h3 class="heading-4">{contactperson.title} {contactperson.firstName} {contactperson.lastName}</h3>
+				</f:else>
+				</f:if>
+				<p>
+				<f:if condition="{contactperson.companyName} && {contactperson.lastName}">
+				{contactperson.title} {contactperson.firstName} {contactperson.lastName}<br>
+				</f:if>
+				<f:if condition="{contactperson.function}">
+				{contactperson.function}<br>
+				</f:if>
+				<f:if condition="{contactperson.address}">
+				{contactperson.address}<br>
+				</f:if>
+				</p>
+				<f:if condition="{contactperson.phone}">
+					<p>
+						<a href="tel:{v:format.eliminate(content: '{contactperson.phone}', whitespace: 1)}" class="btn btn--icon">
+							<span class="btn__inner">
+								<span class="btn__icon">
+									<c:svg path="{settings.fe.svgIconsPath}" name="call" mode="{settings.fe.svgIconsMode}" aria-hidden="true"/>
+								</span><span class="btn__label">{contactperson.phone}</span>
+							</span>
+						</a>
+					</p>
+				</f:if>
+				<f:if condition="{contactperson.email}">
+					<p>
+						<a href="mailto:{contactperson.email}" class="btn btn--icon">
+							<span class="btn__inner">
+								<span class="btn__icon">
+									<c:svg path="{settings.fe.svgIconsPath}" name="mail" mode="{settings.fe.svgIconsMode}" aria-hidden="true"/>
+								</span><span class="btn__label">{contactperson.email}</span>
+							</span>
+						</a>
+					</p>
+				</f:if>
+				<f:if condition="{contactperson.website}">
+					<p>
+						<a href="{contactperson.website}" target="_blank" rel="noopener" class="btn btn--icon">
+							<span class="btn__inner">
+								<span class="btn__icon">
+									<c:svg path="{settings.fe.svgIconsPath}" name="external-link" mode="{settings.fe.svgIconsMode}" aria-hidden="true"/>
+								</span><span class="btn__label">{contactperson.website}</span>
+							</span>
+						</a>
+					</p>
+				</f:if>
+			</div>
+		</article>
+	</div>
+</section>
+</f:if>

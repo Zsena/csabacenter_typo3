@@ -1,0 +1,29 @@
+<f:if condition="{service.contentGoogleplay} || {service.contentApplestore}">
+	<div class="dtl-description__content tme-styles">
+</f:if>
+
+<f:if condition="{service.contentGoogleplay}">
+	<noscript data-module="lazy-load">
+		<f:link.external target="_blank" rel="noopener" uri="{service.contentGoogleplay}"
+						 title="{f:translate(key:'ftr.app.alt.googlePlay')}">
+			<img class="ftr-article__store-icon"
+				 alt="{f:translate(key:'ftr.app.alt.googlePlay')}"
+				 src="{f:uri.resource(extensionName: 'providerece', path: 'dev/images/google-play.png' )}"/>
+
+		</f:link.external>
+	</noscript>
+</f:if>
+
+<f:if condition="{service.contentApplestore}">
+	<noscript data-module="lazy-load">
+		<f:link.external target="_blank" rel="noopener" uri="{service.contentApplestore}"
+						 title="{f:translate(key:'ftr.app.alt.appStore')}">
+			<img class="ftr-article__store-icon" alt="{f:translate(key:'ftr.app.alt.appStore')}"
+				 src="{f:uri.resource(extensionName: 'providerece', path: 'dev/images/app-store.svg' )}"/>
+		</f:link.external>
+	</noscript>
+</f:if>
+
+<f:if condition="{service.contentGoogleplay} || {service.contentApplestore}">
+	</div>
+</f:if>

@@ -1,0 +1,142 @@
+{namespace c=DigitalZombies\Center\ViewHelpers}
+
+<table>
+    <tr>
+        <td>Sehr geehrte Damen und Herren,</td>
+    </tr>
+    <tr>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Auf Ihrer Website befinden sich Bildergalerien, die bald gelöscht werden:</td>
+    </tr>
+    <tr>
+        <td></td>
+    </tr>
+    <td>
+    <tr>
+        <td>
+            <ul>
+                <f:for each="{galleries}" as="gallery">
+                    <li>
+                        Löschdatum: <f:format.date format="j.m.Y">{gallery.endtime}</f:format.date> | Center: {gallery.center.centerName} | FolderPid : {gallery.pid} | {gallery.name}  | GalleryUID: {gallery.uid}
+                    </li>
+                </f:for>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Wenn Sie die Galerien noch länger auf Ihrer Website zeigen möchten, gehen Sie bitte wie folgt vor:
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            1) Stellen Sie bitte sicher, dass Sie über die notwendigen Lizenzrechte des Fotografen und der abgebildeten Motive aller Bilder für die gewünschte Laufzeit verfügen
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            2) Die Laufzeit einer Galerie kann pro Anfrage nur um max. 12 Monate verlängert werden
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            3) Bestätigen Sie dem DSC bitte schriftlich den Besitz der Lizenzrechte und beantragen Sie die Verlängerung:  support@digitalservice.center.
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            Mit freundlichen Grüßen,
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Support Team des Digital Service Center
+        </td>
+    </tr>
+</table>
+
+<hr>
+
+<table>
+    <tr>
+        <td>Dear Sirs and Madames,</td>
+    </tr>
+    <tr>
+        <td></td>
+    </tr>
+    <tr>
+        <td>The following picture galleries on your website will be deleted soon:</td>
+    </tr>
+    <tr>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <ul>
+                <f:for each="{galleries}" as="gallery">
+                    <li>
+                        Deletion date: <f:format.date format="j.m.Y">{gallery.endtime}</f:format.date> | Center: {gallery.center.centerName} | FolderPid : {gallery.pid} | {gallery.name}  | GalleryUID: {gallery.uid}
+                    </li>
+                </f:for>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            If you would like to keep these galleries on your website, please proceed as follows:
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            1) Please make sure that you have the necessary license rights of the photographer and the depicted motifs of all images for the desired duration.
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            2) The duration of a gallery can only be extended by max. 12 months per inquiry.
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            3) Please confirm the possession of the license rights to the DSC in written form and request the renewal: support@digitalservice.center.
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            Yours sincerely
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Digital Service Center Support Team
+        </td>
+    </tr>
+</table>

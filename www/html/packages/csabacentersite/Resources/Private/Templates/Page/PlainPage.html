@@ -1,0 +1,12 @@
+<f:layout name="Page"/>
+
+
+<f:section name="Main">
+	<f:render partial="Header/Header" arguments="{pages: pages, rootPageId: rootPageId, page: data, center: center, languages : languages, serviceNavigation: serviceNavigation}"/>
+
+	<!--TYPO3SEARCH_begin-->
+	<f:cObject typoscriptObjectPath="lib.content.content" />
+	<!--TYPO3SEARCH_end-->
+	<f:render partial="Footer/Footer" arguments="{center: center}"/>
+
+</f:section>

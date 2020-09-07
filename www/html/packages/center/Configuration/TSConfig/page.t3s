@@ -1,0 +1,7 @@
+TCEFORM.pages.cache_tags {
+	disabled = 1
+}
+
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:center/Configuration/TSConfig/plugins.t3s">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:center/Configuration/TSConfig/linkHandler.t3s">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:center/Configuration/TSConfig/preview.t3s">

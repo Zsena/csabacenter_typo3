@@ -1,0 +1,29 @@
+{namespace c=DigitalZombies\Center\ViewHelpers}
+<section class="l-container" data-module="wall">
+	<f:if condition="{settings.teaserwall.headline}">
+		<f:then>
+			<header class="ttl ttl--section"><h2 class="ttl__headline">{settings.teaserwall.headline}</h2></header>
+		</f:then>
+		<f:else>
+			<h3 class="visuallyhidden">
+				<f:translate key="fe.teaserWall.h3.hidden.general" extensionName="center"/>
+			</h3>
+		</f:else>
+	</f:if>
+    <div class="pge-wall js-wall">
+        <f:for each="{teasers}" as="item">
+			<div class="pge-wall__item
+				{f:if(condition: item.columnClassName,
+					then: 'pge-wall__item{item.columnClassName}')}" >
+				<f:if condition="{settings.teaserwall.profile}">
+					<f:then>
+						<f:render partial="Teasers/ContentTeaserProfile" arguments="{item:item, settings: settings}" />
+					</f:then>
+					<f:else>
+						<f:render partial="Teasers/{item.partialName}" arguments="{item:item, settings: settings}" />
+					</f:else>
+				</f:if>
+			</div>
+        </f:for>
+    </div>
+</section>

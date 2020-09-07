@@ -1,0 +1,66 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<header class="top_header">
+    <div class="header_top">
+        <div class="container">
+            <div class="row">
+                <div class="logo_section">
+                    <a href="/" class="navbar-brand" href="/"><f:image src="{center.logo.uid}" treatIdAsReference="1"/></a>
+                </div>
+                <div class="site_information">
+                    <ul>
+                        <li><a href="kapcsolat"><img src="{settings.fe.imgPath}img/mail_icon.png" alt="">Üzemeltetés</a></li>
+                        <li><a href="kapcsolat"><img src="{settings.fe.imgPath}img/mail_icon.png" alt="">Értékesítés</a></li>
+                        <li><a href="tel:+66524524"><img src="{settings.fe.imgPath}img/phone_icon.png" alt="">66/524-524</a></li>
+                        <li><a class="join_bt" href="nyitvatartas">Nyitvatartás</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="header_bottom">
+        <div class="container-fluid">
+            <div class="col-sm-12">
+                <div class="menu_red_section">
+                    <nav class="navbar header-nav navbar-expand-lg">
+                        <div class="menu_section">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-wd" aria-controls="navbar-wd" aria-expanded="false" aria-label="Toggle navigation">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                            <div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
+                                <ul class="navbar-nav">
+                                    <f:for each="{navMain}" as="menuItem">
+                                        <li>
+                                            <f:link.typolink parameter="{menuItem.data.uid}" class="nav-link{f:if(condition: '{menuItem.active}', then: ' active')}">{child.title}</f:link.typolink>
+                                            <f:if condition="{menuItem.children}">
+                                                <ul class="submenu">
+                                                    <f:for each="{mainMenu.children}" as="child">
+                                                        <li class="submenu-item">
+                                                            <f:link.typolink parameter="{child.data.uid}" class="submenu-title">
+                                                                {child.title}
+                                                            </f:link.typolink>
+                                                        </li>
+                                                    </f:for>
+                                                </ul>
+                                            </f:if>
+                                        </li>
+                                    </f:for>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                    <div class="search-box">
+                        <input type="text" class="search-txt" placeholder="Keresés">
+                        <a class="search-btn">
+                            <img src="{settings.fe.imgPath}img/search_icon.png" alt="Keresés">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</header>
+</html>

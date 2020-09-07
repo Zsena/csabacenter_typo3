@@ -1,0 +1,24 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+
+<f:layout name="Page"/>
+
+
+<f:section name="Main">
+	<div id="preloader">
+		<div class="loader">
+			<img src="{settings.fe.imgPath}img/loader.gif" alt="#" />
+		</div>
+	</div>
+	<f:render partial="Header" arguments="{_all}"/>
+	<f:render partial="SocialLinks" arguments="{_all}"/>
+	<main>
+	<f:cObject typoscriptObjectPath="lib.content.top" />
+
+	<!--TYPO3SEARCH_begin-->
+	<f:cObject typoscriptObjectPath="lib.content.content" />
+	<!--TYPO3SEARCH_end-->
+	</main>
+	<f:render partial="Footer" arguments="{_all}"/>
+</f:section>
+</html>

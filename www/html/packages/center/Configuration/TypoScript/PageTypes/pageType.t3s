@@ -1,0 +1,478 @@
+# Ical Page
+ical = PAGE
+ical {
+	typeNum = {$plugin.tx_center.settings.icalTypeNum}
+	config {
+		disableAllHeaderCode = 1
+		disablePrefixComment = 1
+		metaCharset = UTF-8
+		sourceopt.enabled = 0
+		xhtml_cleaning = 0
+		admPanel = 0
+		additionalHeaders {
+			10.header = Content-type: text/calendar;
+			20.header = Content-Disposition: attachment; filename=calendar.ics
+		}
+
+		debug = 0
+		no_cache = 0
+	}
+
+	10 = USER_INT
+	10 {
+		userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+		vendorName = DigitalZombies
+		extensionName = Center
+		pluginName = GetEventInCalender
+		controller = Ical
+		action = show
+		switchableControllerActions {
+			Ical {
+				1 = show
+			}
+		}
+	}
+}
+
+# Bookmarks
+bookmarks = PAGE
+bookmarks {
+	typeNum = {$plugin.tx_center.settings.ajaxBookmarks}
+	config {
+		disableAllHeaderCode = 1
+		disablePrefixComment = 1
+		metaCharset = UTF-8
+		sourceopt.enabled = 0
+		xhtml_cleaning = 0
+		admPanel = 0
+
+		debug = 0
+		no_cache = 0
+	}
+
+	10 = USER_INT
+	10 {
+		userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+		vendorName = DigitalZombies
+		extensionName = Center
+		pluginName = Bookmarks
+		switchableControllerActions {
+			Bookmarks {
+				1 = check
+				2 = uncheck
+				3 = loadBookmarks
+				4 = loadBookmarksIds
+			}
+		}
+	}
+}
+
+ajaxCenterPlanLink = PAGE
+ajaxCenterPlanLink {
+	typeNum = {$plugin.tx_center.settings.ajaxCenterPlanLinkTypeNum}
+	config {
+		disableAllHeaderCode = 1
+		disablePrefixComment = 1
+		sourceopt.enabled = 0
+		xhtml_cleaning = 0
+		metaCharset = utf-8
+		admPanel = 0
+		additionalHeaders {
+			10.header = Content-type: application/json
+		}
+
+		debug = 0
+		no_cache = 0
+	}
+
+	10 = USER
+	10 {
+		userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+		vendorName = DigitalZombies
+		extensionName = Center
+		pluginName = CenterPlan
+		controller = Center
+		action = renderPlanJSON
+	}
+
+	20 = USER
+	20 {
+		userFunc = DigitalZombies\Center\Utility\Cache\CacheTagEnhancer->addRootPageTag
+	}
+}
+
+ajaxServiceSearch = PAGE
+ajaxServiceSearch {
+	typeNum = {$plugin.tx_center.settings.ajaxServiceSearch}
+	config {
+		disableAllHeaderCode = 1
+		disablePrefixComment = 1
+		sourceopt.enabled = 0
+		xhtml_cleaning = 0
+		admPanel = 0
+		additionalHeaders {
+			10.header = Content-type: application/json
+		}
+
+		debug = 0
+		no_cache = 0
+	}
+
+	10 = USER
+	10 {
+		userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+		vendorName = DigitalZombies
+		extensionName = Center
+		pluginName = ServiceSearch
+		controller = RecordBase
+		action = ajaxListServicesFromSettings
+	}
+
+	20 = USER
+	20 {
+		userFunc = DigitalZombies\Center\Utility\Cache\CacheTagEnhancer->addRootPageTag
+	}
+}
+
+ajaxShopSearch = PAGE
+ajaxShopSearch {
+	typeNum = {$plugin.tx_center.settings.ajaxShopSearch}
+	config {
+		disableAllHeaderCode = 1
+		disablePrefixComment = 1
+		sourceopt.enabled = 0
+		xhtml_cleaning = 0
+		admPanel = 0
+		additionalHeaders {
+			10.header = Content-type: application/json
+		}
+
+		debug = 0
+		no_cache = 0
+	}
+
+	10 = USER
+	10 {
+		userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+		vendorName = DigitalZombies
+		extensionName = Center
+		pluginName = ShopSearch
+		controller = RecordBase
+		action = ajaxListShopsFromSettings
+	}
+
+	20 = USER
+	20 {
+		userFunc = DigitalZombies\Center\Utility\Cache\CacheTagEnhancer->addRootPageTag
+	}
+}
+
+ajaxCouponRedeem = PAGE
+ajaxCouponRedeem {
+	typeNum = {$plugin.tx_center.settings.ajaxCouponRedeem}
+	config {
+		disableAllHeaderCode = 1
+		disablePrefixComment = 1
+		sourceopt.enabled = 0
+		xhtml_cleaning = 0
+		admPanel = 0
+		additionalHeaders {
+			10.header = Content-type: application/json
+		}
+
+		debug = 0
+		no_cache = 0
+	}
+
+	10 = USER
+	10 {
+		userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+		vendorName = DigitalZombies
+		extensionName = Center
+		pluginName = Redeem
+		controller = Coupon
+		action = redeem
+	}
+
+	20 = USER
+	20 {
+		userFunc = DigitalZombies\Center\Utility\Cache\CacheTagEnhancer->addRootPageTag
+	}
+}
+
+# Footer AJAX for FE openings
+ajaxOpenings = PAGE
+ajaxOpenings {
+	typeNum = {$plugin.tx_center.settings.ajaxOpeningsTypeNum}
+	config {
+		disableAllHeaderCode = 1
+		disablePrefixComment = 1
+		sourceopt.enabled = 0
+		tx_realurl_enable = {$config.tx_realurl_enable}
+		xhtml_cleaning = 0
+		metaCharset = utf-8
+		admPanel = 0
+		cache_period = 1800
+		sendCacheHeaders = 1
+		additionalHeaders {
+			10.header = Content-type: application/json;
+			20.header = Access-Control-Allow-Origin: *
+		}
+
+		debug = 0
+		no_cache = 0
+	}
+
+	10 = USER
+	10 {
+		userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+		vendorName = DigitalZombies
+		extensionName = Center
+		pluginName = Countdown
+		controller = Center
+		action = showOpening
+	}
+
+	20 = USER
+	20 {
+		userFunc = DigitalZombies\Center\Utility\Cache\CacheTagEnhancer->addRootPageTag
+	}
+}
+
+# Footer AJAX for FE openings
+ajaxTeaserWall = PAGE
+ajaxTeaserWall {
+	typeNum = {$plugin.tx_center.settings.ajaxTeaserWall}
+	config < page.config
+	config {
+		disableAllHeaderCode = 1
+		disablePrefixComment = 1
+		sourceopt.enabled = 0
+		tx_realurl_enable = {$config.tx_realurl_enable}
+		xhtml_cleaning = 0
+		metaCharset = utf-8
+		admPanel = 0
+		cache_period = 1800
+		sendCacheHeaders = 1
+		additionalHeaders {
+			10.header = Content-type: application/json;
+		}
+
+		debug = 0
+		no_cache = 0
+	}
+
+	10 = CASE
+	10 {
+		key.data = GP: tx_center_teaserwall|cid
+
+		0 = USER
+		0 {
+			userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+			vendorName = DigitalZombies
+			extensionName = Center
+			pluginName = TeaserWall
+			controller = RecordBase
+			action = ajaxListShopsFromSettings
+
+			switchableControllerActions {
+				RecordBase {
+					1 = ajaxListShopsFromSettings
+				}
+			}
+		}
+
+		default = COA
+		default {
+			10 < styles.content.get
+			10 {
+				stdWrap.trim = 1
+
+				select {
+					where.data = GP: tx_center_teaserwall|cid
+					where.intval = 1
+					where.wrap = list_type LIKE 'center_teaserwall%' AND uid = |
+				}
+
+				renderObj = USER
+				renderObj {
+					userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+					vendorName = DigitalZombies
+					extensionName = Center
+					pluginName = TeaserWall
+					controller = RecordBase
+					action = ajaxList
+
+					switchableControllerActions {
+						RecordBase {
+							1 = ajaxList
+						}
+					}
+				}
+			}
+		}
+	}
+
+	20 = USER
+	20 {
+		userFunc = DigitalZombies\Center\Utility\Cache\CacheTagEnhancer->addRootPageTag
+	}
+}
+
+# Footer AJAX for FE openings
+ajaxGalleryData = PAGE
+ajaxGalleryData {
+	typeNum = {$plugin.tx_center.settings.ajaxGalleryDataTypeNum}
+	config {
+		disableAllHeaderCode = 1
+		disablePrefixComment = 1
+		sourceopt.enabled = 0
+		tx_realurl_enable = {$config.tx_realurl_enable}
+		xhtml_cleaning = 0
+		metaCharset = utf-8
+		admPanel = 0
+		cache_period = 1800
+		sendCacheHeaders = 1
+		additionalHeaders {
+			10.header = Content-type: application/json;
+		}
+
+		debug = 0
+		no_cache = 0
+	}
+
+	10 = USER
+	10 {
+		userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+		vendorName = DigitalZombies
+		extensionName = Center
+		pluginName = Gallery
+		controller = Gallery
+		action = renderGalleryDataAsJson
+
+		switchableControllerActions {
+			Gallery {
+				1 = renderGalleryDataAsJson
+			}
+		}
+	}
+
+	20 = USER
+	20 {
+		userFunc = DigitalZombies\Center\Utility\Cache\CacheTagEnhancer->addRootPageTag
+	}
+}
+
+ajaxPhotoswipeTemplate = PAGE
+ajaxPhotoswipeTemplate {
+	typeNum = {$plugin.tx_center.settings.ajaxPhotoswipeTemplate}
+	config {
+		disableAllHeaderCode = 1
+		disablePrefixComment = 1
+		sourceopt.enabled = 0
+		tx_realurl_enable = {$config.tx_realurl_enable}
+		xhtml_cleaning = 0
+		metaCharset = utf-8
+		admPanel = 0
+		cache_period = 1800
+		sendCacheHeaders = 1
+		additionalHeaders {
+			10.header = Content-type: text/html; charset=utf-8
+		}
+
+		showGA = 0
+		debug = 0
+		no_cache = 0
+	}
+
+	10 = USER
+	10 {
+		userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+		vendorName = DigitalZombies
+		extensionName = Center
+		pluginName = Gallery
+		controller = Gallery
+		action = showPhotoswipeTemplate
+
+		switchableControllerActions {
+			Gallery {
+				1 = showPhotoswipeTemplate
+			}
+		}
+	}
+
+	20 = USER
+	20 {
+		userFunc = DigitalZombies\Center\Utility\Cache\CacheTagEnhancer->addRootPageTag
+	}
+}
+
+ajaxShopListAll = PAGE
+ajaxShopListAll {
+	typeNum = {$plugin.tx_center.settings.ajaxShopListAll}
+	config {
+		disableAllHeaderCode = 1
+		disablePrefixComment = 1
+		cache_period = 43200
+		sourceopt.enabled = 0
+		xhtml_cleaning = 0
+		admPanel = 0
+		additionalHeaders {
+			10.header = Content-type: application/json
+		}
+
+		cache.10 = pageId__{$plugin.tx_center.settings.rootPageId}
+		debug = 0
+		no_cache = 0
+	}
+
+	10 = USER
+	10 {
+		userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+		vendorName = DigitalZombies
+		extensionName = Center
+		pluginName = ShopListAjax
+		controller = Shop
+		action = ajaxListAll
+	}
+
+	20 = USER
+	20 {
+		userFunc = DigitalZombies\Center\Utility\Cache\CacheTagEnhancer->addRootPageTag
+	}
+}
+
+appContentV1_0_0 = PAGE
+appContentV1_0_0 {
+	typeNum = {$plugin.tx_center.settings.appContentV1_0_0}
+	config {
+		disableAllHeaderCode = 1
+		disablePrefixComment = 1
+		cache_period = 43200
+		sourceopt.enabled = 0
+		xhtml_cleaning = 0
+		admPanel = 0
+		additionalHeaders {
+			10.header = Content-type: application/json
+		}
+
+		cache.10 = pageId__{$plugin.tx_center.settings.rootPageId}
+		debug = 0
+		no_cache = 0
+	}
+
+	10 = USER
+	10 {
+		userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+		vendorName = DigitalZombies
+		extensionName = Center
+		pluginName = AppContentV1_0_0
+		controller = App
+		action = generateAppContentV1_0_0
+	}
+}
+
+appContentV1_0_1 < appContentV1_0_0
+appContentV1_0_1.typeNum = {$plugin.tx_center.settings.appContentV1_0_1}
+appContentV1_0_1.10.pluginName = AppContentV1_0_1
+appContentV1_0_1.10.action = generateAppContentV1_0_1

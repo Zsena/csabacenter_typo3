@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xliff version="1.0">
+	<file datatype="plaintext" date="2017-01-13T14:13:55+02:00" original="messages" product-name="providerece" source-language="en" target-language="de">
+		<header />
+		<body>
+			<trans-unit id="fe.travelPlan.route.title">
+				<source>route</source>
+			  <target>Route</target>
+</trans-unit>
+			<trans-unit id="fe.travelPlan.route.startingPoint">
+				<source>Starting point</source>
+			  <target>Startpunkt</target>
+</trans-unit>
+			<trans-unit id="fe.travelPlan.route.destination">
+				<source>Destination</source>
+			  <target>Reiseziel</target>
+</trans-unit>
+			<trans-unit id="fe.travelPlan.route.calculateRoute">
+				<source>calculate route</source>
+			  <target>Route berechnen</target>
+</trans-unit>
+			<trans-unit id="fe.teaserWall.category.tx_center_domain_model_records_news.press">
+				<source>Press</source>
+			  <target>Presse</target>
+</trans-unit>
+			<trans-unit id="fe.teaserWall.category.tx_center_domain_model_records_news.news">
+				<source>News</source>
+			  <target>Nachricht</target>
+</trans-unit>
+			<trans-unit id="fe.teaserWall.category.tx_center_domain_model_records_news">
+				<source>News / Press</source>
+			  <target>News / Presse</target>
+</trans-unit>
+			<trans-unit id="fe.teaserWall.category.tx_center_domain_model_records_job">
+				<source>Job</source>
+			  <target>Stellenangebot</target>
+</trans-unit>
+			<trans-unit id="fe.teaserWall.category.tx_center_domain_model_records_offer">
+				<source>Offer</source>
+			  <target>Angebot</target>
+</trans-unit>
+			<trans-unit id="fe.teaserWall.category.tx_center_domain_model_records_event">
+				<source>Event</source>
+			  <target>Event</target>
+</trans-unit>
+			<trans-unit id="fe.teaserWall.category.tx_center_domain_model_records_blog">
+				<source>Blog</source>
+			  <target>Blog</target>
+</trans-unit>
+			<trans-unit id="fe.teaserWall.category.tx_center_domain_model_records_contentteaser">
+				<source>Content</source>
+			  <target>Content</target>
+</trans-unit>
+			<trans-unit id="fe.teaserWall.category.133">
+				<source>Shop</source>
+			  <target>Shop</target>
+</trans-unit>
+			<trans-unit id="fe.teaserWall.category.134">
+				<source>Gastro</source>
+			  <target>Gastro</target>
+</trans-unit>
+			<trans-unit id="fe.hometeaser.button.show_all">
+				<source>Show all</source>
+			  <target>Alle anzeigen</target>
+</trans-unit>
+			<trans-unit id="fe.hometeaser.button.show_all_shops">
+				<source>Show all shops</source>
+			  <target>Alle Shops anzeigen</target>
+</trans-unit>
+			<trans-unit id="fe.teaserWall.load_more">
+				<source>Load more</source>
+			  <target>Mehr laden</target>
+</trans-unit>
+			<trans-unit id="dtl.location.contact.title">
+				<source>Opening Hours</source>
+			  <target>Öffnungszeiten</target>
+</trans-unit>
+			<trans-unit id="ftr.opening.day1">
+				<source>Monday</source>
+			  <target>Montag</target>
+</trans-unit>
+			<trans-unit id="ftr.opening.day2">
+				<source>Tuesday</source>
+			  <target>Dienstag</target>
+</trans-unit>
+			<trans-unit id="ftr.opening.day3">
+				<source>Wednesday</source>
+			  <target>Mittwoch</target>
+</trans-unit>
+			<trans-unit id="ftr.opening.day4">
+				<source>Thursday</source>
+			  <target>Donnerstag</target>
+</trans-unit>
+			<trans-unit id="ftr.opening.day5">
+				<source>Friday</source>
+			  <target>Freitag</target>
+</trans-unit>
+			<trans-unit id="ftr.opening.day6">
+				<source>Saturday</source>
+			  <target>Samstag</target>
+</trans-unit>
+			<trans-unit id="ftr.opening.day7">
+				<source>Sunday</source>
+			  <target>Sonntag</target>
+</trans-unit>
+			<trans-unit id="fe.gallery.esc">
+				<source>Close (Esc)</source>
+			  <target>Schließen (Esc)</target>
+</trans-unit>
+			<trans-unit id="fe.gallery.share">
+				<source>Share</source>
+			  <target>Teilen</target>
+</trans-unit>
+			<trans-unit id="fe.gallery.toogle">
+				<source>Toggle fullscreen</source>
+			  <target>Vollbild Modus ein-/ausschalten</target>
+</trans-unit>
+			<trans-unit id="fe.gallery.zoom">
+				<source>Zoom in/out</source>
+			  <target>Rein-/Rauszoomen</target>
+</trans-unit>
+			<trans-unit id="fe.gallery.previous">
+				<source>Previous (arrow left)</source>
+			  <target>Vorherige (Pfeil links)</target>
+</trans-unit>
+			<trans-unit id="fe.gallery.next">
+				<source>Next (arrow right)</source>
+			  <target>Nächste (Pfeil rechts)</target>
+</trans-unit>
+			<trans-unit id="fe.dtlDescription.externalLink">
+				<source>External Link</source>
+			  <target>Externer Link</target>
+</trans-unit>
+			<trans-unit id="fe.dtlDescription.download">
+				<source>Download</source>
+			  <target>Herunterladen</target>
+</trans-unit>
+        	<trans-unit id="fe.teasers.shop.details">
+                <source>Details</source>
+              <target>Details</target>
+</trans-unit>
+        	<trans-unit id="fe.teasers.shop.location">
+                <source>Location</source>
+              <target>Ort</target>
+</trans-unit>
+			<trans-unit id="fe.dtlDescription.offerOverview">
+				<source>Offer Overview</source>
+			  <target>Zur Angebotsübersicht</target>
+</trans-unit>
+			<trans-unit id="fe.shopfilter.chooseSubcategory">
+				<source>Choose subcategory</source>
+			  <target>Subkategorie auswählen</target>
+</trans-unit>
+			<trans-unit id="fe.shopfilter.resetSubCategory">
+				<source>No selection</source>
+			  <target>Keine Auswahl</target>
+</trans-unit>
+			<trans-unit id="fe.shopfilter.chooseCategory">
+				<source>Choose category</source>
+			  <target>Kategorie wählen</target>
+</trans-unit>
+			<trans-unit id="fe.shopfilter.search">
+				<source>Search</source>
+			  <target>Suche</target>
+</trans-unit>
+			<trans-unit id="fe.shopfilter.placeHolder.shopName">
+				<source>Shop name</source>
+			  <target>Shop Name</target>
+</trans-unit>
+			<trans-unit id="fe.maps.centerMap.shopDetailLinkText">
+                <source>Details</source>
+              <target>Zur Detailseite</target>
+</trans-unit>
+        	<trans-unit id="fe.maps.centerMap.websiteLinkText">
+                <source>Website</source>
+              <target>Website</target>
+</trans-unit>
+        <trans-unit id="fe.services.search.results">
+  <source>Results</source>
+  <target>Ergebnisse</target>
+</trans-unit>
+<trans-unit id="fe.serviceList.search.results">
+  <source>Results</source>
+  <target>Ergebnisse</target>
+</trans-unit>
+<trans-unit id="fe.menu.submenu.dropdown.label">
+  <source>Submenu dropdown</source>
+  <target>Submenü Dropdown</target>
+</trans-unit>
+<trans-unit id="fe.recordBase.menu.label">
+  <source>Menu dropdown</source>
+  <target>Menü Dropdown</target>
+</trans-unit>
+<trans-unit id="fe.teaserWall.h3.hidden.general">
+  <source>Teaser wall</source>
+  <target>Teaserwand</target>
+</trans-unit>
+<trans-unit id="fe.serviceList.search.placeholder">
+  <source>Find service</source>
+  <target>Service finden</target>
+</trans-unit>
+<trans-unit id="fe.serviceList.header">
+  <source>Service List</source>
+  <target>Service Liste</target>
+</trans-unit>
+<trans-unit id="fe.mapplic.search.label">
+  <source>Search</source>
+  <target>Suche</target>
+</trans-unit>
+<trans-unit id="fe.mapplic.popup.link">
+  <source>More</source>
+  <target>Mehr</target>
+</trans-unit>
+<trans-unit id="fe.mapplic.notFound.message">
+  <source>Nothing found. Please try a different search.</source>
+  <target>Kein Treffer.</target>
+</trans-unit>
+<trans-unit id="fe.shopfilter.placeHolder.gastroName">
+  <source>Search in gastronomy</source>
+  <target>Gastronomiebetrieb suchen</target>
+</trans-unit>
+<trans-unit id="fe.detailPage.services.headline">
+  <source>Service</source>
+  <target>Service</target>
+</trans-unit>
+<trans-unit id="fe.form.noScript">
+  <source>Your browser does not support JavaScript which is needed for the submit of this form!</source>
+  <target>Your browser does not support JavaScript which is needed for the submit of this form!</target>
+</trans-unit>
+<trans-unit id="fe.teaserWall.no_results">
+  <source>We have currently no results in this category</source>
+  <target>Derzeit gibt es keine Treffer in dieser Kategorie</target>
+</trans-unit>
+<trans-unit id="fe.mapplic.category.service">
+  <source>Service</source>
+  <target>Service</target>
+</trans-unit>
+<trans-unit id="fe.mapplic.category.shop">
+  <source>Shop</source>
+  <target>Shops</target>
+</trans-unit>
+<trans-unit id="fe.mapplic.category.gastro">
+  <source>Gastro</source>
+  <target>Gastronomie</target>
+</trans-unit>
+<trans-unit id="fe.hometeaser.button.h2.header">
+  <source>Ad teaser modul</source>
+  <target>Werbeteasermodul</target>
+</trans-unit>
+<trans-unit id="ftr.opening.open">
+  <source>open</source>
+  <target>geöffnet</target>
+</trans-unit>
+<trans-unit id="ftr.opening.closed">
+  <source>closed</source>
+  <target>geschlossen</target>
+</trans-unit>
+<trans-unit id="fe.dropdown.please_select">
+  <source>Please select</source>
+  <target>Bitte wählen</target>
+</trans-unit>
+<trans-unit id="fe.gallery.title.h2.fallback">
+  <source>Impressions</source>
+  <target>Impressionen</target>
+</trans-unit>
+<trans-unit id="opn.closing-in-before">
+  <source>Still</source>
+  <target>Still</target>
+</trans-unit>
+<trans-unit id="opn.closing-in-after">
+  <source>hours open!</source>
+  <target>hours open!</target>
+</trans-unit>
+<trans-unit id="opn.opening-in-before">
+  <source>In </source>
+  <target>In </target>
+</trans-unit>
+<trans-unit id="opn.opening-in-after">
+  <source>hours open!</source>
+  <target>hours open!</target>
+</trans-unit>
+<trans-unit id="opn.opening-in.short">
+  <source>Open again in</source>
+  <target>Wieder geöffnet in</target>
+</trans-unit>
+<trans-unit id="opn.opening-in">
+  <source>We will open again in</source>
+  <target>Wir öffnen wieder in</target>
+</trans-unit>
+<trans-unit id="opn.closing-in.short">
+  <source>Still open for</source>
+  <target>Noch</target>
+</trans-unit>
+<trans-unit id="opn.closing-in">
+  <source>We are still open for</source>
+  <target>Wir haben noch</target>
+</trans-unit>
+<trans-unit id="opn.days.short">
+  <source>D</source>
+  <target>D</target>
+</trans-unit>
+<trans-unit id="opn.day">
+  <source>day</source>
+  <target>Tag</target>
+</trans-unit>
+<trans-unit id="opn.days">
+  <source>days</source>
+  <target>Tagen</target>
+</trans-unit>
+<trans-unit id="opn.hour">
+  <source>hour</source>
+  <target>Stunde</target>
+</trans-unit>
+<trans-unit id="opn.hours">
+  <source>hours</source>
+  <target>Stunden</target>
+</trans-unit>
+<trans-unit id="opn.minute">
+  <source>minute</source>
+  <target>Minute</target>
+</trans-unit>
+<trans-unit id="opn.minutes">
+  <source>minutes</source>
+  <target>Minuten</target>
+</trans-unit>
+<trans-unit id="fe.hometeaser.noTeasers">
+  <source>We are very sorry but there are no teasers to display.</source>
+  <target>We are very sorry but there are no teasers to display.</target>
+</trans-unit>
+<trans-unit id="fe.travelPlan.moreInfoLink">
+  <source>To the descriptions</source>
+  <target>Zu den Anfahrtsbeschreibungen</target>
+</trans-unit>
+<trans-unit id="opn.closing-in.after">
+  <source></source>
+  <target>geöffnet</target>
+</trans-unit>
+<trans-unit id="fe.directions.start.placeholder">
+  <source>Enter a starting point</source>
+  <target>Geben Sie einen Standort ein.</target>
+</trans-unit>
+<trans-unit id="fe.search.placeholder">
+  <source>shops, services and more</source>
+  <target>Shops, Services, News, Events ...</target>
+</trans-unit>
+<trans-unit id="fe.teaserWall.category.tx_center_domain_model_records_banner">
+  <source>Banner</source>
+  <target>Banner</target>
+</trans-unit>
+<trans-unit id="fe.teaserWall.category.tx_center_domain_model_records_coupon">
+  <source>Coupon</source>
+  <target>Coupon</target>
+</trans-unit>
+<trans-unit id="myProfile.deleteSocialProfile.deleteText">
+  <source>If you delete your profile, all your data will be deleted immediately and you will no longer be able to log in to %s. Do you want to delete your profile now?</source>
+  <target>If you delete your profile, all your data will be deleted immediately and you will no longer be able to log in to %s. Do you want to delete your profile now?</target>
+</trans-unit>
+<trans-unit id="myProfile.deleteSocialProfile.deleteText.informal">
+  <source>If you delete your profile, all your data will be deleted immediately and you will no longer be able to log in to %s. Do you want to delete your profile now?</source>
+  <target>If you delete your profile, all your data will be deleted immediately and you will no longer be able to log in to %s. Do you want to delete your profile now?</target>
+</trans-unit>
+<trans-unit id="tx_center_domain_model_interest_interest">
+  <source>Interest</source>
+  <target>Interest</target>
+</trans-unit>
+<trans-unit id="tx_center_domain_model_interest_interest.title">
+  <source>Title</source>
+</trans-unit>
+<trans-unit id="tx_center_domain_model_interest_interest.items">
+  <source>Items</source>
+  <target>Items</target>
+</trans-unit>
+<trans-unit id="tx_center_domain_model_interest_interestlabel">
+  <source>Interest label</source>
+  <target>Interest label</target>
+</trans-unit>
+<trans-unit id="tx_center_domain_model_interest_interestlabel.label">
+  <source>Label</source>
+  <target>Label</target>
+</trans-unit>
+<trans-unit id="tx_center_domain_model_interest_interestlabel.interest">
+  <source>Interest</source>
+  <target>Interest</target>
+</trans-unit>
+<trans-unit id="tx_center_domain_model_interest_interestlist">
+  <source>Interest list</source>
+  <target>Interest list</target>
+</trans-unit>
+<trans-unit id="fe.teaserWall.no_interests">
+  <source>You have not set any interests yet.</source>
+  <target>Es wurden noch keine Interessen festgelegt.</target>
+</trans-unit>
+<trans-unit id="fe.detailPage.coupon.validTill">
+  <source>Date of Expiry</source>
+  <target>Date of Expiry</target>
+</trans-unit>
+<trans-unit id="myProfile.inspectData.title">
+  <source>Inspect data</source>
+  <target>Inspect data</target>
+</trans-unit>
+<trans-unit id="myProfile.inspectData.text">
+  <source>I hereby request access to my stored data in accordance with Art. 20 EU DSGVO.</source>
+  <target>I hereby request access to my stored data in accordance with Art. 20 EU DSGVO.</target>
+</trans-unit>
+<trans-unit id="myProfile.inspectData.mailtoHref">
+  <source>mailto:support@ece.com?subject=User%20requests%20access%20to%20stored%20data&amp;amp;body=Dear%20Sir%20or%20Madam,%20%0D%0A%0D%0AI%20hereby%20request%20access%20to%20my%20stored%20data%20in%20accordance%20with%20Art.%2020%20EU%20DSGVO.%20x%0D%0A%0D%0A</source>
+  <target>mailto:support@ece.com?subject=User%20requests%20access%20to%20stored%20data&amp;amp;body=Dear%20Sir%20or%20Madam,%20%0D%0A%0D%0AI%20hereby%20request%20access%20to%20my%20stored%20data%20in%20accordance%20with%20Art.%2020%20EU%20DSGVO.%20x%0D%0A%0D%0A</target>
+</trans-unit>
+<trans-unit id="myProfile.inspectData.button">
+  <source>Inspect Data</source>
+  <target>Inspect Data</target>
+</trans-unit>
+	<trans-unit id="opn.minute.regexp">
+  <source></source>
+  <target></target>
+</trans-unit>
+<trans-unit id="opn.hours.regexp">
+  <source> </source>
+  <target> </target>
+</trans-unit>
+<trans-unit id="opn.hour.regexp">
+  <source></source>
+  <target></target>
+</trans-unit>
+<trans-unit id="fe.mapplic.category.aufzug">
+  <source>Elevator</source>
+  <target>Elevator</target>
+</trans-unit>
+<trans-unit id="fe.mapplic.category.elevator">
+  <source>Elevator</source>
+  <target>Aufzug</target>
+</trans-unit>
+<trans-unit id="fe.teaserWall.coupon.limited">
+  <source>Limited</source>
+  <target>Limitiert</target>
+</trans-unit>
+<trans-unit id="opn.opening-in.after">
+  <source></source>
+  <target></target>
+</trans-unit>
+<trans-unit id="fe.bookMarksTeaserWall.check">
+  <source>The products was saved in your wish list</source>
+  <target>Das Produkt wurde in der Merkliste gespeichert</target>
+</trans-unit>
+<trans-unit id="fe.bookMarksTeaserWall.uncheck">
+  <source>The products was removed from your wish list</source>
+  <target>Das Produkt wurde wieder aus der Merkliste genommen</target>
+</trans-unit>
+<trans-unit id="fe.bookMarksTeaserWall.login">
+  <source>Please log in to bookmark your products</source>
+  <target>Bitte loggen Sie sich ein, um sich Produkte zu merken</target>
+</trans-unit>
+<trans-unit id="fe.bookMarksTeaserWall.login.informal">
+  <source>Please log in to bookmark your products</source>
+  <target>Bitte log Dich ein, um Dir Produkte zu merken</target>
+</trans-unit>
+<trans-unit id="fe.bookMarksTeaserWall.header">
+  <source>Your wishlist</source>
+  <target>Ihre Merkliste</target>
+</trans-unit>
+<trans-unit id="fe.bookMarksTeaserWall.header.informal">
+  <source>Your wishlist</source>
+  <target>Deine Merkliste</target>
+</trans-unit>
+<trans-unit id="fe.bookMarksTeaserWall.expired">
+  <source>expired</source>
+  <target>abgelaufen</target>
+</trans-unit>
+<trans-unit id="fe.bookMarksTeaserWall.navigation">
+  <source>Remove article</source>
+  <target>Artikel entfernen</target>
+</trans-unit>
+<trans-unit id="fe.bookMarksTeaserWall.show_bookmark_page">
+  <source>To the bookmark list</source>
+  <target>Zur Merkliste</target>
+</trans-unit>
+<trans-unit id="fe.bookMarksTeaserWall.no_results">
+  <source>There are currently no products in your wish list</source>
+  <target>Es befinden sich aktuell keine Produkte in Ihrer Merkliste</target>
+</trans-unit>
+<trans-unit id="fe.bookMarksTeaserWall.tooltip.bookmark">
+  <source>Bookmark</source>
+  <target>Merken</target>
+</trans-unit>
+<trans-unit id="fe.bookMarksTeaserWall.tooltip.unbookmark">
+  <source>Unbookmark</source>
+  <target>Nicht merken</target>
+</trans-unit>
+<trans-unit id="fe.bookMarksTeaserWall.tooltip.loggedout">
+  <source>Login to Bookmark</source>
+  <target>Zum Merken einloggen</target>
+</trans-unit>
+<trans-unit id="fe.detailPage.share.tooltip">
+  <source>Share</source>
+  <target>Teilen</target>
+</trans-unit>
+<trans-unit id="email.registration.confirmation.below.text.informal">
+  <source>You received this e-mail because the e-mail address %s was registered at %s.
+If you have not registered yourself, you can &lt;a href=&quot;%s&quot;&gt; opt out here &lt;/a&gt; or you do not confirm the registration.
+In this case, we will not send you any further emails and your account will not be activated.</source>
+  <target>You received this e-mail because the e-mail address %s was registered at %s.
+If you have not registered yourself, you can &lt;a href=&quot;%s&quot;&gt; opt out here &lt;/a&gt; or you do not confirm the registration.
+In this case, we will not send you any further emails and your account will not be activated.</target>
+</trans-unit>
+<trans-unit id="newContentWizard.home_teaser_plugins.preview.title">
+  <source>Preview PlugIn</source>
+  <target>Preview</target>
+</trans-unit>
+<trans-unit id="flux.stageOverview.fields.imageProducts">
+  <source>Background image 7:1 (for Digitall Mall only!)</source>
+  <target>Hintergrundbild 7:1 (Nur für Digital Mall!)</target>
+</trans-unit>
+<trans-unit id="fe.reference.mission.title">
+  <source>Task &amp; target group</source>
+  <target>Aufgabenstellung &amp; Zielgruppe</target>
+</trans-unit>
+<trans-unit id="fe.reference.implementation.title">
+  <source>Implementation</source>
+  <target>Umsetzung</target>
+</trans-unit>
+<trans-unit id="fe.reference.teaser.title">
+  <source>More references</source>
+  <target>Mehr Referenzen</target>
+</trans-unit>
+<trans-unit id="fe.reference.mission.subTitle">
+  <source>Objective</source>
+  <target>Zielsetzung</target>
+</trans-unit>
+<trans-unit id="fe.productShowcase.showMore">
+  <source>show more</source>
+  <target>Mehr anzeigen</target>
+</trans-unit>
+<trans-unit id="fe.productShowcase.available">
+  <source>available</source>
+  <target>Verfügbar</target>
+</trans-unit>
+<trans-unit id="fe.productShowcase.laterAvailable">
+  <source>later available</source>
+  <target>In Kürze verfügbar</target>
+</trans-unit>
+<trans-unit id="fe.productShowcase.showProduct">
+  <source>show product</source>
+  <target>Ansehen</target>
+</trans-unit>
+</body>
+</file>
+</xliff>

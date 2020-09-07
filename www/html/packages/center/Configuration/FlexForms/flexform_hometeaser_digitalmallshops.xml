@@ -1,0 +1,64 @@
+<T3DataStructure>
+	<sheets>
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>Function</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+                    <settings.hometeaser.headline>
+                        <TCEforms>
+                            <exclude>1</exclude>
+                            <label>LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:flexform.hometeaser.headline</label>
+                            <config>
+                                <type>input</type>
+                                <size>30</size>
+                                <max>255</max>
+                                <eval>trim</eval>
+                            </config>
+                        </TCEforms>
+                    </settings.hometeaser.headline>
+					<settings.hometeaser.layout>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:flexform.hometeaser.layout</label>
+							<config>
+								<type>select</type>
+								<items type="array">
+									<numIndex index="0" type="array">
+										<numIndex index="0">LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:flexform.hometeaser.layout.slider</numIndex>
+										<numIndex index="1">slider</numIndex>
+									</numIndex>
+									<numIndex index="1" type="array">
+										<numIndex index="0">LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:flexform.hometeaser.layout.tags</numIndex>
+										<numIndex index="1">tags</numIndex>
+									</numIndex>
+								</items>
+								<size>1</size>
+								<defaultValue>light</defaultValue>
+								<minitems>0</minitems>
+								<maxitems>1</maxitems>
+							</config>
+						</TCEforms>
+					</settings.hometeaser.layout>
+					<settings.hometeaser.records>
+					<TCEforms>
+						<exclude>1</exclude>
+						<displayCond>FIELD:settings.hometeaser.layout:=:tags</displayCond>
+						<label>LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:flexform.hometeaser.digitalmallshops.records</label>
+						<config>
+							<type>select</type>
+							<renderType>selectMultipleSideBySide</renderType>
+							<itemsProcFunc>DigitalZombies\Center\UserFunc\DigitalMallShops->listAll</itemsProcFunc>
+							<minitems>1</minitems>
+							<maxitems>5</maxitems>
+							<size>10</size>
+						</config>
+					</TCEforms>
+					</settings.hometeaser.records>
+				</el>
+			</ROOT>
+		</sDEF>
+	</sheets>
+</T3DataStructure>

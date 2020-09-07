@@ -1,0 +1,10 @@
+<f:for each="{33}" as="teaser">
+    <div class="tsr-grp__teaser">
+        <f:render partial="Teasers/{teaser.partialName}" arguments="{item:teaser, settings: settings, omitLazyLoadScript: 'true'}" />
+    </div>
+</f:for>
+<f:for each="{66}" as="teaser">
+    <div class="tsr-grp__teaser tsr-grp__teaser--columns-2">
+        <f:render partial="Teasers/{teaser.partialName}" arguments="{item:teaser, settings: settings, omitLazyLoadScript: 'true'}" />
+    </div>
+</f:for>

@@ -1,0 +1,184 @@
+{namespace c=DigitalZombies\Center\ViewHelpers}
+{namespace e = DigitalZombies\Providerece\ViewHelpers}
+
+<f:if condition="{coupon}">
+	<f:security.ifAuthenticated>
+		<v:variable.set value="{c:couponToUser(uid:'{coupon.uid}')}" name="couponToUser"/>
+	</f:security.ifAuthenticated>
+
+	<f:render partial="General/DetailStageMedia" arguments="{media: coupon.contentStagemedia}"/>
+
+	<article class="cpn-detail l-container">
+		<section>
+			<header class="ttl ttl--section">
+				<h2 class="ttl__headline">
+					<f:if condition="{f:cObject(typoscriptObjectPath: 'lib.currentPageSubtitle')}">
+						<f:then>
+							{f:cObject(typoscriptObjectPath: 'lib.currentPageSubtitle')}
+						</f:then>
+						<f:else>
+							<f:translate key="fe.detailPage.coupon.headline" extensionName="providerece"/>
+						</f:else>
+					</f:if>
+				</h2>
+			</header>
+
+			<div class="row">
+				<div class="col-xs-12 col-sm-6">
+					<div class="cpn-detail__discountpane">
+						<div class="bdr-banderole bdr-banderole--top-left">
+							<f:security.ifAuthenticated>
+								<f:then>
+									<f:if condition="{couponToUser}">
+										<f:then>
+											<span class="bdr-banderole__container">
+												<span class="bdr-banderole__text">
+													<f:translate key="fe.detailPage.coupon.alreadyRedeemedShort"
+																 extensionName="providerece"/>
+												</span>
+											</span>
+										</f:then>
+										<f:else>
+											<f:render partial="Coupon/NotRedeemedBanderole"
+													  arguments="{coupon: coupon, availableCoupons: availableCoupons}"/>
+										</f:else>
+									</f:if>
+								</f:then>
+								<f:else>
+									<f:render partial="Coupon/NotRedeemedBanderole"
+											  arguments="{coupon: coupon, availableCoupons: availableCoupons}"/>
+								</f:else>
+							</f:security.ifAuthenticated>
+						</div>
+						<f:render partial="General/ContentImage" arguments="{image: coupon.ContentImage}"/>
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-sm-6">
+					<h3 class="heading-3">{coupon.title}</h3>
+					<div class="visuallyhidden" id="dtl-shop-info">
+						<f:render partial="Organisms/ShopInfo" arguments="{sender: coupon.sender, center: center}" />
+					</div>
+
+					<f:comment>
+						<div data-modal-click="launch" data-modal-onpage-container="#dtl-shop-info" data-module="modal" class="button-margin">
+							{f:translate(key: "fe.detailPage.shopInfo", extensionName: "providerece") -> f:variable(name:"text")}
+							<f:render partial="Atoms/ButtonIcon" arguments="{icon: 'info', text: text}" />
+						</div>
+					</f:comment>
+
+					<f:security.ifAuthenticated>
+						<f:then>
+							<f:if condition="{couponToUser}">
+								<f:render section="alreadyRedeemed" arguments="{_all}"/>
+							</f:if>
+						</f:then>
+						<f:else>
+							<f:if condition="{center.couponNoLogin}">
+								<f:then>
+									<f:comment>
+										User is not logged in, Log in is not needed and Coupon is not yet redeemed
+									</f:comment>
+								</f:then>
+								<f:else>
+									<f:comment>
+										User is not logged in
+									</f:comment>
+									<div class="cpn-detail__message cpn-detail__message--default">
+										<div class="cpn-detail__message__row">
+											<div class="cpn-detail__message__icon cpn-detail__message__icon--fixie-11">
+												<div class="icn--svg">
+													<c:svg path="{settings.fe.svgIconsPath}" name="info"
+														   mode="{settings.fe.svgIconsMode}" class="ng-scope"/>
+												</div>
+											</div>
+											<f:comment>
+												User is not logged in, msg for Desktop view
+											</f:comment>
+											<div class="cpn-detail__message__text" data-app-view="hide"
+												 data-web-view="hide-mobile">
+												<e:salutation key="fe.detailPage.coupon.mustBeLoggedIn"
+															  communicationLineTitle="{center.communicationLine.title}"/>
+											</div>
+											<f:comment>
+												User is not logged in, msg for App view
+											</f:comment>
+											<div class="cpn-detail__message__text" data-web-view="hide-desktop">
+												<e:salutation key="fe.detailPage.coupon.mustBeLoggedInApp"
+															  communicationLineTitle="{center.communicationLine.title}"/>
+											</div>
+										</div>
+									</div>
+								</f:else>
+							</f:if>
+						</f:else>
+					</f:security.ifAuthenticated>
+
+					<p>
+						<f:format.html>{coupon.contentText}</f:format.html>
+					</p>
+
+					<f:security.ifAuthenticated>
+						<f:then>
+							<f:if condition="{couponToUser}">
+								<f:then></f:then>
+								<f:else>
+									<f:render section="redeemButton" arguments="{_all}"/>
+								</f:else>
+							</f:if>
+						</f:then>
+						<f:else>
+							<f:if condition="{center.couponNoLogin}">
+								<f:then>
+									<f:render section="redeemButton" arguments="{_all}"/>
+								</f:then>
+							</f:if>
+						</f:else>
+					</f:security.ifAuthenticated>
+
+				</div>
+			</div>
+		</section>
+	</article>
+
+	<f:if condition="{coupon.contentGallery}">
+		<f:render partial="Gallery/Gallery" arguments="{gallery: coupon.contentGallery}"/>
+	</f:if>
+
+	<f:render partial="General/Map" arguments="{sender: coupon.sender, directions: directions, settings: settings, shopinfo: 1}"/>
+</f:if>
+
+
+<f:section name="redeemButton">
+	<section class="btc-bar btc-bar--left">
+		<div class="btc-bar__width-adjust">
+			<button type="submit" class="btn btn--solid"
+					data-module="modal"
+					data-modal-url="{f:uri.action(action: 'confirm', arguments: {coupon: '{coupon.uid}'}, controller: 'Coupon', pluginName: 'ConfirmCoupon', pageUid: '{settings.couponPages.couponConfirm}')}"
+					data-modal-click="launch"
+					data-modal-select-node=".cpn-redeem"
+					data-modal-templ-selector="#mdl-modal-central">
+											<span class="btn__label"><f:translate
+												key="fe.detailPage.coupon.redeemCoupon"
+												extensionName="providerece"/></span>
+			</button>
+		</div>
+	</section>
+</f:section>
+
+<f:section name="alreadyRedeemed">
+	<div class="cpn-detail__message cpn-detail__message--default">
+		<div class="cpn-detail__message__row">
+			<div class="cpn-detail__message__icon cpn-detail__message__icon--fixie-11">
+				<div class="icn-svg">
+					<c:svg path="{settings.fe.svgIconsPath}" name="info"
+						   mode="{settings.fe.svgIconsMode}" class="ng-scope"/>
+				</div>
+			</div>
+			<div class="cpn-redeem__message__text">
+				<f:translate key="fe.detailPage.coupon.alreadyRedeemed"
+							 extensionName="providerece"/>
+			</div>
+		</div>
+	</div>
+</f:section>

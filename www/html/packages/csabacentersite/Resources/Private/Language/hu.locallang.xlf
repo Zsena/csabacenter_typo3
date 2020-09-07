@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xliff version="1.0">
+	<file datatype="plaintext" date="2017-01-13T14:13:55+02:00" original="messages" product-name="csabacentersite" source-language="en" target-language="hu">
+		<header />
+		<body>
+            <trans-unit id="fe.stageSlider.prev">
+                <source>Previous</source>
+                <target>Előző</target>
+            </trans-unit>
+            <trans-unit id="fe.stageSlider.next">
+                <source>Next</source>
+                <target>Következő</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

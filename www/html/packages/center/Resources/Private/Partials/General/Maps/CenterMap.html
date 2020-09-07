@@ -1,0 +1,21 @@
+<article class="dtl-map">
+	<h2 class="visuallyhidden">Center Map</h2>
+	<div id="mapplic-id{sender.shop.uid}" class="center-plan"
+		 data-module="center-plan"
+		 data-shop-id="{positions.0.pathId}"
+		 {f:if(condition: '{height}', then: 'data-height="{height}"')}
+		 data-multiple-locations="1"
+		 data-fullscreen="1"
+		 data-src="{f:uri.action(action: 'renderPlanJSON',
+				controller: 'Center',
+				pluginName: 'CenterPlan',
+				extensionName: 'center',
+				pageUid: '{settings.detailPages.centerPlan}',
+				pageType: '{settings.ajaxCenterPlanLinkTypeNum}')}"
+			style="height: {height -> f:or(alternative: '420px')}">
+	</div>
+
+	<svg class="icn-icon icn-spinner dtl-map__spinner" viewbox="0 0 70 70">
+		<circle r="30" cx="35" cy="35" />
+	</svg>
+</article>

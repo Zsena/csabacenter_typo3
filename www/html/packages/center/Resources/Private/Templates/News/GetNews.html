@@ -1,0 +1,8 @@
+<f:format.html> {news.contentPrologue} </f:format.html>
+
+<f:comment>App Stores Links</f:comment>
+<f:render partial="Detail/AppStores" arguments="{service: news}"/>
+
+<f:render partial="General/ContentImage" arguments="{image: news.contentImage}" />
+<f:format.html> {news.contentEpilogue} </f:format.html>
+<f:render partial="General/ContentVideo" arguments="{video: news.contentVideo, width: 720, height: 395}" />

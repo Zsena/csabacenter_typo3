@@ -1,0 +1,30 @@
+{namespace c=DigitalZombies\Center\ViewHelpers}
+<div class="srv-wall__item" {c:app(visibility: '{item.hideInApp}')}>
+    <f:link.action class="tss" title="{item.title}" action="show" controller="Service" arguments="{service: item.uid}" pluginName="Service" extensionName="center" pageUid="{settings.detailPages.service}">
+        <f:if condition="{item.teaserImage}">
+            <f:if condition="{disableLazyLoad}">
+                <f:else>
+                    <noscript data-module="lazy-load">
+                </f:else>
+            </f:if>
+                        <picture>
+                            <source srcset="{f:uri.image(src: '{item.teaserImage.uid}', treatIdAsReference: 1, width: 456)}" media="(max-width: 992px)">
+                            <f:image width="363" src="{item.teaserImage.uid}" class="tss__image" treatIdAsReference="1"/>
+                        </picture>
+            <f:if condition="{disableLazyLoad}">
+                <f:else>
+                    </noscript>
+                </f:else>
+            </f:if>
+
+        </f:if>
+        <div class="tss__container">
+            <f:if condition="{item.serviceIcon}">
+                <div class="btn-round  icn--svg">
+                    <c:svg src="{item.serviceIcon.uid}" treatIdAsReference="1"/>
+                </div>
+            </f:if>
+            <h3 class="tss__name">{item.name}</h3>
+        </div>
+    </f:link.action>
+</div>

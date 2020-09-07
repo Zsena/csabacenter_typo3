@@ -1,0 +1,56 @@
+<f:comment>
+    settings = array -> extension settings.
+    sender = Sender model instance.
+</f:comment>
+
+{namespace c=DigitalZombies\Center\ViewHelpers}
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+
+<f:comment>
+	Get Next Special Closing Day for Shop and create the variable day
+</f:comment>
+<f:if condition="{sender.shop.uid}">
+	<f:variable name="day"><c:getNextSpecialClosingDaysForShop uid="{sender.shop.uid}" /></f:variable>
+</f:if>
+
+<!--Opening Hours -->
+<h3 class="heading-4 dtl-opening-hours__title">
+	<f:translate key="dtl.location.contact.title" extensionName="center"/>
+</h3>
+
+<div class="dtl-opening-hours__column dtl-opening-hours__column--1">
+	<f:render partial="Detail/OpeningHoursTable"
+	   arguments="{openingHours: sender.openingHours}" />
+</div>
+
+<div class="dtl-opening-hours__column dtl-opening-hours__column--2">
+	<f:if condition="{sender.contactPhone}">
+		<p>
+			<a href="tel:{v:format.eliminate(content: '{sender.contactPhone}', whitespace: 1)}" class="btn btn--icon">
+				<span class="btn__inner">
+					<span class="btn__icon">
+						<c:svg path="{settings.fe.svgIconsPath}" name="call" mode="{settings.fe.svgIconsMode}" aria-hidden="true"/>
+					</span><span class="btn__label">{sender.contactPhone}</span>
+				</span>
+			</a>
+		</p>
+	</f:if>
+
+</div>
+<f:if condition="{day}">
+	<f:render partial="Molecules/MessageBox" contentAs="text"
+		arguments="{class: 'dtl-opening-hours__info-box', icon: 'info', borders: 0}">
+		<div class="info-box__text js-date-name">
+			<f:format.date format="{settings.dateFormat.fullMonth}">{day.closing_day}</f:format.date> -
+			{day.name}
+		</div>
+		<f:if condition="{day.from} != 0 && {day.till} != 0">
+			<f:then>
+				<c:openingHoursTimeFormat from="{day.from}" till="{day.till}" />
+			</f:then>
+			<f:else>
+				<f:translate key="ftr.opening.closed" extensionName="center"/>
+			</f:else>
+		</f:if>
+	</f:render>
+</f:if>

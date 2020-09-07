@@ -1,0 +1,197 @@
+<T3DataStructure>
+    <sheets>
+        <sDEF>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>Openings Settings</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <settings.headline>
+                        <TCEforms>
+                            <exclude>1</exclude>
+                            <label>LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:flexform.shopthelook.headline</label>
+                            <config>
+                                <type>input</type>
+                            </config>
+                        </TCEforms>
+                    </settings.headline>
+
+                    <settings.ctaButtonText>
+                        <TCEforms>
+                            <exclude>1</exclude>
+                            <label>LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:flexform.shopthelook.ctabuttontext</label>
+                            <config>
+                                <type>input</type>
+                            </config>
+                        </TCEforms>
+                    </settings.ctaButtonText>
+
+                    <settings.ctaButtonLink>
+                        <TCEforms>
+                            <exclude>1</exclude>
+                            <label>LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:flexform.shopthelook.ctabuttonlink</label>
+                            <config>
+                                <type>input</type>
+                                <renderType>inputLink</renderType>
+                                <eval>trim</eval>
+                            </config>
+                        </TCEforms>
+                    </settings.ctaButtonLink>
+
+                    <settings.layout>
+                        <TCEforms>
+                            <exclude>1</exclude>
+                            <label>LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:flexform.shopthelook.layout</label>
+                            <config>
+                                <type>select</type>
+                                <items>
+                                    <numIndex index="0" type="array">
+                                        <numIndex index="0">LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:flexform.shopthelook.layout.imageleftteaserright</numIndex>
+                                        <numIndex index="1">1</numIndex>
+                                    </numIndex>
+                                    <numIndex index="1" type="array">
+                                        <numIndex index="0">LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:flexform.shopthelook.layout.imagerightimageleft</numIndex>
+                                        <numIndex index="1">2</numIndex>
+                                    </numIndex>
+                                </items>
+                            </config>
+                        </TCEforms>
+                    </settings.layout>
+
+                    <settings.image>
+                        <TCEforms>
+                            <label>LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:flexform.shopthelook.image</label>
+                            <config>
+                                <type>inline</type>
+                                <maxitems>1</maxitems>
+                                <minitems>1</minitems>
+                                <foreign_table>sys_file_reference</foreign_table>
+                                <foreign_table_field>tablenames</foreign_table_field>
+                                <foreign_label>uid_local</foreign_label>
+                                <foreign_sortby>sorting_foreign</foreign_sortby>
+                                <foreign_selector>uid_local</foreign_selector>
+                                <foreign_selector_fieldTcaOverride type="array">
+                                    <config>
+                                        <appearance>
+                                            <elementBrowserType>file</elementBrowserType>
+                                            <elementBrowserAllowed>gif,jpg,jpeg,png,svg</elementBrowserAllowed>
+                                        </appearance>
+                                    </config>
+                                </foreign_selector_fieldTcaOverride>
+                                <foreign_match_fields type="array">
+                                    <fieldname>image</fieldname>
+                                </foreign_match_fields>
+                                <appearance type="array">
+                                    <newRecordLinkAddTitle>1</newRecordLinkAddTitle>
+                                    <headerThumbnail>
+                                        <field>uid_local</field>
+                                        <height>64</height>
+                                        <width>64</width>
+                                    </headerThumbnail>
+                                </appearance>
+                            </config>
+                        </TCEforms>
+                    </settings.image>
+
+                    <settings.video>
+                        <TCEforms>
+                            <label>LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:flexform.shopthelook.video</label>
+                            <config>
+                                <type>inline</type>
+                                <maxitems>1</maxitems>
+                                <foreign_table>sys_file_reference</foreign_table>
+                                <foreign_table_field>tablenames</foreign_table_field>
+                                <foreign_label>uid_local</foreign_label>
+                                <foreign_sortby>sorting_foreign</foreign_sortby>
+                                <foreign_selector>uid_local</foreign_selector>
+                                <foreign_selector_fieldTcaOverride type="array">
+                                    <config>
+                                        <appearance>
+                                            <elementBrowserType>file</elementBrowserType>
+                                            <elementBrowserAllowed>mp4</elementBrowserAllowed>
+                                        </appearance>
+                                    </config>
+                                </foreign_selector_fieldTcaOverride>
+                                <foreign_match_fields type="array">
+                                    <fieldname>image</fieldname>
+                                </foreign_match_fields>
+                            </config>
+                        </TCEforms>
+                    </settings.video>
+
+                    <settings.showVideoOnMobile>
+                        <TCEforms>
+                            <label>LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:flexform.shopthelook.showonmobile</label>
+                            <config>
+                                <type>check</type>
+                            </config>
+                        </TCEforms>
+                    </settings.showVideoOnMobile>
+
+                    <settings.productIds>
+                        <TCEforms>
+                            <label>LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:flexform.shopthelook.productids</label>
+                            <config>
+                                <type>input</type>
+                                <eval>required,trim</eval>
+                            </config>
+                        </TCEforms>
+                    </settings.productIds>
+
+                    <settings.numShownProducts>
+                        <TCEforms>
+                            <label>LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:flexform.shopthelook.numShownProducts </label>
+                            <config>
+								<type>select</type>
+					            <renderType>selectSingle</renderType>
+					            <items>
+					                <numIndex index="0">
+					                    <numIndex index="0">LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:flexform.shopthelook.showAll </numIndex>
+					                    <numIndex index="1">-1</numIndex>
+					                </numIndex>
+					                <numIndex index="1">
+					                    <numIndex index="0">1</numIndex>
+					                    <numIndex index="1">1</numIndex>
+					                </numIndex>
+					                <numIndex index="2">
+					                    <numIndex index="0">2</numIndex>
+					                    <numIndex index="1">2</numIndex>
+					                </numIndex>
+					                <numIndex index="3">
+					                    <numIndex index="0">3</numIndex>
+					                    <numIndex index="1">3</numIndex>
+					                </numIndex>
+					                <numIndex index="4">
+					                    <numIndex index="0">4</numIndex>
+					                    <numIndex index="1">4</numIndex>
+					                </numIndex>
+					                <numIndex index="5">
+					                    <numIndex index="0">5</numIndex>
+					                    <numIndex index="1">5</numIndex>
+					                </numIndex>
+					                <numIndex index="6">
+					                    <numIndex index="0">6</numIndex>
+					                    <numIndex index="1">6</numIndex>
+					                </numIndex>
+					                <numIndex index="7">
+					                    <numIndex index="0">7</numIndex>
+					                    <numIndex index="1">7</numIndex>
+					                </numIndex>
+					                <numIndex index="8">
+					                    <numIndex index="0">8</numIndex>
+					                    <numIndex index="1">8</numIndex>
+					                </numIndex>
+					                <numIndex index="9">
+					                    <numIndex index="0">9</numIndex>
+					                    <numIndex index="1">9</numIndex>
+					                </numIndex>
+					            </items>
+							</config>
+                        </TCEforms>
+                    </settings.numShownProducts>
+                </el>
+            </ROOT>
+        </sDEF>
+    </sheets>
+</T3DataStructure>

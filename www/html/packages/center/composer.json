@@ -1,0 +1,20 @@
+{
+    "name": "digital-zombies/center",
+    "type": "typo3-cms-extension",
+    "description": "Extension to manage center data",
+    "authors": [
+        {
+            "name": "András Ottó",
+            "email": "andras.ott@digital-zombies.com",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "DigitalZombies\\Center\\": "Classes"
+        }
+    },
+    "replace": {
+        "center": "*"
+    }
+}

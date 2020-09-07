@@ -1,0 +1,90 @@
+{namespace cm=DigitalZombies\Center\ViewHelpers}
+{namespace p=DigitalZombies\Providerece\ViewHelpers}
+<article class="tsr-transparent tsr-transparent--blog tsr-transparent{item.columnClassName}" {cm:app(visibility: '{item.hideInApp}')}>
+		<f:link.page pageUid="{item.uid}" class="tsr__container tsr-transparent__container">
+            <f:switch expression="{item.columnClassName}">
+                <f:case value="--columns-3">
+                    <f:if condition="{item.teaserImage3}">
+                        <div class="tsr-transparent__media tsr__media tsr__placeholder" style="background-image: url({cm:base64Image(src: '{item.teaserImage3.uid}', treatIdAsReference: '1')})">
+                            <f:if condition="{omitLazyLoadScript}">
+                                <f:then>
+                                    <noscript>
+                                </f:then>
+                                <f:else>
+                                    <noscript data-module="lazy-load">
+                                </f:else>
+                            </f:if>
+                                <picture>
+                                    <f:if condition="{item.teaserImage}">
+                                        <source srcset="{f:uri.image(src: '{item.teaserImage.uid}', crop:'{item.teaserImage.crop}', treatIdAsReference: 1, width: 456)}" media="(max-width: 992px)">
+                                    </f:if>
+
+                                    <f:image width="1150" src="{item.teaserImage3.uid}"  crop="{item.teaserImage3.crop}" treatIdAsReference="1"/>
+                                </picture>
+                            </noscript>
+                        </div>
+                    </f:if>
+                </f:case>
+                <f:case value="--columns-2">
+                    <f:if condition="{item.teaserImage2}">
+                        <div class="tsr-transparent__media tsr__media tsr__placeholder" style="background-image: url({cm:base64Image(src: '{item.teaserImage2.uid}', treatIdAsReference: '1')})">
+                            <f:if condition="{omitLazyLoadScript}">
+                                <f:then>
+                                    <noscript>
+                                </f:then>
+                                <f:else>
+                                    <noscript data-module="lazy-load">
+                                </f:else>
+                            </f:if>
+                                <picture>
+                                    <f:if condition="{item.teaserImage}">
+                                        <source srcset="{f:uri.image(src: '{item.teaserImage.uid}', crop:'{item.teaserImage.crop}', treatIdAsReference: 1, width: 456)}" media="(max-width: 992px)">
+                                    </f:if>
+                                    <f:image height="400" src="{item.teaserImage2.uid}" crop="{item.teaserImage2.crop}" treatIdAsReference="1"/>
+                                </picture>
+                            </noscript>
+                        </div>
+                    </f:if>
+                </f:case>
+                <f:case default="TRUE">
+                    <f:if condition="{item.teaserImage}">
+                        <div class="tsr-transparent__media tsr__media tsr__placeholder" style="background-image: url({cm:base64Image(src: '{item.teaserImage.uid}', treatIdAsReference: '1')})">
+                            <f:if condition="{omitLazyLoadScript}">
+                                <f:then>
+                                    <noscript>
+                                </f:then>
+                                <f:else>
+                                    <noscript data-module="lazy-load">
+                                </f:else>
+                            </f:if>
+                                <picture>
+                                    <f:image width="363" src="{item.teaserImage.uid}" crop="{item.teaserImage.crop}" treatIdAsReference="1"/>
+                                </picture>
+                            </noscript>
+                        </div>
+                    </f:if>
+                </f:case>
+            </f:switch>
+
+        <div class="tsr__content tsr-transparent__content">
+            <header class="tsr__header">
+                <div class="tsr__header__group">
+                    <f:if condition="{settings.hideCategoryInFE}">
+                        <f:else>
+                            <div class="tsr__category">
+                                <f:translate key="fe.teaserWall.category.tx_center_domain_model_records_blog" extensionName="center"/>
+                            </div>
+                        </f:else>
+                    </f:if>
+                    <time class="tsr__date" datetime="{f:format.date(format: '{settings.dateFormat.utc}', date:'{item.teaserDate}')}"><f:format.date format="{settings.dateFormat.base}">{item.teaserDate}</f:format.date></time>
+                </div>
+                <h3 class="tsr__title">
+                    {item.title}
+                </h3>
+            </header>
+            <div class="tsr__text">
+                <p>{item.teaserAbstract}</p>
+            </div>
+        </div>
+		</f:link.page>
+</article>

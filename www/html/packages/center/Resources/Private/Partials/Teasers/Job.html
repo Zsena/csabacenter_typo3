@@ -1,0 +1,55 @@
+{namespace cm=DigitalZombies\Center\ViewHelpers}
+
+<article class="tsr-solid tsr-solid--job" {cm:app(visibility: '{item.hideInApp}')}>
+
+<f:if condition="{item.isPreview}">
+    <f:then>
+        <f:link.action
+                action="show"
+                controller="Preview"
+                arguments="{uid: item.uid, table: item.tableName}"
+                noCache="true"
+                noCacheHash="true"
+                class="tsr__container"
+        >
+            <f:render section="job" arguments="{_all}"/>
+        </f:link.action>
+    </f:then>
+    <f:else>
+
+        <f:link.action class="tsr__container" action="show" controller="Job" arguments="{job: item.uid}"
+                       pluginName="Job" extensionName="center" pageUid="{settings.detailPages.job}">
+            <f:render section="job" arguments="{_all}"/>
+        </f:link.action>
+    </f:else>
+</f:if>
+
+</article>
+
+<f:section name="job">
+	<f:render partial="Atoms/MediaFrame" arguments="{
+		type: 'teaser',
+		img: '{item.sender.logo}',
+		class: 'mda-frame--no-border mda-frame--16-9'}" />
+      <div class="tsr__content">
+        <header class="tsr__header">
+          <div class="tsr__header__group">
+            <f:if condition="{settings.hideCategoryInFE}">
+              <f:else>
+                <div class="tsr__category">
+                  <f:translate key="LLL:typo3conf/ext/center/Resources/Private/Language/locallang_db.xlf:tx_center_domain_model_records_job.job_category.{item.teaserCategory}" extensionName="center"/>
+                </div>
+              </f:else>
+            </f:if>
+          </div>
+          <h3 class="tsr__title">
+            {item.title}
+          </h3>
+        </header>
+        <div class="tsr__text">
+          <p>
+            {item.teaserAbstract}
+          </p>
+        </div>
+      </div>
+</f:section>

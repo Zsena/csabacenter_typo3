@@ -1,0 +1,63 @@
+<f:comment>
+Product teaser
+
+@param placeholder - Render a placeholder teaser, with grey boxes instead of text content
+</f:comment>
+
+{namespace c=DigitalZombies\Center\ViewHelpers}
+
+<f:section name="image">
+	<f:if condition="{placeholder}">
+		<f:then>
+			<c:svg name="package" class="mda-frame__media icn-icon icn-icon--fit"
+				path="{settings.fe.svgIconsPath}" mode="{settings.fe.svgIconsMode}" />
+		</f:then>
+		<f:else if="{product.mainImgSmallUrl}">
+			<img class="mda-frame__media" src="{product.mainImgSmallUrl}" width="576">
+		</f:else>
+	</f:if>
+</f:section>
+
+<f:section name="price">
+	<f:variable name="currencySign" value="{f:if(condition: '{product.currencySign}', then: '{product.currencySign}', else: '€')}" />
+	<f:if condition="{product.fromPrice} != {product.maxPrice}">
+        <f:then>
+			<div class="tsr__price tsr__price--highlight">
+				<f:format.currency currencySign="{currencySign}" decimalSeparator="," thousandsSeparator=".">{product.fromPrice}</f:format.currency>
+			</div>
+			<div class="tsr__price tsr__price--old">
+				<f:format.currency currencySign="{currencySign}" decimalSeparator="," thousandsSeparator=".">{product.maxPrice}</f:format.currency>
+			</div>
+        </f:then>
+	  	<f:else>
+			<div class="tsr__price">
+				<f:format.currency currencySign="{currencySign}" decimalSeparator="," thousandsSeparator=".">{product.fromPrice}</f:format.currency>
+			</div>
+		</f:else>
+	</f:if>
+</f:section>
+
+<article class="tsr-solid tsr-solid--product {f:if(condition:'{placeholder}', then:'tsr-solid--placeholder')}">
+  <a class="tsr__container" href="{product.shopUrl}">
+    <div class="mda-frame mda-frame--16-9 mda-frame--no-border mda-frame--small-padding">
+      <f:render section="image" arguments="{product: product, placeholder: placeholder}" />
+    </div>
+    <div class="tsr__content">
+      <h3 class="heading-5">
+				{f:if(condition: '{placeholder}', then: '<span class="tme-placeholder-block">')}
+					{product.brand}
+				{f:if(condition: '{placeholder}', then: '</span>')}
+			</h3>
+      <div class="tsr__text">
+        <p class="tsr__paragraph--margin-small">
+					{f:if(condition: '{placeholder}', then: '<span class="tme-placeholder-block">')}
+	          {product.name}
+					{f:if(condition: '{placeholder}', then: '</span>')}
+        </p>
+        <div class="{f:if(condition: '{placeholder}', then: 'tme-placeholder-block')}">
+			<f:render section="price" arguments="{product: product}"/>
+        </div>
+      </div>
+    </div>
+  </a>
+</article>

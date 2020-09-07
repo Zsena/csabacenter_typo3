@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID: {event.baseurl}
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:{event.uid}{event.email}
+ORGANIZER;CN="{event.center_name}":MAILTO:{event.email}
+LOCATION:{event.center_name}, {event.address}
+SUMMARY:{event.title}
+DESCRIPTION:{event.content_abstract}
+URL:{event.baseurl}{event.referer}
+CLASS:PUBLIC
+DTSTART:{event.event_starttime}
+DTEND:{event.event_endtime}
+DTSTAMP:{event.timestamp}
+END:VEVENT
+END:VCALENDAR
+
+

@@ -1,0 +1,6 @@
+<f:if condition="{image}">
+<img alt="{image.originalResource.alternative}" title="{image.originalResource.title}" srcset="{f:uri.image(src: '{image.uid}', treatIdAsReference: 1, width: '420')} 420w,
+	{f:uri.image(src: '{image.uid}', treatIdAsReference: 1, width: '768')} 768w"
+	src="{f:uri.image(src: '{image.uid}', treatIdAsReference: 1, width: '768')}"
+	sizes="(max-width: 768px) 100vw, 768px">
+</f:if>

@@ -1,0 +1,48 @@
+{namespace c=DigitalZombies\Center\ViewHelpers}
+<f:alias map="{ocb: '{', ccb: '}'}">
+{ocb}
+    "breakpoints": {ocb}
+    "xs" : [0,    {settings.gallery.breakpoints.xs.max}],
+    "sm" : [{settings.gallery.breakpoints.sm.min},  {settings.gallery.breakpoints.sm.max}],
+    "md" : [{settings.gallery.breakpoints.md.min},  {settings.gallery.breakpoints.md.max}],
+    "lg" : [{settings.gallery.breakpoints.lg.min}, "Infinity"]
+    {ccb},
+    "images":
+    [<f:for each="{gallery.images}" as="image" iteration="iterator">
+        {ocb}
+            "thumb": "<f:uri.image src="{image.uid}" treatIdAsReference="1" width="250c" height="250c"/>",
+            "detail":
+                {ocb}
+                "lg":
+                    {ocb}
+                    "src": "<f:uri.image src="{image.uid}" treatIdAsReference="1" maxWidth="1600" maxHeight="1600"/>",
+                    "w": {c:image.maxWidth(imageWidth: image.originalResource.properties.width, imageHeight: image.originalResource.properties.height, maxWidth: '1600', maxHeight: '1600')},
+                    "h": {c:image.maxHeight(imageWidth: image.originalResource.properties.width, imageHeight: image.originalResource.properties.height, maxWidth: '1600', maxHeight: '1600')},
+                    "title": "{image.originalResource.title}"
+                    {ccb},
+                "md":
+                    {ocb}
+                    "src": "<f:uri.image src="{image.uid}" treatIdAsReference="1" maxWidth="750" maxHeight="750"/>",
+                    "w": {c:image.maxWidth(imageWidth: image.originalResource.properties.width, imageHeight: image.originalResource.properties.height, maxWidth: '750', maxHeight: '750')},
+                    "h": {c:image.maxHeight(imageWidth: image.originalResource.properties.width, imageHeight: image.originalResource.properties.height, maxWidth: '750', maxHeight: '750')},
+                    "title": "{image.originalResource.title}"
+                    {ccb},
+                "sm":
+                    {ocb}
+                    "src": "<f:uri.image src="{image.uid}" treatIdAsReference="1" maxWidth="500" maxHeight="500"/>",
+                    "w": {c:image.maxWidth(imageWidth: image.originalResource.properties.width, imageHeight: image.originalResource.properties.height, maxWidth: '500', maxHeight: '500')},
+                    "h": {c:image.maxHeight(imageWidth: image.originalResource.properties.width, imageHeight: image.originalResource.properties.height, maxWidth: '500', maxHeight: '500')},
+                    "title": "{image.originalResource.title}"
+                    {ccb},
+                "xs":
+                    {ocb}
+                    "src": "<f:uri.image src="{image.uid}" treatIdAsReference="1" maxWidth="250" maxHeight="250"/>",
+                    "w": {c:image.maxWidth(imageWidth: image.originalResource.properties.width, imageHeight: image.originalResource.properties.height, maxWidth: '250', maxHeight: '250')},
+                    "h": {c:image.maxHeight(imageWidth: image.originalResource.properties.width, imageHeight: image.originalResource.properties.height, maxWidth: '250', maxHeight: '250')},
+                    "title": "{image.originalResource.title}"
+                    {ccb}
+            {ccb}
+        {ccb}<f:if condition="{iterator.isLast}"><f:else>,</f:else></f:if>
+        </f:for>]
+{ccb}
+</f:alias>

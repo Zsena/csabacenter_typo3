@@ -1,0 +1,202 @@
+## Define custom categories
+# customsubcategory=headersettings= Header
+# customsubcategory=logosettings= Logo
+# customsubcategory=footersettings= Footer
+# customsubcategory=socialsettings= Social
+# customsubcategory=miscsettings= Miscellaneous
+# customsubcategory=envsettings= Environment
+# customsubcategory=cids= Global Content Elements
+plugin.tx_csabacentersite {
+	settings {
+
+		rootPageId = 985
+
+		googleMapsApiKey = AIzaSyBTHPxsuDpm-6NohR9cJgkEdKbgE4Q8HY8
+
+		detailPages {
+			job = 170
+			event = 28
+			news = 123
+			press = 123
+			offer = 171
+			coupon = 92468
+			centerPlan = 118
+			directions = 1044
+			openingHours = 121
+			contact = 61
+			search = 988
+			service = 180
+			dataProtection = 818
+			law = 820
+			agb =
+			agbCard =
+			reference =
+
+			registration =
+			registrationConfirmation = 89423
+			registrationRefused = 89424
+			regisrationSuccessfull = 21
+			login = 92454
+			loginB2C = 0
+			forgotPassword = 92461
+			porfileDeleted =
+			bookmarks =
+			shoppingCart =
+			products =
+			myAccount =
+			myInterests =
+			deleteAccountDialog =
+			changeEmailDialog =
+			changePasswordDialog =
+
+			newsletterSubscription =
+			newsletterUnsubscription =
+			newsletterRecipientsList =
+			newsletterFolder =
+			newsletterMenuPoints =
+
+			centerVoucher =
+			digitalmall =
+
+			legalPages {
+                agb =
+                dataProtection =
+                dataProtectionApp =
+                legal =
+                legalApp =
+			}
+		}
+        listPages.blogEntries = 0
+
+        forceLoginRedirect = 0
+
+		companyName = ECE Projektmanagement G.m.b.H. & Co. KG
+
+		captchaKey = 6LfQbysUAAAAAJPZMZNCk0VqosJXbJp5id5UTMtf
+
+		allowedTranslations = 1,2,4,5,7
+
+		header {
+			# cat=ece/headersettings/110; type=string; label=Header - pagetitle: Title of page + Seperator
+			title = ECE -
+
+            # Additional Class for the header
+            additionalClass =
+
+            # Display the selected page as a CTA button at the last spot in the menu
+            showPageAsCTA =
+
+            # Display the selected text as a CTA button at the last spot in the menu
+            showTextAsCTA =
+
+            # Link the selected text as a CTA button at the last spot in the menu
+            linkTextAsCTA =
+
+			# INLINE FUNCTIONALITY (default)
+			svgIconsPath = EXT:csabacentersite/Resources/Public/src/assets/svg-icons
+			svgIconsMode = inline
+
+			# SPRITE FUNCTIONALITY
+			#svgIconsPath = EXT:csabacentersite/Resources/Public/{$plugin.tx_csabacentersite.settings.assetPath}/assets/svg/symbols.svg
+			#svgIconsMode = sprite
+		}
+
+		logo {
+			# cat=ece/logosettings/110; type=string; label=Logo - Filepath: Starts in Extension Public/ Folder
+			file =
+			# cat=ece/logosettings/111; type=int+; label=Logo - Home Link: Pid of Page
+			linkPid = 1
+			# cat=ece/logosettings/112; type=string; label=Logo - Alt-Text
+			alt = ECE Logo
+		}
+
+		contact {
+			# cat=ece/contact/210; type=string; label=Contact - Company
+			company =
+			# cat=ece/contact/211; type=string; label=Contact - Address
+			address =
+			# cat=ece/contact/212; type=string; label=Contact - City
+			city =
+			# cat=ece/contact/213; type=string; label=Contact - Phone
+			phone =
+			# cat=ece/contact/214; type=string; label=Contact - E-Mail
+			email =
+		}
+
+		cards {
+			responsiveImages.width {
+				# cat=ece/cards/images/910; type=string; label=Small width
+				small = 431
+				# cat=ece/cards/images/911; type=string; label=Small width 2x
+				small2x = 862
+				# cat=ece/cards/images/912; type=string; label=Large width
+				large = 706
+				# cat=ece/cards/images/913; type=string; label=Large width 2x
+				large2x = 1412
+			}
+		}
+
+		footer {
+			# cat=ece/footer/310; type=string; label=Footer - Copyright Text Bottom: © 2016
+			copyrightText = ECE GmbH
+			# cat=ece/footer/311; type=string; label=Footer - Copyright Link
+			link =
+			# cat=ece/footer/312; type=int+; label=Footer - Parent Page Pid of Footer Navigation
+			navigationPid = 12
+			# cat=ece/footer/312; type=int+; label=Footer - Directory Pid of Footer Navigation Meta Part
+			navigationMetaDirectoryPid = 40
+			# cat=ece/footer/312; type=int+; label=Footer - Directory Pid of Footer Navigation Opportunities  Part
+			navigationOpportunitiesDirectoryPid = 41
+		}
+
+		navigation {
+			main {
+				# cat=ece/navigation/510; type=int+; label=Navigation - Parent Page Pid of Main Subnavigation
+				subPid = 11
+			}
+
+		}
+        adminConfirm.dayLimit {
+            first = 7
+            second = 3
+        }
+
+		favicons {
+			favIcon = /favicon.ico
+			browserConfigFile = /browserconfig.xml
+			appleTouchIcon = /apple-touch-icon.png
+		}
+
+		b2bSection = 0
+
+		webShopContentV1_1_0 = 553390150
+	}
+
+	// templates
+	view {
+		templateRootPaths.default = EXT:csabacentersite/Resources/Private/Templates/
+		partialRootPaths.default = EXT:csabacentersite/Resources/Private/Partials/
+		partialRootPaths.generic = EXT:csabacentersite/Resources/Private/Partials/Elements/
+		layoutRootPaths.default = EXT:csabacentersite/Resources/Private/Layouts/
+	}
+}
+
+
+styles.content.allowTags:= addToList(button)
+styles.content.allowTags:= addToList(abstract)
+styles.content.allowTags:= addToList(small)
+
+// Constants - Deployment:
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:csabacentersite/Configuration/TypoScript/GlobalSettings/configConstants.t3s">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:csabacentersite/Configuration/TypoScript/GlobalSettings/languageConstants.t3s">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:csabacentersite/Configuration/TypoScript/GlobalSettings/deploymentContstants.t3s">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:csabacentersite/Configuration/TypoScript/Extensions/felogin/constants.t3s">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:csabacentersite/Configuration/TypoScript/Extensions/femanager/constants.t3s">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:csabacentersite/Configuration/TypoScript/Extensions/ecesugarcrm/constants.t3s">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:csabacentersite/Configuration/TypoScript/Extensions/csp/constants.t3s">
+
+[globalVar = TSFE:page|tx_csabacentersite_disablecsp = 1]
+	config.csp {
+		enabled = 0
+	}
+[end]

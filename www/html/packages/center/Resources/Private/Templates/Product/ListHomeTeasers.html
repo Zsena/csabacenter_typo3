@@ -1,0 +1,48 @@
+{namespace c=DigitalZombies\Center\ViewHelpers}
+
+<section class="tsr-grp tsr-grp--wide tsr-grp-theme--{settings.hometeaser.style}" data-module="content-replace"
+         data-content-replace-url="{f:uri.page(pageUid: '{settings.rootPageId}', additionalParams: {eID: 'product_teasers', token: '{token}'})}">
+    <f:if condition="{settings.hometeaser.headline}">
+        <header class="ttl ttl--section">
+            <h2 class="ttl__headline">{settings.hometeaser.headline}</h2>
+        </header>
+    </f:if>
+    <f:if condition="{settings.hometeaser.abstract}">
+        <div class="tsr-grp__lead"><p>{settings.hometeaser.abstract}</p></div>
+    </f:if>
+    <div class="tsr-grp__teasers js-content-replace">
+			<v:iterator.for from="0" to="4">
+				<div class="tsr-grp__teaser">
+					<f:render partial="Teasers/Product" arguments="{placeholder: 'true'}"/>
+				</div>
+			</v:iterator.for>
+    </div>
+    <f:if condition="{settings.hometeaser.buttonLink}">
+        <f:then>
+            <section class="btc-bar">
+                <h3 class="visuallyhidden">
+                    <f:if condition="{settings.hometeaser.buttonText}">
+                        <f:then>{settings.hometeaser.buttonText}</f:then>
+                        <f:else>
+                        </f:else>
+                    </f:if>
+                </h3>
+                <div class="btc-bar__width-adjust">
+                    <f:link.typolink parameter="{settings.hometeaser.buttonLink}" class="btn btn--light">
+						<span class="btn__label">
+							<f:if condition="{settings.hometeaser.buttonText}">
+								<f:then>
+									{settings.hometeaser.buttonText}
+								</f:then>
+								<f:else>
+									<f:translate key="fe.hometeaser.button.show_all_shops"
+                                                 extensionName="center"/>
+								</f:else>
+							</f:if>
+						</span>
+                    </f:link.typolink>
+                </div>
+            </section>
+        </f:then>
+    </f:if>
+</section>

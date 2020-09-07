@@ -1,0 +1,20 @@
+.inner_page_banner {
+  float: left;
+  width: 100%;
+  padding-top: 60px;
+  min-height: 240px;
+  background: $black-gray;
+  display: flex;
+  align-items: center;
+
+  .banner_title h3 {
+    font-size: 42px;
+    color: #fff;
+    padding: 40px 15px;
+  }
+}
+
+.section {
+  float: left;
+  width: 100%;
+}

@@ -1,0 +1,13 @@
+<f:layout name="Page"/>
+
+
+<f:section name="Main">
+	<f:render partial="Header/Header" arguments="{pages: pages, rootPageId: rootPageId, page: data, center: center, languages : languages, serviceNavigation: serviceNavigation}"/>
+
+	<f:cObject typoscriptObjectPath="lib.content.serviceList.stage" />
+	<f:cObject typoscriptObjectPath="lib.content.serviceList.content" />
+	<f:cObject typoscriptObjectPath="lib.content.serviceList.plugin" />
+
+	<f:render partial="Footer/Footer" arguments="{center: center}"/>
+	<f:render partial="ToTop"/>
+</f:section>

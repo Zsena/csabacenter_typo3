@@ -1,0 +1,282 @@
+{namespace core = TYPO3\CMS\Core\ViewHelpers}
+<f:be.container>
+    <div class="module-body t3js-module-body" style="padding-top: 89px;">
+        <f:be.pagePath />
+        <br>
+        <f:be.menus.actionMenu>
+            <f:be.menus.actionMenuItem label="Push Notification List"
+                                       controller="PushNotification"
+                                       action="list" />
+
+            <f:be.menus.actionMenuItem label="Center Push Configuration"
+                                       controller="Center"
+                                       action="backendPushConfigurationList" />
+        </f:be.menus.actionMenu>
+        <br>
+        <f:format.raw>{messages}</f:format.raw>
+        <f:if condition="{pushNotifications}">
+            <f:then>
+                <f:for each="{pushNotifications}" as="pushNotificationType" key="pushNotificationState">
+                    <f:if condition="{pushNotificationType}">
+                        <h1 class="t3js-title-inlineedit">
+                            <f:translate
+                                    key="LLL:EXT:center/Resources/Private/Language/locallang_module_pushnotification.xlf:state.{pushNotificationState}"/>
+                            :
+                        </h1>
+                        <f:for each="{pushNotificationType}" as="pushNotificationList" key="pushNotificationTypeKey">
+                            <f:render section="typeList"
+                                      arguments="{notificationType: pushNotificationTypeKey, elements: pushNotificationList, pushNotificationState: pushNotificationState, languages: languages}"/>
+                        </f:for>
+                    </f:if>
+                </f:for>
+            </f:then>
+            <f:else>
+                <h1 class="t3js-title-inlineedit">
+                    <f:translate
+                            key="LLL:EXT:center/Resources/Private/Language/locallang_module_pushnotification.xlf:state.nopushnotitifications"/>
+                </h1>
+            </f:else>
+        </f:if>
+    </div>
+</f:be.container>
+
+<f:section name="typeList">
+    <div class="panel panel-default recordlist">
+        <div class="panel-heading">
+            <f:translate
+                    key="LLL:EXT:center/Resources/Private/Language/locallang_module_pushnotification.xlf:type.{notificationType}"/>
+            (<span class="t3js-table-total-items"><f:count>{elements}</f:count></span>)
+        </div>
+        <div class="collapse in" data-state="expanded">
+            <div class="table-fit">
+                <table data-table="tx_center_domain_model_pushnotification"
+                       class="table table-striped table-hover">
+                    <tbody>
+                    <f:for each="{elements}" as="pushNotification">
+                        <f:render section="{pushNotificationState}Item" arguments="{_all}"/>
+                    </f:for>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</f:section>
+
+<f:section name="unprocessedItem">
+    <tr class="t3js-entity firstcol lastcol">
+        <td class="col-icon nowrap">
+            <span class="t3js-icon icon icon-size-small icon-state-default icon-tcarecords-tx_center_domain_model_pushnotification-default">
+            </span>
+        </td>
+        <td class="col-title col-responsive nowrap">
+            <table>
+                <tr>
+                    <td>
+                        <strong>
+                            <f:translate key="LLL:EXT:center/Resources/Private/Language/locallang_module_pushnotification.xlf:title"/>:
+                        </strong>
+                    </td>
+                    <td>{pushNotification.title}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>
+                            <f:translate key="LLL:EXT:center/Resources/Private/Language/locallang_module_pushnotification.xlf:body_text"/>:
+                        </strong>
+                        &nbsp;&nbsp;
+                    </td>
+                    <td>{pushNotification.text}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>
+                            <f:translate key="LLL:EXT:center/Resources/Private/Language/locallang_module_pushnotification.xlf:target_center"/>:
+                        </strong>
+                        &nbsp;&nbsp;&nbsp;
+                    </td>
+                    <td>
+                        <f:if condition="{pushNotification.center}">
+                            <f:for each="{pushNotification.center}" as="{center}">
+                                {center.shortName}
+                            </f:for>
+                        </f:if>
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td class="col-clipboard nowrap"></td>
+        <td class="col-clipboard nowrap">
+            <div class="btn-group" role="group">
+                <f:link.action action="publish"
+                               arguments="{id: pushNotification.uid, type: pushNotification.namespace}">
+                    <button class="btn btn-default dropdown-toggle" type="button">
+                        <img src="/typo3/sysext/core/Resources/Public/Icons/T3Icons/actions/actions-document-save.svg"
+                             width="16" height="16">
+                        <f:translate key="LLL:EXT:center/Resources/Private/Language/locallang_module_pushnotification.xlf:queue"/>
+                    </button>
+                </f:link.action>
+                <f:link.action action="delete"
+                               arguments="{id: pushNotification.uid, type: pushNotification.namespace}">
+                    <button class="btn btn-default dropdown-toggle" type="button">
+                        <img src="/typo3/sysext/core/Resources/Public/Icons/T3Icons/actions/actions-edit-delete.svg"
+                             width="16" height="16">
+                        <f:translate key="LLL:EXT:center/Resources/Private/Language/locallang_module_pushnotification.xlf:delete"/>
+                    </button>
+                </f:link.action>
+
+            </div>
+        </td>
+        <td class="col-localizationa nowrap" style="float: right;">
+            <core:icon identifier="flags-{languages.{pushNotification._languageUid}.flag}" size="default"/>
+            {languages.{pushNotification._languageUid}.title}
+        </td>
+    </tr>
+</f:section>
+
+<f:section name="pendingItem">
+    <tr class="t3js-entity firstcol lastcol">
+        <td class="col-icon nowrap">
+            <span class="t3js-icon icon icon-size-small icon-state-default">
+            </span>
+        </td>
+        <td class="col-title col-responsive nowrap">
+            <table>
+                <tr>
+                    <td>
+                        <strong>
+                            <f:translate key="LLL:EXT:center/Resources/Private/Language/locallang_module_pushnotification.xlf:title"/>:
+                        </strong>
+                    </td>
+                    <td>{pushNotification.title}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>
+                            <f:translate key="LLL:EXT:center/Resources/Private/Language/locallang_module_pushnotification.xlf:body_text"/>:
+                        </strong>
+                        &nbsp;&nbsp;
+                    </td>
+                    <td>{pushNotification.text}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>
+                            <f:translate key="LLL:EXT:center/Resources/Private/Language/locallang_module_pushnotification.xlf:target_center"/>:
+                        </strong>
+                        &nbsp;&nbsp;&nbsp;
+                    </td>
+                    <td>
+                        <f:if condition="{pushNotification.center}">
+                            <f:for each="{pushNotification.center}" as="{center}">
+                                {center.shortName}
+                            </f:for>
+                        </f:if>
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td class="col-clipboard nowrap"></td>
+        <td class="col-clipboard nowrap">
+            <div class="btn-group" role="group">
+                <button class="btn btn-default dropdown-toggle" type="button" disabled="disabled">
+                    <f:switch expression="{pushNotification.deliveryType}">
+                        <f:case value="0">
+                            <strong>
+                                <f:translate key="LLL:EXT:center/Resources/Private/Language/locallang_module_pushnotification.xlf:state.next_queue_iteration"/>
+                            </strong>
+                        </f:case>
+                        <f:case value="1">
+                            <strong>
+                                <f:translate key="LLL:EXT:center/Resources/Private/Language/locallang_module_pushnotification.xlf:state.will_be_sent_at"/>:
+                            </strong>
+                            <f:format.date format="Y-m-d">{pushNotification.pushDate}</f:format.date>
+                            <f:format.date format="H:i:s">{pushNotification.pushTime}</f:format.date>
+                        </f:case>
+                    </f:switch>
+
+                </button>
+                <f:link.action action="dequeue"
+                               arguments="{id: pushNotification.uid, type: pushNotification.namespace}">
+                    <button class="btn btn-default dropdown-toggle" type="button">
+                        <img src="/typo3/sysext/core/Resources/Public/Icons/T3Icons/actions/actions-edit-undo.svg"
+                             width="16" height="16">
+                        <f:translate key="LLL:EXT:center/Resources/Private/Language/locallang_module_pushnotification.xlf:dequeue"/>
+                    </button>
+                </f:link.action>
+                <f:link.action action="delete"
+                               arguments="{id: pushNotification.uid, type: pushNotification.namespace}">
+                    <button class="btn btn-default dropdown-toggle" type="button">
+                        <img src="/typo3/sysext/core/Resources/Public/Icons/T3Icons/actions/actions-edit-delete.svg"
+                             width="16" height="16">
+                        <f:translate key="LLL:EXT:center/Resources/Private/Language/locallang_module_pushnotification.xlf:delete"/>
+                    </button>
+                </f:link.action>
+
+            </div>
+        </td>
+        <td class="col-localizationa nowrap" style="float: right;">
+            <core:icon identifier="flags-{languages.{pushNotification._languageUid}.flag}" size="default"/>
+            {languages.{pushNotification._languageUid}.title}
+        </td>
+    </tr>
+</f:section>
+
+<f:section name="deliveredItem">
+    <tr class="t3js-entity firstcol lastcol">
+        <td class="col-icon nowrap">
+                                <span class="t3js-icon icon icon-size-small icon-state-default icon-tcarecords-tx_center_domain_model_pushnotification-default">
+                                </span>
+        </td>
+        <td class="col-title col-responsive nowrap">
+            <table>
+                <tr>
+                    <td>
+                        <strong>
+                            <f:translate key="LLL:EXT:center/Resources/Private/Language/locallang_module_pushnotification.xlf:title"/>:
+                        </strong>
+                    </td>
+                    <td>{pushNotification.title}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>
+                            <f:translate key="LLL:EXT:center/Resources/Private/Language/locallang_module_pushnotification.xlf:body_text"/>:
+                        </strong>
+                        &nbsp;&nbsp;
+                    </td>
+                    <td>{pushNotification.text}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>
+                            <f:translate key="LLL:EXT:center/Resources/Private/Language/locallang_module_pushnotification.xlf:target_center"/>:
+                        </strong>
+                        &nbsp;&nbsp;&nbsp;
+                    </td>
+                    <td>
+                        <f:if condition="{pushNotification.center}">
+                            <f:for each="{pushNotification.center}" as="{center}">
+                                {center.shortName}
+                            </f:for>
+                        </f:if>
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td class="col-clipboard nowrap"></td>
+        <td class="col-clipboard nowrap">
+            <div class="btn-group" role="group">
+                <button class="btn btn-default dropdown-toggle" type="button" disabled="disabled">
+                    <strong>
+                        <f:translate key="LLL:EXT:center/Resources/Private/Language/locallang_module_pushnotification.xlf:sent_at"/>:
+                    </strong>
+                    <f:format.date format="Y-m-d H:i:s">{pushNotification.actualDeliveryDate}</f:format.date>
+                </button>
+            </div>
+        </td>
+        <td class="col-localizationa nowrap" style="float: right;">
+            <core:icon identifier="flags-{languages.{pushNotification._languageUid}.flag}" size="default"/>
+            {languages.{pushNotification._languageUid}.title}
+        </td>
+    </tr>
+</f:section>

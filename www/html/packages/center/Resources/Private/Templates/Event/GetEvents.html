@@ -1,0 +1,14 @@
+<f:format.html> {event.contentPrologue}</f:format.html>
+
+<f:if condition="{event.contentVideo}">
+    <f:then>
+        <f:render partial="General/ContentVideo"
+                  arguments="{video: event.contentVideo, width: 720, height: 395}"/>
+    </f:then>
+    <f:else>
+        <f:comment>content image is checked in partial</f:comment>
+        <f:render partial="General/ContentImage" arguments="{image: event.contentImage}"/>
+    </f:else>
+</f:if>
+
+<f:format.html> {event.contentEpilogue}</f:format.html>

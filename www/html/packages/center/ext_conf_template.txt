@@ -1,0 +1,5 @@
+# cat=basic/enable; type=string; label=The User for the Preview Authentication
+previewUser =
+
+# cat=basic/enable; type=string; label=The Password for the Preview User
+previewPassword =

@@ -1,0 +1,180 @@
+<T3DataStructure>
+	<sheets>
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>Function</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<settings.hometeaser.style>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:flexform.hometeaser.style</label>
+							<config>
+								<type>select</type>
+								<items type="array">
+									<numIndex index="0" type="array">
+										<numIndex index="0">LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:flexform.hometeaser.style.light</numIndex>
+										<numIndex index="1">light</numIndex>
+									</numIndex>
+									<numIndex index="1" type="array">
+										<numIndex index="0">LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:flexform.hometeaser.style.dark</numIndex>
+										<numIndex index="1">dark</numIndex>
+									</numIndex>
+									<numIndex index="2" type="array">
+										<numIndex index="0">LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:flexform.hometeaser.style.gray</numIndex>
+										<numIndex index="1">gray</numIndex>
+									</numIndex>
+								</items>
+								<size>1</size>
+								<defaultValue>light</defaultValue>
+								<minitems>0</minitems>
+								<maxitems>1</maxitems>
+							</config>
+						</TCEforms>
+					</settings.hometeaser.style>
+					<settings.hometeaser.adTeaser.style>
+						<TCEforms>
+							<exclude>1</exclude>
+							<onChange>reload</onChange>
+							<label>LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:flexform.hometeaser.adTeaser.style</label>
+							<config>
+								<type>select</type>
+								<items type="array">
+									<numIndex index="0" type="array">
+										<numIndex index="0">Please Select</numIndex>
+										<numIndex index="1" />
+									</numIndex>
+									<numIndex index="1" type="array">
+										<numIndex index="0">LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:flexform.hometeaser.adTeaser.style.33-33-33</numIndex>
+										<numIndex index="1">333333</numIndex>
+									</numIndex>
+									<numIndex index="2" type="array">
+										<numIndex index="0">LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:flexform.hometeaser.adTeaser.style.66-33</numIndex>
+										<numIndex index="1">6633</numIndex>
+									</numIndex>
+									<numIndex index="3" type="array">
+										<numIndex index="0">LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:flexform.hometeaser.adTeaser.style.33-66</numIndex>
+										<numIndex index="1">3366</numIndex>
+									</numIndex>
+									<numIndex index="4" type="array">
+										<numIndex index="0">LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:flexform.hometeaser.adTeaser.style.100</numIndex>
+										<numIndex index="1">100</numIndex>
+									</numIndex>
+								</items>
+								<size>1</size>
+								<defaultValue>333333</defaultValue>
+								<minitems>0</minitems>
+								<maxitems>1</maxitems>
+							</config>
+						</TCEforms>
+					</settings.hometeaser.adTeaser.style>
+					<settings.hometeaser.records.col.333333>
+					<TCEforms>
+						<exclude>1</exclude>
+						<displayCond>FIELD:settings.hometeaser.adTeaser.style:=:333333</displayCond>
+						<label>LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:flexform.hometeaser.adTeaser.records.oneColumn</label>
+						<config>
+							<type>select</type>
+							<renderType>selectMultipleSideBySide</renderType>
+							<itemsProcFunc>DigitalZombies\Center\UserFunc\RecordBaseItemList->listColAll</itemsProcFunc>
+							<minitems>3</minitems>
+							<maxitems>3</maxitems>
+							<size>10</size>
+						</config>
+					</TCEforms>
+					</settings.hometeaser.records.col.333333>
+					<settings.hometeaser.records.col.33>
+						<TCEforms>
+							<exclude>1</exclude>
+							<displayCond>FIELD:settings.hometeaser.adTeaser.style:IN:3366,6633</displayCond>
+							<label>LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:flexform.hometeaser.adTeaser.records.oneColumn</label>
+							<config>
+								<type>select</type>
+								<renderType>selectMultipleSideBySide</renderType>
+								<itemsProcFunc>DigitalZombies\Center\UserFunc\RecordBaseItemList->listColAll</itemsProcFunc>
+								<minitems>1</minitems>
+								<maxitems>1</maxitems>
+								<size>10</size>
+							</config>
+						</TCEforms>
+					</settings.hometeaser.records.col.33>
+					<settings.hometeaser.records.col.66>
+						<TCEforms>
+							<exclude>1</exclude>
+							<displayCond>FIELD:settings.hometeaser.adTeaser.style:IN:3366,6633</displayCond>
+							<label>LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:flexform.hometeaser.adTeaser.records.twoColumn</label>
+							<config>
+								<type>select</type>
+								<renderType>selectMultipleSideBySide</renderType>
+								<itemsProcFunc>DigitalZombies\Center\UserFunc\RecordBaseItemList->listCol2</itemsProcFunc>
+								<minitems>1</minitems>
+								<maxitems>1</maxitems>
+								<size>10</size>
+							</config>
+						</TCEforms>
+					</settings.hometeaser.records.col.66>
+					<settings.hometeaser.records.col.100>
+						<TCEforms>
+							<exclude>1</exclude>
+							<displayCond>FIELD:settings.hometeaser.adTeaser.style:=:100</displayCond>
+							<label>LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:flexform.hometeaser.adTeaser.records.threeColumn</label>
+							<config>
+								<type>select</type>
+								<renderType>selectMultipleSideBySide</renderType>
+								<itemsProcFunc>DigitalZombies\Center\UserFunc\RecordBaseItemList->listCol3</itemsProcFunc>
+								<minitems>1</minitems>
+								<maxitems>1</maxitems>
+								<size>10</size>
+							</config>
+						</TCEforms>
+					</settings.hometeaser.records.col.100>
+					<settings.hometeaser.buttonText>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:flexform.hometeaser.buttonText</label>
+							<config>
+								<type>input</type>
+								<size>30</size>
+								<max>255</max>
+								<eval>trim</eval>
+							</config>
+						</TCEforms>
+					</settings.hometeaser.buttonText>
+					<settings.hometeaser.buttonLink>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:flexform.hometeaser.buttonLink</label>
+							<config>
+								<type>input</type>
+								<renderType>inputLink</renderType>
+								<fieldControl>
+									<linkPopup>
+										<options>
+											<blindLinkFields>class, params, title</blindLinkFields>
+											<blindLinkOptions>mail, url, spec, file, folder</blindLinkOptions>
+										</options>
+									</linkPopup>
+								</fieldControl>
+								<eval>trim</eval>
+							</config>
+						</TCEforms>
+					</settings.hometeaser.buttonLink>
+					<settings.hometeaser.headline>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:flexform.hometeaser.headline</label>
+							<config>
+								<type>input</type>
+								<size>30</size>
+								<max>255</max>
+								<eval>trim</eval>
+							</config>
+						</TCEforms>
+					</settings.hometeaser.headline>
+				</el>
+			</ROOT>
+		</sDEF>
+	</sheets>
+</T3DataStructure>

@@ -1,0 +1,59 @@
+<f:if condition="{useGtmCode}">
+	<f:then>
+		<f:if condition="{gtmCode}">
+			<script>
+				(function (w, d, s, l, i) {
+				w[l] = w[l] || [];
+				w[l].push({
+					'gtm.start':
+						new Date().getTime(), event: 'gtm.js'
+				});
+				var f = d.getElementsByTagName(s)[0],
+					j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+				j.async = true;
+				j.src =
+					'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+				f.parentNode.insertBefore(j, f);
+			})(window, document, 'script', 'dataLayer', '{gtmCode}');
+			</script>
+		</f:if>
+	</f:then>
+	<f:else>
+		<f:if condition="{eceSnippet} || {centerSnippet}">
+			<script type="text/javascript">
+            var gaProperty1 = '{centerSnippet}';
+            var gaProperty2 = '{eceSnippet}';
+
+            var disableStr1 = 'ga-disable-' + gaProperty1;
+            var disableStr2 = 'ga-disable-' + gaProperty2;
+
+            if (document.cookie.indexOf(disableStr1 + '=true') > -1) {
+                window[disableStr1] = true;
+            }
+            if (document.cookie.indexOf(disableStr2 + '=true') > -1) {
+                window[disableStr2] = true;
+            }
+
+            function gaOptout() {
+                document.cookie = disableStr1 + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+                document.cookie = disableStr2 + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+                window[disableStr1] = true;
+                window[disableStr2] = true;
+            }
+            </script>
+
+            <script type="text/javascript">
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+            <f:if condition="{centerSnippet}">ga('create', '{centerSnippet}', '{url}');</f:if>
+            <f:if condition="{eceSnippet}">ga('create', '{eceSnippet}', {'name':'allcenter'});</f:if>
+            ga('set', 'anonymizeIp', true);
+            ga('allcenter.set', 'anonymizeIp', true);
+            ga('require', 'displayfeatures');
+            ga('send', 'pageview');
+            ga('cluster.send', 'pageview');
+            ga('region.send', 'pageview');
+            ga('allcenter.send', 'pageview');
+            </script>
+		</f:if>
+	</f:else>
+</f:if>

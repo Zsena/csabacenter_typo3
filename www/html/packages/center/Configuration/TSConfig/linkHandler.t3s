@@ -1,0 +1,46 @@
+TCEMAIN.linkHandler {
+	news {
+		handler = TYPO3\CMS\Recordlist\LinkHandler\RecordLinkHandler
+		label = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:tx_center_domain_model_records_news
+		configuration {
+			table = tx_center_domain_model_records_news
+		}
+		scanBefore = page
+	}
+
+	event {
+		handler = TYPO3\CMS\Recordlist\LinkHandler\RecordLinkHandler
+		label = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:tx_center_domain_model_records_event
+		configuration {
+			table = tx_center_domain_model_records_event
+		}
+		scanBefore = page
+	}
+
+	offer {
+		handler = TYPO3\CMS\Recordlist\LinkHandler\RecordLinkHandler
+		label = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:tx_center_domain_model_records_offer
+		configuration {
+			table = tx_center_domain_model_records_offer
+		}
+		scanBefore = page
+	}
+
+	job {
+		handler = TYPO3\CMS\Recordlist\LinkHandler\RecordLinkHandler
+		label = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:tx_center_domain_model_records_job
+		configuration {
+			table = tx_center_domain_model_records_job
+		}
+		scanBefore = page
+	}
+
+	service {
+		handler = TYPO3\CMS\Recordlist\LinkHandler\RecordLinkHandler
+		label = LLL:EXT:center/Resources/Private/Language/locallang_db.xlf:tx_center_domain_model_records_service
+		configuration {
+			table = tx_center_domain_model_records_service
+		}
+		scanBefore = page
+	}		
+}

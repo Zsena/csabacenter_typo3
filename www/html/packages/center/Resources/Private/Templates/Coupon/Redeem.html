@@ -1,0 +1,82 @@
+{namespace c=DigitalZombies\Center\ViewHelpers}
+
+<article class="cpn-redeem lgn-container lgn-container--small">
+	<header>
+		<h3 class="ttl--subsection">
+			<f:if condition="{f:cObject(typoscriptObjectPath: 'lib.currentPageSubtitle')}">
+				<f:then>
+					{f:cObject(typoscriptObjectPath: 'lib.currentPageSubtitle')}
+				</f:then>
+				<f:else>
+					<f:translate key="fe.detailPage.coupon.headline" extensionName="providerece"/>
+				</f:else>
+			</f:if>
+		</h3>
+	</header>
+	<form class="t3-form" action="{f:uri.typolink(parameter: '{settings.couponPages.couponOverview}', additionalParams:'no_cache=1')}" method="post">
+		<f:if condition="{redeemed}">
+			<f:then>
+				<section class="row">
+					<f:render section="couponAlreadyRedeemed" arguments="{_all}"/>
+				</section>
+			</f:then>
+			<f:else>
+				<section class="row">
+					<f:render section="couponHasBeenRedeemed" arguments="{_all}"/>
+				</section>
+			</f:else>
+		</f:if>
+	</form>
+</article>
+
+<f:section name="couponAlreadyRedeemed">
+	<div class="col-xs-12">
+		<div class="cpn-redeem__message cpn-redeem__message--error">
+			<div class="cpn-redeem__message__row">
+				<c:svg path="{settings.fe.svgIconsPath}" name="info" mode="{settings.fe.svgIconsMode}"
+					   class="icn-icon general-response__icon"/>
+				<div class="cpn-redeem__message__text">
+					<h4>
+						<f:translate key="fe.detailPage.coupon.error" extensionName="providerece"/>
+					</h4>
+					<p>
+						<f:translate key="fe.detailPage.coupon.alreadyRedeemed" extensionName="providerece"/>
+					</p>
+				</div>
+			</div>
+			<div class="cpn-redeem__message__row">
+				<div class="cpn-redeem__message__action">
+					<button class="btn btn--small btn--light">
+						<f:translate key="fe.detailPage.coupon.toCouponOverview" extensionName="providerece"/>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</f:section>
+
+<f:section name="couponHasBeenRedeemed">
+	<div class="col-xs-12">
+		<div class="cpn-redeem__message cpn-redeem__message--success">
+			<div class="cpn-redeem__message__row">
+				<c:svg path="{settings.fe.svgIconsPath}" name="check" mode="{settings.fe.svgIconsMode}"
+					   class="icn-icon general-response__icon"/>
+				<div class="cpn-redeem__message__text">
+					<h4>
+						<f:translate key="fe.detailPage.coupon.thankYou" extensionName="providerece"/>
+					</h4>
+					<p>
+						<f:translate key="fe.detailPage.coupon.couponHasBeenRedeemed" extensionName="providerece"/>
+					</p>
+				</div>
+			</div>
+			<div class="cpn-redeem__message__row" data-app-view="hide-v2">
+				<div class="cpn-redeem__message__action">
+					<button class="btn btn--small btn--light">
+						<f:translate key="fe.detailPage.coupon.toCouponOverview" extensionName="providerece"/>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</f:section>

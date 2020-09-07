@@ -1,0 +1,101 @@
+lib.content.base  = CONTENT
+lib.content.base {
+	table = tt_content
+	select {
+		orderBy = sorting
+		where = colPos=0
+	}
+}
+
+lib.content.content < lib.content.base
+
+lib.content.bottom < lib.content.base
+lib.content.bottom.select.where = colPos=2
+
+lib.content.top < lib.content.base
+lib.content.top.select.where = colPos=1
+
+lib.content.shopList {
+	stage < lib.content.base
+	stage {
+		select.where = colPos=11
+		slide = 3
+	}
+
+	filter < lib.content.base
+	filter {
+		select.where = colPos=13
+		slide = 3
+	}
+
+	plugin = USER
+	plugin {
+		userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+		vendorName = DigitalZombies
+		extensionName = Center
+		pluginName = TeaserWall
+		controller = RecordBase
+		action = listShopsFromPageSettings
+
+		switchableControllerActions {
+			RecordBase {
+				1 = listShopsFromPageSettings
+			}
+		}
+		settings < plugin.tx_center.settings
+	}
+
+	content < lib.content.base
+	content.select.where = colPos=12
+}
+
+lib.content.serviceList < lib.content.shopList
+lib.content.serviceList.plugin {
+	action = listServicesFromPageSettings
+	switchableControllerActions {
+		RecordBase {
+			1 = listServicesFromPageSettings
+		}
+	}
+}
+
+lib.content.newsletter{
+	header < lib.content.base
+	header {
+		select.where = colPos=14
+	}
+
+	content < lib.content.base
+	content {
+		select.where = colPos=15
+	}
+}
+
+lib.content.metaYear = TEXT
+lib.content.metaYear {
+	data = date : U
+	strftime = %Y
+	noTrimWrap = |&copy; | ECE Projektmanagement GmbH & Co. KG|
+}
+
+lib.center = TEXT
+lib.center.value = {$plugin.tx_csabacentersite.settings.center}
+
+lib.center = USER
+lib.center {
+	userFunc = DigitalZombies\Csabacentersite\UserFunc\CenterData->getCenterName
+}
+
+lib.limited = USER
+lib.limited {
+	userFunc = DigitalZombies\Csabacentersite\UserFunc\LimitedView->isLimited
+}
+
+lib.centerEmail = USER
+lib.centerEmail {
+	userFunc = DigitalZombies\Csabacentersite\UserFunc\CenterData->getCenterEmail
+}
+#the first menu level does not inherit from the rootPage.
+[globalVar = TSFE:page|pid = {$plugin.tx_csabacentersite.settings.rootPageId}]
+	lib.content.top.slide = 0
+[global]

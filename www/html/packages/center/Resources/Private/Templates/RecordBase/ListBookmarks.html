@@ -1,0 +1,47 @@
+{namespace c = DigitalZombies\Center\ViewHelpers}
+{namespace p = DigitalZombies\Providerece\ViewHelpers}
+<div class="l-container" data-module="wall">
+    <f:render partial="MessageBox/MessageBoxClosable" contentAs="text"
+              arguments="{icon: 'info', type: 'default'}">
+        <f:translate key="fe.bookMarksTeaserWall.check" extensionName="center"/>
+    </f:render>
+    <section class="pge-wall js-wall">
+		<f:if condition="{items}">
+			<f:then>
+				<f:for each="{items}" as="item">
+					<div class="pge-wall__item {f:if(condition: item.columnClassName,then: 'pge-wall__item{item.columnClassName}')} {item.inactiveClass}"
+						 {c:app(visibility: '{item.hideInApp}')}>
+						<f:render partial="Teasers/{item.partialName}" arguments="{item:item, settings: settings}" />
+					</div>
+				</f:for>
+			</f:then>
+			<f:else>
+				<div class="pge-wall__no-results">
+					<p:salutation key="fe.bookMarksTeaserWall.no_results" extensionName="center"/>
+				</div>
+			</f:else>
+		</f:if>
+    </section>
+	<f:if condition="{needLoadMore}">
+		<section class="btc-bar">
+			<h3 class="visuallyhidden">
+				<f:translate key="fe.teaserWall.load_more" extensionName="center"/>
+			</h3>
+			<div class="btc-bar__width-adjust">
+				<f:link.action
+					class="btn btn--solid btn--icon js-wall-button"
+					pageUid="{pageUid}" pageType="{settings.ajaxTeaserWall}"
+					action="ajaxList" pluginName="TeaserWall" extensionName="Center"
+					arguments="{cid: cid, elements: elements}">
+					<span class="btn__inner">
+						<span class="btn__icon">
+							<c:svg path="{settings.fe.svgIconsPath}" name="plus" mode="{settings.fe.svgIconsMode}" aria-hidden="true"/>
+						</span><span class="btn__icon btn__icon--spinner">
+							<svg viewbox="0 0 70 70" aria-hidden="true"><circle r="30" cx="35" cy="35" /></svg>
+						</span><span class="btn__label"><f:translate key="fe.teaserWall.load_more" extensionName="center"/></span>
+					</span>
+				</f:link.action>
+			</div>
+		</section>
+	</f:if>
+</div>

@@ -1,0 +1,96 @@
+{
+    "sys_file_reference": {
+        "sql": {
+            "tx_mask_image": {
+                "sys_file_reference": {
+                    "tx_mask_image": "int(11) unsigned DEFAULT '0' NOT NULL"
+                }
+            }
+        }
+    },
+    "tt_content": {
+        "elements": {
+            "stageslider": {
+                "color": "#ee58e9",
+                "columns": [
+                    "tx_mask_slides"
+                ],
+                "description": "A men\u00fc alatt megjelen\u00f6, hangs\u00falyos slider elem",
+                "icon": "fa-slideshare",
+                "key": "stageslider",
+                "label": "StageSlider",
+                "labels": [
+                    "Slides"
+                ],
+                "shortLabel": "Stage slider"
+            }
+        },
+        "sql": {
+            "tx_mask_slides": {
+                "tt_content": {
+                    "tx_mask_slides": "int(11) unsigned DEFAULT '0' NOT NULL"
+                }
+            }
+        },
+        "tca": {
+            "tx_mask_slides": {
+                "config": {
+                    "appearance": {
+                        "enabledControls": {
+                            "dragdrop": "1"
+                        },
+                        "levelLinksPosition": "top",
+                        "newRecordLinkTitle": ""
+                    },
+                    "foreign_field": "parentid",
+                    "foreign_sortby": "sorting",
+                    "foreign_table": "--inlinetable--",
+                    "foreign_table_field": "parenttable",
+                    "maxitems": "",
+                    "minitems": "1",
+                    "type": "inline"
+                },
+                "exclude": "1",
+                "inlineIcon": "",
+                "inlineLabel": "",
+                "key": "slides",
+                "l10n_mode": ""
+            }
+        }
+    },
+    "tx_mask_slides": {
+        "sql": {
+            "tx_mask_image": {
+                "tx_mask_slides": {
+                    "tx_mask_image": "int(11) unsigned DEFAULT '0' NOT NULL"
+                }
+            }
+        },
+        "tca": {
+            "tx_mask_image": {
+                "config": {
+                    "appearance": {
+                        "fileUploadAllowed": "1",
+                        "useSortable": "1"
+                    },
+                    "filter": [
+                        {
+                            "parameters": {
+                                "allowedFileExtensions": ""
+                            }
+                        }
+                    ],
+                    "maxitems": "1",
+                    "minitems": "1"
+                },
+                "exclude": "1",
+                "inlineParent": "tx_mask_slides",
+                "key": "image",
+                "l10n_mode": "exclude",
+                "label": "Image",
+                "options": "file",
+                "order": 1
+            }
+        }
+    }
+}
