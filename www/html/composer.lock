@@ -4,15 +4,15 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "833b6ba1926741bf6db3ae70b1f3a1fb",
+    "content-hash": "562a0ec79c5b54752647d05978b1cab5",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
-            "version": "dev-feature/site-compat",
-            "source": {
-                "type": "git",
-                "url": "git@bitbucket.org:agenturwebfox/solr.git",
-                "reference": "47865ac887ef75da8f2c367d2cc88a9d384eaf13"
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "packages/solr",
+                "reference": "50f19e7e15ab8f6af0f3a33115b479582ddc655f"
             },
             "require": {
                 "php": ">=7.2.0",
@@ -95,7 +95,10 @@
                 "wiki": "https://forge.typo3.org/projects/extension-solr/wiki",
                 "source": "https://github.com/TYPO3-Solr/ext-solr"
             },
-            "time": "2019-04-25T14:54:41+00:00"
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
         },
         {
             "name": "cogpowered/finediff",
