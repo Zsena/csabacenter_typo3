@@ -50,8 +50,6 @@ definitions:
           - sed -i "s/%env(SOLR_USERNAME)%/$SOLR_USERNAME/" config/sites/csabacenter/config.yaml
           - sed -i "s/%env(SOLR_PASSWORD)%/$SOLR_PASSWORD/" config/sites/csabacenter/config.yaml
           - sed -i "s/%env(SOLR_TIMEOUT)%/$SOLR_TIMEOUT/" config/sites/csabacenter/config.yaml
-          - sed -i "s/^WEB_USERNAME=.*$/WEB_USERNAME=$WEB_USERNAME/" .env
-          - sed -i "s/^WEB_PASSWORD=.*$/WEB_PASSWORD=$WEB_PASSWORD/" .env
           - popd
           - cd www/html
           - vendor/bin/dep deploy -vvv $DEPLOY_TARGET
