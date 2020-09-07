@@ -24,7 +24,6 @@ definitions:
         script:
           - cd www/html/vendor/digital-zombies/csabacenterfe
           - npm install
-          - npm run build:local
           - npm run build:typo3
         artifacts:
           - www/html/public/typo3conf/ext/csabacentersite/Resources/Public/Dist/**
