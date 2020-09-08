@@ -13,6 +13,8 @@ set('shared_dirs', [
     'var'
 ]);
 
+set('keep_releases', 2);
+
 set('writable_dirs', [
     '{{webroot}}/fileadmin',
     '{{webroot}}/typo3temp',
