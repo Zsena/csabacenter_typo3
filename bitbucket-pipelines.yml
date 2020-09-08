@@ -28,7 +28,8 @@ definitions:
           - npm run build:typo3
         artifacts:
           - www/html/public/typo3conf/ext/csabacentersite/Resources/Public/Dist/**
-          - www/html/vendor/digital-zombies/csabacenterfe/dist/**
+          - www/html/packages/csabacentersite/Resources/Public/Dist/**
+          - www/html/packages/csabacenterfe/dist/**
     - step: &deploy
         name: Staging Deployment
         deployment: staging
