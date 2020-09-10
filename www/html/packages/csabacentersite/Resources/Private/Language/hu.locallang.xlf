@@ -11,6 +11,10 @@
                 <source>Next</source>
                 <target>Következő</target>
             </trans-unit>
+            <trans-unit id="fe.stayIncontact">
+                <source>Stay in contact with us!</source>
+                <target>Ne maradj le semmiről, legyél velünk kapcsolatba!</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

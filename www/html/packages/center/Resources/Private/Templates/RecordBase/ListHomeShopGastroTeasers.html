@@ -1,57 +1,45 @@
-<section class="tsr-grp tsr-grp--shops tsr-grp-theme--{settings.hometeaser.style}">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<section class="section layout_padding">
+    <div class="container layout_padding">
     <f:if condition="{settings.hometeaser.headline}">
-        <header class="ttl ttl--section">
-            <h2 class="ttl__headline">{settings.hometeaser.headline}</h2>
-        </header>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="full">
+                    <div class="heading_main text_align_center">
+            <h2><span class="theme_color"></span>{settings.hometeaser.headline}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
     </f:if>
     <f:if condition="{settings.hometeaser.abstract}">
-        <div class="tsr-grp__lead"><p>{settings.hometeaser.abstract}</p></div>
+        <p>{settings.hometeaser.abstract}</p>
     </f:if>
-    <f:if condition="{settings.hometeaser.banderole}==1">
-        <f:then>
-            <div class="tsr-grp-banderole owl-theme--banderole" data-module="carousel|lazy-load" data-lazy-load-aggregate="true" data-module-options='{"loop": "true", "margin": 0, "autoplay": "true", "autoplayHoverPause": "true", "slideBy": "page"}'>
-                <f:for each="{teasers}" as="item">
-										<f:render partial="Teasers/Shop" arguments="{class: 'tsr-shop--banderole tsr-grp-banderole__item', item: item, settings: settings}"/>
-                </f:for>
+        <f:for each="{teasers}" as="teaser" iteration="iterator">
+            <f:if condition="{iterator.index} % 4 == 0">
+                <div class="row">
+            </f:if>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <f:render partial="Teasers/{teaser.partialName}" arguments="{item:teaser, settings: settings}"/>
             </div>
-        </f:then>
-        <f:else>
-            <div class="tsr-grp__teasers">
-                <f:for each="{teasers}" as="item">
-                    <div class="tsr-grp__teaser">
-                        <f:render partial="Teasers/{item.partialName}" arguments="{item:item, settings: settings}"/>
-                    </div>
-                </f:for>
-            </div>
-        </f:else>
-    </f:if>
-    <f:if condition="{settings.hometeaser.buttonLink}">
-        <f:then>
-            <section class="btc-bar">
-                <h3 class="visuallyhidden">
-                    <f:if condition="{settings.hometeaser.buttonText}">
-                        <f:then>{settings.hometeaser.buttonText}</f:then>
-                        <f:else>
-                            <f:translate key="fe.hometeaser.button.show_all_shops" extensionName="center"/>
-                        </f:else>
-                    </f:if>
-                </h3>
-                <div class="btc-bar__width-adjust">
-                    <f:link.typolink parameter="{settings.hometeaser.buttonLink}" class="btn btn--light">
-						<span class="btn__label">
-							<f:if condition="{settings.hometeaser.buttonText}">
-								<f:then>
-									{settings.hometeaser.buttonText}
-								</f:then>
-								<f:else>
-									<f:translate key="fe.hometeaser.button.show_all_shops"
-                                                 extensionName="center"/>
-								</f:else>
-							</f:if>
-						</span>
-                    </f:link.typolink>
+            <f:if condition="{iterator.index} % 4 == 3 || {iterator.isLast}">
                 </div>
-            </section>
-        </f:then>
+            </f:if>
+        </f:for>
+    <f:if condition="{settings.hometeaser.buttonLink}">
+        <div class="row margin-top_30">
+            <div class="col-sm-12">
+                <div class="full">
+                    <div class="center">
+                        <f:link.typolink paramter="{settings.hometeaser.buttonLink}" class="main_bt">
+                            {settings.hometeaser.buttonText} <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                        </f:link.typolink>
+                    </div>
+                </div>
+            </div>
+        </div>
     </f:if>
+    </div>
 </section>
+</html>
+

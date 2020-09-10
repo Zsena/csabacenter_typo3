@@ -1,43 +1,8 @@
 {namespace cm=DigitalZombies\Center\ViewHelpers}
-<article class="tsr-shop {class}">
-    <div class="tsr__container">
-			<f:render partial="Atoms/MediaFrame" arguments="{type:'teaser', img:'{item.thumbnail}'}" />
-        <div class="tsr-shop__overlay">
-            <f:if condition="{item.title}">
-                <h3 class="tsr-shop__name"><f:link.page pageUid="{item.uid}">{item.title}</f:link.page></h3>
-            </f:if>
-            <div class="tsr-shop__links">
-                <f:if condition="{item.positions}">
-
-                    <f:variable name="additionalParams" value="{location: item.positions.0.pathId}" />
-
-                    <f:if condition="{item.center.wayfinderActivated} == true">
-                        <f:variable name="additionalParams" value="{location: item.uid}" />
-                    </f:if>
-
-                    <f:link.page pageUid="{settings.detailPages.centerPlan}"
-                                 additionalParams="{additionalParams}"
-                                 class="tsr-shop__link">
-                        <span class="btn btn--icon">
-                            <span class="btn__inner">
-                                <span class="btn__icon">
-                                    <cm:svg path="{settings.fe.svgIconsPath}" name="location" mode="{settings.fe.svgIconsMode}" />
-                                </span><span class="btn__label"><f:translate key="fe.teasers.shop.location" /></span>
-                            </span>
-                        </span>
-                    </f:link.page>
-                </f:if>
-                <f:link.page pageUid="{item.uid}"
-                             class="tsr-shop__link">
-                    <span class="btn btn--icon">
-                        <span class="btn__inner">
-                            <span class="btn__icon">
-                                <cm:svg path="{settings.fe.svgIconsPath}" name="info" mode="{settings.fe.svgIconsMode}" />
-                            </span><span class="btn__label"><f:translate key="fe.teasers.shop.details" /></span>
-                        </span>
-                    </span>
-                </f:link.page>
-            </div>
-        </div>
-    </div>
-</article>
+<f:link.page pageUid="{item.uid}"
+             class="full services_blog">
+    <f:if condition="{item.thumbnail}">
+        <f:image class="img-responsive" src="{item.thumbnail.uid}" />
+    </f:if>
+    <h4>{item.title}</h4>
+</f:link.page>

@@ -1,37 +1,130 @@
 {namespace c = DigitalZombies\Center\ViewHelpers}
 {namespace e = DigitalZombies\Providerece\ViewHelpers}
 
-<article class="dtl-opening-page">
-    <!-- Standard Öffnungszeiten (Center) : -->
-	<section class="section-margin">
-	    <h3 class="heading-4">
-	        <e:salutation key="openings.generalOpenings" communicationLineTitle="{center.communicationLine.title}"/>
-	    </h3>
-	    <table class="dtl-table">
-	        <f:for each="{dailyHours}" as="day">
-	            <f:if condition="!({day.from} == 0 && {day.till} == 0)">
-	              <tr class="dtl-table__first-row dtl-table__last-row">
-	                  <td class="dtl-table__first-col">
-	                      <f:translate key="openings.day{day.dayOfWeek}" extensionName="providerece"/>
-	                  </td>
-	                  <td class="dtl-table__hours">
-	                      <f:if condition="{day.closed} == 1">
-	                          <f:then>
-	                              <f:translate key="ftr.opening.closed" extensionName="center"/>
-	                          </f:then>
-	                          <f:else>
-	                              <c:openingHoursTimeFormat from="{day.from}" till="{day.till}" />
-	                              <f:if condition="{day.fromExt} != 0 && {day.tillExt} ! =0">
-	                                  <c:openingHoursTimeFormat from="{day.fromExt}" till="{day.tillExt}" />
-	                              </f:if>
-	                          </f:else>
-	                      </f:if>
-	                  </td>
-	              </tr>
-	            </f:if>
-	        </f:for>
+	<div class="section margin-top_3 tsr_theme_gray mb-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 layout_padding">
+					<div class="full paddding_left_15">
+						<div class="heading_main text_align_left">
+							<h2><f:translate key="fe.openingHours.center" /></h2>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="layout_padding container">
+		<table class="table table-bordered mb-5">
+			<thead class="table-dark">
+			<tr>
+				<th><f:translate key="fe.openingHours.table.header.shop" /></th>
+				<th><f:translate key="fe.openingHours.table.header.weekdays" /></th>
+				<th><f:translate key="fe.openingHours.table.header.weekends" /></th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td>
+					<f:for each="{dailyHours}" as="day" iteration="iterator">
+						<f:if condition="{iterator.index} < 5">
+							<label><f:translate key="openings.day{day.dayOfWeek}" extensionName="providerece"/></label>
+							<f:if condition="{day.closed} == 1">
+								<f:then>
+									<f:translate key="ftr.opening.closed" extensionName="center"/>
+								</f:then>
+								<f:else>
+									<c:openingHoursTimeFormat from="{day.from}" till="{day.till}" />
+									<f:if condition="{day.fromExt} != 0 && {day.tillExt} ! =0">
+										<c:openingHoursTimeFormat from="{day.fromExt}" till="{day.tillExt}" />
+									</f:if>
+								</f:else>
+							</f:if><br>
+						</f:if>
+					</f:for>
+				</td>
+				<td>
+					<f:for each="{dailyHours}" as="day" iteration="iterator">
+						<f:if condition="{iterator.index} > 5">
+							<label><f:translate key="openings.day{day.dayOfWeek}" extensionName="providerece"/></label>
+							<f:if condition="{day.closed} == 1">
+								<f:then>
+									<f:translate key="ftr.opening.closed" extensionName="center"/>
+								</f:then>
+								<f:else>
+									<c:openingHoursTimeFormat from="{day.from}" till="{day.till}" />
+									<f:if condition="{day.fromExt} != 0 && {day.tillExt} ! =0">
+										<c:openingHoursTimeFormat from="{day.fromExt}" till="{day.tillExt}" />
+									</f:if>
+								</f:else>
+							</f:if><br>
+						</f:if>
+					</f:for>
+				</td>
+			</tr>
+			</tbody>
 	    </table>
-	</section>
+		<div class="row">
+			<div class="col-12 layout_padding">
+				<div class="full paddding_left_15">
+					<div class="heading_main text_align_center">
+						<h2><f:translate key="fe.openingHours.shops" /></h2>
+					</div>
+				</div>
+			</div>
+		</div>
+		<table class="table table-bordered mb-5">
+			<thead class="table-dark">
+			<tr>
+				<th><f:translate key="fe.openingHours.table.header.shop" /></th>
+				<th><f:translate key="fe.openingHours.table.header.weekdays" /></th>
+				<th><f:translate key="fe.openingHours.table.header.weekends" /></th>
+			</tr>
+			</thead>
+			<tbody>
+			<f:for each="{shopOpenings}" as="shop" iteration="iteratorShop">
+			<tr>
+				<td>
+					<f:for each="{shop.days}" as="day" iteration="iterator">
+						<f:if condition="{iterator.index} < 5">
+							<label><f:translate key="openings.day{day.dayOfWeek}" extensionName="providerece"/></label>
+							<f:if condition="{day.closed} == 1">
+								<f:then>
+									<f:translate key="ftr.opening.closed" extensionName="center"/>
+								</f:then>
+								<f:else>
+									<c:openingHoursTimeFormat from="{day.from}" till="{day.till}" />
+									<f:if condition="{day.fromExt} != 0 && {day.tillExt} ! =0">
+										<c:openingHoursTimeFormat from="{day.fromExt}" till="{day.tillExt}" />
+									</f:if>
+								</f:else>
+							</f:if><br>
+						</f:if>
+					</f:for>
+				</td>
+				<td>
+					<f:for each="{shop.days}" as="day" iteration="iterator">
+						<f:if condition="{iterator.index} > 5">
+							<label><f:translate key="openings.day{day.dayOfWeek}" extensionName="providerece"/></label>
+							<f:if condition="{day.closed} == 1">
+								<f:then>
+									<f:translate key="ftr.opening.closed" extensionName="center"/>
+								</f:then>
+								<f:else>
+									<c:openingHoursTimeFormat from="{day.from}" till="{day.till}" />
+									<f:if condition="{day.fromExt} != 0 && {day.tillExt} ! =0">
+										<c:openingHoursTimeFormat from="{day.fromExt}" till="{day.tillExt}" />
+									</f:if>
+								</f:else>
+							</f:if><br>
+						</f:if>
+					</f:for>
+				</td>
+			</tr>
+			</f:for>
+			</tbody>
+		</table>
+	</div>
 
     <!-- Besondere Öffnungszeiten (Center) : -->
     <f:if condition="{specialClosingDays}">
@@ -222,5 +315,30 @@
 			</table>
 		</div>
   </f:if>
-	<!-- Besondere Öffnungszeiten Shops : ENDE -->
-</article>
+
+
+<table class="table table-bordered mb-5">
+	<thead class="table-dark">
+	<tr>
+		<th>Üzlet neve</th>
+		<th>Hétfő - Péntek</th>
+		<th>Hétvége</th>
+	</tr>
+	</thead>
+	<tbody class="table-hover">
+	<tr>
+		<td>Üzlet1</td>
+		<td>
+			<label>Hétfő</label> 07:00 - 21:00<br>
+			<label>Kedd</label> 07:00 - 21:00<br>
+			<label>Szerda</label> 07:00 - 21:00<br>
+			<label>Csütörtök</label> 07:00 - 21:00<br>
+			<label>Péntek</label> 07:00 - 21:00<br>
+		</td>
+		<td>
+			<label>Szombat</label> 08:00 - 20:00<br>
+			<label>Vasárnap</label> 08:00 - 20:00<br>
+		</td>
+	</tr>
+	</tbody>
+</table>

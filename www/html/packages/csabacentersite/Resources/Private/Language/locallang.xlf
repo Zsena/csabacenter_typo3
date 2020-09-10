@@ -9,6 +9,9 @@
             <trans-unit id="fe.stageSlider.next">
                 <source>Next</source>
             </trans-unit>
+            <trans-unit id="fe.stayIncontact">
+                <source>Stay in contact with us!</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

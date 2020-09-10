@@ -50,25 +50,8 @@ class ShopOpeningsHelper
             // Make Array with DailyHours of Shops
             /** @var  \DigitalZombies\Center\Domain\Model\Shop\Shop $shop */
             $shopOpenings[$i]['shopName'] = $shop->getTitle();
-            $shopOpenings[$i]['days'] = [];
+            $shopOpenings[$i]['days'] = $shop->getWeeklySchedule();
             $prevDay = null;
-            foreach ($shop->getWeeklySchedule() as $weeklySchedule) {
-                $weekday = "openingsShort.day" . $weeklySchedule->getDayOfWeek();
-                /** @var  \DigitalZombies\Center\Domain\Model\OpeningHours\DailyHours $currentDay */
-                $currentDay = $weeklySchedule;
-                /** @var  \DigitalZombies\Center\Domain\Model\OpeningHours\DailyHours $weeklySchedule */
-                $isEqual = ShopOpeningsHelper::compare($prevDay, $weeklySchedule);
-                if ($isEqual) {
-                    $shopOpenings[$i]['days'][$iterator]['name']['till'] = LocalizationUtility::translate($weekday, 'providerece');
-                } else {
-                    $iterator = $weeklySchedule->getDayOfWeek();
-                    $shopOpenings[$i]['days'][$iterator]['name']['from'] = LocalizationUtility::translate($weekday, 'providerece');
-                    /** @var  \DigitalZombies\Center\Domain\Model\OpeningHours\DailyHours $currentDay */
-                    $shopOpenings[$i]['days'][$iterator]['dailyHours'] = $currentDay;
-                }
-                $prevDay = $currentDay;
-
-            }
             $i++;
         }
 

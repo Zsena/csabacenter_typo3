@@ -1,7 +1,7 @@
 base: 'http://www.csabacenter.hu.test/'
 baseVariants:
   -
-    base: 'https://www.csabacenter.hu/'
+    base: 'http://www.csabacenter.hu.test/'
     condition: 'applicationContext == "Development"'
   -
     base: 'http://csabacenter.digital-zombies.com/'

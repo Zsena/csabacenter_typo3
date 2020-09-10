@@ -394,9 +394,9 @@ call_user_func(
         $iconRegistry
             ->registerIcon(
                 'apps-pagetree-shop',
-                TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+                TYPO3\CMS\Core\Imaging\IconProvider\BitmapIconProvider::class,
                 [
-                    'source' => 'EXT:' . $extKey . '/Resources/Public/Icons/shop.svg',
+                    'source' => 'EXT:' . $extKey . '/Resources/Public/Icons/shop.png',
                 ]
             );
 
@@ -404,9 +404,9 @@ call_user_func(
         $iconRegistry
             ->registerIcon(
                 'apps-pagetree-gastro',
-                TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+                TYPO3\CMS\Core\Imaging\IconProvider\BitmapIconProvider::class,
                 [
-                    'source' => 'EXT:' . $extKey . '/Resources/Public/Icons/gastro.svg',
+                    'source' => 'EXT:' . $extKey . '/Resources/Public/Icons/ice-cream-shop.png',
                 ]
             );
 

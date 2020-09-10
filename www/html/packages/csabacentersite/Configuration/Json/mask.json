@@ -10,6 +10,24 @@
     },
     "tt_content": {
         "elements": {
+            "googlemap": {
+                "color": "#fa3333",
+                "columns": [
+                    "header",
+                    "subheader",
+                    "layout"
+                ],
+                "description": "GoogleMap Element",
+                "icon": "fa-map-marker",
+                "key": "googlemap",
+                "label": "GoogleMap Element",
+                "labels": [
+                    "C\u00edm",
+                    "URL",
+                    "Layout"
+                ],
+                "shortLabel": "GoolgeMap"
+            },
             "stageslider": {
                 "color": "#ee58e9",
                 "columns": [
