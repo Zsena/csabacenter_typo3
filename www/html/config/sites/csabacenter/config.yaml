@@ -12,7 +12,7 @@ languages:
     title: Magyar
     enabled: true
     base: /
-    typo3Language: default
+    typo3Language: hu
     locale: hu_HU.UTF-8
     iso-639-1: hu
     navigationTitle: Magyar

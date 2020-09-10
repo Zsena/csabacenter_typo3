@@ -13,14 +13,22 @@ use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
  */
 class OpeningHoursTimeFormatViewHelper extends AbstractViewHelper
 {
-
+    /**
+     * Initialize arguments.
+     */
+    public function initializeArguments()
+    {
+        parent::initializeArguments();
+        $this->registerArgument('till', 'string', 'Till time');
+        $this->registerArgument('from', 'string', 'From time');
+    }
 	/**
-	 * @param integer $from
-     * @param integer $till
 	 * @return null
 	 */
-	public function render($from, $till)
+	public function render()
 	{
+	    $from = $this->arguments['from'];
+	    $till = $this->arguments['till'];
 		return OpeningHoursHelper::formatTime($from, $till);
 	}
 }

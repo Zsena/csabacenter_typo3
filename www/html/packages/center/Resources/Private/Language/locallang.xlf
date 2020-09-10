@@ -9,6 +9,15 @@
             <trans-unit id="fe.openingHours.center">
                 <source><![CDATA[<span class="theme_color">Opening </span> in the Csaba Center]]></source>
             </trans-unit>
+            <trans-unit id="fe.openingHours.table.header.shop">
+                <source>Shop</source>
+            </trans-unit>
+            <trans-unit id="fe.openingHours.table.header.weekdays">
+                <source>Weekdays</source>
+            </trans-unit>
+            <trans-unit id="fe.openingHours.table.header.weekends">
+                <source>Weekends</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

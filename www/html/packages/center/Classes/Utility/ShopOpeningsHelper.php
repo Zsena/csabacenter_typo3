@@ -5,7 +5,7 @@ namespace DigitalZombies\Center\Utility;
 use DigitalZombies\Center\Domain\Model\OpeningHours\DailyHours;
 use DigitalZombies\Center\Domain\Model\OpeningHours\Holiday;use DigitalZombies\Center\Domain\Model\OpeningHours\SpecialClosingDay;use DigitalZombies\Center\Domain\Model\OpeningHours\YearlySchedule;
 use DigitalZombies\Center\Configuration\ScopeConfiguration;
-use \TYPO3\CMS\Extbase\Utility\LocalizationUtility;
+use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
 /***************************************************************
  *  Copyright notice
@@ -50,8 +50,25 @@ class ShopOpeningsHelper
             // Make Array with DailyHours of Shops
             /** @var  \DigitalZombies\Center\Domain\Model\Shop\Shop $shop */
             $shopOpenings[$i]['shopName'] = $shop->getTitle();
-            $shopOpenings[$i]['days'] = $shop->getWeeklySchedule();
+            $shopOpenings[$i]['days'] = [];
             $prevDay = null;
+            foreach ($shop->getWeeklySchedule() as $weeklySchedule) {
+                $weekday = "openingsShort.day" . $weeklySchedule->getDayOfWeek();
+                /** @var  \DigitalZombies\Center\Domain\Model\OpeningHours\DailyHours $currentDay */
+                $currentDay = $weeklySchedule;
+                /** @var  \DigitalZombies\Center\Domain\Model\OpeningHours\DailyHours $weeklySchedule */
+                $isEqual = ShopOpeningsHelper::compare($prevDay, $weeklySchedule);
+                if ($isEqual) {
+                    $shopOpenings[$i]['days'][$iterator]['name']['till'] = LocalizationUtility::translate($weekday, 'center');
+                } else {
+                    $iterator = $weeklySchedule->getDayOfWeek();
+                    $shopOpenings[$i]['days'][$iterator]['name']['from'] = LocalizationUtility::translate($weekday, 'center');
+                    /** @var  \DigitalZombies\Center\Domain\Model\OpeningHours\DailyHours $currentDay */
+                    $shopOpenings[$i]['days'][$iterator]['dailyHours'] = $currentDay;
+                }
+                $prevDay = $currentDay;
+
+            }
             $i++;
         }
 

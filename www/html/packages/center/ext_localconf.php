@@ -500,12 +500,7 @@ $rootlinefields .= 'l18n_cfg';
 
 
 if (TYPO3_MODE === 'BE') {
-	$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['extbase']['commandControllers'][] = 'DigitalZombies\Center\Command\ClearDatabaseCommandController';
-	$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['extbase']['commandControllers'][] = 'DigitalZombies\Center\Command\DeleteGalleryCommandController';
-	$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['extbase']['commandControllers'][] = 'DigitalZombies\Center\Command\SendEmailOpeningsCommandController';
 	$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['extbase']['commandControllers'][] = 'DigitalZombies\Center\Command\RecordBaseCommandController';
-	$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['extbase']['commandControllers'][] = 'DigitalZombies\Center\Command\ClearBookmarksCommandController';
-	$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['extbase']['commandControllers'][] = 'DigitalZombies\Center\Command\PushNotificationCommandController';
 }
 $TYPO3_CONF_VARS['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc'][] = \DigitalZombies\Center\Hooks\DataHandler::class . '->clearCachePostProc';
 $TYPO3_CONF_VARS['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processCmdmap_postProcess'][] = \DigitalZombies\Center\Hooks\DataHandler::class;

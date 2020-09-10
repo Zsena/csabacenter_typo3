@@ -11,6 +11,18 @@
                 <source><![CDATA[<span class="theme_color">Opening </span> in the Csaba Center]]></source>
                 <target><![CDATA[<span class="theme_color">Nyitvatartás </span> a Csaba Centernél]]></target>
             </trans-unit>
+            <trans-unit id="fe.openingHours.special">
+                <source><![CDATA[<span class="theme_color">Special </span>openings]]></source>
+                <target><![CDATA[<span class="theme_color">Különleges </span>nyitvatartás]]></target>
+            </trans-unit>
+            <trans-unit id="fe.openingHours.holidays">
+                <source><![CDATA[<span class="theme_color">Holidays</span>]]></source>
+                <target><![CDATA[<span class="theme_color">Ünnepnapok</span>]]></target>
+            </trans-unit>
+            <trans-unit id="fe.openingHours.closed">
+                <source>closed</source>
+                <target>zárva</target>
+            </trans-unit>
             <trans-unit id="fe.openingHours.table.header.shop">
                 <source>Shop</source>
                 <target>Üzlet</target>
@@ -22,6 +34,62 @@
             <trans-unit id="fe.openingHours.table.header.weekends">
                 <source>Weekends</source>
                 <target>Hétvégente</target>
+            </trans-unit>
+            <trans-unit id="openings.day1">
+				<source>Monday</source>
+			    <target>Hétfő</target>
+            </trans-unit>
+			<trans-unit id="openings.day2">
+				<source>Tuesday</source>
+			    <target>Kedd</target>
+            </trans-unit>
+			<trans-unit id="openings.day3">
+				<source>Wednesday</source>
+			    <target>Szerda</target>
+            </trans-unit>
+			<trans-unit id="openings.day4">
+				<source>Thursday</source>
+			    <target>Csütörtök</target>
+            </trans-unit>
+			<trans-unit id="openings.day5">
+				<source>Friday</source>
+			    <target>Péntek</target>
+            </trans-unit>
+			<trans-unit id="openings.day6">
+				<source>Saturday</source>
+			    <target>Szombat</target>
+            </trans-unit>
+			<trans-unit id="openings.day7">
+				<source>Sunday</source>
+			    <target>Vasárnap</target>
+            </trans-unit>
+            <trans-unit id="openingsShort.day1">
+                <source>Mon</source>
+                <target>Hé.</target>
+            </trans-unit>
+            <trans-unit id="openingsShort.day2">
+                <source>Tue</source>
+                <target>Ke.</target>
+            </trans-unit>
+            <trans-unit id="openingsShort.day3">
+                <source>Wed</source>
+                <target>Sze.</target>
+            </trans-unit>
+            <trans-unit id="openingsShort.day4">
+                <source>Thu</source>
+                <target>Csü.</target>
+            </trans-unit>
+            <trans-unit id="openingsShort.day5">
+                <source>Fri</source>
+                <target>Pé.</target>
+            </trans-unit>
+            <trans-unit id="openingsShort.day6">
+                <source>Sat</source>
+                <target>Szo.</target>
+            </trans-unit>
+            <trans-unit id="openingsShort.day7">
+                <source>Sun</source>
+                <target>Va.</target>
             </trans-unit>
         </body>
     </file>

@@ -2,7 +2,7 @@
 <f:link.page pageUid="{item.uid}"
              class="full services_blog">
     <f:if condition="{item.thumbnail}">
-        <f:image class="img-responsive" src="{item.thumbnail.uid}" />
+        <f:image class="img-responsive" src="{item.thumbnail.uid}" treatIdAsReference="1" width="255" height="255c"/>
     </f:if>
     <h4>{item.title}</h4>
 </f:link.page>

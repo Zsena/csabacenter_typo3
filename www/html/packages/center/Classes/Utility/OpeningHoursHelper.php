@@ -336,7 +336,7 @@ class OpeningHoursHelper
 
 			switch ($GLOBALS['TSFE']->sys_language_uid) {
 				case 0:
-					$formattedText = $fromTime->format('H:i') . " - " . $tillTime->format('H:i') . " Uhr";
+					$formattedText = $fromTime->format('H:i') . " - " . $tillTime->format('H:i');
 					break;
 				case 2:
 					$formattedText = $fromTime->format('h:i a') . " - " . $tillTime->format('h:i a');

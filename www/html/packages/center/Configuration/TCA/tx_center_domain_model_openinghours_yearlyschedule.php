@@ -126,19 +126,7 @@ return [
                 'renderType' => 'selectCheckBox',
                 'foreign_table' => 'tx_center_domain_model_openinghours_holiday',
                 'foreign_table_where' => 'AND FROM_UNIXTIME(tx_center_domain_model_openinghours_holiday.closing_day, \'%Y\') = ###REC_FIELD_year### 
-				AND (
-						(###SITEROOT### = 985 AND ###REC_FIELD_parent_table### = \'tx_center_domain_model_center_center\' AND country = 
-							(SELECT country FROM tx_center_domain_model_center_center WHERE 
-							deleted = 0 AND hidden = 0 AND 
-							tx_center_domain_model_center_center.uid = ###REC_FIELD_parent###)
-						)
-						OR
-						(###SITEROOT### != 985 AND country = 
-							(SELECT DISTINCT country FROM tx_center_domain_model_center_center WHERE
-							deleted = 0 AND hidden = 0 AND 
-							tx_center_domain_model_center_center.page_id = ###SITEROOT###)
-						)
-				) AND tx_center_domain_model_openinghours_holiday.sys_language_uid IN (-1,0)',
+				 AND tx_center_domain_model_openinghours_holiday.sys_language_uid IN (-1,0)',
                 'MM' => 'tx_center_domain_model_openinghurs_shedule_holiday_mm',
                 'maxitems' => 30
             ]

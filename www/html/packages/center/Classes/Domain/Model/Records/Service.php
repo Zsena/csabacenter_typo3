@@ -38,13 +38,13 @@ class Service extends RecordBase implements PositionableInterface
 
 	/**
 	 *
-	 * @var boolean
+	 * @var bool
 	 */
 	protected $service247 = "";
 
 	/**
 	 *
-	 * @var boolean
+	 * @var bool
 	 */
 	protected $ownOpenings = "";
 
@@ -115,7 +115,7 @@ class Service extends RecordBase implements PositionableInterface
 
     /**
      *
-     * @var boolean
+     * @var bool
      */
     protected $elevator = "";
 
@@ -144,33 +144,33 @@ class Service extends RecordBase implements PositionableInterface
 	}
 
 	/**
-	 * @return boolean
+	 * @return bool
 	 */
-	public function getService247(): boolean
+	public function getService247(): bool
 	{
 		return $this->service247;
 	}
 
 	/**
-	 * @param boolean $service247
+	 * @param bool $service247
 	 */
-	public function setService247(boolean $service247)
+	public function setService247(bool $service247)
 	{
 		$this->service247 = $service247;
 	}
 
 	/**
-	 * @return boolean
+	 * @return bool
 	 */
-	public function getOwnOpenings(): boolean
+	public function getOwnOpenings(): bool
 	{
 		return $this->ownOpenings;
 	}
 
 	/**
-	 * @param boolean $ownOpenings
+	 * @param bool $ownOpenings
 	 */
-	public function setOwnOpenings(boolean $ownOpenings)
+	public function setOwnOpenings(bool $ownOpenings)
 	{
 		$this->ownOpenings = $ownOpenings;
 	}

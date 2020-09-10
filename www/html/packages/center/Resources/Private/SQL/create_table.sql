@@ -193,10 +193,10 @@ pages.teaser_image2, pages.teaser_image3, pages.teaser_format,plo.teaser_abstrac
 plo.cruser_id, plo.deleted, plo.hidden, pages.starttime,
 pages.endtime, pages.doktype as type, pages.doktype as teaser_category, pages.tags,
 CASE WHEN pages.doktype = '135' THEN pages.blog_tags WHEN pages.doktype = '134' THEN pages.gastro_tags WHEN pages.doktype = '133' THEN pages.shop_tags ELSE '' END as special_tags,
-plo.t3ver_state, plo.t3ver_wsid, plo.pid AS l10n_parent, plo.l18n_diffsource as l10n_diffsource, plo.sys_language_uid AS sys_language_uid, CONCAT(pages.doktype, '--', pages.uid) as type_uid,
+plo.t3ver_state, plo.t3ver_wsid, plo.pid AS l10n_parent, plo.l10n_diffsource as l10n_diffsource, plo.sys_language_uid AS sys_language_uid, CONCAT(pages.doktype, '--', pages.uid) as type_uid,
 pages.starttime as teaser_date, '' as teaser_time,
 pages.chain_store, pages.chain_store_tags,0 as global_service, 0 as content_showglobalservicedata, pages.logo, pages.positions, '' as link, 0 as is_fallback_teaser, '0' as time_diff, 100 as type_sorting, 0 as interests, '0' as page_icon, '0' as hide_in_app
-FROM pages_language_overlay plo
+FROM pages plo
 INNER JOIN pages ON pages.uid = plo.pid
 WHERE pages.doktype IN(133,134,135) AND pages.no_list = 0
 AND pages.deleted = 0 AND pages.hidden = 0 AND plo.deleted = 0 AND plo.hidden = 0;
@@ -210,7 +210,7 @@ SELECT uid, pid, title,  0 as centers, 0 as shop, 0 as reference_type, center, '
 doktype as type, doktype as teaser_category, tags, 0 as special_tags,
 t3ver_state, t3ver_wsid,  0 AS l10n_parent, null as l10n_diffsource, 0 AS sys_language_uid, CONCAT(pages.doktype, '--', uid) as type_uid,
 starttime as teaser_date, '' as teaser_time,
-0 as chain_store, 0 as chain_store_tags, 0 as global_service, 0 as content_showglobalservicedata, 0 as logo,  0 as positions, uid as link, 0 as is_fallback_teaser, '0' as time_diff, 100 as type_sorting, 0 as interests, page_icon, '0' as hide_in_app
+0 as chain_store, 0 as chain_store_tags, 0 as global_service, 0 as content_showglobalservicedata, 0 as logo,  0 as positions, uid as link, 0 as is_fallback_teaser, '0' as time_diff, 100 as type_sorting, 0 as interests, pages.page_icon as page_icon, '0' as hide_in_app
 FROM pages
 WHERE doktype IN(1,3,4) AND deleted = 0 AND hidden = 0
 AND title != '' AND teaser_abstract != '' AND teaser_image != 0;
@@ -222,10 +222,10 @@ chain_store, chain_store_tags, global_service, content_showglobalservicedata, lo
 
 SELECT plo.uid, pages.pid, plo.title, 0 as centers, 0 as shop, 0 as reference_type, pages.center, 'pages' as table_name, '' as label, plo.teaser_image as teaser_image, pages.teaser_video as teaser_video, plo.teaser_image2 as teaser_image2, plo.teaser_image3 as teaser_image3, pages.teaser_format, plo.teaser_abstract, '0' as service_icon, plo.tstamp, pages.crdate, plo.cruser_id, plo.deleted, plo.hidden, pages.starttime, pages.endtime,
 pages.doktype as type, pages.doktype as teaser_category, pages.tags, 0 as special_tags,
-plo.t3ver_state, plo.t3ver_wsid, plo.pid AS l10n_parent, plo.l18n_diffsource as l10n_diffsource, plo.sys_language_uid AS sys_language_uid, CONCAT(pages.doktype, '--', pages.uid) as type_uid,
+plo.t3ver_state, plo.t3ver_wsid, plo.pid AS l10n_parent, plo.l10n_diffsource as l10n_diffsource, plo.sys_language_uid AS sys_language_uid, CONCAT(pages.doktype, '--', pages.uid) as type_uid,
 pages.starttime as teaser_date, '' as teaser_time,
-0 as chain_store, 0 as chain_store_tags, 0 as global_service, 0 as content_showglobalservicedata, 0 AS logo,  0 as positions, pages.uid as link, 0 as is_fallback_teaser, '0' as time_diff, 100 as type_sorting, 0 as interests, page_icon, '0' as hide_in_app
-FROM pages_language_overlay plo
+0 as chain_store, 0 as chain_store_tags, 0 as global_service, 0 as content_showglobalservicedata, 0 AS logo,  0 as positions, pages.uid as link, 0 as is_fallback_teaser, '0' as time_diff, 100 as type_sorting, 0 as interests, pages.page_icon as page_icon, '0' as hide_in_app
+FROM pages plo
 INNER JOIN pages ON pages.uid = plo.pid
 WHERE pages.doktype IN(1,3,4)
 AND pages.deleted = 0 AND pages.hidden = 0 AND plo.deleted = 0 AND plo.hidden = 0
