@@ -2,6 +2,8 @@
 
 namespace DigitalZombies\Center\Utility;
 
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+
 /***************************************************************
  *  Copyright notice
  *
@@ -43,6 +45,7 @@ class TeaserBuilder
 		$wallItems = [];
 		$currentRow = 0;
 		$currentIndex = 0;
+
 		/** @var \DigitalZombies\Center\Domain\Model\RecordBase $teaserElement */
 		foreach ($teaserElements as $teaserElement) {
 

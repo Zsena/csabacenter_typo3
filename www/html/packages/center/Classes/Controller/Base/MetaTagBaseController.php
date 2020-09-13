@@ -2,6 +2,7 @@
 
 namespace DigitalZombies\Center\Controller;
 
+use DigitalZombies\Center\Controller\Base\RecordBaseBaseController;
 use DigitalZombies\Center\Domain\Model\Misc\MetaTagEntity;
 use DigitalZombies\Center\Domain\Model\RecordBase;
 use DigitalZombies\Center\Service\Page\MetaTagConfiguration;

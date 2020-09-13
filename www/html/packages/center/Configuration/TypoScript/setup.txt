@@ -69,8 +69,8 @@ plugin.tx_center {
 			maxImagesByDefault = 4
 		}
 		shopList {
-			cols = 5
-			rows = 4
+			cols = 4
+			rows = 50
 			orderBy = 1
 		}
 		serviceList {

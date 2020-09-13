@@ -1,6 +1,7 @@
 <?php
 namespace DigitalZombies\Center\Controller;
 
+use DigitalZombies\Center\Controller\Base\RecordBaseBaseController;
 use DigitalZombies\Center\Domain\Model\Misc\Sender;
 use DigitalZombies\Center\Domain\Model\Records\Offer;
 use DigitalZombies\Center\Domain\Model\Shop\Gastro;
@@ -37,10 +38,6 @@ use TYPO3\CMS\Frontend\Page\PageRepository;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-/**
- * Class NewsController
- * @package DigitalZombies\Center\Controller
- */
 class ShopController  extends RecordBaseBaseController
 {
 	/**

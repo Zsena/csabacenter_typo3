@@ -1,6 +1,6 @@
 <?php
 
-namespace DigitalZombies\Center\Controller;
+namespace DigitalZombies\Center\Controller\Base;
 
 use DigitalZombies\Center\Domain\Model\Center\CenterLevelPosition;
 use DigitalZombies\Center\Domain\Model\Misc\Sender;
@@ -36,10 +36,6 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-/**
- * Class RecordBaseBaseController
- * @package DigitalZombies\Center\Controller
- */
 class RecordBaseBaseController extends ActionController
 {
 

@@ -1,19 +1,16 @@
-{namespace c=DigitalZombies\Center\ViewHelpers}
-<section class="section layout_padding">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<section class="section">
 	<div class="container layout_padding">
 		<h2 class="visuallyhidden">{pageTitle}</h2>
 		<div class="tsr-grp__teasers js-wall">
-			<f:for each="{items}" as="item" iteration="iterator">
-				<f:if condition="{iterator.index} % 4 == 0">
-					<div class="row">
-				</f:if>
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<f:render partial="Teasers/{item.partialName}" arguments="{item:item, settings: settings}"/>
-				</div>
-				<f:if condition="{iterator.index} % 4 == 3 || {iterator.isLast}">
+			<div class="row">
+				<f:for each="{items}" as="item" iteration="iterator">
+					<div class="col-md-3 col-sm-6 col-xs-12">
+						<f:render partial="Teasers/{item.partialName}" arguments="{item:item, settings: settings}"/>
 					</div>
-				</f:if>
-			</f:for>
+				</f:for>
+			</div>
 		</div>
 	</div>
 </section>
+</html>

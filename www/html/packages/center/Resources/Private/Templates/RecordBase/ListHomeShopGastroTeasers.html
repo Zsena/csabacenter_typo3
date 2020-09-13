@@ -16,15 +16,9 @@
         <p>{settings.hometeaser.abstract}</p>
     </f:if>
         <f:for each="{teasers}" as="teaser" iteration="iterator">
-            <f:if condition="{iterator.index} % 4 == 0">
-                <div class="row">
-            </f:if>
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <f:render partial="Teasers/{teaser.partialName}" arguments="{item:teaser, settings: settings}"/>
             </div>
-            <f:if condition="{iterator.index} % 4 == 3 || {iterator.isLast}">
-                </div>
-            </f:if>
         </f:for>
     <f:if condition="{settings.hometeaser.buttonLink}">
         <div class="row margin-top_30">

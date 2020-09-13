@@ -91,6 +91,18 @@
                 <source>Sun</source>
                 <target>Va.</target>
             </trans-unit>
+            <trans-unit id="fe.shopfilter.chooseCategory">
+                <source>Select a category</source>
+                <target>Válassz kategóriát</target>
+            </trans-unit>
+            <trans-unit id="fe.shopfilter.submit">
+                <source>Search shop</source>
+                <target>Üzlet keresése</target>
+            </trans-unit>
+            <trans-unit id="fe.shopfilter.search.placeholder">
+                <source>Shopname</source>
+                <target>Üzlet neve</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

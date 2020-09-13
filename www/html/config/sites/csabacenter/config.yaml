@@ -23,11 +23,11 @@ languages:
     languageId: '0'
 rootPageId: 1
 routes: {  }
-solr_host_read: localhost
+solr_host_read: www.csabacenter.hu.test
 solr_password_read: ''
 solr_path_read: /solr/
 solr_port_read: '8983'
 solr_scheme_read: http
-solr_timeout_read: ''
+solr_timeout_read: '60'
 solr_use_write_connection: false
 solr_username_read: ''

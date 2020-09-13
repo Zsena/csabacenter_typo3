@@ -1,69 +1,34 @@
-{namespace c=DigitalZombies\Center\ViewHelpers}
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="section margin-top_3 tsr_theme_gray mb-5 mt-5 pt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
 
-<div class="ftsh-area">
-    <form class="js-search-form">
-        <div class="ftsh-container">
-            <div class="ftsh-controls">
-                <div class="ftsh-control ftsh-control__search">
-					<input type="hidden" name="pageUid" value="{pageUid}"/>
-                    <input type="hidden" name="L" value="{L}"/>
-                    <input type="hidden" name="language" value="{language}"/>
-                    <input type="hidden" name="filter" value="{filterValue}"/>
-                    <input type="hidden" name="scope" value="{f:cObject(typoscriptObjectPath: 'lib.searchScope')}" />
-					{f:translate(key:'{placeHolderKey}') -> f:variable(name: 'placeholder')}
-					<f:render partial="Atoms/InputSearch" arguments="{placeholder: '{placeholder}'}" />
-                </div>
-
-                <div class="inp-select inp-select--dropdown ftsh-control ftsh-control__dropdown {f:if(condition: categoryPages, then: '', else: 'inp-select--disabled')}">
-                    <label class="visuallyhidden" for="shopFilterCategory"><f:translate key="fe.shopfilter.chooseCategory" extensionName="center" /></label>
-                    <select title="{f:translate(key:'fe.shopfilter.chooseCategory')}" class="inp-select__select" id="shopFilterCategory" {f:if(condition: categoryPages, then: '', else: 'disabled')}>
-                        <option value="" disabled {f:if(condition: categoryPages, then: '', else: 'selected')}><f:translate key="fe.shopfilter.chooseCategory" /></option>
-                        <f:if condition="{categoryPages}">
-                            <f:for each="{categoryPages}" as="category" key="pageUid">
-                                <option value="{f:uri.page(pageUid: category.uid)}" {f:if(condition: '{pageUid} == {currentMainLevelUid}', then: 'selected', else: '')}>{category.title}</option>
-                            </f:for>
-                        </f:if>
-                    </select>
-                    <c:svg path="{settings.fe.svgIconsPath}" name="arrow-down" mode="{settings.fe.svgIconsMode}" class="icn-icon inp-select__icon inp-select__icon--right" />
-
-                </div>
-                <f:if condition="{showSubCategories} && {subCategoryPages}">
-                    <div class="inp-select inp-select--dropdown ftsh-control ftsh-control__dropdown {f:if(condition: subCategoryPages, then: '', else: 'inp-select--disabled')}">
-                        <label class="visuallyhidden" for="shopFilterSubCategory"><f:translate key="fe.shopfilter.chooseSubcategory" extensionName="center" /></label>
-                        <select title="{f:translate(key:'fe.shopfilter.chooseSubcategory')}" class="inp-select__select" id="shopFilterSubCategory" {f:if(condition: subCategoryPages, then: '', else: 'disabled')}>
-                            <option value="" disabled {f:if(condition: '{currentSecondLevelUid}', then: '', else: 'selected')}><f:translate key="fe.shopfilter.chooseSubcategory" /></option>
-                            <f:if condition="{currentSecondLevelUid}">
-                                <option value="{f:uri.page(pageUid: currentMainLevelUid)}"><f:translate key="fe.shopfilter.resetSubCategory" /></option>
-                            </f:if>
-                            <f:if condition="{subCategoryPages}">
-                                <f:for each="{subCategoryPages}" as="subCategory" key="pageUid">
-                                    <option value="{f:uri.page(pageUid: '{subCategory.uid}')}" {f:if(condition: '{pageUid} == {currentSecondLevelUid}', then: 'selected', else: '')}>{subCategory.title}</option>
-                                </f:for>
-                            </f:if>
-                        </select>
-                        <c:svg path="{settings.fe.svgIconsPath}" name="arrow-down" mode="{settings.fe.svgIconsMode}" class="icn-icon inp-select__icon inp-select__icon--right"/>
-
+                <form>
+                    <div class="row">
+                        <div class="field col-md-6">
+                            <input id="searchShopName" class="border" type="text" name="name"
+                                   placeholder="{f:translate(key: 'fe.shopfilter.search.placeholder')}">
+                        </div>
+                        <div class="field col-md-6">
+                            <select name="shopSelect" id="shopSelect" class=" form-control border">
+                                <option value="" disabled {f:if(condition: categoryPages, then:
+                                '', else: 'selected')}>
+                                <f:translate key="fe.shopfilter.chooseCategory"/>
+                                </option>
+                                <f:if condition="{categoryPages}">
+                                    <f:for each="{categoryPages}" as="category" key="pageUid">
+                                        <option value="{f:uri.page(pageUid: category.uid)}" {f:if(condition:
+                                        '{pageUid} == {currentMainLevelUid}', then: 'selected', else:
+                                        '')}>{category.title}</option>
+                                    </f:for>
+                                </f:if>
+                            </select>
+                        </div>
                     </div>
-                </f:if>
+                </form>
             </div>
-			<f:if condition="{secondaryPage.page}">
-				<div class="ftsh-ribbons">
-					<f:if condition="{primaryPage.page}">
-						<f:link.typolink parameter="{primaryPage.page}" class="rbb-ribbon rbb-ribbon--primary ftsh-ribbon">
-                        <span class="rbb-ribbon__content">
-                            {primaryPage.title}
-                        </span>
-							<span class="rbb-ribbon__end"></span>
-						</f:link.typolink>
-					</f:if>
-					<f:link.typolink parameter="{secondaryPage.page}" class="rbb-ribbon rbb-ribbon--secondary ftsh-ribbon">
-                    <span class="rbb-ribbon__content">
-                        {secondaryPage.title}
-                    </span>
-						<span class="rbb-ribbon__end"></span>
-					</f:link.typolink>
-				</div>
-			</f:if>
         </div>
-    </form>
+    </div>
 </div>
+</html>
