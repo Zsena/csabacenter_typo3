@@ -384,6 +384,5 @@ window.jQuery = window.$ = require('jquery');
             debounceSearchFunction(searchWord, 700);
         });
     });
-
 }(jQuery));
 
