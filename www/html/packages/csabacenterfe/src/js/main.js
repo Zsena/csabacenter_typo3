@@ -372,8 +372,8 @@ window.jQuery = window.$ = require('jquery');
 
             // Executes the func after delay time.
             searchEvent  =  setTimeout(function(){
-                $('.services_blog').parent().fadeOut(500);
-                $('.services_blog h4:Contains("' + searchWord + '")').parent().parent().fadeIn(500);
+                $('.post-entry-1').parent().fadeOut(500);
+                $('.post-entry-1 h2:Contains("' + searchWord + '")').parent().parent().parent().fadeIn(500);
             }, delay)
         }
         $('#shopSelect').on('change', function () {
