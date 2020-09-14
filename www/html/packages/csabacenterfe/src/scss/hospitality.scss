@@ -2,6 +2,8 @@
 
   .post-entry-1.card-1 {
     text-align: center;
+    display: flex;
+    flex-direction: column;
     .post-entry-1-contents {
       padding-top: 4rem;
     }
@@ -16,12 +18,14 @@
 
     &.red img {
       border-color: $pink-red;
+      z-index: 1;
     }
   }
 
 
   .post-entry-1 .post-entry-1-contents {
     background-color: $white;
+    flex: 1 0 auto;
     padding: 20px;
     h2 {
       font-size: 22px;

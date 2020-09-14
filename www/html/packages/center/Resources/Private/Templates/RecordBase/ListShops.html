@@ -1,11 +1,11 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-<section class="section">
+<section class="section site_section_hospitality tsr_theme_gray">
 	<div class="container layout_padding">
 		<h2 class="visuallyhidden">{pageTitle}</h2>
 		<div class="tsr-grp__teasers js-wall">
 			<div class="row">
 				<f:for each="{items}" as="item" iteration="iterator">
-					<div class="col-md-3 col-sm-6 col-xs-12">
+					<div class="col-md-3 col-sm-6 col-xs-12 mb-3">
 						<f:render partial="Teasers/{item.partialName}" arguments="{item:item, settings: settings}"/>
 					</div>
 				</f:for>

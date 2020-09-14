@@ -294,6 +294,41 @@ class ShopRepository extends Repository
 	}
 
     /**
+     * Finds a center based on a page ID.
+     *
+     * @param int $centerUid - id of a center
+     * @return array
+     */
+    public function findByCenterAndTags($centerUid, $tags)
+    {
+        /** @var \TYPO3\CMS\Core\Database\Query\QueryBuilder $queryBuilder */
+        $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)
+            ->getQueryBuilderForTable('pages');
+
+        $rows = $queryBuilder->select('*')
+            ->from('pages')
+            ->innerJoin(
+                'pages',
+                'tx_center_domain_model_misc_tag_record_mm',
+                'spec_tag_mm',
+                "spec_tag_mm.uid_foreign = pages.uid AND spec_tag_mm.tablenames = 'pages'
+						AND spec_tag_mm.fieldname != 'tags'"
+            )
+            ->where($queryBuilder->expr()->in('doktype', [Shop::DOKTYPE, Gastro::DOKTYPE]))
+            ->andWhere($queryBuilder->expr()->eq('center', $centerUid))
+            ->andWhere($queryBuilder->expr()->in('spec_tag_mm.uid_local', $tags))
+            ->execute()
+            ->fetchAll();
+
+        /** @var DataMapper $configurationBuilder */
+        $dataMapper = $this->objectManager->get(DataMapper::class);
+
+        $shops = $dataMapper->map(Shop::class, $rows);
+
+        return $shops;
+    }
+
+    /**
      * @param int $centerUid
      * @param int $chainStore
      * @return array|\TYPO3\CMS\Extbase\Persistence\QueryResultInterface

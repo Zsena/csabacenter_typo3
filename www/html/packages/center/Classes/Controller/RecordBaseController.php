@@ -10,6 +10,7 @@ use DigitalZombies\Center\Domain\Model\Shop\Shop;
 use DigitalZombies\Center\Domain\Model\Center\Center;
 use DigitalZombies\Center\Domain\Repository\Misc\TagRepository;
 use DigitalZombies\Center\Domain\Repository\RecordBaseRepository;
+use DigitalZombies\Center\Domain\Repository\Shop\ShopRepository;
 use DigitalZombies\Center\Service\MenuService;
 use DigitalZombies\Center\Configuration\ScopeConfiguration;
 use DigitalZombies\Center\Utility\CacheHelper;
@@ -17,6 +18,7 @@ use DigitalZombies\Center\Utility\FalLoader;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Object\ObjectManager;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 use TYPO3\CMS\Frontend\Page\PageRepository;
 
@@ -63,6 +65,11 @@ class RecordBaseController extends ActionController
 	 */
 	protected $tagRepository;
 
+    /**
+     * @var \DigitalZombies\Center\Domain\Repository\Shop\ShopRepository
+     */
+    protected $shopRepository;
+
 
 	/**
 	 * Runs before each and every action
@@ -101,6 +108,15 @@ class RecordBaseController extends ActionController
 	{
 		$this->tagRepository = $repository;
 	}
+    /**
+     * @param \DigitalZombies\Center\Domain\Repository\Shop\ShopRepository $repository
+     *
+     * @return void
+     */
+    public function injectShopRepository(ShopRepository $repository)
+    {
+        $this->shopRepository = $repository;
+    }
 	//endregion
 
 	//region Ajax Actions
@@ -329,7 +345,21 @@ class RecordBaseController extends ActionController
 			$title = $GLOBALS['TSFE']->page['subtitle'];
 		}
 		$this->view->assign('pageTitle', $title);
-		$this->listRecords($elements);
+
+		if(isset($settings['teaserwall']['specTags']) && count($settings['teaserwall']['specTags']) > 0) {
+            $wallItems = $this->shopRepository->findByCenterAndTags(ScopeConfiguration::getScope()->getUid(), $settings['teaserwall']['specTags']);
+        }else {
+            $wallItems = $this->shopRepository->findByCenter(ScopeConfiguration::getScope()->getUid());
+        }
+
+        $contentObj = $this->configurationManager->getContentObject();
+
+        CacheHelper::addTeaserWallCacheTags($contentObj, $wallItems, $this->settings['rootPageId']);
+
+        $this->view->assign('items', $wallItems);
+        $this->view->assign('cid', $contentObj->data['uid']);
+        $this->view->assign('pageId', (int)$GLOBALS['TSFE']->id);
+        $this->view->assign('center', ScopeConfiguration::getScope());
 	}
 
 	/**
