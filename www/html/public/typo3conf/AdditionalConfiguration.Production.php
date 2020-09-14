@@ -8,16 +8,13 @@ $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections']['Default']['password'] = '$DB_P
 $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections']['Default']['user']     = '$DB_USER';
 $GLOBALS['TYPO3_CONF_VARS']['BE']['installToolPassword']                = '$INSTALL_TOOL_PW';
 
-
-$GLOBALS['TYPO3_CONF_VARS']['GFX'] = [
-    'gdlib_png' => false,
-    'processor' => 'ImageMagick',
-    'processor_allowTemporaryMasksAsPng' => false,
-    'processor_colorspace' => 'sRGB',
-    'processor_effects' => true,
-    'processor_enabled' => true,
-    'processor_path' => '/usr/bin/',
-    'processor_path_lzw' => '/usr/bin/',
-    'jpg_quality' => 85,
-    'processor_stripColorProfileCommand' => '+profile \'*\' -interlace plane -strip',
-];
+$GLOBALS['TYPO3_CONF_VARS']['GFX']['gdlib_png'] = false;
+$GLOBALS['TYPO3_CONF_VARS']['GFX']['processor'] = 'ImageMagick';
+$GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_allowTemporaryMasksAsPng'] = false;
+$GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_colorspace'] = 'sRGB';
+$GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_effects'] = true;
+$GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_enabled'] = true;
+$GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_path'] = '/usr/bin/';
+$GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_path_lzw'] = '/usr/bin/';
+$GLOBALS['TYPO3_CONF_VARS']['GFX']['jpg_quality'] = 85;
+$GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_stripColorProfileCommand'] = '+profile \'*\' -interlace plane -strip';
