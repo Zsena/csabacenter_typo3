@@ -15,26 +15,21 @@
                         </div>
                         <div class="full">
                             <ul class="menu_footer">
-                                <li><a href="fooldal"> Főoldal</a></li>
-                                <li><a href="rolunk"> Rólunk</a></li>
-                                <li><a href="üzletek"> Üzletek</a></li>
-                                <li><a href="szolgaltatasok"> Szolgáltatások</a></li>
-                                <li><a href="hirek"> Hírek</a></li>
-                                <li><a href="kapcsolat"> Kapcsolat</a></li>
+                                <f:for each="{navMain}" as="mainNav">
+                                    <li><f:link.typolink parameter="{mainNav.link}"> {mainNav.title}</f:link.typolink></li>
+                                </f:for>
                             </ul>
                         </div>
                     </div>
                     <div class="col-sm-6 col-md-6 col-lg-3">
                         <div class="full">
-                            <div class="footer_blog full white_fonts">
-                                <h3>Hírlevél</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
-                                <div class="newsletter_form">
-                                    <form action="">
-                                        <input type="email" placeholder="E-mail cím" name="email" required="">
-                                        <button>Feliratkozás</button>
-                                    </form>
-                                </div>
+                            <h3>Üzlet kategóriák</h3>
+                            <div class="full">
+                                <ul class="menu_footer">
+                                    <f:for each="{footerShopCategories}" as="footerShopCategory">
+                                        <li><f:link.typolink parameter="{footerShopCategory.link}"> {footerShopCategory.title}</f:link.typolink></li>
+                                    </f:for>
+                                </ul>
                             </div>
                         </div>
                     </div>

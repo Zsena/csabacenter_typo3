@@ -47,6 +47,16 @@ page {
                 expandAll = 1
                 titleField = nav_title // title
             }
+            20 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            20 {
+              special = directory
+              special.value = {$uid.pages.footerShopCategories}
+              levels = 2
+              as = footerShopCategories
+              expandAll = 1
+              titleField = nav_title // title
+              excludeDoktypes = 133, 134, 1, 2, 4, 135
+            }
 
 			30 = DigitalZombies\Csabacentersite\DataProcessing\DoktypeProcessor
 			60 = DigitalZombies\Center\DataProcessing\CenterDataProcessor

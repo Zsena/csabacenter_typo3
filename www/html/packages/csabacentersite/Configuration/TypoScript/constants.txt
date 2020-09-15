@@ -6,6 +6,11 @@
 # customsubcategory=miscsettings= Miscellaneous
 # customsubcategory=envsettings= Environment
 # customsubcategory=cids= Global Content Elements
+uid {
+  pages {
+      footerShopCategories = 3
+  }
+}
 plugin.tx_csabacentersite {
 	settings {
 
