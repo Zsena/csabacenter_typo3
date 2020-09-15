@@ -28,6 +28,23 @@
                 ],
                 "shortLabel": "GoolgeMap"
             },
+            "main_slider": {
+                "color": "#459112",
+                "columns": [
+                    "tx_mask_slide"
+                ],
+                "description": "A men\u00fc alatt megjelen\u0151 nagy slider (k\u00e9ppel, c\u00edmmel \u00e9s RTE mez\u0151vel)",
+                "icon": "fa-image",
+                "key": "main_slider",
+                "label": "F\u0151 Slider",
+                "labels": [
+                    "Slide (Dia)"
+                ],
+                "options": {
+                    "4": "rte"
+                },
+                "shortLabel": ""
+            },
             "stageslider": {
                 "color": "#ee58e9",
                 "columns": [
@@ -44,6 +61,11 @@
             }
         },
         "sql": {
+            "tx_mask_slide": {
+                "tt_content": {
+                    "tx_mask_slide": "int(11) unsigned DEFAULT '0' NOT NULL"
+                }
+            },
             "tx_mask_slides": {
                 "tt_content": {
                     "tx_mask_slides": "int(11) unsigned DEFAULT '0' NOT NULL"
@@ -51,6 +73,29 @@
             }
         },
         "tca": {
+            "tx_mask_slide": {
+                "config": {
+                    "appearance": {
+                        "enabledControls": {
+                            "dragdrop": "1"
+                        },
+                        "levelLinksPosition": "top",
+                        "newRecordLinkTitle": ""
+                    },
+                    "foreign_field": "parentid",
+                    "foreign_sortby": "sorting",
+                    "foreign_table": "--inlinetable--",
+                    "foreign_table_field": "parenttable",
+                    "maxitems": "",
+                    "minitems": "1",
+                    "type": "inline"
+                },
+                "exclude": "1",
+                "inlineIcon": "",
+                "inlineLabel": "",
+                "key": "slide",
+                "l10n_mode": ""
+            },
             "tx_mask_slides": {
                 "config": {
                     "appearance": {
@@ -73,6 +118,106 @@
                 "inlineLabel": "",
                 "key": "slides",
                 "l10n_mode": ""
+            }
+        }
+    },
+    "tx_mask_slide": {
+        "sql": {
+            "tx_mask_big_title": {
+                "tx_mask_slide": {
+                    "tx_mask_big_title": "tinytext"
+                }
+            },
+            "tx_mask_image": {
+                "tx_mask_slide": {
+                    "tx_mask_image": "int(11) unsigned DEFAULT '0' NOT NULL"
+                }
+            },
+            "tx_mask_text": {
+                "tx_mask_slide": {
+                    "tx_mask_text": "mediumtext"
+                }
+            },
+            "tx_mask_title": {
+                "tx_mask_slide": {
+                    "tx_mask_title": "tinytext"
+                }
+            }
+        },
+        "tca": {
+            "tx_mask_big_title": {
+                "config": {
+                    "default": "",
+                    "eval": "",
+                    "is_in": "",
+                    "max": "",
+                    "placeholder": "",
+                    "size": "",
+                    "type": "input"
+                },
+                "exclude": "1",
+                "inlineParent": "tx_mask_slide",
+                "key": "big_title",
+                "l10n_mode": "",
+                "label": "Nagy c\u00edm (Als\u00f3 sor)",
+                "order": 3
+            },
+            "tx_mask_image": {
+                "config": {
+                    "filter": [
+                        {
+                            "parameters": {
+                                "allowedFileExtensions": ""
+                            }
+                        }
+                    ],
+                    "maxitems": "1",
+                    "minitems": "1"
+                },
+                "exclude": "1",
+                "inlineParent": "tx_mask_slide",
+                "key": "image",
+                "l10n_mode": "",
+                "label": "K\u00e9p",
+                "options": "file",
+                "order": 1
+            },
+            "tx_mask_text": {
+                "config": {
+                    "cols": "",
+                    "default": "",
+                    "enableRichtext": "1",
+                    "eval": "",
+                    "max": "",
+                    "placeholder": "",
+                    "richtextConfiguration": "default",
+                    "rows": "",
+                    "type": "text"
+                },
+                "exclude": "1",
+                "inlineParent": "tx_mask_slide",
+                "key": "text",
+                "l10n_mode": "",
+                "label": "Sz\u00f6veg",
+                "order": 4,
+                "rte": "1"
+            },
+            "tx_mask_title": {
+                "config": {
+                    "default": "",
+                    "eval": "",
+                    "is_in": "",
+                    "max": "",
+                    "placeholder": "",
+                    "size": "",
+                    "type": "input"
+                },
+                "exclude": "1",
+                "inlineParent": "tx_mask_slide",
+                "key": "title",
+                "l10n_mode": "",
+                "label": "Kis C\u00edm (Fels\u0151 sor)",
+                "order": 2
             }
         }
     },

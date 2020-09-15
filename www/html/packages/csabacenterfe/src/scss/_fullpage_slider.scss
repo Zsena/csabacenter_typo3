@@ -119,13 +119,13 @@ $orange: hsl(0, 80%, 53%);
   line-height: 100px;
 }
 
-.c-slide__subtitle {
+.c-slide__subtitle, .c-slide__rte h3 {
   text-transform: uppercase;
   letter-spacing: 3px;
   color: $white;
 }
 
-.c-slide__body {
+.c-slide__body, .c-slide__rte p {
   margin-top: 0.7rem;
   opacity: 0;
   line-height: 27px;
@@ -169,7 +169,8 @@ $orange: hsl(0, 80%, 53%);
   .c-slide__title--medium,
   .c-slide__info,
   .c-slide__title,
-  .c-slide__body{
+  .c-slide__body,
+  .c-slide__rte p{
     transform: translateY(0);
     opacity: 1;
   }
