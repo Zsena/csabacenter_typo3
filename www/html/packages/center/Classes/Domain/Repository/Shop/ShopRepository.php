@@ -305,7 +305,7 @@ class ShopRepository extends Repository
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)
             ->getQueryBuilderForTable('pages');
 
-        $rows = $queryBuilder->select('*')
+        $rows = $queryBuilder->selectLiteral('DISTINCT pages.*')
             ->from('pages')
             ->innerJoin(
                 'pages',

@@ -609,7 +609,7 @@ foreach ($palettes as $paletteName => $paletteConf) {
 //Type setting for the shop page type only (everything hidden from the page and each needed fields are "white-listed")
 $GLOBALS['TCA']['pages']['types'][\DigitalZombies\Center\Domain\Model\Shop\Shop::DOKTYPE] = [
 	'showitem' => '
-	 	--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general, doktype, title, nav_title, chain_store, shop_name, logo, center, positions,
+	 	--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general, doktype, title, slug, nav_title, chain_store, shop_name, logo, center, positions,
         --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, hidden,starttime, endtime,
         --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.tabs.behaviour,--palette--;;searchPalette, no_list'
 		. \DigitalZombies\Center\Utility\TCAFieldHelper::getContentTab('content_headline, chain_store_text, content_text, content_gallery')
@@ -624,7 +624,7 @@ $GLOBALS['TCA']['pages']['types'][\DigitalZombies\Center\Domain\Model\Shop\Shop:
 //Type setting for the blog page type only (everything hidden from the page and each needed fields are "white-listed")
 $GLOBALS['TCA']['pages']['types'][\DigitalZombies\Center\Domain\Model\Records\Blog::DOKTYPE] = [
 	'showitem' => '
-	 	--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general, doktype, title, nav_title, starttime, center,
+	 	--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general, doktype, title, slug, nav_title, starttime, center,
 		--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, hidden, nav_hide, endtime, hide_in_app,
         --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.tabs.behaviour,--palette--;;searchPalette'
         . ',--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.palettes.language;language,'
@@ -641,7 +641,7 @@ $GLOBALS['TCA']['pages']['types'][\DigitalZombies\Center\Domain\Model\Shop\Gastr
 //Shop List type settings
 $GLOBALS['TCA']['pages']['types'][\DigitalZombies\Center\Domain\Model\Shop\Shop::LIST_DOKTYPE] = [
 	'showitem' => '
-	 	--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general, doktype, title, nav_title, company, address, zip_city, shop_list_type,
+	 	--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general, doktype, title, slug, nav_title, company, address, zip_city, shop_list_type,
         --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, hidden,starttime, endtime,
         --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.palettes.language;language,
         --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.tabs.behaviour,--palette--;;searchPalette'
@@ -651,7 +651,7 @@ $GLOBALS['TCA']['pages']['types'][\DigitalZombies\Center\Domain\Model\Shop\Shop:
 //Service List type settings
 $GLOBALS['TCA']['pages']['types'][\DigitalZombies\Center\Domain\Model\Records\Service::LIST_DOKTYPE] = [
 	'showitem' => '
-	 	--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general, doktype, title, nav_title, service_tag,
+	 	--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general, doktype, title, slug, nav_title, service_tag,
         --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, hidden,starttime, endtime, hide_in_app,
         --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.palettes.language;language,
         --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.tabs.behaviour,--palette--;;searchPalette'
