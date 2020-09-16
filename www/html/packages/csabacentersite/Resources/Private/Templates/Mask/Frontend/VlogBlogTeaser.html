@@ -1,0 +1,207 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+<div class="container">
+  <f:if condition="{data.tx_mask_header}">
+    <div class="section layout_padding about_bg">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="full paddding_left_15">
+              <div class="heading_main text_align_center">
+                <h2>{data.tx_mask_header}</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </f:if>
+
+  <div class="section {f:if(condition: '!{data.tx_mask_no_spacing}', then: 'layout_padding pt-0')} ">
+
+    <div class="hero-area d-flex flex-wrap">
+
+      <f:switch expression="{data.tx_mask_alignment}">
+        <f:case value="0">
+          <f:for each="{data.tx_mask_media_items}" as="mediaItem">
+            <div class="hero-single-section">
+              <div class="single-welcome-post bg-img item1 wow fadeInUp" data-wow-delay="300ms"
+                   style="background-image: url('{f:uri.image(src: '{mediaItem.tx_mask_media.0.uid}', treatIdAsReference: '1', cropVariant: 'largeImage')}'); visibility: visible; animation-delay: 300ms; animation-name: fadeInUp;">
+                <v:condition.string.contains haystack="{mediaItem.tx_mask_link}" needle="youtube">
+                  <f:then>
+                    <f:link.typolink parameter="{mediaItem.tx_mask_link}" target="_blank" class="video-play-btn">
+                      <i class="fa fa-play"></i>
+                    </f:link.typolink>
+                  </f:then>
+                </v:condition.string.contains>
+                <div class="welcome-post-content">
+                  <div class="single-blog-post white">
+                    <div class="blog-content">
+                      <p class="post-tag">{mediaItem.tx_mask_tag}</p>
+                      <f:link.typolink parameter="{mediaItem.tx_mask_link}" class="post-title">{mediaItem.tx_mask_title}</f:link.typolink>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </f:for>
+        </f:case>
+
+        <f:case value="1">
+          <f:for each="{data.tx_mask_media_items}" as="mediaItem" iteration="iterator">
+            <f:if condition="{iterator.isFirst}">
+              <div class="hero-single-video-section">
+                <div class="single-welcome-post bg-img item wow fadeInUp" data-wow-delay="300ms"
+                     style="background-image: url('{f:uri.image(src: '{mediaItem.tx_mask_media.0.uid}', treatIdAsReference: '1', cropVariant: 'fullWidthImage')}'); visibility: visible; animation-delay: 300ms; animation-name: fadeInUp;">
+                  <v:condition.string.contains haystack="{mediaItem.tx_mask_link}" needle="youtube">
+                    <f:then>
+                      <f:link.typolink parameter="{mediaItem.tx_mask_link}" target="_blank" class="video-play-btn">
+                        <i class="fa fa-play"></i>
+                      </f:link.typolink>
+                    </f:then>
+                  </v:condition.string.contains>
+                  <div class="welcome-post-content">
+                    <div class="single-blog-post white">
+                      <div class="blog-content">
+                        <p class="post-tag">{mediaItem.tx_mask_tag}</p>
+                        <f:link.typolink parameter="{mediaItem.tx_mask_link}" class="post-title">{mediaItem.tx_mask_title}</f:link.typolink>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </f:if>
+          </f:for>
+        </f:case>
+
+        <f:case value="2">
+
+          <f:variable name="fistItem" value="{v:variable.get(name: 'data.tx_mask_media_items.0')}"/>
+          <f:variable name="secondItem" value="{v:variable.get(name: 'data.tx_mask_media_items.1')}"/>
+          <f:variable name="thirdItem" value="{v:variable.get(name: 'data.tx_mask_media_items.2')}"/>
+          <f:variable name="fourthItem" value="{v:variable.get(name: 'data.tx_mask_media_items.3')}"/>
+
+          <div class="hero-single-section">
+            <div class="single-welcome-post bg-img item1 wow fadeInUp" data-wow-delay="300ms"
+                 style="background-image: url('{f:uri.image(src: '{fistItem.tx_mask_media.0.uid}', treatIdAsReference: '1', cropVariant: 'largeImage')}'); visibility: visible; animation-delay: 300ms; animation-name: fadeInUp;">
+              <v:condition.string.contains haystack="{fistItem.tx_mask_link}" needle="youtube">
+                <f:then>
+                  <f:link.typolink parameter="{fistItem.tx_mask_link}" target="_blank" class="video-play-btn">
+                    <i class="fa fa-play"></i>
+                  </f:link.typolink>
+                </f:then>
+              </v:condition.string.contains>
+              <div class="welcome-post-content">
+                <div class="single-blog-post white">
+                  <div class="blog-content">
+                    <p class="post-tag">{fistItem.tx_mask_tag}</p>
+                    <f:link.typolink parameter="{fistItem.tx_mask_link}" class="post-title">{fistItem.tx_mask_title}</f:link.typolink>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="hero-single-section">
+            <div class="single-welcome-post bg-img item2 wow fadeInUp" data-wow-delay="400ms"
+                 style="background-image: url('{f:uri.image(src: '{secondItem.tx_mask_media.0.uid}', treatIdAsReference: '1', cropVariant: 'mediumImage')}'); visibility: visible; animation-delay: 400ms; animation-name: fadeInUp;">
+              <v:condition.string.contains haystack="{secondItem.tx_mask_link}" needle="youtube">
+                <f:then>
+                  <f:link.typolink parameter="{secondItem.tx_mask_link}" target="_blank" class="video-play-btn">
+                    <i class="fa fa-play"></i>
+                  </f:link.typolink>
+                </f:then>
+              </v:condition.string.contains>
+              <div class="welcome-post-content">
+                <div class="single-blog-post white">
+                  <div class="blog-content">
+                    <p class="post-tag">{secondItem.tx_mask_tag}</p>
+                    <f:link.typolink parameter="{secondItem.tx_mask_link}" class="post-title">{secondItem.tx_mask_title}</f:link.typolink>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="hero-second-section d-flex flex-wrap">
+              <div class="single-welcome-post bg-img item3 wow fadeInUp" data-wow-delay="500ms"
+                   style="background-image: url('{f:uri.image(src: '{thirdItem.tx_mask_media.0.uid}', treatIdAsReference: '1', cropVariant: 'smallImage')}'); visibility: visible; animation-delay: 500ms; animation-name: fadeInUp;">
+                <div class="welcome-post-content">
+                  <div class="single-blog-post style2 white">
+                    <div class="blog-content">
+                      <p class="post-tag">{thirdItem.tx_mask_tag}</p>
+                      <f:link.typolink parameter="{thirdItem.tx_mask_link}" class="post-title">{thirdItem.tx_mask_title}</f:link.typolink>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="single-welcome-post bg-img item4 wow fadeInUp" data-wow-delay="600ms"
+                   style="background-image: url('{f:uri.image(src: '{fourthItem.tx_mask_media.0.uid}', treatIdAsReference: '1', cropVariant: 'smallImage')}'); visibility: visible; animation-delay: 600ms; animation-name: fadeInUp;">
+                <div class="welcome-post-content">
+                  <div class="single-blog-post style2 white">
+                    <div class="blog-content">
+                      <p class="post-tag">{fourthItem.tx_mask_tag}</p>
+                      <f:link.typolink parameter="{fourthItem.tx_mask_link}" class="post-title">{fourthItem.tx_mask_title}</f:link.typolink>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </f:case>
+
+        <f:defaultCase>
+
+          <f:variable name="fistItem" value="{v:variable.get(name: 'data.tx_mask_media_items.0')}"/>
+          <f:variable name="secondItem" value="{v:variable.get(name: 'data.tx_mask_media_items.1')}"/>
+          <f:variable name="thirdItem" value="{v:variable.get(name: 'data.tx_mask_media_items.2')}"/>
+
+          <div class="hero-single-section">
+            <div class="single-welcome-post bg-img item1 wow fadeInUp" data-wow-delay="300ms"
+                 style="background-image: url('{f:uri.image(src: '{fistItem.tx_mask_media.0.uid}', treatIdAsReference: '1', cropVariant: 'largeImage')}'); visibility: visible; animation-delay: 300ms; animation-name: fadeInUp;">
+              <v:condition.string.contains haystack="{fistItem.tx_mask_link}" needle="youtube">
+                <f:then>
+                  <f:link.typolink parameter="{fistItem.tx_mask_link}" target="_blank" class="video-play-btn">
+                    <i class="fa fa-play"></i>
+                  </f:link.typolink>
+                </f:then>
+              </v:condition.string.contains>
+              <div class="welcome-post-content">
+                <div class="single-blog-post white">
+                  <div class="blog-content">
+                    <p class="post-tag">{fistItem.tx_mask_tag}</p>
+                    <f:link.typolink parameter="{fistItem.tx_mask_link}" class="post-title">{fistItem.tx_mask_title}</f:link.typolink>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="hero-single-section">
+            <div class="single-welcome-post bg-img item2 wow fadeInUp" data-wow-delay="400ms"
+                 style="background-image: url('{f:uri.image(src: '{secondItem.tx_mask_media.0.uid}', treatIdAsReference: '1', cropVariant: 'mediumImage')}'); visibility: visible; animation-delay: 400ms; animation-name: fadeInUp;">
+              <div class="welcome-post-content">
+                <div class="single-blog-post white">
+                  <div class="blog-content">
+                    <p class="post-tag">{secondItem.tx_mask_tag}</p>
+                    <f:link.typolink parameter="{secondItem.tx_mask_link}" class="post-title">{secondItem.tx_mask_title}</f:link.typolink>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="single-welcome-post bg-img item2 wow fadeInUp" data-wow-delay="400ms"
+                 style="background-image: url('{f:uri.image(src: '{thirdItem.tx_mask_media.0.uid}', treatIdAsReference: '1', cropVariant: 'mediumImage')}'); visibility: visible; animation-delay: 400ms; animation-name: fadeInUp;">
+              <div class="welcome-post-content">
+                <div class="single-blog-post white">
+                  <div class="blog-content">
+                    <p class="post-tag">{thirdItem.tx_mask_tag}</p>
+                    <f:link.typolink parameter="{thirdItem.tx_mask_link}" class="post-title">{thirdItem.tx_mask_title}</f:link.typolink>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </f:defaultCase>
+      </f:switch>
+
+    </div>
+  </div>
+</div>
+</html>

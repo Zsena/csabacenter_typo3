@@ -5,6 +5,11 @@
                 "sys_file_reference": {
                     "tx_mask_image": "int(11) unsigned DEFAULT '0' NOT NULL"
                 }
+            },
+            "tx_mask_media": {
+                "sys_file_reference": {
+                    "tx_mask_media": "int(11) unsigned DEFAULT '0' NOT NULL"
+                }
             }
         }
     },
@@ -58,9 +63,49 @@
                     "Slides"
                 ],
                 "shortLabel": "Stage slider"
+            },
+            "vlog_blog_teaser": {
+                "color": "#df8b8b",
+                "columns": [
+                    "tx_mask_header",
+                    "tx_mask_no_spacing",
+                    "tx_mask_alignment",
+                    "tx_mask_media_items"
+                ],
+                "description": "Vari\u00e1lhat\u00f3 elrendez\u00e9s\u0171 Teaser elem (m\u00e9dia, link \u00e9s sz\u00f6veg)",
+                "icon": "fa-list-alt",
+                "key": "vlog_blog_teaser",
+                "label": "Vlog\/Blog teaser elem",
+                "labels": [
+                    "Fejl\u00e9c",
+                    "T\u00f6bb elemes elrendez\u00e9s (nincs marg\u00f3)",
+                    "Elrendez\u00e9s",
+                    "M\u00e9dia elemek"
+                ],
+                "shortLabel": ""
             }
         },
         "sql": {
+            "tx_mask_alignment": {
+                "tt_content": {
+                    "tx_mask_alignment": "tinytext"
+                }
+            },
+            "tx_mask_header": {
+                "tt_content": {
+                    "tx_mask_header": "tinytext"
+                }
+            },
+            "tx_mask_media_items": {
+                "tt_content": {
+                    "tx_mask_media_items": "int(11) unsigned DEFAULT '0' NOT NULL"
+                }
+            },
+            "tx_mask_no_spacing": {
+                "tt_content": {
+                    "tx_mask_no_spacing": "int(11) DEFAULT '0' NOT NULL"
+                }
+            },
             "tx_mask_slide": {
                 "tt_content": {
                     "tx_mask_slide": "int(11) unsigned DEFAULT '0' NOT NULL"
@@ -73,6 +118,97 @@
             }
         },
         "tca": {
+            "tx_mask_alignment": {
+                "config": {
+                    "autoSizeMax": "",
+                    "fileFolder": "",
+                    "fileFolder_extList": "",
+                    "fileFolder_recursions": "",
+                    "foreign_table": "",
+                    "foreign_table_where": "",
+                    "items": [
+                        [
+                            "50% - 50%",
+                            "0"
+                        ],
+                        [
+                            "100%",
+                            "1"
+                        ],
+                        [
+                            "50% - 50%\/16%\/16%",
+                            "2"
+                        ],
+                        [
+                            "50% - 25%\/25%",
+                            "3"
+                        ],
+                        [
+                            ""
+                        ]
+                    ],
+                    "maxitems": "",
+                    "renderType": "selectSingle",
+                    "size": "",
+                    "type": "select"
+                },
+                "exclude": "1",
+                "key": "alignment",
+                "l10n_mode": ""
+            },
+            "tx_mask_header": {
+                "config": {
+                    "default": "",
+                    "eval": "",
+                    "is_in": "",
+                    "max": "",
+                    "placeholder": "",
+                    "size": "",
+                    "type": "input"
+                },
+                "exclude": "1",
+                "key": "header",
+                "l10n_mode": ""
+            },
+            "tx_mask_media_items": {
+                "config": {
+                    "appearance": {
+                        "enabledControls": {
+                            "dragdrop": "1"
+                        },
+                        "levelLinksPosition": "top",
+                        "newRecordLinkTitle": ""
+                    },
+                    "foreign_field": "parentid",
+                    "foreign_sortby": "sorting",
+                    "foreign_table": "--inlinetable--",
+                    "foreign_table_field": "parenttable",
+                    "maxitems": "",
+                    "minitems": "1",
+                    "type": "inline"
+                },
+                "exclude": "1",
+                "inlineIcon": "",
+                "inlineLabel": "",
+                "key": "media_items",
+                "l10n_mode": ""
+            },
+            "tx_mask_no_spacing": {
+                "config": {
+                    "cols": "",
+                    "default": "",
+                    "items": [
+                        [
+                            ""
+                        ]
+                    ],
+                    "renderType": "",
+                    "type": "check"
+                },
+                "exclude": "1",
+                "key": "no_spacing",
+                "l10n_mode": ""
+            },
             "tx_mask_slide": {
                 "config": {
                     "appearance": {
@@ -118,6 +254,120 @@
                 "inlineLabel": "",
                 "key": "slides",
                 "l10n_mode": ""
+            }
+        }
+    },
+    "tx_mask_media_items": {
+        "sql": {
+            "tx_mask_link": {
+                "tx_mask_media_items": {
+                    "tx_mask_link": "tinytext"
+                }
+            },
+            "tx_mask_media": {
+                "tx_mask_media_items": {
+                    "tx_mask_media": "int(11) unsigned DEFAULT '0' NOT NULL"
+                }
+            },
+            "tx_mask_tag": {
+                "tx_mask_media_items": {
+                    "tx_mask_tag": "tinytext"
+                }
+            },
+            "tx_mask_title": {
+                "tx_mask_media_items": {
+                    "tx_mask_title": "tinytext"
+                }
+            }
+        },
+        "tca": {
+            "tx_mask_link": {
+                "config": {
+                    "default": "",
+                    "eval": "",
+                    "fieldControl": {
+                        "linkPopup": {
+                            "options": {
+                                "blindLinkOptions": "file,mail,folder",
+                                "title": "Link",
+                                "windowOpenParameters": "height=300,width=500,status=0,menubar=0,scrollbars=1"
+                            }
+                        }
+                    },
+                    "placeholder": "",
+                    "renderType": "inputLink",
+                    "size": "",
+                    "softref": "typolink",
+                    "type": "input",
+                    "wizards": {
+                        "link": {
+                            "icon": "actions-wizard-link",
+                            "params": {
+                                "allowedExtensions": ""
+                            }
+                        }
+                    }
+                },
+                "exclude": "1",
+                "inlineParent": "tx_mask_media_items",
+                "key": "link",
+                "l10n_mode": "",
+                "label": "Link",
+                "order": 7
+            },
+            "tx_mask_media": {
+                "config": {
+                    "filter": [
+                        {
+                            "parameters": {
+                                "allowedFileExtensions": "jpg,jpeg,png"
+                            }
+                        }
+                    ],
+                    "maxitems": "1",
+                    "minitems": "1"
+                },
+                "exclude": "1",
+                "inlineParent": "tx_mask_media_items",
+                "key": "media",
+                "l10n_mode": "",
+                "label": "M\u00e9dia (k\u00e9p\/vide\u00f3 poszter k\u00e9p)",
+                "options": "file",
+                "order": 4
+            },
+            "tx_mask_tag": {
+                "config": {
+                    "default": "",
+                    "eval": "",
+                    "is_in": "",
+                    "max": "",
+                    "placeholder": "",
+                    "size": "",
+                    "type": "input"
+                },
+                "exclude": "1",
+                "inlineParent": "tx_mask_media_items",
+                "key": "tag",
+                "l10n_mode": "",
+                "label": "Cimke",
+                "order": 5
+            },
+            "tx_mask_title": {
+                "config": {
+                    "default": "",
+                    "eval": "",
+                    "is_in": "",
+                    "max": "",
+                    "placeholder": "",
+                    "size": "",
+                    "type": "input"
+                },
+                "exclude": "1",
+                "inlineParent": "tx_mask_media_items",
+                "key": "title",
+                "l10n_mode": "",
+                "label": "C\u00edm",
+                "order": 6
             }
         }
     },

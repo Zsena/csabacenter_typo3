@@ -9,3 +9,46 @@ if (!defined('TYPO3_MODE')) {
 
 // We need more then 20 subgroups for BE usergroups
 $TCA['be_groups']['columns']['subgroup']['config']['maxitems'] = 999;
+
+
+// -- VLOG/BLOG TEASER CONTENT ELEMENT  --
+$GLOBALS['TCA']['tx_mask_media_items']['columns']['tx_mask_media']['config']
+['overrideChildTca']['columns']['crop']['config']['cropVariants']['largeImage'] = [
+    'title' => 'Large image ratio',
+    'allowedAspectRatios' => [
+        'largeImage' => [
+            'title' => '2 : 3',
+            'value' => 2 / 3,
+        ],
+    ]
+];
+$GLOBALS['TCA']['tx_mask_media_items']['columns']['tx_mask_media']['config']
+['overrideChildTca']['columns']['crop']['config']['cropVariants']['mediumImage'] = [
+    'title' => 'Medium image ratio',
+    'allowedAspectRatios' => [
+        'mediumImage' => [
+            'title' => '3 : 2',
+            'value' => 3 / 2,
+        ],
+    ]
+];
+$GLOBALS['TCA']['tx_mask_media_items']['columns']['tx_mask_media']['config']
+['overrideChildTca']['columns']['crop']['config']['cropVariants']['smallImage'] = [
+    'title' => 'Small image ratio',
+    'allowedAspectRatios' => [
+        'smallImage' => [
+            'title' => '1 : 3',
+            'value' => 16 / 21,
+        ],
+    ]
+];
+$GLOBALS['TCA']['tx_mask_media_items']['columns']['tx_mask_media']['config']
+['overrideChildTca']['columns']['crop']['config']['cropVariants']['fullWidthImage'] = [
+    'title' => 'Full width image ratio',
+    'allowedAspectRatios' => [
+        'fullWidthImage' => [
+            'title' => '11 : 7',
+            'value' => 11 / 7,
+        ],
+    ]
+];
