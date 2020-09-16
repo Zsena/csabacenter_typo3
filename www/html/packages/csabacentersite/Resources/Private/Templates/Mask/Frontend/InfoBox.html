@@ -1,0 +1,55 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<div class="site_section_cover {f:if(condition: '{data.tx_mask_info_alignment} == 1', then: 'site_section_cover_left')}
+            {f:if(condition: '{data.tx_mask_backgound_color} == 0', then: 'tsr_theme_gray', else: 'overlay')}">
+  <div class="container">
+    <div class="row {f:if(condition: '{data.tx_mask_info_alignment} == 0', then: 'align-items-center')}">
+
+      <f:if condition="{data.tx_mask_info_alignment} == 1">
+        <f:then>
+          <div class="col-md-6 mb-5 mb-md-0">
+            <f:image class="img-fluid" src="{data.tx_mask_image.0.uid}" treatIdAsReference="1" cropVariant="desktop"/>
+          </div>
+
+          <div class="col-md-5 ml-auto pl-md-5">
+            <f:if condition="{data.tx_mask_label}">
+              <span class="text-cursive h5 text-red">{data.tx_mask_label}</span>
+            </f:if>
+            <h1 class="mb-3 font-weight-bold">{data.tx_mask_title}</h1>
+            <p>
+              <f:format.nl2br>{data.tx_mask_text}</f:format.nl2br>
+            </p>
+            <p class="mt-5">
+              <f:link.typolink parameter="{data.tx_mask_button_link}" class="btn main_bt py-4 btn-custom-1">
+                {data.tx_mask_button_label}
+              </f:link.typolink>
+            </p>
+          </div>
+        </f:then>
+        <f:else>
+          <div class="col-md-5 mt-5 pt-5">
+            <f:if condition="{data.tx_mask_label}">
+              <span class="text-cursive h5 text-red">{data.tx_mask_label}</span>
+            </f:if>
+            <h1 class="mb-3 font-weight-bold">{data.tx_mask_title}</h1>
+            <p>
+              <f:format.nl2br>{data.tx_mask_text}</f:format.nl2br>
+            </p>
+            <p class="mt-5">
+              <f:link.typolink parameter="{data.tx_mask_button_link}" class="btn main_bt py-4 btn-custom-1">
+                {data.tx_mask_button_label}
+              </f:link.typolink>
+            </p>
+          </div>
+
+          <div class="col-md-6 ml-auto">
+            <f:image class="img-fluid" src="{data.tx_mask_image.0.uid}" treatIdAsReference="1" cropVariant="desktop"/>
+          </div>
+        </f:else>
+      </f:if>
+
+    </div>
+  </div>
+</div>
+
+</html>

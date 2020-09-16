@@ -33,6 +33,34 @@
                 ],
                 "shortLabel": "GoolgeMap"
             },
+            "info_box": {
+                "color": "#ee2020",
+                "columns": [
+                    "tx_mask_info_alignment",
+                    "tx_mask_backgound_color",
+                    "tx_mask_label",
+                    "tx_mask_title",
+                    "tx_mask_text",
+                    "tx_mask_button_label",
+                    "tx_mask_button_link",
+                    "tx_mask_image"
+                ],
+                "description": "Sz\u00f6veg, k\u00e9p, gomb, v\u00e1laszthat\u00f3 elrendez\u00e9s \u00e9s h\u00e1tt\u00e9rsz\u00edn",
+                "icon": "fa-id-card",
+                "key": "info_box",
+                "label": "Inform\u00e1ci\u00f3s doboz",
+                "labels": [
+                    "Inverz Elrendez\u00e9s",
+                    "H\u00e1tt\u00e9rsz\u00edn",
+                    "Cimke",
+                    "C\u00edm",
+                    "Sz\u00f6veg",
+                    "Gomb sz\u00f6veg",
+                    "Gomb link",
+                    "K\u00e9p"
+                ],
+                "shortLabel": ""
+            },
             "main_slider": {
                 "color": "#459112",
                 "columns": [
@@ -91,9 +119,39 @@
                     "tx_mask_alignment": "tinytext"
                 }
             },
+            "tx_mask_backgound_color": {
+                "tt_content": {
+                    "tx_mask_backgound_color": "tinytext"
+                }
+            },
+            "tx_mask_button_label": {
+                "tt_content": {
+                    "tx_mask_button_label": "tinytext"
+                }
+            },
+            "tx_mask_button_link": {
+                "tt_content": {
+                    "tx_mask_button_link": "tinytext"
+                }
+            },
             "tx_mask_header": {
                 "tt_content": {
                     "tx_mask_header": "tinytext"
+                }
+            },
+            "tx_mask_image": {
+                "tt_content": {
+                    "tx_mask_image": "int(11) unsigned DEFAULT '0' NOT NULL"
+                }
+            },
+            "tx_mask_info_alignment": {
+                "tt_content": {
+                    "tx_mask_info_alignment": "int(11) DEFAULT '0' NOT NULL"
+                }
+            },
+            "tx_mask_label": {
+                "tt_content": {
+                    "tx_mask_label": "tinytext"
                 }
             },
             "tx_mask_media_items": {
@@ -114,6 +172,16 @@
             "tx_mask_slides": {
                 "tt_content": {
                     "tx_mask_slides": "int(11) unsigned DEFAULT '0' NOT NULL"
+                }
+            },
+            "tx_mask_text": {
+                "tt_content": {
+                    "tx_mask_text": "mediumtext"
+                }
+            },
+            "tx_mask_title": {
+                "tt_content": {
+                    "tx_mask_title": "tinytext"
                 }
             }
         },
@@ -156,6 +224,78 @@
                 "key": "alignment",
                 "l10n_mode": ""
             },
+            "tx_mask_backgound_color": {
+                "config": {
+                    "autoSizeMax": "",
+                    "fileFolder": "",
+                    "fileFolder_extList": "",
+                    "fileFolder_recursions": "",
+                    "foreign_table": "",
+                    "foreign_table_where": "",
+                    "items": [
+                        [
+                            "Vil\u00e1gossz\u00fcrke",
+                            "0"
+                        ],
+                        [
+                            "S\u00f6t\u00e9tsz\u00fcrke",
+                            "1"
+                        ]
+                    ],
+                    "maxitems": "",
+                    "renderType": "selectSingle",
+                    "size": "",
+                    "type": "select"
+                },
+                "exclude": "1",
+                "key": "backgound_color",
+                "l10n_mode": ""
+            },
+            "tx_mask_button_label": {
+                "config": {
+                    "default": "",
+                    "eval": "required",
+                    "is_in": "",
+                    "max": "",
+                    "placeholder": "",
+                    "size": "",
+                    "type": "input"
+                },
+                "exclude": "1",
+                "key": "button_label",
+                "l10n_mode": ""
+            },
+            "tx_mask_button_link": {
+                "config": {
+                    "default": "",
+                    "eval": "required",
+                    "fieldControl": {
+                        "linkPopup": {
+                            "options": {
+                                "blindLinkOptions": "file,mail,folder",
+                                "title": "Link",
+                                "windowOpenParameters": "height=300,width=500,status=0,menubar=0,scrollbars=1"
+                            }
+                        }
+                    },
+                    "placeholder": "",
+                    "renderType": "inputLink",
+                    "size": "",
+                    "softref": "typolink",
+                    "type": "input",
+                    "wizards": {
+                        "link": {
+                            "icon": "actions-wizard-link",
+                            "params": {
+                                "allowedExtensions": ""
+                            }
+                        }
+                    }
+                },
+                "exclude": "1",
+                "key": "button_link",
+                "l10n_mode": ""
+            },
             "tx_mask_header": {
                 "config": {
                     "default": "",
@@ -168,6 +308,53 @@
                 },
                 "exclude": "1",
                 "key": "header",
+                "l10n_mode": ""
+            },
+            "tx_mask_image": {
+                "config": {
+                    "filter": [
+                        {
+                            "parameters": {
+                                "allowedFileExtensions": ""
+                            }
+                        }
+                    ],
+                    "maxitems": "1",
+                    "minitems": "1"
+                },
+                "exclude": "1",
+                "key": "image",
+                "l10n_mode": "",
+                "options": "file"
+            },
+            "tx_mask_info_alignment": {
+                "config": {
+                    "cols": "",
+                    "default": "",
+                    "items": [
+                        [
+                            "Inverz"
+                        ]
+                    ],
+                    "renderType": "",
+                    "type": "check"
+                },
+                "exclude": "1",
+                "key": "info_alignment",
+                "l10n_mode": ""
+            },
+            "tx_mask_label": {
+                "config": {
+                    "default": "",
+                    "eval": "",
+                    "is_in": "",
+                    "max": "",
+                    "placeholder": "",
+                    "size": "",
+                    "type": "input"
+                },
+                "exclude": "1",
+                "key": "label",
                 "l10n_mode": ""
             },
             "tx_mask_media_items": {
@@ -253,6 +440,35 @@
                 "inlineIcon": "",
                 "inlineLabel": "",
                 "key": "slides",
+                "l10n_mode": ""
+            },
+            "tx_mask_text": {
+                "config": {
+                    "cols": "",
+                    "default": "",
+                    "eval": "required",
+                    "format": "",
+                    "max": "",
+                    "placeholder": "",
+                    "rows": "",
+                    "type": "text"
+                },
+                "exclude": "1",
+                "key": "text",
+                "l10n_mode": ""
+            },
+            "tx_mask_title": {
+                "config": {
+                    "default": "",
+                    "eval": "required",
+                    "is_in": "",
+                    "max": "",
+                    "placeholder": "",
+                    "size": "",
+                    "type": "input"
+                },
+                "exclude": "1",
+                "key": "title",
                 "l10n_mode": ""
             }
         }

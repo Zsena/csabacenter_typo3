@@ -52,3 +52,14 @@ $GLOBALS['TCA']['tx_mask_media_items']['columns']['tx_mask_media']['config']
         ],
     ]
 ];
+
+$GLOBALS['TCA']['tt_content']['types']['mask_info_box']['columnsOverrides']['tx_mask_image']['config']
+['overrideChildTca']['columns']['crop']['config']['cropVariants']['desktop'] = [
+    'title' => 'Desktop',
+    'allowedAspectRatios' => [
+        'desktop' => [
+            'title' => 'Desktop',
+            'value' => 3 / 2,
+        ],
+    ]
+];
