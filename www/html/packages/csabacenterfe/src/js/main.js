@@ -26,7 +26,7 @@ window.jQuery = window.$ = require('jquery');
             centerMode: true,
             slidesToShow: 3,
             slidesToScroll: 1,
-            centerPadding: '250px',
+            centerPadding: '150px',
             draggable: false,
             speed: 1200,
             autoplaySpeed: 5000,
@@ -35,17 +35,7 @@ window.jQuery = window.$ = require('jquery');
             variableWidth: false,
             responsive: [
                 {
-                    breakpoint: 1800,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 1,
-                        infinite: true,
-                        dots: true,
-                        centerPadding: '50px',
-                    }
-                },
-                {
-                    breakpoint: 1300,
+                    breakpoint: 1200,
                     settings: {
                         slidesToShow: 2,
                         slidesToScroll: 1,
@@ -55,7 +45,7 @@ window.jQuery = window.$ = require('jquery');
                     }
                 },
                 {
-                    breakpoint: 900,
+                    breakpoint: 768,
                     settings: {
                         slidesToShow: 1,
                         slidesToScroll: 1,
@@ -63,7 +53,7 @@ window.jQuery = window.$ = require('jquery');
                     }
                 },
                 {
-                    breakpoint: 750,
+                    breakpoint: 480,
                     settings: {
                         slidesToShow: 1,
                         slidesToScroll: 1,
@@ -81,7 +71,7 @@ window.jQuery = window.$ = require('jquery');
             centerMode: true,
             slidesToShow: 3,
             slidesToScroll: 1,
-            centerPadding: '250px',
+            centerPadding: '150px',
             draggable: false,
             speed: 1200,
             autoplaySpeed: 5000,
@@ -303,24 +293,6 @@ window.jQuery = window.$ = require('jquery');
 
 
     /* ..............................................
-    Submenu
-    ................................................. */
-    // $('.navbar-nav li').click(function () {
-    //     $(this).addClass('active').siblings().removeClass('active');
-    // });
-    // $('.navbar-nav .nav-link').on('mouseenter', function () {
-    //     var _this = $(this);
-    //     _this.closest('ul').find('.submenu').css('visibility', 'visible');
-    //     _this.closest('ul').find('.submenu').css('opacity', '1');
-    // });
-    //
-    // $('.submenu').on('mouseleave', function () {
-    //     var _this = $(this);
-    //     _this.css('visibility', 'hidden');
-    //     _this.css('opacity', '0');
-    // });
-
-    /* ..............................................
     Fixed Menu
     ................................................. */
 
@@ -331,16 +303,6 @@ window.jQuery = window.$ = require('jquery');
             $('.top_header').removeClass('fixed-menu');
         }
     });
-
-    /* ..............................................
-    Properties Filter
-   ................................................. */
-
-
-    /* ..............................................
-    Gallery
-    ................................................. */
-
 
     /* ..............................................
     Scroll To Top

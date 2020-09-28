@@ -17,7 +17,7 @@
     &::after {
       width: 250px;
       height: 8px;
-      background: #e72525;
+      background: $dark-red;
       content: "";
       display: block;
       transform: skew(-30deg);
@@ -30,4 +30,59 @@
 .full {
   float: left;
   width: 100%;
+}
+
+.details {
+  .heading_main {
+    margin-bottom: 20px;
+    h2 {
+      font-size: 25px;
+      display: flex;
+      width: 100%;
+      @media all and (max-width: 767px) {
+        font-size: 20px;
+      }
+      &:after {
+        width: 50%;
+        height: 3px;
+        background: $dark-gray;
+        display: flex;
+        align-self: center;
+        margin-left: 20px;
+        @media all and (max-width: 767px) {
+          display: none;
+        }
+      }
+      &:before {
+        margin-right: 20px;
+        width: 50%;
+        height: 3px;
+        background: $dark-red;
+        content: "";
+        transform: skew(-30deg);
+        margin-top: 3px;
+        display: flex;
+        align-self: center;
+        @media all and (max-width: 767px) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .shop_details {
+    .heading_main {
+      h2 {
+        font-size: 20px;
+        white-space: nowrap;
+        @media all and (max-width: 767px) {
+          font-size: 18px;
+        }
+        &:before, &:after {
+          width: 100%;
+          display: flex;
+        }
+      }
+    }
+  }
 }

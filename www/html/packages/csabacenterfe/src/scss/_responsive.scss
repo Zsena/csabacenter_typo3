@@ -164,9 +164,9 @@
     padding: 0 20px;
   }
 
-  .site_information li:nth-child(1), .site_information li:nth-child(2) {
-    visibility: hidden;
-  }
+  //.site_information li:nth-child(1), .site_information li:nth-child(2) {
+  //  visibility: hidden;
+  //}
 
   .site_information ul {
     float: right;
@@ -213,10 +213,10 @@
     width: 100% !important;
   }
 
-  .site_information ul li:nth-child(1),
-  .site_information ul li:nth-child(2) {
-    display: none;
-  }
+  //.site_information ul li:nth-child(1),
+  //.site_information ul li:nth-child(2) {
+  //  display: none;
+  //}
 
   .site_information ul li {
     width: 100% !important;

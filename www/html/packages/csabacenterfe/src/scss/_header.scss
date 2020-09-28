@@ -20,24 +20,25 @@
     .navbar-collapse ul li {
       margin: 0 2px;
       a {
-        transition: color 0.25s ease, border-color 0.25s ease;
-        font-size: 14px;
-        font-weight: bold;.top-header.fixed-menu {
-        width: 100%;
-        position: fixed;
-        box-shadow: 0px 3px 6px 3px rgba(0, 0, 0, 0.06);
-        -webkit-animation-duration: 1s;
-        animation-duration: 1s;
-        -webkit-animation-fill-mode: both;
-        animation-fill-mode: both;
-        -webkit-animation-name: fadeInDown;
-        animation-name: fadeInDown;
-        background: #fff;
-        z-index: 20;
-      }
-
+        transition: color 0.25s ease,
+        border-color 0.25s ease;
+        font-size: 13px;
+        font-weight: bold;
+          .top-header.fixed-menu {
+            width: 100%;
+            position: fixed;
+            box-shadow: 0px 3px 6px 3px rgba(0, 0, 0, 0.06);
+            //-webkit-animation-duration: 1s;
+            //animation-duration: 1s;
+            //-webkit-animation-fill-mode: both;
+            //animation-fill-mode: both;
+            //-webkit-animation-name: fadeInDown;
+            //animation-name: fadeInDown;
+            background: #fff;
+            z-index: 20;
+          }
         text-transform: uppercase;
-        padding: 10px 25px;
+        padding: 0 5px;
         overflow: hidden;
         color: #fff;
         position: relative;
@@ -48,6 +49,10 @@
           color: $black;
         }
 
+        @media all and (min-width: 992px) {
+          padding: 5px;
+        }
+
       }
     }
     .navbar-collapse ul li a.active {
@@ -56,29 +61,48 @@
     }
   }
   .header_top {
-    min-height: 150px;
+    height: 100px;
     padding: 8px 0;
     background: #fff;
     display: flex;
     align-items: center;
     .site_information {
-      float: left;
-      width: 66.66%;
+      //float: left;
+      //width: 66.66%;
+      display: none;
+      @media all and (min-width: 992px) {
+        display: block;
+      }
+
       ul {
         list-style: none;
-        float: right;
+        display: flex;
         width: 100%;
         padding: 21px 0;
+        align-items: center;
         li {
-          float: left;
-          width: 20.33%;
+          //float: left;
+          //width: 20.33%;
           display: flex;
           justify-content: center;
           font-size: 17px;
           font-weight: 300;
+          padding-right: 20px;
+          &:last-child {
+            padding-right: 0;
+          }
           img {
             margin-right: 10px;
           }
+        }
+      }
+      .lang_selector {
+        ul li {
+          display: block;
+        }
+        .dropdown-item {
+          padding: 0 5px;
+          text-align: center;
         }
       }
     }
@@ -100,7 +124,15 @@
     }
 
     .logo_section {
-      width: 33.33%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        max-width: 100px;
+        @media all and (min-width: 787px) {
+          max-width: 250px;
+        }
+      }
     }
   }
 }
@@ -109,12 +141,12 @@
   width: 100%;
   position: fixed;
   box-shadow: 0px 3px 6px 3px rgba(0, 0, 0, 0.06);
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-  -webkit-animation-name: fadeInDown;
-  animation-name: fadeInDown;
+  //-webkit-animation-duration: 1s;
+  //animation-duration: 1s;
+  //-webkit-animation-fill-mode: both;
+  //animation-fill-mode: both;
+  //-webkit-animation-name: fadeInDown;
+  //animation-name: fadeInDown;
   background: #fff;
   z-index: 20;
 }
@@ -142,9 +174,20 @@ a.navbar-brand {
 .header_bottom {
   float: left;
   width: 100%;
-  position: absolute;
+  position: relative;
   bottom: -60px;
   background-color: #545454;
+  top: 0;
+  .menu_section {
+    @media all and (min-width: 1300px) {
+      position: absolute;
+      left: 12%;
+    }
+  }
+  @media all and (min-width: 992px) {
+    position: absolute;
+    top: auto;
+  }
 }
 
 .header_bottom::after {
@@ -205,7 +248,7 @@ a.navbar-brand {
 .search-box {
   position: absolute;
   float: right;
-  right: 10px;
+  right: -20px;
   top: 9px;
   z-index: 11;
 }
@@ -227,7 +270,9 @@ a.navbar-brand {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #111;
+  background: $black;
+  color: $white;
+  cursor: pointer;
 }
 
 .search-txt {

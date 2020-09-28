@@ -192,6 +192,24 @@ module.exports = {
       filename: 'vendeglatas',
       title: 'Vendéglátás'
     }),
+    new HtmlWebpackPlugin({
+        meta: meta,
+        template: './src/hbs/partials/news_details.hbs',
+        filename: 'hirek_aloldal',
+        title: 'Hirek aloldal Template'
+    }),
+    new HtmlWebpackPlugin({
+        meta: meta,
+        template: './src/hbs/partials/shop_single_details.hbs',
+        filename: 'uzletek_aloldal',
+        title: 'Üzletek aloldal Template'
+    }),
+    new HtmlWebpackPlugin({
+        meta: meta,
+        template: './src/hbs/partials/actions.hbs',
+        filename: 'akciok_aloldal',
+        title: 'Akciók aloldal Template'
+    }),
     new CopyWebpackPlugin({
       patterns: [
         { from: 'src/img', to: 'img' }

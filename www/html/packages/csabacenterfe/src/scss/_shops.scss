@@ -29,3 +29,24 @@
     }
   }
 }
+
+.store_information {
+  .store_logo {
+    width: 200px !important;
+    height: 150px;
+    object-fit: contain;
+  }
+}
+
+.shop_table {
+  width: 100%;
+  @media all and (min-width: 767px) {
+    width: 50%;
+  }
+  li{
+    border-bottom: 1px solid $dark-gray;
+    &:last-child {
+      border-bottom: 3px solid $black;
+    }
+  }
+}

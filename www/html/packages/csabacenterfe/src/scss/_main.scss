@@ -255,8 +255,11 @@ p {
 .menu_red_section {
   float: right;
   position: relative;
-  width: 75%;
+  width: 100%;
   background-color: $theme-color;
+  @media (min-width: 1250px) {
+    width: 80%;
+  }
 }
 
 .menu_red_section::after {
@@ -291,59 +294,37 @@ p {
 
 /* submenu */
 
-.submenu {
+.submenu, .submenu_sub {
   background-color: $theme-color;
   min-width: 100%;
-  height: calc(100vh - 185px);
-  overflow: scroll;
-  position: absolute;
-  top: 0;
-  left: 0;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
-  overflow-x: hidden;
   box-shadow: 0 6px 12px $box-shadow;
-  opacity: 0;
-  right: 0;
   transition: opacity .25s .85s,visibility .25s .85s;
-  visibility: hidden;
-  width: 100vw;
 }
 
-.submenu-item {
-  min-height: 100px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.submenu_sub {
+  background-color: $cont-gray;
+  color: $white;
 }
 
-@media all and (min-width: 998px) {
-  .submenu {
-    width: 100%;
-    min-width: initial;
-    top: 60px;
-    height: auto;
-    overflow: hidden;
-    left: 0;
-    right: 0;
-    display: block;
-    flex-direction: column;
-  }
+.navbar-nav .dropdown-menu {
+  position: absolute;
+}
 
-  .submenu-top {
-    display: flex;
-    justify-content: flex-start;
-    /*max-width: 1293px;*/
-    width: 100%;
-    margin: auto;
-    top: inherit;
-  }
+.dropdown:hover>.dropdown-menu {
+  display: block;
+  transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+}
+.dropdown-item:hover>.dropdown-menu {
+  display: block;
+  transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+}
 
-  .back-item {
-    display: none;
-  }
+.navbar-nav .nav-link{display:inline-block;}
+
+.ml-auto {display:inline-block!important;}
+
+.dropdown>.dropdown-toggle:active {
+  pointer-events: none;
 }
 
 

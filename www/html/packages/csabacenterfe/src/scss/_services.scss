@@ -1,9 +1,11 @@
 .services_blog {
   margin-bottom: 30px;
   img {
-    max-height: 370px;
     width: 100%;
-    min-height: 180px;
+    height: 200px;
+    @media all and(min-width:767px) {
+      height: 150px;
+    }
     object-fit: cover;
     -o-object-fit: cover;
   }
@@ -33,7 +35,7 @@
 
 
 .services_page .services_blog img {
-  max-height: 400px;
-  min-height: 400px;
+  max-height: 200px;
+  min-height: 220px;
   object-fit: cover;
 }

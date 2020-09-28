@@ -5,16 +5,29 @@
 
 
         <div class="container">
-            <div class="row">
+            <div class="row justify-content-center justify-content-lg-between">
                 <div class="logo_section">
-                    <a class="navbar-brand" href="/"><img src="/img/logo.png" alt="image"></a>
+                    <a href="/"><img src="/img/logo.png" alt="image"></a>
                 </div>
                 <div class="site_information">
                     <ul>
-                        <li><a href="kapcsolat"><img src="/img/mail_icon.png" alt="" />Üzemeltetés</a></li>
-                        <li><a href="kapcsolat"><img src="/img/mail_icon.png" alt="" />Értékesítés</a></li>
-                        <li><a href="tel:+66524524"><img src="/img/phone_icon.png" alt="" />66/524-524</a></li>
-                        <li><a class="join_bt" href="nyitvatartas">Nyitvatartás</a></li>
+                        <li><a href="nyitvatartas"><i class="fas fa-clock"></i> Nyitvatartás</a></li>
+                        <li><a href="kapcsolat"><i class="fas fa-map-marker-alt"></i> Megközelítés</a></li>
+                        <li><a href=""><i class="fas fa-map-marked-alt"></i> Térkép</a></li>
+                        <li><a class="join_bt" href="kapcsolat"><i class="fas fa-mobile-alt"></i> Elérhetőségek</a></li>
+                        <li class="lang_selector">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fas fa-globe"></i> Hu
+                                    </a>
+                                    <div class="dropdown-menu submenu" aria-labelledby="navbarDropdownMenuLink1">
+                                        <a class="dropdown-item" href="#">EN</a>
+                                        <a class="dropdown-item" href="#">DE</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -34,49 +47,64 @@
                             </button>
                             <div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
                                 <ul class="navbar-nav">
-                                    <li><a class="nav-link" href="rolunk">#Rólunk</a></li>
-                                    <li><a class="nav-link active" href="uzletek">Üzletek</a>
-                                        <ul class="submenu">
-                                            <li class="submenu-item">
-                                                <span class="back-item"><a class="back" href="#">Vissza</a></span>
-                                                <ul class="submenu-top">
-                                                    <li class="submenu-top-item ">
-                                                        <a href="/" class="submenu-title">Üzletek ABC szerint</a>
-                                                    </li>
-
-                                                    <li class="submenu-top-item ">
-                                                        <a href="#" class="submenu-title">Üzletek profil szerint</a>
-                                                    </li>
-
-                                                    <li class="submenu-top-item ">
-                                                        <a href="#" class="submenu-title">Üzletek akciói</a>
-                                                    </li>
-                                                    <li class="submenu-top-item ">
-                                                        <a href="#" class="submenu-title">Üzlettérkép</a>
-                                                    </li>
-                                                    <li class="submenu-top-item ">
-                                                        <a href="#" class="submenu-title">Üzletek nyitvatartása</a>
-                                                    </li>
-                                                    <li class="submenu-top-item ">
-                                                        <a href="#" class="submenu-title">Vásárlási utalványt elfogadó üzletek</a>
-                                                    </li>
-                                                </ul>
+                                    <li>
+                                        <ul class="navbar-nav ml-auto">
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    #Rólunk
+                                                </a>
+                                                <div class="dropdown-menu submenu" aria-labelledby="navbarDropdownMenuLink1">
+                                                    <a class="dropdown-item" href="rolunk">Bemutatkozás</a>
+                                                    <a class="dropdown-item" href="#">Lorem Ipsum</a>
+                                                    <a class="dropdown-item" href="#">Lorem Ipsum</a>
+                                                    <a class="dropdown-item nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        Lorem Ipsum
+                                                    </a>
+                                                    <div class="dropdown-menu submenu_sub" aria-labelledby="navbarDropdownMenuLink1">
+                                                        <a class="dropdown-item" href="#">E</a>
+                                                        <a class="dropdown-item" href="#">F</a>
+                                                        <a class="dropdown-item" href="#">G</a>
+                                                        <a class="dropdown-item" href="#">H</a>
+                                                    </div>
+                                                </div>
                                             </li>
                                         </ul>
                                     </li>
-                                    <li><a class="nav-link" href="szolgaltatasok">Szolgáltatások</a>
-                                        <ul class="submenu">
-                                            <li class="submenu-item">
-                                                <span class="back-item"><a class="back" href="#">Vissza</a></span>
-                                                <ul class="submenu-top">
-                                                    <li class="submenu-top-item ">
-                                                        <a href="/" class="submenu-title">Lorem Ipsum</a>
-                                                    </li>
-
-                                                    <li class="submenu-top-item ">
-                                                        <a href="#" class="submenu-title">Lorem Ipsum</a>
-                                                    </li>
-                                                </ul>
+                                    <li>
+                                        <ul class="navbar-nav ml-auto">
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    Üzletek
+                                                </a>
+                                                <div class="dropdown-menu submenu" aria-labelledby="navbarDropdownMenuLink2">
+                                                    <a class="dropdown-item" href="uzletek">Üzletek</a>
+                                                    <a class="dropdown-item" href="#">Lorem Ipsum</a>
+                                                    <a class="dropdown-item" href="#">Lorem Ipsum</a>
+                                                    <a class="dropdown-item" href="#">Lorem Ipsum</a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <ul class="navbar-nav ml-auto">
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    Szolgáltatások
+                                                </a>
+                                                <div class="dropdown-menu submenu" aria-labelledby="navbarDropdownMenuLink3">
+                                                    <a class="dropdown-item" href="szolgaltatasok">Szolgáltatások</a>
+                                                    <a class="dropdown-item" href="#">Lorem Ipsum</a>
+                                                    <a class="dropdown-item" href="#">Lorem Ipsum</a>
+                                                    <a class="dropdown-item nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        Lorem Ipsum
+                                                    </a>
+                                                    <div class="dropdown-menu submenu_sub" aria-labelledby="navbarDropdownMenuLink3">
+                                                        <a class="dropdown-item" href="#">E</a>
+                                                        <a class="dropdown-item" href="#">F</a>
+                                                        <a class="dropdown-item" href="#">G</a>
+                                                        <a class="dropdown-item" href="#">H</a>
+                                                    </div>
+                                                </div>
                                             </li>
                                         </ul>
                                     </li>
@@ -87,13 +115,34 @@
                                     <li><a class="nav-link" href="szorakozas">Szórakozás</a></li>
                                     <li><a class="nav-link" href="vendeglatas">Vendéglátás</a></li>
                                 </ul>
+                                <div class="d-block d-lg-none border-top pt-3">
+                                    <ul>
+                                        <li><a href="nyitvatartas"><i class="fas fa-clock"></i> Nyitvatartás</a></li>
+                                        <li><a href="kapcsolat"><i class="fas fa-map-marker-alt"></i> Megközelítés</a></li>
+                                        <li><a href=""><i class="fas fa-map-marked-alt"></i> Térkép</a></li>
+                                        <li><a class="join_bt" href="kapcsolat"><i class="fas fa-mobile-alt"></i> Elérhetőségek</a></li>
+                                        <li class="lang_selector">
+                                            <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item dropdown">
+                                                    <a class="nav-link dropdown-toggle pl-0" href="#" id="navbarDropdownMenuLink1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <i class="fas fa-globe"></i> Hu
+                                                    </a>
+                                                    <div class="dropdown-menu submenu" aria-labelledby="navbarDropdownMenuLink1">
+                                                        <a class="dropdown-item" href="#">EN</a>
+                                                        <a class="dropdown-item" href="#">DE</a>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </nav>
                     <div class="search-box">
-                        <input type="text" class="search-txt" placeholder="Search">
+                        <input type="text" class="search-txt" placeholder="Keresés">
                         <a class="search-btn">
-                            <img src="/img/search_icon.png" alt="Keresés" />
+                            <i class="fas fa-search"></i>
                         </a>
                     </div>
                 </div>
